@@ -112,7 +112,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\FMODECORE\api\core\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\FMODECORE\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -130,7 +130,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\FMODECORE\api\core\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\FMODECORE\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

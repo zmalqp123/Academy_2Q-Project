@@ -1,21 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\",
+  "WorkspaceRootPath": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|solutionrelative:Pineapple_of_the_Comosus\\WinApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|solutionrelative:Pineapple_of_the_Comosus\\WinApp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{27A1CC63-0566-48D8-9A9F-EAC09B9544F5}|D2DEngine\\D2DEngine.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\D2DEngine\\SoundManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{27A1CC63-0566-48D8-9A9F-EAC09B9544F5}|D2DEngine\\D2DEngine.vcxproj|solutionrelative:D2DEngine\\SoundManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\ACADEMY_2Q-PROJECT\\D2DENGINE\\SOUNDMANAGER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|solutionrelative:D2DENGINE\\SOUNDMANAGER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|solutionrelative:Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|solutionrelative:Pineapple_of_the_Comosus\\WinApp2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|solutionrelative:Pineapple_of_the_Comosus\\WinApp2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C39B474-991D-4C45-BF55-2F9F430CDC2D}|Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.vcxproj|solutionrelative:Pineapple_of_the_Comosus\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -26,17 +42,73 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SoundManager.h",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\D2DEngine\\SoundManager.h",
+              "RelativeDocumentMoniker": "D2DEngine\\SoundManager.h",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\D2DEngine\\SoundManager.h",
+              "RelativeToolTip": "D2DEngine\\SoundManager.h",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAYwCQAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-05T07:32:00.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SoundManager.cpp",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\D2DEngine\\SoundManager.cpp",
+              "RelativeDocumentMoniker": "D2DEngine\\SoundManager.cpp",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\D2DEngine\\SoundManager.cpp",
+              "RelativeToolTip": "D2DEngine\\SoundManager.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-05T07:31:59.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WinApp2.cpp",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp2.cpp",
+              "RelativeDocumentMoniker": "Pineapple_of_the_Comosus\\WinApp2.cpp",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp2.cpp",
+              "RelativeToolTip": "Pineapple_of_the_Comosus\\WinApp2.cpp",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-05T07:29:19.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WinApp2.h",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp2.h",
+              "RelativeDocumentMoniker": "Pineapple_of_the_Comosus\\WinApp2.h",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp2.h",
+              "RelativeToolTip": "Pineapple_of_the_Comosus\\WinApp2.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-05T07:29:17.67Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "WinApp.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.cpp",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.cpp",
               "RelativeDocumentMoniker": "Pineapple_of_the_Comosus\\WinApp.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.cpp",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.cpp",
               "RelativeToolTip": "Pineapple_of_the_Comosus\\WinApp.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-05T04:03:29.461Z",
               "EditorCaption": ""
@@ -45,37 +117,36 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "WinApp.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.h",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.h",
               "RelativeDocumentMoniker": "Pineapple_of_the_Comosus\\WinApp.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.h",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\WinApp.h",
               "RelativeToolTip": "Pineapple_of_the_Comosus\\WinApp.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-08-05T04:02:43.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "framework.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\framework.h",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\framework.h",
               "RelativeDocumentMoniker": "Pineapple_of_the_Comosus\\framework.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\framework.h",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\framework.h",
               "RelativeToolTip": "Pineapple_of_the_Comosus\\framework.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-05T04:01:53.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-05T04:01:53.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Pineapple_of_the_Comosus.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp",
+              "DocumentMoniker": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp",
               "RelativeDocumentMoniker": "Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp",
+              "ToolTip": "D:\\\uC0C8 \uD3F4\uB354\\D2D\uD300\uD504\uB85C\uC81D\uD2B8\\Academy_2Q-Project\\Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp",
               "RelativeToolTip": "Pineapple_of_the_Comosus\\Pineapple_of_the_Comosus.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-05T03:09:54.255Z",
               "EditorCaption": ""

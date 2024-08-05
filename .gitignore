@@ -41,3 +41,6 @@
 
 # FMOD SDK files (adjust path as needed)
 FMODECORE/core/examples/
+
+.vs/
+x64/
