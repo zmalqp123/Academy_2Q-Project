@@ -43,13 +43,13 @@ bool BoxCollider::isCollide(Collider* collider, Vector2& resolution)
     }
 	else if (collider->GetColliderType() == ColliderType::Circle) {
 		D2D1_MATRIX_3X2_F rectTr = gameObject->transform->m_WorldTransform;
-		D2D1_MATRIX_3X2_F otherTr = collider->gameObject->transform->m_WorldTransform;
+		D2D1_MATRIX_3X2_F circleTr = collider->gameObject->transform->m_WorldTransform;
 		CircleCollider* pOtherCollider = static_cast<CircleCollider*>(collider);
 		auto rectX = rectTr.dx + offset.x;
 		auto rectY = rectTr.dy + offset.y;
 		Vector2 otherOffset = pOtherCollider->GetOffset();
-		auto circleX = otherTr.dx + otherOffset.x;
-		auto circleY = otherTr.dy + otherOffset.y;
+		auto circleX = circleTr.dx + otherOffset.x;
+		auto circleY = circleTr.dy + otherOffset.y;
 		float rectMaxX = m_Collider.GetMaxX();
 		float rectMinX = m_Collider.GetMinX();
 		float rectMaxY = m_Collider.GetMaxY();
@@ -65,6 +65,18 @@ bool BoxCollider::isCollide(Collider* collider, Vector2& resolution)
 		float dy = circleY - std::fmaxf(rectY + rectMinY,
 			std::fminf(circleY, rectY + rectMaxY));
 		float radius = pOtherCollider->GetRadius();
+
+		resolution = { 0.f, 0.f };
+		Vector2 delta = { dx, dy };
+		float distance = delta.Length();//length(delta);
+		float overlap = radius - distance;
+
+		if (overlap > 0) {
+			delta.Normalize();
+			Vector2 direction = delta;
+			resolution = direction * overlap;
+		}
+
 		return (dx * dx + dy * dy) <= (radius * radius);
 	}
     return false;
@@ -72,7 +84,7 @@ bool BoxCollider::isCollide(Collider* collider, Vector2& resolution)
 
 void BoxCollider::Render(D2D1_MATRIX_3X2_F cameraMat)
 {
-#ifdef DEBUG
+//#ifdef DEBUG
 	if (gameObject->isActive == false) return;
 	auto pRenderTarget = &D2DRenderer::getRenderTarget();
 
@@ -93,7 +105,7 @@ void BoxCollider::Render(D2D1_MATRIX_3X2_F cameraMat)
 		2.f,
 		D2D1::ColorF::LimeGreen		
 	);
-#endif
+//#endif
 }
 
 

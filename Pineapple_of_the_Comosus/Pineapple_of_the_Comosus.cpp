@@ -2,7 +2,7 @@
 //
 
 #include "framework.h"
-#include "MyGame.h"
+#include "WinApp.h"
 
 #define MAX_LOADSTRING 100
 
@@ -34,7 +34,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         freopen_s(&_tempFile, "CONOUT$", "w", stdout);
     }
 
-    MyGame App;
+    WinApp App;
     App.Initialize(hInstance, nCmdShow);
     App.Run();
     App.Uninitialize();

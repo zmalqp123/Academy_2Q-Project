@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Component">
+      <UniqueIdentifier>{c15ca409-a12e-43e5-a1ff-446b800265da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Pineapple_of_the_Comosus.cpp">
@@ -21,6 +24,9 @@
     <ClCompile Include="WinApp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MouseDownTest.cpp">
+      <Filter>소스 파일\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -28,6 +34,9 @@
     </ClInclude>
     <ClInclude Include="WinApp.h">
       <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseDownTest.h">
+      <Filter>소스 파일\Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
