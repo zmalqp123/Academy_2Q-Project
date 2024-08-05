@@ -151,6 +151,7 @@
     <ClInclude Include="D2DEngine.h" />
     <ClInclude Include="D2DRenderer.h" />
     <ClInclude Include="DeltaTime.h" />
+    <ClInclude Include="EventSystem.h" />
     <ClInclude Include="FiniteStateMachine.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Rigidbody2D.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteAnimation.h" />
@@ -186,6 +188,7 @@
     <ClCompile Include="D2DEngine.cpp" />
     <ClCompile Include="D2DRenderer.cpp" />
     <ClCompile Include="DeltaTime.cpp" />
+    <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="FiniteStateMachine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -203,6 +206,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Rigidbody2D.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />

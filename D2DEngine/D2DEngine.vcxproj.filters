@@ -112,6 +112,11 @@
     <Filter Include="소스 파일\Component\Renderer\TextRenderer">
       <UniqueIdentifier>{f9634b61-c38b-4ea9-866a-5edf225dbdd7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Manager\EventManager">
+      <UniqueIdentifier>{26e28947-8c87-42d8-a0be-71a387654109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Manager\SceneManager">
+      <UniqueIdentifier>{e078d676-cb77-4b94-baf4-96096e7ce222}</UniqueIdentifier>
     <Filter Include="소스 파일\Manager\SoundManager">
       <UniqueIdentifier>{e23d2d15-37c7-432e-b85e-f4d963fadd43}</UniqueIdentifier>
     </Filter>
@@ -216,6 +221,11 @@
     <ClInclude Include="TextRenderer.h">
       <Filter>소스 파일\Component\Renderer\TextRenderer</Filter>
     </ClInclude>
+    <ClInclude Include="EventSystem.h">
+      <Filter>소스 파일\Manager\EventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\Manager\SceneManager</Filter>
     <ClInclude Include="SoundManager.h">
       <Filter>소스 파일\Manager\SoundManager</Filter>
     </ClInclude>
@@ -311,6 +321,11 @@
     <ClCompile Include="TextRenderer.cpp">
       <Filter>소스 파일\Component\Renderer\TextRenderer</Filter>
     </ClCompile>
+    <ClCompile Include="EventSystem.cpp">
+      <Filter>소스 파일\Manager\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\Manager\SceneManager</Filter>
     <ClCompile Include="SoundManager.cpp">
       <Filter>소스 파일\Manager\SoundManager</Filter>
     </ClCompile>

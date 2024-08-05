@@ -4,6 +4,7 @@
 #include "Renderer.h"
 class BoxCollider : public Collider, public Renderer
 {
+	friend class CircleCollider;
 protected:
 	AABB m_Collider;
 public:

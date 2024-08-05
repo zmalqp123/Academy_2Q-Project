@@ -7,6 +7,7 @@
 #include "../D2DEngine/AABB.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/BoxCollider.h"
+#include "../D2DEngine/CircleCollider.h"
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Camera.h"
@@ -23,6 +24,11 @@ void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow)
 	auto pCam = camera->CreateComponent<Camera>();
 	scene->SetMainCamera(pCam);
 
+	auto areaObj = scene->CreateGameObject<GameObject>();
+	auto box = areaObj->CreateComponent<BoxCollider>();
+	box->SetExtent({ 3.f, 10.f });
+	auto circle = areaObj->CreateComponent< CircleCollider>();
+	circle->SetRadius(10.f);
 }
 
 void WinApp::Update(float deltaTime)
