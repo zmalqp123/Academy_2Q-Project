@@ -3,6 +3,7 @@
 #include "Renderer.h"
 class CircleCollider : public Collider, public Renderer
 {
+	friend class BoxCollider;
 protected:
 	float radius;
 
@@ -16,6 +17,7 @@ public:
 	bool isCollide(Collider* collider, Vector2& resolution) override;
 
 	float GetRadius() { return radius; }
+	void SetRadius(float _radius) { radius = _radius; }
 
 	// Renderer을(를) 통해 상속됨
 	AABB GetBound() override;

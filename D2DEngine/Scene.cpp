@@ -16,6 +16,7 @@ Scene::Scene()
 
 Scene::~Scene()
 {
+	Clear();
 }
 
 void Scene::Start()
@@ -37,6 +38,8 @@ void Scene::Update(float deltaTime)
 	for (int i = 0; i < collider.size(); i++) {
 		collider[i]->prevPosition = collider[i]->gameObject->transform->m_RelativeLocation;
 	}*/
+
+
 
 	for (auto gameObject : m_GameObjects) {
 		gameObject->Update(deltaTime);
@@ -185,6 +188,9 @@ void Scene::Render(D2DRenderer* _render)
 
 void Scene::Clear()
 {
+	cam = nullptr;
+	camera = nullptr;
+
 	for (auto gameObject : m_GameObjects) {
 		delete gameObject;
 	}

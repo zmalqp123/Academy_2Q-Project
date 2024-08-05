@@ -13,6 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Component">
+      <UniqueIdentifier>{c15ca409-a12e-43e5-a1ff-446b800265da}</UniqueIdentifier>
     <Filter Include="소스 파일\test">
       <UniqueIdentifier>{fa257ce0-85f5-4fad-afbb-955ccfde932d}</UniqueIdentifier>
     </Filter>
@@ -24,6 +26,8 @@
     <ClCompile Include="WinApp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MouseDownTest.cpp">
+      <Filter>소스 파일\Component</Filter>
     <ClCompile Include="WinApp2.cpp">
       <Filter>소스 파일\test</Filter>
     </ClCompile>
@@ -35,6 +39,8 @@
     <ClInclude Include="WinApp.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="MouseDownTest.h">
+      <Filter>소스 파일\Component</Filter>
     <ClInclude Include="WinApp2.h">
       <Filter>소스 파일\test</Filter>
     </ClInclude>

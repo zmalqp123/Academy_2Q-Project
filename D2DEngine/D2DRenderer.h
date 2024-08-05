@@ -25,7 +25,6 @@ class D2DRenderer
 	// 카메라당 하나 들어간다 정도만 알고있기 matrix를 사용해서 transform을 변환하면 렌더타겟을 통해 출력되는 이미지 등의 위치를 변경 가능.
 	ID2D1HwndRenderTarget* _RenderTarget = nullptr;
 
-	ID2D1SolidColorBrush* g_brush = nullptr;
 	
 	// Image
 	IWICImagingFactory* g_pWICFactory = nullptr;
@@ -39,6 +38,7 @@ class D2DRenderer
 	IDXGIAdapter3* m_pDXGIAdapter = nullptr;		// 비디오카드 정보에 접근 가능한 인터페이스
 
 public:
+	ID2D1SolidColorBrush* g_brush = nullptr;
 	static D2DRenderer& getIncetance() {
 		static D2DRenderer instance;
 		return instance;
