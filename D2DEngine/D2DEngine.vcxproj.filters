@@ -117,6 +117,8 @@
     </Filter>
     <Filter Include="소스 파일\Manager\SceneManager">
       <UniqueIdentifier>{e078d676-cb77-4b94-baf4-96096e7ce222}</UniqueIdentifier>
+    <Filter Include="소스 파일\Manager\SoundManager">
+      <UniqueIdentifier>{e23d2d15-37c7-432e-b85e-f4d963fadd43}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +226,8 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\Manager\SceneManager</Filter>
+    <ClInclude Include="SoundManager.h">
+      <Filter>소스 파일\Manager\SoundManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +326,8 @@
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>소스 파일\Manager\SceneManager</Filter>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>소스 파일\Manager\SoundManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

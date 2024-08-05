@@ -112,6 +112,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\FMODECORE\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -129,6 +130,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\FMODECORE\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -164,6 +166,7 @@
     <ClInclude Include="Rigidbody2D.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="SpriteAnimationAsset.h" />
@@ -204,6 +207,7 @@
     <ClCompile Include="Rigidbody2D.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
     <ClCompile Include="SpriteAnimationAsset.cpp" />
