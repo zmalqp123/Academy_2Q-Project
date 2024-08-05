@@ -159,6 +159,7 @@
     <ClInclude Include="FiniteStateMachine.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="ImageUIRenderer.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="Object.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="FiniteStateMachine.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="ImageUIRenderer.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Object.cpp" />
