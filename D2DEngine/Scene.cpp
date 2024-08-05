@@ -188,8 +188,8 @@ void Scene::Render(D2DRenderer* _render)
 
 void Scene::Clear()
 {
-	cam = nullptr;
-	camera = nullptr;
+	//cam = nullptr;
+	//camera = nullptr;
 
 	for (auto gameObject : m_GameObjects) {
 		delete gameObject;

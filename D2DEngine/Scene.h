@@ -4,6 +4,7 @@
 #include "AABB.h"
 #include <vector>
 //class GameObject;
+#include "Camera.h"
 class Camera;
 class D2DRenderer;
 class Scene : public Object
