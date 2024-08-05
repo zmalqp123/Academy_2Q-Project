@@ -1,2 +1,3 @@
-﻿  TextRenderer.cpp
-  D2DEngine.vcxproj -> C:\Users\User\Desktop\Direct2D\x64\Debug\D2DEngine.lib
+﻿  SoundManager.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include\xutility(4672,18): warning C4244: '=': 'const wchar_t'에서 'char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  D2DEngine.vcxproj -> D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\x64\Debug\D2DEngine.lib

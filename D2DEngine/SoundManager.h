@@ -1,7 +1,8 @@
 #pragma once
 
 // FMOD 헤더 파일 포함
-#include "../FMODECORE/Core/inc/fmod.hpp"
+#pragma comment (lib, "fmod_vc.lib")
+#include "fmod.hpp"
 #include <map>
 #include <string>
 
@@ -34,7 +35,7 @@ public:
     }
     
     bool LoadSound(const std::wstring& name, const std::wstring& filePath);
-    void PlaySound(const std::wstring& name, bool loop = false);
+    void PlaySoundW(const std::wstring& name, bool loop = false);
     void StopSound(const std::wstring& name);
     void SetVolume(const std::wstring& name, float volume);
     void Update();

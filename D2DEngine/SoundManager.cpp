@@ -16,7 +16,7 @@ bool SoundManager::LoadSound(const std::wstring& name, const std::wstring& fileP
     return true;
 }
 
-void SoundManager::PlaySound(const std::wstring& name, bool loop) {
+void SoundManager::PlaySoundW(const std::wstring& name, bool loop) {
     auto it = m_SoundMap.find(name);
     if (it != m_SoundMap.end()) {
         FMOD::Sound* sound = it->second;
