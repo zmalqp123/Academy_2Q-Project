@@ -96,6 +96,9 @@
     <ClCompile Include="WinGameApp.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="ImageUIRenderer.cpp">
+      <Filter>Component\Renderer\ImageUIRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -200,6 +203,9 @@
     <ClInclude Include="WinGameApp.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="ImageUIRenderer.h">
+      <Filter>Component\Renderer\ImageUIRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
@@ -294,6 +300,9 @@
     </Filter>
     <Filter Include="Manager\SoundManager">
       <UniqueIdentifier>{187a7b13-731f-4ee0-a621-e4d6fc6d97fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer\ImageUIRenderer">
+      <UniqueIdentifier>{ab076258-0aba-4b04-980a-7a5efae7d1b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -33,6 +33,12 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow)
 
     // 사운드를 재생하도록 호출
     SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true); // true로 설정하면 루프 재생
+
+
+    auto UI = scene->CreateGameObject<GameObject>();
+    auto Image = UI->CreateComponent<SpriteRenderer>();
+    Image->LoadTexture(L"../Resource/BG/BG.png");
+    
 }
 
 void WinApp2::Update(float deltaTime)
