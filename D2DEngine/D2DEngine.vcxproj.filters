@@ -112,6 +112,9 @@
     <Filter Include="소스 파일\Component\Renderer\TextRenderer">
       <UniqueIdentifier>{f9634b61-c38b-4ea9-866a-5edf225dbdd7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Manager\SoundManager">
+      <UniqueIdentifier>{e23d2d15-37c7-432e-b85e-f4d963fadd43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -213,6 +216,9 @@
     <ClInclude Include="TextRenderer.h">
       <Filter>소스 파일\Component\Renderer\TextRenderer</Filter>
     </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>소스 파일\Manager\SoundManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -304,6 +310,9 @@
     </ClCompile>
     <ClCompile Include="TextRenderer.cpp">
       <Filter>소스 파일\Component\Renderer\TextRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>소스 파일\Manager\SoundManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
