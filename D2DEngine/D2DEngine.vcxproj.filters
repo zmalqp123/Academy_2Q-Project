@@ -1,79 +1,299 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="AABB.cpp" />
-    <ClCompile Include="BoxCollider.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="CircleCollider.cpp" />
-    <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="Component.cpp" />
-    <ClCompile Include="D2DEngine.cpp" />
-    <ClCompile Include="D2DRenderer.cpp" />
-    <ClCompile Include="DeltaTime.cpp" />
-    <ClCompile Include="EventSystem.cpp" />
-    <ClCompile Include="FiniteStateMachine.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Movement.cpp" />
-    <ClCompile Include="Object.cpp" />
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="PublicData.cpp" />
-    <ClCompile Include="ReferenceCounter.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="Rigidbody2D.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteAnimation.cpp" />
-    <ClCompile Include="SpriteAnimationAsset.cpp" />
-    <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="TestObject.cpp" />
-    <ClCompile Include="TextRenderer.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Transform.cpp" />
-    <ClCompile Include="WinGameApp.cpp" />
+    <ClCompile Include="AABB.cpp">
+      <Filter>AABB</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>Component\Collider\BoxCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>Component\Collider\CircleCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DRenderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="DeltaTime.cpp">
+      <Filter>Manager\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem.cpp">
+      <Filter>Manager\EventSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="FiniteStateMachine.cpp">
+      <Filter>Component\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Manager\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Movement.cpp">
+      <Filter>Component\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="PublicData.cpp">
+      <Filter>PublicData</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferenceCounter.cpp">
+      <Filter>Object\ReferenceCounter</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Rigidbody2D.cpp">
+      <Filter>Component\Collider\Rigidbody</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Manager\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Manager\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Manager\SoundManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimation.cpp">
+      <Filter>Component\Animation\SpriteAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimationAsset.cpp">
+      <Filter>Component\Animation\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Component\Renderer\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Component\Renderer\TextRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="WinGameApp.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AABB.h" />
-    <ClInclude Include="Action.h" />
-    <ClInclude Include="BoxCollider.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="CircleCollider.h" />
-    <ClInclude Include="Collider.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="D2DEngine.h" />
-    <ClInclude Include="D2DRenderer.h" />
-    <ClInclude Include="DeltaTime.h" />
-    <ClInclude Include="EventSystem.h" />
-    <ClInclude Include="FiniteStateMachine.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Movement.h" />
-    <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="PublicData.h" />
-    <ClInclude Include="ReferenceCounter.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="Rigidbody2D.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpriteAnimation.h" />
-    <ClInclude Include="SpriteAnimationAsset.h" />
-    <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="TestObject.h" />
-    <ClInclude Include="TextRenderer.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Transform.h" />
-    <ClInclude Include="Vector.h" />
-    <ClInclude Include="WinGameApp.h" />
+    <ClInclude Include="AABB.h">
+      <Filter>AABB</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>My</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>My</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Component\Collider\BoxCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Component\Collider\CircleCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DEngine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DRenderer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="DeltaTime.h">
+      <Filter>Manager\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem.h">
+      <Filter>Manager\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="FiniteStateMachine.h">
+      <Filter>Component\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Manager\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Movement.h">
+      <Filter>Component\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicData.h">
+      <Filter>PublicData</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferenceCounter.h">
+      <Filter>Object\ReferenceCounter</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody2D.h">
+      <Filter>Component\Collider\Rigidbody</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Manager\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Manager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Manager\SoundManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimation.h">
+      <Filter>Component\Animation\SpriteAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimationAsset.h">
+      <Filter>Component\Animation\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Component\Renderer\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Component\Renderer\TextRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="WinGameApp.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="AABB">
+      <UniqueIdentifier>{d4cda752-2251-44f4-b85f-86a127b69523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{2f210b65-91fa-4220-9489-10487f6a09a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation">
+      <UniqueIdentifier>{aaa6da62-31d9-4b2a-9bfa-c35d0b673ce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{ee74e6d4-e664-4732-a9db-5ce2975130e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{ad861e7f-7497-4a0b-9e8d-4c05b0025143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\FSM">
+      <UniqueIdentifier>{7e8f5f20-6912-40fe-b0e0-f42a5786ed1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Movement">
+      <UniqueIdentifier>{6aedb854-22af-4460-a418-367b4951dc60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer">
+      <UniqueIdentifier>{369fa6c3-f3af-45d1-b8ee-291be5ce84a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{f1deb4dd-7826-4b6e-bd90-a340645802ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation\Asset">
+      <UniqueIdentifier>{65b19867-63c7-4730-a5f6-7fa6877da5b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation\SpriteAnimation">
+      <UniqueIdentifier>{eeb3d842-b4ba-4cf9-8d3b-e4170fd26f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider\BoxCollider">
+      <UniqueIdentifier>{3bddedc0-7774-4389-963f-a1b726d9f854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider\CircleCollider">
+      <UniqueIdentifier>{ef4fc7b8-110d-4776-93c6-cb13a0df1d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider\Rigidbody">
+      <UniqueIdentifier>{76c5c613-162c-4d67-aefd-7375ea563594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer\SpriteRenderer">
+      <UniqueIdentifier>{0d515eb4-605b-4ae5-9d57-333efd1bde28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer\TextRenderer">
+      <UniqueIdentifier>{275f3308-95bd-4813-a154-de278a8a0713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{f7d74156-ea91-49cb-a63f-4de16a3e773d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{cafdbfb1-faff-44b0-926d-8a60f8a0307b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="My">
+      <UniqueIdentifier>{5115184e-7029-4adc-8720-a8765c2cdf25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{ceffdc0a-bdf3-4b83-b705-497edb757244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PublicData">
+      <UniqueIdentifier>{553941b5-2cec-46d6-9d99-335dea068a59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{60c5292a-e2e4-4a30-9652-19ae03043e8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{e1d8ed19-2ec5-49f8-a016-38d884a3f031}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\InputManager">
+      <UniqueIdentifier>{88e48808-d77a-479e-be80-22845151c183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\ResourceManager">
+      <UniqueIdentifier>{8297852f-afc5-4a3f-bc31-bf6ec6f8dd5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Time">
+      <UniqueIdentifier>{4e1399f3-863b-451a-ad1f-29c46e7f4b18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ReferenceCounter">
+      <UniqueIdentifier>{20201755-db03-4d42-b1f3-009c9f383385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\EventSystem">
+      <UniqueIdentifier>{682668c7-d699-47b0-905f-949ac7fa45db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\SceneManager">
+      <UniqueIdentifier>{1aedad9d-028a-4c57-ad79-2de3059b5b98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\SoundManager">
+      <UniqueIdentifier>{187a7b13-731f-4ee0-a621-e4d6fc6d97fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
