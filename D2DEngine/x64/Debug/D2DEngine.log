@@ -1,21 +1,2 @@
-﻿  BoxCollider.cpp
-C:\Users\User\Desktop\Academy_2Q-Project\D2DEngine\BoxCollider.h(5,7): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-C:\Users\User\Desktop\Academy_2Q-Project\D2DEngine\CircleCollider.h(4,7): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  Camera.cpp
-  CircleCollider.cpp
-C:\Users\User\Desktop\Academy_2Q-Project\D2DEngine\CircleCollider.h(4,7): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-C:\Users\User\Desktop\Academy_2Q-Project\D2DEngine\BoxCollider.h(5,7): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  Collider.cpp
-  EventSystem.cpp
-  GameObject.cpp
-  ImageUIRenderer.cpp
-  Movement.cpp
-  Scene.cpp
-  SceneManager.cpp
-  SpriteAnimation.cpp
-C:\Users\User\Desktop\Academy_2Q-Project\D2DEngine\SpriteAnimation.cpp(145,38): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  SpriteRenderer.cpp
-  TextRenderer.cpp
-  코드를 생성하고 있습니다...
-C:\Users\User\Desktop\Academy_2Q-Project\D2DEngine\GameObject.h(69,1): warning C4715: 'GameObject::GetComponent<Collider>': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  D2DEngine.vcxproj -> C:\Users\User\Desktop\Academy_2Q-Project\x64\Debug\D2DEngine.lib
+﻿  Transform.cpp
+  D2DEngine.vcxproj -> D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\x64\Debug\D2DEngine.lib
