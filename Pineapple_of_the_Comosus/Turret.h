@@ -11,7 +11,7 @@ enum class BulletType
 
 class Turret : public GameObject
 {	
-private:
+protected:
 	int cost;
 	int refund;
 

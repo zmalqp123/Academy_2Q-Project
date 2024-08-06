@@ -136,6 +136,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy_Heavy.cpp" />
+    <ClCompile Include="Enemy_Musket.cpp" />
+    <ClCompile Include="Enemy_Sword.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
     <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
@@ -157,6 +161,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy_Heavy.h" />
+    <ClInclude Include="Enemy_Musket.h" />
+    <ClInclude Include="Enemy_Sword.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MouseDownTest.h" />
     <ClInclude Include="testChar.h" />
