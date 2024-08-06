@@ -48,7 +48,10 @@ public:
 		for (auto iter = components.begin(); iter != components.end(); iter++)
 		{
 			T* result= dynamic_cast<T*>(*iter);
-			if (result) return result;
+			if (result != nullptr)
+				return result;
+			else
+				return nullptr;
 		}
 
 		//// 상속관계인 컴포넌트를 찾을 수 없음.
