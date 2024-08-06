@@ -45,6 +45,10 @@
     <ClCompile Include="Enemy_Sword.cpp">
       <Filter>Object\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Griffin.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Bomber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -91,6 +95,10 @@
     <ClInclude Include="Enemy_Sword.h">
       <Filter>Object\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_Griffin.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Bomber.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
