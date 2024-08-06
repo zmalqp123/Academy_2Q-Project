@@ -137,9 +137,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MouseDownTest.cpp" />
+    <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
     <ClCompile Include="testChar.cpp" />
     <ClCompile Include="WaveSystem.cpp" />
+    <ClCompile Include="Turret.cpp" />
+    <ClCompile Include="Turret_CrossBow.cpp" />
+    <ClCompile Include="Turret_Fertilizer.cpp" />
+    <ClCompile Include="Turret_Mortar.cpp" />
+    <ClCompile Include="Turret_Musket.cpp" />
+    <ClCompile Include="Turret_Slow.cpp" />
+    <ClCompile Include="Turret_SuperCrossBow.cpp" />
     <ClCompile Include="WinApp.cpp" />
     <ClCompile Include="WinApp2.cpp" />
   </ItemGroup>
@@ -153,6 +161,14 @@
     <ClInclude Include="MouseDownTest.h" />
     <ClInclude Include="testChar.h" />
     <ClInclude Include="WaveSystem.h" />
+    <ClInclude Include="Pineapple.h" />
+    <ClInclude Include="Turret.h" />
+    <ClInclude Include="Turret_CrossBow.h" />
+    <ClInclude Include="Turret_Fertilizer.h" />
+    <ClInclude Include="Turret_Mortar.h" />
+    <ClInclude Include="Turret_Musket.h" />
+    <ClInclude Include="Turret_Slow.h" />
+    <ClInclude Include="Turret_SuperCrossBow.h" />
     <ClInclude Include="WinApp.h" />
     <ClInclude Include="WinApp2.h" />
   </ItemGroup>
