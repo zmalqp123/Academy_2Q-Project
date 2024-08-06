@@ -9,6 +9,7 @@
 #include "InputManager.h"
 #include <algorithm>
 #include "PublicData.h"
+#include "EventSystem.h"
 
 Scene::Scene()
 {
@@ -24,6 +25,8 @@ void Scene::Start()
 }
 void Scene::Update(float deltaTime)
 {
+	EventSystem::GetInstance().Update(this, deltaTime);
+
 	/*std::vector<Collider*> collider;
 	for (auto& g : m_GameObjects) {
 		for (auto& coll : g->components) {

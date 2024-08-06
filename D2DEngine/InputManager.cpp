@@ -80,7 +80,12 @@ int InputManager::IsMouseWheel()
 	return curMouse.wheel;
 }
 
-void InputManager::UpdateMouse(bool isWheel)
+bool InputManager::IsDoubleClick()
+{
+	return curMouse.doubleClick;
+}
+
+void InputManager::UpdateMouse(bool isWheel, bool doubleClick)
 {
 	prevMouse = curMouse;
 
@@ -92,6 +97,9 @@ void InputManager::UpdateMouse(bool isWheel)
 	curMouse.y = pt.y;
 	if(isWheel == false)
 		curMouse.wheel = 0;
+	if (doubleClick == false) {
+		curMouse.doubleClick = false;
+	}
 
 	curMouse.left = (GetKeyState(VK_LBUTTON) & 0x8000) != 0;
 	curMouse.right = (GetKeyState(VK_RBUTTON) & 0x8000) != 0;

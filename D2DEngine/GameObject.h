@@ -65,6 +65,20 @@ public:
 		//return nullptr;
 	}
 
+	template <typename T>
+	std::vector<T*> GetComponents() {
+		bool bIsBase = std::is_base_of<Component, T>::value;
+		std::vector<T*> comps;
+		for (auto iter = components.begin(); iter != components.end(); iter++)
+		{
+			T* result = dynamic_cast<T*>(*iter);
+			if (result) {
+				comps.push_back(result);
+			}
+		}
+		return comps;
+	}
+
 	void RemoveComponent(Component* Component);
 
 	void SetActive(bool active);

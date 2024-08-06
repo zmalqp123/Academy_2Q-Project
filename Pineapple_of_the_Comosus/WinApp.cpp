@@ -15,6 +15,8 @@
 
 #include "../D2DEngine/InputManager.h"
 #include "../D2DEngine/TextRenderer.h"
+
+#include "MouseDownTest.h"
 void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
 	// 기본 초기화 + 카메라 생성
@@ -25,10 +27,12 @@ void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	scene->SetMainCamera(pCam);
 
 	auto areaObj = scene->CreateGameObject<GameObject>();
+	auto circle = areaObj->CreateComponent< CircleCollider>();
+	circle->SetRadius(100.f);
 	auto box = areaObj->CreateComponent<BoxCollider>();
 	box->SetExtent({ 3.f, 10.f });
-	auto circle = areaObj->CreateComponent< CircleCollider>();
-	circle->SetRadius(10.f);
+
+	areaObj->CreateComponent<MouseDownTest>();
 }
 
 void WinApp::Update(float deltaTime)

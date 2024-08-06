@@ -55,6 +55,7 @@ public:
 	void ProcessBlock(Collider* pOtherComponent);
 
 	virtual bool isCollide(Collider* collider, Vector2& resolution) = 0;
+	virtual bool isCollide(const Vector2& point) = 0;
 
 	virtual void Update(float deltaTime);
 

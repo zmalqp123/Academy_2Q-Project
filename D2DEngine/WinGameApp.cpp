@@ -13,7 +13,7 @@ void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	// Direct2D초기화를 작성한다.
     
     WNDCLASSEX wcex = { sizeof(WNDCLASSEX) };
-    wcex.style = CS_HREDRAW | CS_VREDRAW;
+    wcex.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
     wcex.lpfnWndProc = WndProc;
     wcex.cbClsExtra = 0;
     wcex.cbWndExtra = sizeof(LONG_PTR);
@@ -80,6 +80,7 @@ void WinGameApp::Run()
 
     while (!bQuit) {
         bool wheelMoved = false;
+        bool doubleClicked = false;
         while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
             if (msg.message == WM_QUIT) {
                 bQuit = true;
@@ -96,12 +97,15 @@ void WinGameApp::Run()
                 InputManager::GetInstance().MouseWheel(GET_WHEEL_DELTA_WPARAM(msg.wParam));
                 wheelMoved = true;
             }
+            if (msg.message == WM_LBUTTONDBLCLK) {
+                doubleClicked = true;
+            }
             else {
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
             }
         }
-        InputManager::GetInstance().UpdateMouse(wheelMoved);
+        InputManager::GetInstance().UpdateMouse(wheelMoved, doubleClicked);
         deltaTime.UpdateTime();
         
         // 이걸 사용하면 화면 크기를 마음대로 변경 가능.

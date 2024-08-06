@@ -159,3 +159,18 @@ void BoxCollider::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F
 		D2D1::ColorF::LimeGreen
 	);
 }
+
+bool BoxCollider::isCollide(const Vector2& point)
+{
+	D2D1_MATRIX_3X2_F rectTr = gameObject->transform->m_WorldTransform;
+	auto rectX = rectTr.dx + offset.x;
+	auto rectY = rectTr.dy + offset.y;
+	float rectMaxX = m_Collider.GetMaxX();
+	float rectMinX = m_Collider.GetMinX();
+	float rectMaxY = m_Collider.GetMaxY();
+	float rectMinY = m_Collider.GetMinY();
+
+	bool isCollide = rectMaxX >= point.x && rectMinX <= point.x && rectMaxY >= point.y && rectMinY <= point.y;
+
+	return isCollide;
+}

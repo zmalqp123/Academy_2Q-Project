@@ -35,7 +35,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         freopen_s(&_tempFile, "CONOUT$", "w", stdout);
     }
 
-    WinApp2 App;
+    WinApp App;
     App.Initialize(hInstance, nCmdShow, 1920.f, 1080.f);
     App.Run();
     App.Uninitialize();

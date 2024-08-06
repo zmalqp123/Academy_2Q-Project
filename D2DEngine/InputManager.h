@@ -18,6 +18,7 @@ public:
 	bool IsKeyUp(unsigned int key);
 	bool IsKey(unsigned int key);
 	int IsMouseWheel();
+	bool IsDoubleClick();
 	struct MouseState
 	{
 		MouseState()
@@ -36,9 +37,11 @@ public:
 		bool left;
 		bool right;
 		bool middle;
+
+		bool doubleClick;
 	};
 
-	void UpdateMouse(bool isWheel = false);
+	void UpdateMouse(bool isWheel = false, bool doubleClick = false);
 
 	bool IsSame(const MouseState& a, const MouseState& b);
 

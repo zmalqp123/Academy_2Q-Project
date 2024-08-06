@@ -107,3 +107,15 @@ void CircleCollider::Render(D2D1_MATRIX_3X2_F cameraMat)
 void CircleCollider::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat)
 {
 }
+
+bool CircleCollider::isCollide(const Vector2& point)
+{
+	D2D1_MATRIX_3X2_F thisTr = gameObject->transform->m_WorldTransform;
+	auto thisX = thisTr.dx + offset.x;
+	auto thisY = thisTr.dy + offset.y;
+
+	float dx = point.x - thisX;
+	float dy = point.y - thisY;
+
+	return (dx * dx + dy * dy) <= (radius * radius);
+}
