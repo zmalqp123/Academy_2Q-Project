@@ -142,6 +142,7 @@
     <ClCompile Include="Enemy_Heavy.cpp" />
     <ClCompile Include="Enemy_Musket.cpp" />
     <ClCompile Include="Enemy_Sword.cpp" />
+    <ClCompile Include="HarvestButton.cpp" />
     <ClCompile Include="Hpbar.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
     <ClCompile Include="Mpbar.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Enemy_Musket.h" />
     <ClInclude Include="Enemy_Sword.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="HarvestButton.h" />
     <ClInclude Include="Hpbar.h" />
     <ClInclude Include="MouseDownTest.h" />
     <ClInclude Include="Mpbar.h" />

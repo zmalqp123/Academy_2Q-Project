@@ -19,6 +19,7 @@
 #include "testChar.h"
 #include "Hpbar.h"
 #include "Mpbar.h"
+#include "HarvestButton.h"
 
 Hpbar* hpBarUi;
 Mpbar* mpBarUi;
@@ -120,6 +121,17 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     hpBarUi->ImageRender = HpbarImage;
     HpbarImage->LoadTexture(L"../Resource/midnight.png");
 
+    //// 수확 버튼
+    //auto obj = scene->CreateGameObject<GameObject>();
+    //auto spr = obj->CreateComponent<SpriteRenderer>();
+    //spr->LoadTexture(L"../Resource/BG/BG.png");
+
+    //auto UI = scene->CreateGameObject<GameObject>();
+    //auto Image = UI->CreateComponent<ImageUIRenderer>();
+    //UI->transform->type = Type::Ui;
+    //UI->transform->pos.rectposition = { {0,0} ,{1560,200} };
+    //Image->LoadTexture(L"../Resource/BG/BG.png");
+
     //// 골드 보유량 Ui
     //auto obj = scene->CreateGameObject<GameObject>();
     //auto spr = obj->CreateComponent<SpriteRenderer>();
@@ -141,18 +153,6 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     //UI->transform->type = Type::Ui;
     //UI->transform->pos.rectposition = { {0,0} ,{1560,200} };
     //Image->LoadTexture(L"../Resource/BG/BG.png");
-
-    //// 수확 버튼
-    //auto obj = scene->CreateGameObject<GameObject>();
-    //auto spr = obj->CreateComponent<SpriteRenderer>();
-    //spr->LoadTexture(L"../Resource/BG/BG.png");
-
-    //auto UI = scene->CreateGameObject<GameObject>();
-    //auto Image = UI->CreateComponent<ImageUIRenderer>();
-    //UI->transform->type = Type::Ui;
-    //UI->transform->pos.rectposition = { {0,0} ,{1560,200} };
-    //Image->LoadTexture(L"../Resource/BG/BG.png");
-
 }
 
 void WinApp2::Update(float deltaTime)
