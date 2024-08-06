@@ -49,7 +49,6 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     Image->LoadTexture(L"../Resource/BG/BG.png");
 
 
-
     // 몬스터 테스트 
     /*auto monsterObj = scene->CreateGameObject<GameObject>();
     auto monsterSpr = monsterObj->CreateComponent<SpriteRenderer>();
@@ -67,16 +66,33 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     // 웨이브 오브젝트 vector push_back
     // wave->m_Monster.push_back(monsterpool);
     
-    //// 터렛 Ui
-    //auto obj = scene->CreateGameObject<GameObject>();
-    //auto spr = obj->CreateComponent<SpriteRenderer>();
-    //spr->LoadTexture(L"../Resource/BG/BG.png");
+    // 터렛 Ui
 
-    //auto UI = scene->CreateGameObject<GameObject>();
-    //auto Image = UI->CreateComponent<ImageUIRenderer>();
-    //UI->transform->type = Type::Ui;
-    //UI->transform->pos.rectposition = { {0,0} ,{1560,200} };
-    //Image->LoadTexture(L"../Resource/BG/BG.png");
+    const float spacing = 20.0f;  // 터렛 간의 간격
+    const float startX = 0.f;    // 첫 번째 터렛의 X 위치
+
+    for (size_t i = 0; i < 6; i++)
+    {
+        auto turretUI = scene->CreateGameObject<GameObject>();
+        auto turretImage = turretUI->CreateComponent<ImageUIRenderer>();
+        //UI->transform->SetParent(turretUI->transform);
+        // UI 객체의 위치를 계산
+        float xPosition = startX + i * spacing;
+        turretUI->transform->SetParent(UI->transform);
+        turretUI->transform->type = Type::Ui;
+        turretUI->transform->pos.rectposition = { {0.f, 0.0f} ,{120, 120} };
+        turretImage->LoadTexture(L"../Resource/turret.png");
+    }
+
+    /*auto obj = scene->CreateGameObject<GameObject>();
+    auto spr = obj->CreateComponent<SpriteRenderer>();
+    spr->LoadTexture(L"../Resource/turret.png");
+
+    auto UI = scene->CreateGameObject<GameObject>();
+    auto Image = UI->CreateComponent<ImageUIRenderer>();
+    UI->transform->type = Type::Ui;
+    UI->transform->pos.rectposition = { {0,0} ,{1560,200} };
+    Image->LoadTexture(L"../Resource/BG/BG.png");*/
 
     //// 경험치 게이지 바 Ui
     //auto obj = scene->CreateGameObject<GameObject>();

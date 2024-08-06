@@ -3,11 +3,15 @@
 #include "../D2DEngine/Scene.h"
 #include"../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Transform.h"
-#include <iostream> 
 
+#include <iostream> 
+#include <cstdlib>  // rand() 함수 사용을 위해 포함
+#include <ctime>    // 시간 기반 시드 설정
 
 void WaveSystem::InitializePool()
 {
+    std::srand(static_cast<unsigned>(std::time(nullptr))); // 랜덤 시드 설정
+
     for (int i = 0; i < initialPoolSize; ++i)
     {
         auto  mon = scene->CreateGameObject<GameObject>();
@@ -53,38 +57,36 @@ void WaveSystem::Update(float deltaTime)
     }
 }
 
-// SpawnWave 함수: 현재 wave에 해당하는 몬스터를 스폰.
+// SpawnWave 함수: 현재 wave에 해당하는 몬스터를 스폰.  
 void WaveSystem::SpawnWave()
 {
     int numMonstersToSpawn = currentWave; // 현재 웨이브 번호에 따라 몬스터 수 결정
 
-    // 몬스터 스폰 로직
     m_Monster.clear();  // 이전 웨이브에서 생성된 몬스터를 삭제 (필요한 경우)
 
     for (int i = 0; i < numMonstersToSpawn; ++i)
     {
-        //// 몬스터 객체 생성
-        //testChar* newMonster = new testChar();
-
-        //// 몬스터 위치 설정 (예시로 랜덤하게 왼쪽 또는 오른쪽 위치에 생성)
-        //// Vector2 spawnPosition = (i % 2 == 0) ? leftPos : rightPos;
-        //Vector2 spawnPosition = Vector2(0.0f, 200.0f);
-        //newMonster->SetPosition(spawnPosition);
-
-        //// 몬스터를 벡터에 추가
-        //m_Monster.push_back(newMonster);
-
-         // 풀에서 몬스터를 가져옵니다.
+        // 풀에서 몬스터를 가져옵니다.
         testChar* newMonster = GetMonsterFromPool();
-        Vector2 spawnPosition = Vector2(-200.0f, -200.0f);
+
+        // 랜덤하게 왼쪽 또는 오른쪽에서 생성
+        bool spawnOnLeft = rand() % 2 == 0;
+        Vector2 spawnPosition;
+        if (spawnOnLeft)
+        {
+            spawnPosition = Vector2(-600.0f, -240.0f);
+        }
+        else
+        {
+            spawnPosition = Vector2(600.0f, -240.0f);
+        }
         newMonster->gameObject->transform->pos.worldPosition = spawnPosition;
+
 
         m_Monster.push_back(newMonster);
         std::cout << "몬스터가 생성되었습니다" << std::endl;
     }
-
 }
-
 // StartNextWave 함수: wave를 진행시키고 타이머를 초기화
 void WaveSystem::StartNextWave()
 {
