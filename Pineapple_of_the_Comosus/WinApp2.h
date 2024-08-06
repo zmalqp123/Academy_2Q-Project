@@ -1,8 +1,11 @@
 #pragma once
 #include "../D2DEngine/WinGameApp.h"
+#include "WaveSystem.h"
 class Scene;
 class WinApp2 : public WinGameApp
 {
+private:
+	WaveSystem waveSystem; // WaveSystem 인스턴스 추가
 public:
 	Scene* scene;
 	float soundVolume;  // 볼륨 값을 저장할 변수 추가
