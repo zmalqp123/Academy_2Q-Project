@@ -6,7 +6,10 @@ class Turret;
 class Pineapple : public GameObject
 {	
 private:
-	int MaxHp = 100;
+
+	float MaxHp = 100;
+	int pineAppleNum = 1;
+	int level = 1;
 	Turret* m_Turrets[MAX_TURRET];
 	bool m_IsOccupied[MAX_TURRET] = { false, }; //터렛 추가 삭제 할때 꼭 같이 수정해야함!
 public:
@@ -27,7 +30,7 @@ public:
 	}
 	Turret* GetTurret(int index) { return m_Turrets[index]; }
 
-	void SetMaxHp(int hp) { MaxHp = hp; }
+	void SetMaxHp(float hp) { MaxHp = hp; }
 	int GetMaxHp() { return MaxHp; }
 
 	bool IsGameOver() { return (GetMaxHp()<=0); };

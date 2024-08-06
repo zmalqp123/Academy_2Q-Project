@@ -8,29 +8,42 @@
     <ClCompile Include="Pineapple.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="Turret.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret_CrossBow.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret_Musket.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret_Mortar.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret_SuperCrossBow.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret_Slow.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret_Fertilizer.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="testChar.cpp">
       <Filter>testChar</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveSystem.cpp" />
+    <ClCompile Include="Turret.cpp">
+      <Filter>Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret_CrossBow.cpp">
+      <Filter>Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret_Fertilizer.cpp">
+      <Filter>Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret_Mortar.cpp">
+      <Filter>Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret_Musket.cpp">
+      <Filter>Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret_Slow.cpp">
+      <Filter>Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret_SuperCrossBow.cpp">
+      <Filter>Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Heavy.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Musket.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Sword.cpp">
+      <Filter>Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,29 +54,42 @@
     <ClInclude Include="Pineapple.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="Turret.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret_CrossBow.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret_Musket.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret_SuperCrossBow.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret_Mortar.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret_Slow.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret_Fertilizer.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="testChar.h">
       <Filter>testChar</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveSystem.h" />
+    <ClInclude Include="Turret.h">
+      <Filter>Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret_CrossBow.h">
+      <Filter>Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret_Fertilizer.h">
+      <Filter>Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret_Mortar.h">
+      <Filter>Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret_Musket.h">
+      <Filter>Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret_Slow.h">
+      <Filter>Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret_SuperCrossBow.h">
+      <Filter>Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Heavy.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Musket.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Sword.h">
+      <Filter>Object\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +98,12 @@
     </Filter>
     <Filter Include="testChar">
       <UniqueIdentifier>{cbb9612b-183b-45dd-9c2b-c6c0fb33450b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Turret">
+      <UniqueIdentifier>{072da69f-3c8a-46f6-9fb4-33b7b3b684c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Enemy">
+      <UniqueIdentifier>{5061315a-6e0e-4253-be1c-643f99d74c22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
