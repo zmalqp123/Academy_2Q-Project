@@ -24,6 +24,9 @@ public:
 	// Mp 바의 현재 너비를 계산
 	float getBarWidth() const;
 
+	// 최대 Mp 반환 
+	float getMaxMp() { return maxMp; }
+
 
 };
 

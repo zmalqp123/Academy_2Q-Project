@@ -57,6 +57,8 @@
     </ClCompile>
     <ClCompile Include="TestDropDown.cpp">
       <Filter>Test</Filter>
+    <ClCompile Include="HarvestButton.cpp">
+      <Filter>Ui\HarvestButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +118,8 @@
     </ClInclude>
     <ClInclude Include="TestDropDown.h">
       <Filter>Test</Filter>
+    <ClInclude Include="HarvestButton.h">
+      <Filter>Ui\HarvestButton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +146,14 @@
     </Filter>
     <Filter Include="Test">
       <UniqueIdentifier>{e07c5190-7c37-42fa-b437-41dbc6fb5ee3}</UniqueIdentifier>
+    <Filter Include="Ui\HarvestButton">
+      <UniqueIdentifier>{922a38f4-b992-4c94-9c2b-9a13c1ad6389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui\turretButton">
+      <UniqueIdentifier>{1ad6e3d2-916c-48d5-85ef-08a7377c9445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui\UpgradeButton">
+      <UniqueIdentifier>{0c619ed5-f3ac-4f1e-9c7a-b77db3de5257}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
