@@ -83,7 +83,15 @@ void ImageUIRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
 		* m_ScreenTransform;
 	;// * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+	auto tmp = m_SrcRect.right * slideBar;
+	auto srcTmp = m_SrcRect;
+	srcTmp.right = tmp;
+
+	auto dstmp = m_DstRect.right * slideBar;
+	auto dstTmp = m_DstRect;
+	dstTmp.right = dstmp;
+
+	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, dstTmp, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, srcTmp);
 }
 
 AABB ImageUIRenderer::GetBound()

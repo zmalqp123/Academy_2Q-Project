@@ -142,7 +142,9 @@
     <ClCompile Include="Enemy_Heavy.cpp" />
     <ClCompile Include="Enemy_Musket.cpp" />
     <ClCompile Include="Enemy_Sword.cpp" />
+    <ClCompile Include="Hpbar.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
+    <ClCompile Include="Mpbar.cpp" />
     <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
     <ClCompile Include="testChar.cpp" />
@@ -170,7 +172,9 @@
     <ClInclude Include="Enemy_Musket.h" />
     <ClInclude Include="Enemy_Sword.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Hpbar.h" />
     <ClInclude Include="MouseDownTest.h" />
+    <ClInclude Include="Mpbar.h" />
     <ClInclude Include="testChar.h" />
     <ClInclude Include="WaveSystem.h" />
     <ClInclude Include="Pineapple.h" />

@@ -17,6 +17,11 @@
 #include "../D2DEngine/ImageUIRenderer.h"
 #include "WaveSystem.h"
 #include "testChar.h"
+#include "Hpbar.h"
+#include "Mpbar.h"
+
+Hpbar* hpBarUi;
+Mpbar* mpBarUi;
 
 void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
@@ -95,26 +100,23 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     Image->LoadTexture(L"../Resource/BG/BG.png");*/
 
     //// 경험치 게이지 바 Ui
-    //auto obj = scene->CreateGameObject<GameObject>();
-    //auto spr = obj->CreateComponent<SpriteRenderer>();
-    //spr->LoadTexture(L"../Resource/BG/BG.png");
+    auto Mpbarobj = scene->CreateGameObject<GameObject>();
+    auto MpbarImage = Mpbarobj->CreateComponent<ImageUIRenderer>();
+    MpbarImage->slideBar = 0.f;
+    Mpbarobj->transform->type = Type::Ui;
+    Mpbarobj->transform->pos.rectposition = { {0,0} ,{400,200} };
+    mpBarUi = Mpbarobj->CreateComponent<Mpbar>();
+    mpBarUi->ImageRender = MpbarImage;
+    MpbarImage->LoadTexture(L"../Resource/atk_1.png");
 
-    //auto UI = scene->CreateGameObject<GameObject>();
-    //auto Image = UI->CreateComponent<ImageUIRenderer>();
-    //UI->transform->type = Type::Ui;
-    //UI->transform->pos.rectposition = { {0,0} ,{1560,200} };
-    //Image->LoadTexture(L"../Resource/BG/BG.png");
-
-    //// Hp 게이지 바 Ui
-    //auto obj = scene->CreateGameObject<GameObject>();
-    //auto spr = obj->CreateComponent<SpriteRenderer>();
-    //spr->LoadTexture(L"../Resource/BG/BG.png");
-
-    //auto UI = scene->CreateGameObject<GameObject>();
-    //auto Image = UI->CreateComponent<ImageUIRenderer>();
-    //UI->transform->type = Type::Ui;
-    //UI->transform->pos.rectposition = { {0,0} ,{1560,200} };
-    //Image->LoadTexture(L"../Resource/BG/BG.png");
+    // Hp 게이지 바 Ui
+    auto Hpbarobj = scene->CreateGameObject<GameObject>();
+    auto HpbarImage = Hpbarobj->CreateComponent<ImageUIRenderer>();
+    Hpbarobj->transform->type = Type::Ui;
+    Hpbarobj->transform->pos.rectposition = { {200,200} ,{400,400} };
+    hpBarUi = Hpbarobj->CreateComponent<Hpbar>();
+    hpBarUi->ImageRender = HpbarImage;
+    HpbarImage->LoadTexture(L"../Resource/midnight.png");
 
     //// 골드 보유량 Ui
     //auto obj = scene->CreateGameObject<GameObject>();
@@ -156,6 +158,23 @@ void WinApp2::Update(float deltaTime)
     __super::Update(deltaTime);
 
     scene->Update(deltaTime);
+
+    if (InputManager::GetInstance().IsKeyDown('1'))
+    {
+        hpBarUi->takeDamage(10.f);
+        hpBarUi->ImageRender->slideBar = hpBarUi->getBarWidth();
+        std::cout << hpBarUi->ImageRender->m_DstRect.right << std::endl;
+        std::cout << hpBarUi->getBarWidth() << std::endl;
+    }
+
+    if (InputManager::GetInstance().IsKeyDown('2'))
+    {
+        mpBarUi->takeMp(10.f);
+        mpBarUi->ImageRender->slideBar = mpBarUi->getBarWidth();
+        std::cout << mpBarUi->ImageRender->m_DstRect.right << std::endl;
+        std::cout << mpBarUi->getBarWidth() << std::endl;
+    }
+
    // scene->cam->transform->m_RelativeLocation += Vector2(-1.f,0.f) * 100.f * deltaTime;
     // 사운드 업데이트
     SoundManager::GetInstance().Update();

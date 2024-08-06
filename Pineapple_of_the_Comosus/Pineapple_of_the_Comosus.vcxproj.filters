@@ -49,6 +49,12 @@
       <Filter>Object\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Bomber.cpp" />
+    <ClCompile Include="Hpbar.cpp">
+      <Filter>Ui\Hpbar</Filter>
+    </ClCompile>
+    <ClCompile Include="Mpbar.cpp">
+      <Filter>Ui\Mpbar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -99,6 +105,12 @@
       <Filter>Object\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Bomber.h" />
+    <ClInclude Include="Hpbar.h">
+      <Filter>Ui\Hpbar</Filter>
+    </ClInclude>
+    <ClInclude Include="Mpbar.h">
+      <Filter>Ui\Mpbar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -112,6 +124,15 @@
     </Filter>
     <Filter Include="Object\Enemy">
       <UniqueIdentifier>{5061315a-6e0e-4253-be1c-643f99d74c22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui">
+      <UniqueIdentifier>{0bb53480-de82-4c7c-b194-1104878a9d56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui\Hpbar">
+      <UniqueIdentifier>{759ab94e-08e1-406d-b896-3a0c91b5c691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui\Mpbar">
+      <UniqueIdentifier>{ba41dffe-1b0d-4ee0-a28c-e05f25d20bce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
