@@ -16,6 +16,7 @@
 #include "../D2DEngine/SoundManager.h"  // SoundManager 헤더 파일 포함
 #include "../D2DEngine/ImageUIRenderer.h"
 #include "WaveSystem.h"
+#include "testChar.h"
 
 void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
@@ -48,10 +49,24 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     Image->LoadTexture(L"../Resource/BG/BG.png");
 
 
+
+    // 몬스터 테스트 
+    /*auto monsterObj = scene->CreateGameObject<GameObject>();
+    auto monsterSpr = monsterObj->CreateComponent<SpriteRenderer>();
+    monsterSpr->LoadTexture(L"../Resource/ken.png");*/
+   
     // 테스트
     auto spwan = scene->CreateGameObject<GameObject>();
-    spwan->CreateComponent<WaveSystem>();
+    auto wave = spwan->CreateComponent<WaveSystem>();
 
+    wave->scene = scene;
+    // 몬스터 테스트 
+    // auto monSpawn = scene->CreateGameObject<GameObject>();
+    // auto monsterpool = monSpawn->CreateComponent<testChar>();
+
+    // 웨이브 오브젝트 vector push_back
+    // wave->m_Monster.push_back(monsterpool);
+    
     //// 터렛 Ui
     //auto obj = scene->CreateGameObject<GameObject>();
     //auto spr = obj->CreateComponent<SpriteRenderer>();
@@ -125,7 +140,7 @@ void WinApp2::Update(float deltaTime)
     __super::Update(deltaTime);
 
     scene->Update(deltaTime);
-    scene->cam->transform->m_RelativeLocation += Vector2(-1.f,0.f) * 100.f * deltaTime;
+   // scene->cam->transform->m_RelativeLocation += Vector2(-1.f,0.f) * 100.f * deltaTime;
     // 사운드 업데이트
     SoundManager::GetInstance().Update();
 }

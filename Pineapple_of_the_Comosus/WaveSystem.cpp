@@ -1,5 +1,47 @@
+#include"testChar.h"
 #include "WaveSystem.h"
+#include "../D2DEngine/Scene.h"
+#include"../D2DEngine/SpriteRenderer.h"
+#include "../D2DEngine/Transform.h"
 #include <iostream> 
+
+
+void WaveSystem::InitializePool()
+{
+    for (int i = 0; i < initialPoolSize; ++i)
+    {
+        auto  mon = scene->CreateGameObject<GameObject>();
+        auto loadMon = mon->CreateComponent<SpriteRenderer>();
+        loadMon->LoadTexture(L"../Resource/Sun.png");
+        mon->isActive = false;
+        auto monster = mon->CreateComponent<testChar>();
+        m_MonsterPool.push_back(monster);
+    }
+}
+
+testChar* WaveSystem::GetMonsterFromPool()
+{
+    if (m_MonsterPool.empty())
+    {
+        // 풀에 몬스터가 없으면 새로 생성
+        auto  mon = scene->CreateGameObject<GameObject>();
+        auto loadMon = mon->CreateComponent<SpriteRenderer>();
+        loadMon->LoadTexture(L"../Resource/Sun.png");
+        auto monster = mon->CreateComponent<testChar>();
+        m_MonsterPool.push_back(monster);
+    }
+
+    testChar* monster = m_MonsterPool.back();
+    monster->gameObject->isActive = true;
+    m_MonsterPool.pop_back();
+    return monster;
+}
+
+void WaveSystem::ReturnMonsterToPool(testChar* monster)
+{
+    m_MonsterPool.push_back(monster);
+    monster->gameObject->isActive = false;
+}
 
 void WaveSystem::Update(float deltaTime)
 {
@@ -16,12 +58,31 @@ void WaveSystem::SpawnWave()
 {
     int numMonstersToSpawn = currentWave; // 현재 웨이브 번호에 따라 몬스터 수 결정
 
+    // 몬스터 스폰 로직
+    m_Monster.clear();  // 이전 웨이브에서 생성된 몬스터를 삭제 (필요한 경우)
+
     for (int i = 0; i < numMonstersToSpawn; ++i)
     {
-        // 몬스터 스폰 로직
+        //// 몬스터 객체 생성
+        //testChar* newMonster = new testChar();
+
+        //// 몬스터 위치 설정 (예시로 랜덤하게 왼쪽 또는 오른쪽 위치에 생성)
+        //// Vector2 spawnPosition = (i % 2 == 0) ? leftPos : rightPos;
+        //Vector2 spawnPosition = Vector2(0.0f, 200.0f);
+        //newMonster->SetPosition(spawnPosition);
+
+        //// 몬스터를 벡터에 추가
+        //m_Monster.push_back(newMonster);
+
+         // 풀에서 몬스터를 가져옵니다.
+        testChar* newMonster = GetMonsterFromPool();
+        Vector2 spawnPosition = Vector2(-200.0f, -200.0f);
+        newMonster->gameObject->transform->pos.worldPosition = spawnPosition;
+
+        m_Monster.push_back(newMonster);
         std::cout << "몬스터가 생성되었습니다" << std::endl;
-        // 실제 몬스터 생성 코드 나중에 하기
     }
+
 }
 
 // StartNextWave 함수: wave를 진행시키고 타이머를 초기화
@@ -40,5 +101,22 @@ void WaveSystem::StartNextWave()
 bool WaveSystem::IsMapEmpty()
 {
     // 맵에서 몬스터가 남아있는지 확인하는 로직 (필요 시 사용)
-    return false;  // 기본적으로 false 반환
+    return m_Monster.empty();  // 기본적으로 false 반환
+}
+
+WaveSystem::~WaveSystem()
+{
+    /// 몬스터를 풀에 반환
+    for (testChar* monster : m_Monster)
+    {
+        ReturnMonsterToPool(monster);
+    }
+    m_Monster.clear();
+
+    // 풀에 있는 몬스터들을 삭제
+    for (testChar* monster : m_MonsterPool)
+    {
+        delete monster;
+    }
+    m_MonsterPool.clear();
 }

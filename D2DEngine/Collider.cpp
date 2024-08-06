@@ -64,7 +64,7 @@ void Collider::ProcessBlock(Collider* pOtherComponent)
 
 void Collider::Update(float deltaTime)
 {
-	prevPosition = gameObject->transform->m_RelativeLocation;
+	prevPosition = gameObject->transform->pos.worldPosition;
 }
 
 void Collider::SetPosition(Vector2 position)
@@ -72,7 +72,7 @@ void Collider::SetPosition(Vector2 position)
 	if (isKinemetic) {
 		return;
 	}
-	gameObject->transform->m_RelativeLocation = position;
+	gameObject->transform->pos.worldPosition = position;
 }
 
 void Collider::AddPosition(Vector2 position)
@@ -80,7 +80,7 @@ void Collider::AddPosition(Vector2 position)
 	if (isKinemetic) {
 		return;
 	}
-	gameObject->transform->m_RelativeLocation += position;
+	gameObject->transform->pos.worldPosition += position;
 }
 
 bool Collider::isBlock()

@@ -39,9 +39,9 @@ void Scene::Update(float deltaTime)
 		collider[i]->prevPosition = collider[i]->gameObject->transform->m_RelativeLocation;
 	}*/
 
+	auto a = m_GameObjects;
 
-
-	for (auto gameObject : m_GameObjects) {
+	for (auto gameObject : a) {
 		gameObject->Update(deltaTime);
 	}
 	cameraMat = cam->transform->m_WorldTransform;
@@ -73,8 +73,8 @@ void Scene::Update(float deltaTime)
 				colliders[target]->GetCollisionType() == CollisionType::Block)
 			{
 				Vector2 aVelocity, bVelocity; // 이동량 구하기
-				aVelocity = colliders[i]->gameObject->transform->m_RelativeLocation - colliders[i]->prevPosition;
-				bVelocity = colliders[target]->gameObject->transform->m_RelativeLocation - colliders[target]->prevPosition;
+				aVelocity = colliders[i]->gameObject->transform->pos.worldPosition - colliders[i]->prevPosition;
+				bVelocity = colliders[target]->gameObject->transform->pos.worldPosition - colliders[target]->prevPosition;
 
 				// kinemetic검사 (kinemetic이 true면 다른 오브젝트의 물리충돌에 반응 안함.)
 				// If IsKinematic is set to true, the object will not respond to physical collisions. FUXX Unicode hangle.

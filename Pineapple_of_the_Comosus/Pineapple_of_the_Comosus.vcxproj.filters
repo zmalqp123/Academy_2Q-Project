@@ -29,6 +29,9 @@
     <ClCompile Include="Turret_Fertilizer.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="testChar.cpp">
+      <Filter>testChar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -59,10 +62,16 @@
     <ClInclude Include="Turret_Fertilizer.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="testChar.h">
+      <Filter>testChar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
       <UniqueIdentifier>{313b21e6-9215-4ebb-b46c-b758a8583cbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="testChar">
+      <UniqueIdentifier>{cbb9612b-183b-45dd-9c2b-c6c0fb33450b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
