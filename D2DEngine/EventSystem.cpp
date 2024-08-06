@@ -33,7 +33,7 @@ void EventSystem::Update(Scene* scene, float delta)
 
 		for (auto& comp : g->components) {
 			if (Renderer* c = dynamic_cast<Renderer*>(comp)) {
-				if (g->transform->type == Type::World) 
+				if (g->transform->type == Type::World)
 				{
 					if (coll == nullptr) continue;
 					else {
@@ -74,9 +74,9 @@ void EventSystem::Update(Scene* scene, float delta)
 	currentWorldObject = renderer.size() > 0 ? renderer[0]->gameObject : nullptr;
 	currentUIObject = uiRenderer.size() > 0 ? uiRenderer[0]->gameObject : nullptr;
 
-	if (currentWorldObject != nullptr || currentWorldObject != nullptr) {
+	/*if (currentWorldObject != nullptr || currentUIObject != nullptr) {
 		std::cout << "dw";
-	}
+	}*/
 }
 
 void EventSystem::ResetUpdate()
@@ -85,10 +85,10 @@ void EventSystem::ResetUpdate()
 
 GameObject* EventSystem::GetCurrWorldObject()
 {
-	return nullptr;
+	return currentWorldObject;
 }
 
 GameObject* EventSystem::GetCurrUIObject()
 {
-	return nullptr;
+	return currentUIObject;
 }

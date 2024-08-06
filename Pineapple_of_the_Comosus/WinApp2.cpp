@@ -73,8 +73,9 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     
     // 터렛 Ui
 
-    const float spacing = 20.0f;  // 터렛 간의 간격
-    const float startX = 0.f;    // 첫 번째 터렛의 X 위치
+    float spacing = 30.0f;  // 터렛 간의 간격
+    float startX = 0.f;    // 첫 번째 터렛의 X 위치
+    float width = 120.f;
 
     for (size_t i = 0; i < 6; i++)
     {
@@ -82,10 +83,11 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
         auto turretImage = turretUI->CreateComponent<ImageUIRenderer>();
         //UI->transform->SetParent(turretUI->transform);
         // UI 객체의 위치를 계산
-        float xPosition = startX + i * spacing;
+        startX = i * (spacing + width);
+        std::cout << startX << std::endl;
         turretUI->transform->SetParent(UI->transform);
         turretUI->transform->type = Type::Ui;
-        turretUI->transform->pos.rectposition = { {0.f, 0.0f} ,{120, 120} };
+        turretUI->transform->pos.rectposition = { {startX, 20.f} ,{120.f + startX, 140.f} };
         turretImage->LoadTexture(L"../Resource/turret.png");
     }
 

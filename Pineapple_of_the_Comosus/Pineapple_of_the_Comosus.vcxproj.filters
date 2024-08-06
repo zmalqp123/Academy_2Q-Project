@@ -55,6 +55,9 @@
     <ClCompile Include="Mpbar.cpp">
       <Filter>Ui\Mpbar</Filter>
     </ClCompile>
+    <ClCompile Include="TestDropDown.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -111,6 +114,9 @@
     <ClInclude Include="Mpbar.h">
       <Filter>Ui\Mpbar</Filter>
     </ClInclude>
+    <ClInclude Include="TestDropDown.h">
+      <Filter>Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -133,6 +139,9 @@
     </Filter>
     <Filter Include="Ui\Mpbar">
       <UniqueIdentifier>{ba41dffe-1b0d-4ee0-a28c-e05f25d20bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{e07c5190-7c37-42fa-b437-41dbc6fb5ee3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -42,7 +42,7 @@ void ImageUIRenderer::LoadTexture(const std::wstring strFilePath)
 		m_SrcRect.bottom = size.height;
 
 		m_ImageTransform = D2D1::Matrix3x2F::Scale(1.0f, 1.0f, D2D1::Point2F(0, 0)) *
-			D2D1::Matrix3x2F::Translation(m_DstRect.right * -1 / 2.f, m_DstRect.bottom / 2.f);
+			D2D1::Matrix3x2F::Translation(0.f, m_DstRect.bottom);
 	}
 }
 
@@ -52,19 +52,19 @@ void ImageUIRenderer::Update(float deltaTime)
 
 void ImageUIRenderer::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat)
 {
-	if (gameObject->isActive == false || (gameObject->transform->m_pParentScene != nullptr && gameObject->transform->m_pParentScene->gameObject->isActive == false))
-		return;
-	D2D1_MATRIX_3X2_F m_ScreenTransform =
-		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
-		D2D1::Matrix3x2F::Translation(PublicData::GetInstance().GetScreenSize().x * 0.5f, PublicData::GetInstance().GetScreenSize().y * 0.5f);
-	D2D1_MATRIX_3X2_F Transform =
-		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) * m_ImageTransform
-		* gameObject->transform->m_WorldTransform
-		* cameraMat
-		* m_ScreenTransform;
-	;// * D2DRenderer::m_CameraTransform;
-	pRenderTarget->SetTransform(Transform);
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+	//if (gameObject->isActive == false || (gameObject->transform->m_pParentScene != nullptr && gameObject->transform->m_pParentScene->gameObject->isActive == false))
+	//	return;
+	//D2D1_MATRIX_3X2_F m_ScreenTransform =
+	//	D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
+	//	D2D1::Matrix3x2F::Translation(PublicData::GetInstance().GetScreenSize().x * 0.5f, PublicData::GetInstance().GetScreenSize().y * 0.5f);
+	//D2D1_MATRIX_3X2_F Transform =
+	//	D2D1::Matrix3x2F::Scale(1.0f, -1.0f) * m_ImageTransform
+	//	* gameObject->transform->m_WorldTransform
+	//	* cameraMat
+	//	* m_ScreenTransform;
+	//;// * D2DRenderer::m_CameraTransform;
+	//pRenderTarget->SetTransform(Transform);
+	//pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
 }
 
 void ImageUIRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
@@ -83,15 +83,7 @@ void ImageUIRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
 		* m_ScreenTransform;
 	;// * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);
-	auto tmp = m_SrcRect.right * slideBar;
-	auto srcTmp = m_SrcRect;
-	srcTmp.right = tmp;
-
-	auto dstmp = m_DstRect.right * slideBar;
-	auto dstTmp = m_DstRect;
-	dstTmp.right = dstmp;
-
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, dstTmp, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, srcTmp);
+	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
 }
 
 AABB ImageUIRenderer::GetBound()
