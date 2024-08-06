@@ -11,7 +11,7 @@ void Transform::UpdateTrasnform()
 			//D2D1::Matrix3x2F::Translation(m_CenterTransform.x, m_CenterTransform.y) *     // 얘는 렌더단계에서 따로 계산해야 맞음. 스프라이트 피벗
 			D2D1::Matrix3x2F::Scale(D2D1::SizeF(m_RelativeScale.x, m_RelativeScale.y)) *
 			D2D1::Matrix3x2F::Rotation(m_RelativeRotation) *
-			D2D1::Matrix3x2F::Translation(m_RelativeLocation.x, m_RelativeLocation.y);
+			D2D1::Matrix3x2F::Translation(pos.worldPosition.x, pos.worldPosition.y);
 	}
 	else
 	{

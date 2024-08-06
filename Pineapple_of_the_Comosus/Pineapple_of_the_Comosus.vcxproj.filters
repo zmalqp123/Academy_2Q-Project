@@ -8,6 +8,9 @@
     <ClCompile Include="WaveSystem.cpp">
       <Filter>WaveSystem</Filter>
     </ClCompile>
+    <ClCompile Include="testChar.cpp">
+      <Filter>testChar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -17,10 +20,16 @@
     <ClInclude Include="WaveSystem.h">
       <Filter>WaveSystem</Filter>
     </ClInclude>
+    <ClInclude Include="testChar.h">
+      <Filter>testChar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="WaveSystem">
       <UniqueIdentifier>{3efcbf24-5e7e-416e-92bc-395304822279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="testChar">
+      <UniqueIdentifier>{cbb9612b-183b-45dd-9c2b-c6c0fb33450b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
