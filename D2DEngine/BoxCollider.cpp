@@ -143,7 +143,7 @@ void BoxCollider::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F
 
 	D2D1_MATRIX_3X2_F m_ScreenTransform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
-		D2D1::Matrix3x2F::Translation(640.f, 360.f);
+		D2D1::Matrix3x2F::Translation(PublicData::GetInstance().GetScreenSize().x * 0.5f, PublicData::GetInstance().GetScreenSize().y * 0.5f);
 	D2D1_MATRIX_3X2_F Transform =
 		gameObject->transform->m_WorldTransform
 		* cameraMat

@@ -16,10 +16,10 @@
 #include "../D2DEngine/SoundManager.h"  // SoundManager 헤더 파일 포함
 #include "../D2DEngine/ImageUIRenderer.h"
 
-void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow)
+void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
     // 기본 초기화 + 카메라 생성
-    __super::Initialize(hInstance, nCmdShow);
+    __super::Initialize(hInstance, nCmdShow, x, y);
 
     scene = new Scene();
     auto camera = scene->CreateGameObject<GameObject>();

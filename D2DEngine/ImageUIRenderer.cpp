@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "Texture.h"
 #include "ResourceManager.h"
+#include "PublicData.h"
 
 ImageUIRenderer::ImageUIRenderer()
 {
@@ -55,7 +56,7 @@ void ImageUIRenderer::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3
 		return;
 	D2D1_MATRIX_3X2_F m_ScreenTransform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
-		D2D1::Matrix3x2F::Translation(640.f, 360.f);
+		D2D1::Matrix3x2F::Translation(PublicData::GetInstance().GetScreenSize().x * 0.5f, PublicData::GetInstance().GetScreenSize().y * 0.5f);
 	D2D1_MATRIX_3X2_F Transform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) * m_ImageTransform
 		* gameObject->transform->m_WorldTransform
@@ -74,7 +75,7 @@ void ImageUIRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
 
 	D2D1_MATRIX_3X2_F m_ScreenTransform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
-		D2D1::Matrix3x2F::Translation(0, 720.f);
+		D2D1::Matrix3x2F::Translation(0, PublicData::GetInstance().GetScreenSize().y);
 	D2D1_MATRIX_3X2_F Transform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) * m_ImageTransform
 		* gameObject->transform->m_WorldTransform

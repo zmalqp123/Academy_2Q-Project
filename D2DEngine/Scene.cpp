@@ -47,7 +47,7 @@ void Scene::Update(float deltaTime)
 	cameraMat = cam->transform->m_WorldTransform;
 	D2D1InvertMatrix(&cameraMat);
 
-	// collider
+	// collider들을 모아보자~
 	std::vector<Collider*> colliders;
 	for (auto& g : m_GameObjects) {
 		for (auto& coll : g->components) {
@@ -61,6 +61,7 @@ void Scene::Update(float deltaTime)
 		}
 	}
 
+	// 충돌처리 관련
 	for (int i = 0; i < colliders.size(); i++) {
 
 		for (int target = i + 1; target < colliders.size(); target++) {
