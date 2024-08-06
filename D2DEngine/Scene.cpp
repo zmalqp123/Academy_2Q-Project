@@ -47,7 +47,7 @@ void Scene::Update(float deltaTime)
 	cameraMat = cam->transform->m_WorldTransform;
 	D2D1InvertMatrix(&cameraMat);
 
-	// collider
+	// collider들을 모아보자~
 	std::vector<Collider*> colliders;
 	for (auto& g : m_GameObjects) {
 		for (auto& coll : g->components) {
@@ -61,6 +61,7 @@ void Scene::Update(float deltaTime)
 		}
 	}
 
+	// 충돌처리 관련
 	for (int i = 0; i < colliders.size(); i++) {
 
 		for (int target = i + 1; target < colliders.size(); target++) {
@@ -146,15 +147,29 @@ void Scene::Render(D2DRenderer* _render)
 	//auto temp = D2D1::Matrix3x2F::Translation(gq->transform->m_RelativeLocation.x, gq->transform->m_RelativeLocation.y) * gq->transform->m_WorldTransform;
 	// 카메라 센터 * 카메라 월드매트릭스 = 카메라 센터인 벡터? 뭐라하지 테스트해봐야함
 	std::vector<Renderer*> renderer;
+	std::vector<Renderer*> uirenderer;
 	for (auto& g : m_GameObjects) {
 		if (g->isActive == false) continue;
-		for (auto& render : g->components) {
-			if (Renderer* c = dynamic_cast<Renderer*>(render)) {
-				renderer.push_back(c);
+		if(g->transform->type == Type::Ui) 
+		{
+			for (auto& render : g->components) {
+				if (Renderer* c = dynamic_cast<Renderer*>(render)) {
+					uirenderer.push_back(c);
+				}
+			}
+		}
+		else {
+			for (auto& render : g->components) {
+				if (Renderer* c = dynamic_cast<Renderer*>(render)) {
+					renderer.push_back(c);
+				}
 			}
 		}
 	}
 	std::sort(renderer.begin(), renderer.end(), [](Renderer* first, Renderer* second) {
+		return first->GetSortingLayer() < second->GetSortingLayer();
+		});
+	std::sort(uirenderer.begin(), uirenderer.end(), [](Renderer* first, Renderer* second) {
 		return first->GetSortingLayer() < second->GetSortingLayer();
 		});
 
@@ -178,6 +193,10 @@ void Scene::Render(D2DRenderer* _render)
 			r->Render(cameraMat);
 			//count++;
 		}
+	}
+
+	for (auto r : uirenderer) {
+		r->Render(cameraMat);
 	}
 
 	//D2DRenderer::getRenderTarget().SetTransform(D2D1::Matrix3x2F::Identity());

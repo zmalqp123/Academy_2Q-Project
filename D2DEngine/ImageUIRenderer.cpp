@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "Texture.h"
 #include "ResourceManager.h"
+#include "PublicData.h"
 
 ImageUIRenderer::ImageUIRenderer()
 {
@@ -24,14 +25,24 @@ void ImageUIRenderer::LoadTexture(const std::wstring strFilePath)
 	if (ResourceManager::GetInstance().CreateTextureFromFile(m_strTextureFilePath, &m_pTexture))
 	{
 		auto size = m_pTexture->m_pD2DBitmap->GetSize();
-		m_DstRect.left = 0.f;
+		/*m_DstRect.left = 0.f;
 		m_DstRect.top = 0.f;
 		m_DstRect.right = size.width;
 		m_DstRect.bottom = size.height;
+		m_SrcRect = m_DstRect;*/
+		m_DstRect.left = 0.f;
+		m_DstRect.top = 0.f;
+		m_DstRect.right = gameObject->transform->pos.rectposition.rightTop.x - gameObject->transform->pos.rectposition.leftBottom.x;
+		m_DstRect.bottom = gameObject->transform->pos.rectposition.rightTop.y - gameObject->transform->pos.rectposition.leftBottom.y;
 		m_SrcRect = m_DstRect;
 
+		m_SrcRect.left = 0.f;
+		m_SrcRect.top = 0.f;
+		m_SrcRect.right = size.width;
+		m_SrcRect.bottom = size.height;
+
 		m_ImageTransform = D2D1::Matrix3x2F::Scale(1.0f, 1.0f, D2D1::Point2F(0, 0)) *
-			D2D1::Matrix3x2F::Translation(size.width * -1 / 2.f, size.height / 2.f);
+			D2D1::Matrix3x2F::Translation(m_DstRect.right * -1 / 2.f, m_DstRect.bottom / 2.f);
 	}
 }
 
@@ -45,7 +56,7 @@ void ImageUIRenderer::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3
 		return;
 	D2D1_MATRIX_3X2_F m_ScreenTransform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
-		D2D1::Matrix3x2F::Translation(640.f, 360.f);
+		D2D1::Matrix3x2F::Translation(PublicData::GetInstance().GetScreenSize().x * 0.5f, PublicData::GetInstance().GetScreenSize().y * 0.5f);
 	D2D1_MATRIX_3X2_F Transform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) * m_ImageTransform
 		* gameObject->transform->m_WorldTransform
@@ -64,11 +75,11 @@ void ImageUIRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
 
 	D2D1_MATRIX_3X2_F m_ScreenTransform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
-		D2D1::Matrix3x2F::Translation(0.f, 720.f);
+		D2D1::Matrix3x2F::Translation(0, PublicData::GetInstance().GetScreenSize().y);
 	D2D1_MATRIX_3X2_F Transform =
 		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) * m_ImageTransform
 		* gameObject->transform->m_WorldTransform
-		* cameraMat
+		//* cameraMat
 		* m_ScreenTransform;
 	;// * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);

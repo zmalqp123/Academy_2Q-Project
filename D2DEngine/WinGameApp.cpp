@@ -6,7 +6,7 @@
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow)
+void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
 	// 공통으로 사용하는 윈도우 설정,생성부분을 작성한다.
 
@@ -42,8 +42,8 @@ void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow)
     if (hwnd)
     {
         float dpi = GetDpiForWindow(hwnd);
-        float sizeX = static_cast<int>(ceil(1280.f * dpi / 96.f));
-        float sizeY = static_cast<int>(ceil(720.f * dpi / 96.f));
+        float sizeX = static_cast<int>(ceil(x * dpi / 96.f));
+        float sizeY = static_cast<int>(ceil(y * dpi / 96.f));
         RECT rect = { 0, 0, sizeX, sizeY};
 
         AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, NULL); // 시우님이 도와주신 코드 클라이언트 좌표로 변경
@@ -69,7 +69,7 @@ void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow)
     deltaTime.InitTime();
 
 }
-int FPS = 0;
+
 void WinGameApp::Run()
 {
 	// 공통으로 사용하는 윈도우 게임 루프를 작성한다.

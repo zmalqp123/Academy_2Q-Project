@@ -36,7 +36,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     WinApp2 App;
-    App.Initialize(hInstance, nCmdShow);
+    App.Initialize(hInstance, nCmdShow, 1920.f, 1080.f);
     App.Run();
     App.Uninitialize();
 

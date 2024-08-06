@@ -14,11 +14,12 @@
 #include "../D2DEngine/InputManager.h"
 #include "../D2DEngine/TextRenderer.h"
 #include "../D2DEngine/SoundManager.h"  // SoundManager 헤더 파일 포함
+#include "../D2DEngine/ImageUIRenderer.h"
 
-void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow)
+void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
     // 기본 초기화 + 카메라 생성
-    __super::Initialize(hInstance, nCmdShow);
+    __super::Initialize(hInstance, nCmdShow, x, y);
 
     scene = new Scene();
     auto camera = scene->CreateGameObject<GameObject>();
@@ -34,10 +35,18 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow)
     // 사운드를 재생하도록 호출
     SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true); // true로 설정하면 루프 재생
 
+    auto obj = scene->CreateGameObject<GameObject>();
+    auto spr = obj->CreateComponent<SpriteRenderer>();
+    spr->LoadTexture(L"../Resource/BG/BG.png");
+
 
     auto UI = scene->CreateGameObject<GameObject>();
-    auto Image = UI->CreateComponent<SpriteRenderer>();
+    auto Image = UI->CreateComponent<ImageUIRenderer>();
+    UI->transform->type = Type::Ui;
+    UI->transform->pos.rectposition = { {0,330} ,{1220,520} };
     Image->LoadTexture(L"../Resource/BG/BG.png");
+
+
     
 }
 
@@ -46,7 +55,7 @@ void WinApp2::Update(float deltaTime)
     __super::Update(deltaTime);
 
     scene->Update(deltaTime);
-
+    scene->cam->transform->m_RelativeLocation += Vector2(-1.f,0.f) * 100.f * deltaTime;
     // 사운드 업데이트
     SoundManager::GetInstance().Update();
 }

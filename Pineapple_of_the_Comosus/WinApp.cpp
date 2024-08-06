@@ -15,10 +15,10 @@
 
 #include "../D2DEngine/InputManager.h"
 #include "../D2DEngine/TextRenderer.h"
-void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow)
+void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
 	// 기본 초기화 + 카메라 생성
-	__super::Initialize(hInstance, nCmdShow);
+	__super::Initialize(hInstance, nCmdShow, x, y);
 	scene = new Scene();
 	auto camera = scene->CreateGameObject<GameObject>();
 	auto pCam = camera->CreateComponent<Camera>();
