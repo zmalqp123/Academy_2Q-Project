@@ -107,5 +107,22 @@ public:
 
 		return true;
 	}
+
+	bool CheckWithPoint(const Vector2& point) const
+	{
+		// self min,max
+		float BoxA_xmin = m_Center.x - m_Extent.x;
+		float BoxA_xmax = m_Center.x + m_Extent.x;
+		float BoxA_ymin = m_Center.y - m_Extent.y;
+		float BoxA_ymax = m_Center.y + m_Extent.y;
+
+		if (point.x < BoxA_xmin || point.x > BoxA_xmax ||
+			point.y < BoxA_ymin || point.y > BoxA_ymax)
+		{
+			return false;
+		}
+
+		return true;
+	}
 };
 
