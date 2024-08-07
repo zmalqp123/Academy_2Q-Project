@@ -14,9 +14,7 @@ SceneManager::SceneManager() : currentScene(nullptr) {}
 
 // 소멸자
 SceneManager::~SceneManager() {
-    for (auto& pair : scenes) {
-        delete pair.second;
-    }
+    Release();
 }
 
 // 씬을 등록하는 함수
@@ -39,6 +37,15 @@ void SceneManager::ChangeScene(const std::string& name) {
     else {
         std::cerr << "Scene " << name << " not found!" << std::endl;
     }
+}
+
+void SceneManager::Release()
+{
+    for (auto scene : scenes)
+    {
+      delete scene.second;
+    }
+    scenes.clear(); // 컨테이너 비우기
 }
 
 // 현재 활성화된 씬을 가져오는 함수

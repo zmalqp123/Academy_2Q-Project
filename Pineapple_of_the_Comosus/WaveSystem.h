@@ -30,6 +30,7 @@ public:
 
     Scene* scene;
 
+    int getCurrentWave() { return currentWave; }
     virtual void Update(float deltaTime); // 매 프레임 호출, wave 타이머 업데이트
     void SpawnWave();              // 새로운 wave 스폰
     bool IsMapEmpty();             // 맵에 몬스터가 하나도 없는지 확인 (추후 필요할 경우 사용)

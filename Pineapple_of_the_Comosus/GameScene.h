@@ -3,10 +3,12 @@
 #include "Hpbar.h"
 #include "Mpbar.h"
 #include "WaveSystem.h"
+#include "DayNightCycle.h"
 
 class GameScene : public Scene {
 private:
-    WaveSystem* waveSystem; // WaveSystem 인스턴스 추가
+    WaveSystem* waveSystem; // WaveSystem 포인터
+    DayNightCycle* nightSystem; // DayNightCycle 포인터
     Mpbar* mpBarUi; // 선언
     Hpbar* hpBarUi;
 public:

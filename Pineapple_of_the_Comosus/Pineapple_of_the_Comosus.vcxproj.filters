@@ -36,6 +36,7 @@
     <ClCompile Include="WinApp3.cpp">
       <Filter>sceneTestfolder</Filter>
     </ClCompile>
+    <ClCompile Include="DayNightCycle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h" />
@@ -73,6 +74,7 @@
     <ClInclude Include="WinApp3.h">
       <Filter>sceneTestfolder</Filter>
     </ClInclude>
+    <ClInclude Include="DayNightCycle.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sceneTestfolder">

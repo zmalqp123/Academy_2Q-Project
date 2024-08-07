@@ -36,5 +36,6 @@ void WinApp3::Render(D2DRenderer* _render) {
 
 void WinApp3::Uninitialize() {
     __super::Uninitialize();
+    SceneManager::GetInstance().Release();
 }
 
