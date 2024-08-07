@@ -131,15 +131,15 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     hpBarUi->ImageRender = HpbarImage;
     HpbarImage->LoadTexture(L"../Resource/Hpbar.png");
 
-    //// 수확 버튼 -> 이거 완성
-    //auto Harvestobj = scene->CreateGameObject<GameObject>();
-    //auto HarvestbtnImage = Harvestobj->CreateComponent<ImageUIRenderer>();
-    //Harvestobj->transform->SetParent(UI->transform);
-    //Harvestobj->transform->type = Type::Ui;
-    //Harvestobj->transform->pos.rectposition = { {20.f + 820.f + 200.f,10.f} ,{20.f + 820.f + 200.f + 200.f, 200.f -spacing} };
-    //harvestUi = Harvestobj->CreateComponent<HarvestButton>();
-    //harvestUi->ImageRender = HarvestbtnImage;
-    //HarvestbtnImage->LoadTexture(L"../Resource/harvest.png");
+    // 수확 버튼 -> 이거 완성
+    /*auto Harvestobj = scene->CreateGameObject<GameObject>();
+    auto HarvestbtnImage = Harvestobj->CreateComponent<ImageUIRenderer>();
+    Harvestobj->transform->SetParent(UI->transform);
+    Harvestobj->transform->type = Type::Ui;
+    Harvestobj->transform->pos.rectposition = { {20.f + 820.f + 200.f,10.f} ,{20.f + 820.f + 200.f + 200.f, 200.f -spacing} };
+    harvestUi = Harvestobj->CreateComponent<HarvestButton>();
+    harvestUi->ImageRender = HarvestbtnImage;
+    HarvestbtnImage->LoadTexture(L"../Resource/harvest.png");*/
 
     // 골드 보유량 Ui
    /* auto Goldobj = scene->CreateGameObject<GameObject>();
