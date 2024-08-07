@@ -31,6 +31,7 @@ void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	auto test = areaObj->CreateComponent<TestDropDown>();
 	test->camera = scene->camera;
 	auto testSpr = areaObj->CreateComponent<SpriteRenderer>();
+	//testSpr->m_flipX = true;
 	testSpr->LoadTexture(L"../Resource/Sun.png");
 	areaObj->transform->pos.worldPosition = { -200.f, 300.f };
 	auto circle = areaObj->CreateComponent< CircleCollider>();

@@ -4,14 +4,9 @@
 class AABB;
 class Renderer : virtual public Component
 {
-private:
-	int sortingLayer = 0;
 public:
 	Renderer() {}
 	virtual ~Renderer() {}
-
-	void SetSortingLayer(int value);
-	int GetSortingLayer();
 
 	virtual AABB GetBound() = 0;
 

@@ -31,8 +31,17 @@ void SpriteRenderer::LoadTexture(const std::wstring strFilePath)
 		m_DstRect.bottom = size.height;
 		m_SrcRect = m_DstRect;
 
-		m_ImageTransform = D2D1::Matrix3x2F::Scale(1.0f, 1.0f, D2D1::Point2F(0, 0)) *
-			D2D1::Matrix3x2F::Translation(size.width * -1 / 2.f, size.height / 2.f);
+	/*	if (m_flipX == false) {
+			m_ImageTransform = D2D1::Matrix3x2F::Scale(1.0f, 1.0f, D2D1::Point2F(0, 0)) *
+				D2D1::Matrix3x2F::Translation(-size.width / 2.f, size.height / 2.f);
+		}
+		else {
+			m_ImageTransform = D2D1::Matrix3x2F::Scale(-1.0f, 1.0f, D2D1::Point2F(0, 0)) *
+				D2D1::Matrix3x2F::Translation(size.width / 2.f, size.height / 2.f);
+		}*/
+
+		m_ImageTransform = D2D1::Matrix3x2F::Scale(m_flipX ? -1.f : 1.f, m_flipY ? -1.f : 1.f, D2D1::Point2F(0, 0)) *
+			D2D1::Matrix3x2F::Translation(m_flipX ? size.width / 2.f : -size.width / 2.f, m_flipY ? -size.width / 2.f : size.height / 2.f);
 	}
 }
 
@@ -82,4 +91,19 @@ AABB SpriteRenderer::GetBound()
 	ab.SetCenter(gameObject->transform->m_WorldTransform.dx, gameObject->transform->m_WorldTransform.dy);
 	ab.SetExtent(float((m_DstRect.right - m_DstRect.left) / 2), float((m_DstRect.bottom - m_DstRect.top) / 2));
 	return ab;
+}
+
+void SpriteRenderer::SetFilp(bool x, bool y)
+{
+	m_flipX = x;
+	m_flipY = y;
+	auto size = m_pTexture->m_pD2DBitmap->GetSize();
+	m_DstRect.left = 0.f;
+	m_DstRect.top = 0.f;
+	m_DstRect.right = size.width;
+	m_DstRect.bottom = size.height;
+	m_SrcRect = m_DstRect;
+
+	m_ImageTransform = D2D1::Matrix3x2F::Scale(m_flipX ? -1.f : 1.f, m_flipY ? -1.f : 1.f, D2D1::Point2F(0, 0)) *
+		D2D1::Matrix3x2F::Translation(m_flipX ? size.width / 2.f : -size.width / 2.f, m_flipY ? -size.width / 2.f : size.height / 2.f);
 }

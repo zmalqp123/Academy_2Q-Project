@@ -5,11 +5,15 @@ class GameObject;
 class Scene;
 
 struct IPointer {
+	virtual void IPointerEnter() = 0;
+	virtual void IPointerStay() = 0;
+	virtual void IPointerExit() = 0;
 
 };
 
 struct IClick {
-
+	virtual void IClickDown() = 0;
+	virtual void IClickUp() = 0;
 };
 
 struct PointerEventData {
@@ -32,6 +36,15 @@ private:
 
 	GameObject* currentWorldObject = nullptr;
 	GameObject* currentUIObject = nullptr;
+	GameObject* currentObject = nullptr;
+
+	GameObject* prevWorldObject = nullptr;
+	GameObject* prevUIObject = nullptr;
+	GameObject* prevObject = nullptr;
+
+	IPointer* curPointer = nullptr;
+	IPointer* prevPointer = nullptr;
+
 public:
 	static EventSystem& GetInstance();
 
@@ -40,5 +53,6 @@ public:
 
 	GameObject* GetCurrWorldObject(); // 가장 앞에있는 월드의 오브젝트를 가져옴.
 	GameObject* GetCurrUIObject();	// 가장 앞에있는 UI의 오브젝트를 가져옴.
+	GameObject* GetCurrObject();	// 가장 앞에있는 UI의 오브젝트를 가져옴.
 };
 

@@ -21,6 +21,8 @@ union Position
 
 class Transform : public Component
 {
+private:
+	int sortingLayer = 0;
 public:
 	Transform() {};
 	virtual ~Transform() {};
@@ -39,5 +41,8 @@ public:
 	// RelativeTransform과 m_WorldTransform을 계산한다.
 	void UpdateTrasnform();
 	void SetParent(Transform* pParentScene) { m_pParentScene = pParentScene; }
+
+	void SetSortingLayer(int value);
+	int GetSortingLayer();
 };
 

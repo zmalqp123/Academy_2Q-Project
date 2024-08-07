@@ -25,8 +25,6 @@ void Scene::Start()
 }
 void Scene::Update(float deltaTime)
 {
-	EventSystem::GetInstance().Update(this, deltaTime);
-
 	/*std::vector<Collider*> collider;
 	for (auto& g : m_GameObjects) {
 		for (auto& coll : g->components) {
@@ -47,6 +45,9 @@ void Scene::Update(float deltaTime)
 	for (auto gameObject : a) {
 		gameObject->Update(deltaTime);
 	}
+
+	EventSystem::GetInstance().Update(this, deltaTime);
+
 	cameraMat = cam->transform->m_WorldTransform;
 	D2D1InvertMatrix(&cameraMat);
 
@@ -170,10 +171,10 @@ void Scene::Render(D2DRenderer* _render)
 		}
 	}
 	std::sort(renderer.begin(), renderer.end(), [](Renderer* first, Renderer* second) {
-		return first->GetSortingLayer() < second->GetSortingLayer();
+		return first->gameObject->transform->GetSortingLayer() < second->gameObject->transform->GetSortingLayer();
 		});
 	std::sort(uirenderer.begin(), uirenderer.end(), [](Renderer* first, Renderer* second) {
-		return first->GetSortingLayer() < second->GetSortingLayer();
+		return first->gameObject->transform->GetSortingLayer() < second->gameObject->transform->GetSortingLayer();
 		});
 
 	//for (auto g : m_GameObjects) {

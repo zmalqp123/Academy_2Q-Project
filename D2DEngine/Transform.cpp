@@ -31,3 +31,13 @@ void Transform::UpdateTrasnform()
 	else
 		m_WorldTransform = m_RelativeTransform;
 }
+
+void Transform::SetSortingLayer(int value)
+{
+	sortingLayer = value;
+}
+
+int Transform::GetSortingLayer()
+{
+	return sortingLayer;
+}
