@@ -97,7 +97,10 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="ImageUIRenderer.cpp">
-      <Filter>Component\Renderer\ImageUIRenderer</Filter>
+      <Filter>Component\Renderer\UI\ImageUIRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Component\Renderer\UI\Button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -204,7 +207,10 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="ImageUIRenderer.h">
-      <Filter>Component\Renderer\ImageUIRenderer</Filter>
+      <Filter>Component\Renderer\UI\ImageUIRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Component\Renderer\UI\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -302,7 +308,13 @@
     <Filter Include="Manager\SoundManager">
       <UniqueIdentifier>{187a7b13-731f-4ee0-a621-e4d6fc6d97fe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component\Renderer\ImageUIRenderer">
+    <Filter Include="Component\Renderer\UI">
+      <UniqueIdentifier>{14bb3256-fd11-458c-a20e-51258cf66481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer\UI\Button">
+      <UniqueIdentifier>{9c7a0dbe-572a-4249-81c5-619625169547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer\UI\ImageUIRenderer">
       <UniqueIdentifier>{ab076258-0aba-4b04-980a-7a5efae7d1b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

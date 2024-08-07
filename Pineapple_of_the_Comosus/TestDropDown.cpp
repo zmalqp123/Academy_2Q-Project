@@ -77,3 +77,8 @@ void TestDropDown::IPointerExit()
 {
 	std::cout << "exit" << std::endl;
 }
+
+void TestDropDown::TestlamdaFunc()
+{
+	std::cout << " 이게 진짜일리 없어~" << std::endl;
+}

@@ -13,6 +13,7 @@ struct IPointer {
 
 struct IClick {
 	virtual void IClickDown() = 0;
+	virtual void IClicking() = 0;
 	virtual void IClickUp() = 0;
 };
 

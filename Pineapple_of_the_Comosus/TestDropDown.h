@@ -18,5 +18,7 @@ public:
 	void IPointerEnter() override;
 	void IPointerStay() override;
 	void IPointerExit() override;
+
+	void TestlamdaFunc();
 };
 

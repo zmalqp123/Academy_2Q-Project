@@ -62,5 +62,5 @@ Texture::Texture(std::wstring _Filepath, ID2D1Bitmap* _pD2DBitmap)
 
 Texture::~Texture()
 {
-	if(m_pD2DBitmap) m_pD2DBitmap->Release();
+	//if(m_pD2DBitmap) m_pD2DBitmap->Release();
 }

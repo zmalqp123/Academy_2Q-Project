@@ -89,10 +89,11 @@ void EventSystem::Update(Scene* scene, float delta)
 					}
 				}
 				else {
-					bool result = (object->transform->pos.rectposition.leftBottom.x >= mousePos.x &&
-						object->transform->pos.rectposition.rightTop.x <= mousePos.x &&
+					bool result = (object->transform->pos.rectposition.leftBottom.x <= mousePos.x &&
+						object->transform->pos.rectposition.rightTop.x >= mousePos.x &&
 						object->transform->pos.rectposition.leftBottom.y <= mousePos.y &&
-						object->transform->pos.rectposition.rightTop.y <= mousePos.y);
+						object->transform->pos.rectposition.rightTop.y >= mousePos.y);
+
 					if (result) {
 						isPointer = true;
 						uiObjects.push_back(object);

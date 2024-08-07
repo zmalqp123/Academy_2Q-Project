@@ -27,7 +27,6 @@
     <ClCompile Include="WinApp.cpp" />
     <ClCompile Include="WinApp2.cpp" />
     <ClCompile Include="UpgradeItem.cpp" />
-    <ClCompile Include="Button.cpp" />
     <ClCompile Include="StartScene.cpp">
       <Filter>sceneTestfolder</Filter>
     </ClCompile>
@@ -65,7 +64,6 @@
     <ClInclude Include="WinApp.h" />
     <ClInclude Include="WinApp2.h" />
     <ClInclude Include="UpgradeItem.h" />
-    <ClInclude Include="Button.h" />
     <ClInclude Include="StartScene.h">
       <Filter>sceneTestfolder</Filter>
     </ClInclude>
