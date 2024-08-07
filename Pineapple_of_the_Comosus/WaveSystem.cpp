@@ -16,7 +16,7 @@ void WaveSystem::InitializePool()
     {
         auto  mon = scene->CreateGameObject<GameObject>();
         auto loadMon = mon->CreateComponent<SpriteRenderer>();
-        loadMon->LoadTexture(L"../Resource/Sun.png");
+        loadMon->LoadTexture(L"../Resource/swordsman.png");
         mon->isActive = false;
         auto monster = mon->CreateComponent<testChar>();
         m_MonsterPool.push_back(monster);
@@ -30,7 +30,7 @@ testChar* WaveSystem::GetMonsterFromPool()
         // 풀에 몬스터가 없으면 새로 생성
         auto  mon = scene->CreateGameObject<GameObject>();
         auto loadMon = mon->CreateComponent<SpriteRenderer>();
-        loadMon->LoadTexture(L"../Resource/Sun.png");
+        loadMon->LoadTexture(L"../Resource/swordsman.png");
         auto monster = mon->CreateComponent<testChar>();
         m_MonsterPool.push_back(monster);
     }
