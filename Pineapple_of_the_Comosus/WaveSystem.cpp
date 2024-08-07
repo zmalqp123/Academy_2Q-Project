@@ -1,4 +1,4 @@
-#include"testChar.h"
+#include "Enemy.h"
 #include "WaveSystem.h"
 #include "../D2DEngine/Scene.h"
 #include"../D2DEngine/SpriteRenderer.h"
@@ -19,12 +19,12 @@ void WaveSystem::InitializePool()
         auto loadMon = mon->CreateComponent<SpriteRenderer>();
         loadMon->LoadTexture(L"../Resource/swordsman.png");
         mon->isActive = false;
-        auto monster = mon->CreateComponent<testChar>();
+        auto monster = mon->CreateComponent<Enemy>();
         m_MonsterPool.push_back(monster);
     }
 }
 
-testChar* WaveSystem::GetMonsterFromPool()
+Enemy* WaveSystem::GetMonsterFromPool()
 {
     if (m_MonsterPool.empty())
     {
@@ -32,17 +32,17 @@ testChar* WaveSystem::GetMonsterFromPool()
         auto  mon = scene->CreateGameObject<GameObject>();
         auto loadMon = mon->CreateComponent<SpriteRenderer>();
         loadMon->LoadTexture(L"../Resource/swordsman.png");
-        auto monster = mon->CreateComponent<testChar>();
+        auto monster = mon->CreateComponent<Enemy>();
         m_MonsterPool.push_back(monster);
     }
 
-    testChar* monster = m_MonsterPool.back();
+    Enemy* monster = m_MonsterPool.back();
     monster->gameObject->isActive = true;
     m_MonsterPool.pop_back();
     return monster;
 }
 
-void WaveSystem::ReturnMonsterToPool(testChar* monster)
+void WaveSystem::ReturnMonsterToPool(Enemy* monster)
 {
     m_MonsterPool.push_back(monster);
     monster->gameObject->isActive = false;
@@ -85,7 +85,7 @@ void WaveSystem::SpawnWave()
     for (int i = 0; i < numMonstersToSpawn; ++i)
     {
         // 풀에서 몬스터를 가져옵니다.
-        testChar* newMonster = GetMonsterFromPool();
+        Enemy* newMonster = GetMonsterFromPool();
 
         // 랜덤하게 왼쪽 또는 오른쪽에서 생성
         bool spawnOnLeft = rand() % 2 == 0;

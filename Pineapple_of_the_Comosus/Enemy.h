@@ -1,6 +1,6 @@
 #pragma once
 #include "../D2DEngine/Component.h"
-
+#include "../D2DEngine/Vector.h"
 enum class EliteType
 {
 	Normal,
@@ -8,7 +8,7 @@ enum class EliteType
 	Fast,
 	Hero
 };
-
+class SpriteRenderer;
 class Enemy : public Component
 {
 protected:
@@ -27,11 +27,20 @@ protected:
 	int reward;
 	int expReward;
 
+	//Vector2 position; // 몬스터의 위치
+	float speed; // 몬스터의 이동 속도
+	Vector2 minBounds; // 이동 범위 최소값
+	Vector2 maxBounds; // 이동 범위 최대값
+
+	//SpriteRenderer* spriteRenderer;  // 추가: SpriteRenderer 포인터
+
 public:
-	Enemy(EliteType _Elite) : eliteType(_Elite) {}
+	Enemy() = default;
 	virtual ~Enemy() = default;
 
-	virtual void Init() = 0;
+	void Init() override;
+	void Update(float delta) override;
+	void Render(D2D1_MATRIX_3X2_F cameraMat) override;
 
 	void SetReward(int Reward, int ExpReward) {
 		reward = Reward;

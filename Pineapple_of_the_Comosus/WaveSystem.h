@@ -5,7 +5,7 @@
 #include <vector>
 
 class Scene;
-class testChar;
+class Enemy;
 class WaveSystem : public Component
 {
 private:
@@ -13,16 +13,16 @@ private:
     int currentWave = 1;       // 현재 진행 중인 wave
     static const int maxWave = 56; // 최대 wave 수
 
-    std::vector<testChar*> m_MonsterPool;
-    std::vector<testChar*> m_Monster;
+    std::vector<Enemy*> m_MonsterPool;
+    std::vector<Enemy*> m_Monster;
 
     // 몬스터 풀의 초기 크기
     static const int initialPoolSize = 10;
 
     // 풀에서 몬스터를 가져오는 메서드
-    testChar* GetMonsterFromPool();
+    Enemy* GetMonsterFromPool();
     // 풀에 몬스터를 반환하는 메서드
-    void ReturnMonsterToPool(testChar* monster);
+    void ReturnMonsterToPool(Enemy* monster);
     void InitializePool();         // 풀 초기화
 public:
     Vector2 rightPos; 

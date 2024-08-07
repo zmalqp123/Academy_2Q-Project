@@ -3,11 +3,6 @@
   <ItemGroup>
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemy_Bomber.cpp" />
-    <ClCompile Include="Enemy_Griffin.cpp" />
-    <ClCompile Include="Enemy_Heavy.cpp" />
-    <ClCompile Include="Enemy_Musket.cpp" />
-    <ClCompile Include="Enemy_Sword.cpp" />
     <ClCompile Include="HarvestButton.cpp" />
     <ClCompile Include="Hpbar.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
@@ -18,12 +13,6 @@
     <ClCompile Include="TestDropDown.cpp" />
     <ClCompile Include="WaveSystem.cpp" />
     <ClCompile Include="Turret.cpp" />
-    <ClCompile Include="Turret_CrossBow.cpp" />
-    <ClCompile Include="Turret_Fertilizer.cpp" />
-    <ClCompile Include="Turret_Mortar.cpp" />
-    <ClCompile Include="Turret_Musket.cpp" />
-    <ClCompile Include="Turret_Slow.cpp" />
-    <ClCompile Include="Turret_SuperCrossBow.cpp" />
     <ClCompile Include="WinApp.cpp" />
     <ClCompile Include="WinApp2.cpp" />
     <ClCompile Include="UpgradeItem.cpp" />
@@ -44,11 +33,6 @@
   <ItemGroup>
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemy_Bomber.h" />
-    <ClInclude Include="Enemy_Griffin.h" />
-    <ClInclude Include="Enemy_Heavy.h" />
-    <ClInclude Include="Enemy_Musket.h" />
-    <ClInclude Include="Enemy_Sword.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="HarvestButton.h" />
     <ClInclude Include="Hpbar.h" />
@@ -59,12 +43,6 @@
     <ClInclude Include="WaveSystem.h" />
     <ClInclude Include="Pineapple.h" />
     <ClInclude Include="Turret.h" />
-    <ClInclude Include="Turret_CrossBow.h" />
-    <ClInclude Include="Turret_Fertilizer.h" />
-    <ClInclude Include="Turret_Mortar.h" />
-    <ClInclude Include="Turret_Musket.h" />
-    <ClInclude Include="Turret_Slow.h" />
-    <ClInclude Include="Turret_SuperCrossBow.h" />
     <ClInclude Include="WinApp.h" />
     <ClInclude Include="WinApp2.h" />
     <ClInclude Include="UpgradeItem.h" />

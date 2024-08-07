@@ -43,7 +43,7 @@ struct TurretData
 
 	BulletType bulletType;
 	float bulletSpeed;
-	float slowRate;
+	int slowRate;
 	float slowDuration;
 
 	float angle;
@@ -81,6 +81,7 @@ public:
 		std::getline(file, line);		// 첫번째 줄 읽기
 		{
 			std::getline(file, line);   // 두번째 줄 읽기 (데이터 갯수)
+			std::getline(file, line);   // 세번째 줄 읽기 (데이터 갯수)
 			std::wstringstream wss(line);
 			wss >> DataCount;
 		}
@@ -141,8 +142,9 @@ public:
 		std::wstring line;			// 한줄의 문자열	
 		int DataCount = 0;			// 띄어쓰기 된 정보의 갯수
 		std::getline(file, line);		// 첫번째 줄 읽기
-		{
-			std::getline(file, line);   // 두번째 줄 읽기 (데이터 갯수)
+		{	
+			std::getline(file, line);
+			std::getline(file, line);   // 세번째 줄 읽기 (데이터 갯수)
 			std::wstringstream wss(line);
 			wss >> DataCount;
 		}

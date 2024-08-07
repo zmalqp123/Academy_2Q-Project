@@ -144,11 +144,6 @@
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemy_Bomber.cpp" />
-    <ClCompile Include="Enemy_Griffin.cpp" />
-    <ClCompile Include="Enemy_Heavy.cpp" />
-    <ClCompile Include="Enemy_Musket.cpp" />
-    <ClCompile Include="Enemy_Sword.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="HarvestButton.cpp" />
     <ClCompile Include="Hpbar.cpp" />
@@ -176,11 +171,6 @@
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemy_Bomber.h" />
-    <ClInclude Include="Enemy_Griffin.h" />
-    <ClInclude Include="Enemy_Heavy.h" />
-    <ClInclude Include="Enemy_Musket.h" />
-    <ClInclude Include="Enemy_Sword.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="HarvestButton.h" />
