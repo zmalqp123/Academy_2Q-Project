@@ -37,6 +37,7 @@ protected:
 	std::set<Collider*> m_ColliderStatePrev;
 public:
 	bool isKinemetic = false;
+	bool ignoreEventSystem = false;
 	Vector2 prevPosition;
 
 	Collider() = default;

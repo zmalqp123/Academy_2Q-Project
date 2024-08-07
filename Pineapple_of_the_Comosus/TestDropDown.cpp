@@ -5,6 +5,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/Camera.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include "PineAppleTile.h"
 int state = 0;
 float angle = 0.f;
 void TestDropDown::Update(float delta)
@@ -24,10 +25,13 @@ void TestDropDown::Update(float delta)
 
 		float e = atan2f(x1 * dir.y - y1 * dir.x, x1 * dir.x + y1 * dir.y) / 3.14159f * 180.f;
 
-		if (dir.x > 0) 
-			dragObj->GetComponent<SpriteRenderer>()->SetFilp(false, false);
-		else {
-			dragObj->GetComponent<SpriteRenderer>()->SetFilp(false, true);
+		auto spr = dragObj->GetComponent<SpriteRenderer>();
+		if (spr) {
+			if (dir.x > 0)
+				spr->SetFilp(false, false);
+			else {
+				spr->SetFilp(false, true);
+			}
 		}
 		dragObj->transform->m_RelativeRotation = e;
 		if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left)) {
@@ -46,6 +50,16 @@ void TestDropDown::Update(float delta)
 		isDrag = false;
 
 		state = 1;
+
+		auto coll = dragObj->GetComponent<Collider>();
+		coll->ignoreEventSystem = false;
+
+		auto pTile = a->GetComponent<PineAppleTile>();
+		if (pTile) {
+			gameObject->transform->pos.worldPosition.x = pTile->gameObject->transform->m_WorldTransform.dx;
+			gameObject->transform->pos.worldPosition.y = pTile->gameObject->transform->m_WorldTransform.dy;
+			pTile->turret = gameObject;
+		}
 	}
 	else if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left) && isDrag == false && state == 0) {
 		if (a == nullptr) return;
@@ -55,6 +69,9 @@ void TestDropDown::Update(float delta)
 		offset = dragObj->transform->pos.worldPosition - camera->ScreenToWorldPosition(mousePos);
 
 		angle = dragObj->transform->m_RelativeRotation;
+
+		auto coll = dragObj->GetComponent<Collider>();
+		coll->ignoreEventSystem = true;
 	}
 	else if (isDrag && state == 0) {
 		Vector2 mousePos = InputManager::GetInstance().GetMousePosition();

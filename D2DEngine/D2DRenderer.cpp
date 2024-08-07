@@ -164,6 +164,16 @@ void D2DRenderer::DrawHollowRectangle(float x1, float y1, float x2, float y2, fl
     }
 }
 
+void D2DRenderer::DrawCircle(float x, float y, float radius, D2D1::ColorF color)
+{
+    if (g_brush != nullptr)
+        g_brush->Release();
+    HRESULT hr = _RenderTarget->CreateSolidColorBrush(color, &g_brush);
+    _RenderTarget->DrawEllipse({ D2D1::Point2F(0.f, 0.f),
+    radius,
+    radius }, g_brush);
+}
+
 HRESULT D2DRenderer::CreateD2DBitmapFromFile(const WCHAR* szFilePath, ID2D1Bitmap** ppID2D1Bitmap)
 {
     HRESULT hr;

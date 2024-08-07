@@ -58,6 +58,7 @@ public:
 	void DrawRectangle(float x1, float y1, float x2, float y2, D2D1::ColorF color);
 	void DrawLine(D2D1_POINT_2F p0, D2D1_POINT_2F p1, float width, D2D1::ColorF color, D2D1_MATRIX_3X2_F transform);
 	void DrawHollowRectangle(float x1, float y1, float x2, float y2, float width, D2D1::ColorF color);
+	void DrawCircle(float x, float y, float radius, D2D1::ColorF color);
 	
 	HRESULT CreateD2DBitmapFromFile(const WCHAR* szFilePath, ID2D1Bitmap** ppID2D1Bitmap);
 	void DrawBitmap(ID2D1Bitmap* pBitmap, D2D1_MATRIX_3X2_F transform);

@@ -81,6 +81,8 @@ void EventSystem::Update(Scene* scene, float delta)
 			if (isPointer == true) continue;
 			if (Collider* c = dynamic_cast<Collider*>(coll))
 			{
+				if (c->ignoreEventSystem == true) continue;
+
 				if (object->transform->type == Type::World) {
 					bool result = c->isCollide(scene->camera->ScreenToWorldPosition(mousePos));
 					if (result) {

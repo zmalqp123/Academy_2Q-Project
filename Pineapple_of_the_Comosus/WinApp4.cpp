@@ -20,6 +20,11 @@
 
 #include "DataManager.h"
 #include "TestDropDown.h"
+
+#include "PineAppleTile.h"
+#include "MainPineApple.h"
+#include "GamePlayManager.h"
+
 void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
 	// 기본 초기화 + 카메라 생성
@@ -29,8 +34,141 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	auto pCam = camera->CreateComponent<Camera>();
 	scene->SetMainCamera(pCam);
 
-	DataManager::GetInstance().LoadEnemySheetFromCSV(L"../Resource/EnemyData.csv");
+	// 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
+	auto gmObj = scene->CreateGameObject<GameObject>();
+	auto GamaManager = gmObj->CreateComponent<GamePlayManager>();
 
+	// 코모서스 파인애플 (겁나 큼)
+	auto paObj = scene->CreateGameObject<GameObject>();
+	paObj->transform->pos.worldPosition = { 0.f, -200.f };
+	auto pineApple = paObj->CreateComponent<MainPineApple>();
+
+	auto turretTest = scene->CreateGameObject<GameObject>();
+	auto drop = turretTest->CreateComponent<TestDropDown>();
+	drop->camera = scene->camera;
+	auto circle = turretTest->CreateComponent<CircleCollider>();
+	circle->SetRadius(100.f);
+
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { -200.f, 200.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 0;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { 0.f, 200.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 1;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { 200.f, 200.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 2;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { -100.f, 100.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 3;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { 100.f, 100.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 4;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { -200.f, 0.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 5;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { 0.f, 0.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 6;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
+	{
+		// 파인애플 타일들
+		auto paTileObj = scene->CreateGameObject<GameObject>();
+		paTileObj->transform->SetParent(paObj->transform);
+		paTileObj->transform->pos.worldPosition = { 200.f, 0.f };
+
+		auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+		pineTile->pApple = pineApple;
+		pineTile->index = 7;
+
+		auto coll = paTileObj->CreateComponent<CircleCollider>();
+		coll->SetCollisionType(CollisionType::Overlap);
+		coll->isKinemetic = true;
+		coll->SetRadius(60.f);
+	}
 }
 
 void WinApp4::Update(float deltaTime)

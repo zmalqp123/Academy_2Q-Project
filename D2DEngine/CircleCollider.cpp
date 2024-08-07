@@ -99,9 +99,10 @@ void CircleCollider::Render(D2D1_MATRIX_3X2_F cameraMat)
 		* m_ScreenTransform;
 	pRenderTarget->SetTransform(Transform);
 	//pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, m_SrcRect);
-	D2DRenderer::getIncetance().getRenderTarget().DrawEllipse({ D2D1::Point2F(0.f, 0.f),
+	/*D2DRenderer::getIncetance().getRenderTarget().DrawEllipse({ D2D1::Point2F(0.f, 0.f),
 	radius,
-	radius }, D2DRenderer::getIncetance().g_brush);
+	radius }, D2DRenderer::getIncetance().g_brush);*/
+	D2DRenderer::getIncetance().DrawCircle(0.f, 0.f, radius, D2D1::ColorF::Green);
 }
 
 void CircleCollider::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat)
