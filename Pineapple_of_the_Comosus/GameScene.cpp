@@ -1,5 +1,7 @@
 #include "GameScene.h"
 #include "../D2DEngine/D2DRenderer.h"
+#include "GameScene.h"
+#include "../D2DEngine/D2DRenderer.h"
 #include "../D2DEngine/Camera.h"
 #include "../D2DEngine/SoundManager.h"
 #include "../D2DEngine/InputManager.h"
@@ -7,9 +9,8 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include"../D2DEngine/ImageUIRenderer.h"
+#include "../D2DEngine/Button.h"
 #include"../D2DEngine/SceneManager.h"
-//Hpbar* hpBarUi;
-//Mpbar* mpBarUi;
 
 GameScene::GameScene() {
     std::cout << "GameScene Constructor" << std::endl;
@@ -51,7 +52,7 @@ void GameScene::Start() {
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가
     auto nightObj = CreateGameObject<GameObject>();
     nightSystem = nightObj->CreateComponent<DayNightCycle>();
-    
+
     // 내부 컴포넌트 포인터 주소 연결
     nightSystem->waveSystem = waveSystem;
 
@@ -63,7 +64,7 @@ void GameScene::Start() {
 
     for (size_t i = 0; i < 6; i++) {
         auto turretUI = CreateGameObject<GameObject>();
-        auto turretImage = turretUI->CreateComponent<ImageUIRenderer>();
+        auto turretImage = turretUI->CreateComponent<Button>();
         startX = i * (spacing + width);
         turretUI->transform->SetParent(uiObj->transform);
         turretUI->transform->type = Type::Ui;
@@ -72,23 +73,63 @@ void GameScene::Start() {
     }
 
     // HP 및 MP 바 UI
-    auto mpBarObj = CreateGameObject<GameObject>();
-    auto mpBarImage = mpBarObj->CreateComponent<ImageUIRenderer>();
-    mpBarObj->transform->SetParent(uiObj->transform);
-    mpBarObj->transform->type = Type::Ui;
-    mpBarObj->transform->pos.rectposition = { {20.f,10.f} ,{20.f + 820.f,30.f} };
-    mpBarUi = mpBarObj->CreateComponent<Mpbar>();
-    mpBarUi->ImageRender = mpBarImage;
-    mpBarImage->LoadTexture(L"../Resource/Mpbar.png");
 
     auto hpBarObj = CreateGameObject<GameObject>();
     auto hpBarImage = hpBarObj->CreateComponent<ImageUIRenderer>();
     hpBarObj->transform->SetParent(uiObj->transform);
     hpBarObj->transform->type = Type::Ui;
-    hpBarObj->transform->pos.rectposition = { {20.f,30.f} ,{20.f + 820.f,50.f} };
+    hpBarObj->transform->pos.rectposition = { {20.f,0.f} ,{20.f + 820.f,20.f} };
     hpBarUi = hpBarObj->CreateComponent<Hpbar>();
     hpBarUi->ImageRender = hpBarImage;
     hpBarImage->LoadTexture(L"../Resource/Hpbar.png");
+
+
+    auto mpBarObj = CreateGameObject<GameObject>();
+    auto mpBarImage = mpBarObj->CreateComponent<ImageUIRenderer>();
+    mpBarObj->transform->SetParent(uiObj->transform);
+    mpBarObj->transform->type = Type::Ui;
+    mpBarObj->transform->pos.rectposition = { {20.f,20.f} ,{20.f + 820.f,40.f} };
+    mpBarUi = mpBarObj->CreateComponent<Mpbar>();
+    mpBarUi->ImageRender = mpBarImage;
+    mpBarImage->LoadTexture(L"../Resource/Mpbar.png");
+
+    /*auto turretUI = CreateGameObject<GameObject>();
+    auto turretImage = turretUI->CreateComponent<Button>();
+    startX = i * (spacing + width);
+    turretUI->transform->SetParent(uiObj->transform);
+    turretUI->transform->type = Type::Ui;
+    turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
+    turretImage->LoadTexture(L"../Resource/turret.png");*/
+
+    // 골드 보유량 Ui
+    auto GoldObj = CreateGameObject<GameObject>();
+    auto GoldImage = GoldObj->CreateComponent<Button>();
+    GoldObj->transform->SetParent(uiObj->transform);
+    GoldObj->transform->type = Type::Ui;
+    GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,40.f} ,{20.f + 820.f + spacing + 270.f, (200.f - spacing)} };
+    /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
+    harvestUi->ImageRender = HarvestbtnImage;*/
+    GoldImage->LoadTexture(L"../Resource/upgradeButton.png");
+
+    // 강화 버튼 
+    auto UpgradeObj = CreateGameObject<GameObject>();
+    auto UpgradeImage = UpgradeObj->CreateComponent<Button>();
+    UpgradeObj->transform->SetParent(uiObj->transform);
+    UpgradeObj->transform->type = Type::Ui;
+    UpgradeObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,10.f} ,{20.f + 820.f + spacing + 270.f, (200.f - spacing) / 2} };
+    /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
+    harvestUi->ImageRender = HarvestbtnImage;*/
+    UpgradeImage->LoadTexture(L"../Resource/button.png");
+
+    // 수확 버튼 -> 이거 완성 500 * 500
+    auto Harvestobj = CreateGameObject<GameObject>();
+    auto HarvestbtnImage = Harvestobj->CreateComponent<Button>();
+    Harvestobj->transform->SetParent(uiObj->transform);
+    Harvestobj->transform->type = Type::Ui;
+    Harvestobj->transform->pos.rectposition = { {20.f + 820.f + spacing + 270.f + spacing,10.f} ,{20.f + 820.f + spacing + 270.f + spacing + 180.f, 200.f - spacing} };
+    /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
+    harvestUi->ImageRender = HarvestbtnImage;*/
+    HarvestbtnImage->LoadTexture(L"../Resource/harvest.png");
 }
 
 void GameScene::Clear() {
