@@ -1,5 +1,5 @@
 #pragma once
-#include "../D2DEngine/GameObject.h"
+#include "../D2DEngine/Component.h"
 
 enum class BulletType
 {	
@@ -9,7 +9,7 @@ enum class BulletType
 	Burst
 };
 
-class Turret : public GameObject
+class Turret : public Component
 {	
 protected:
 	int cost;

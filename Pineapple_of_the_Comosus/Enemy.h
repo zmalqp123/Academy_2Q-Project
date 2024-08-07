@@ -1,5 +1,5 @@
 #pragma once
-#include "../D2DEngine/GameObject.h"
+#include "../D2DEngine/Component.h"
 
 enum class EliteType
 {
@@ -9,7 +9,7 @@ enum class EliteType
 	Hero
 };
 
-class Enemy : public GameObject
+class Enemy : public Component
 {
 protected:
 	int resistArrow;
