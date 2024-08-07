@@ -15,6 +15,8 @@ public:
     // 특정 씬으로 전환하는 함수
     void ChangeScene(const std::string& name);
 
+    void Release();
+
     // 현재 활성화된 씬을 가져오는 함수
     Scene* GetCurrentScene();
 

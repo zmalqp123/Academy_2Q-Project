@@ -130,17 +130,7 @@ bool WaveSystem::IsMapEmpty()
 
 WaveSystem::~WaveSystem()
 {
-    /// 몬스터를 풀에 반환
-    for (testChar* monster : m_Monster)
-    {
-        ReturnMonsterToPool(monster);
-    }
     m_Monster.clear();
 
-    // 풀에 있는 몬스터들을 삭제
-    for (testChar* monster : m_MonsterPool)
-    {
-        delete monster;
-    }
     m_MonsterPool.clear();
 }
