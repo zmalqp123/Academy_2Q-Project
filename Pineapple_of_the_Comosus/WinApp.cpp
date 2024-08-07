@@ -37,9 +37,7 @@ void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	circle->SetRadius(100.f);
 	auto box = areaObj->CreateComponent<BoxCollider>();
 	box->SetExtent({ 3.f, 10.f });
-	auto DataManager = DataManager::GetInstance();
-	DataManager.LoadEnemySheetFromCSV(L"../Resource/EnemyData.csv");
-	DataManager.LoadTurretSheetFromCSV(L"../Resource/TurretData.csv");
+	
 	//areaObj->CreateComponent<MouseDownTest>();
 }
 
