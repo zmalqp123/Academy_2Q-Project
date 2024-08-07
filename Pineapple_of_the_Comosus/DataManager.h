@@ -53,13 +53,14 @@ class DataManager
 {
 private:
 	DataManager()=default;
+	
+public:
 	~DataManager() {
 		for (auto& data : enemyDataList) {
 			delete data;
 		}
 		enemyDataList.clear();
 	};
-public:
 	static DataManager& GetInstance() {
 		static DataManager instance;
 		return instance;
@@ -96,6 +97,7 @@ public:
 				getline(wss, token, L',');	// wss의 내용을 ,를 기준으로 문자열을 분리 Name
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Size
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 EliteType
+				//이 부분은 검증이 안됨 잘 들어가는지 확인 할 것. 아마도 다이나믹 캐스트 해야할 것 같은디...
 				Enemy->eliteType = static_cast<EliteType>(_wtoi(token.c_str()));
 
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Resist
@@ -170,8 +172,9 @@ public:
 				Turret->fireRate = _wtof(token.c_str());
 				getline(wss, token, L',');
 				Turret->penetration = _wtoi(token.c_str());
-				getline(wss, token, L',');
-				Turret->bulletType = static_cast<BulletType>(_wtoi(token.c_str()));
+				getline(wss, token, L','); 
+				//이 부분은 검증이 안됨 잘 들어가는지 확인 할 것. 아마도 다이나믹 캐스트 해야할 것 같은디...
+				Turret->bulletType = static_cast<BulletType>(_wtoi(token.c_str())); 
 				getline(wss, token, L',');
 				Turret->bulletSpeed = _wtof(token.c_str());
 
