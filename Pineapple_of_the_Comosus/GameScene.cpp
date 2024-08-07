@@ -8,7 +8,6 @@
 #include "../D2DEngine/SpriteRenderer.h"
 #include"../D2DEngine/ImageUIRenderer.h"
 #include"../D2DEngine/SceneManager.h"
-
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
@@ -48,6 +47,14 @@ void GameScene::Start() {
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
     waveSystem->scene = this;
+
+    // DayNightCycleComponent 생성 및 게임 오브젝트에 추가
+    auto nightObj = CreateGameObject<GameObject>();
+    nightSystem = nightObj->CreateComponent<DayNightCycle>();
+    
+    // 내부 컴포넌트 포인터 주소 연결
+    nightSystem->waveSystem = waveSystem;
+
 
     // 터렛 UI
     float spacing = 20.0f;
@@ -92,7 +99,7 @@ void GameScene::Clear() {
 }
 
 void GameScene::Update(float deltaTime) {
-    Scene::Update(deltaTime);
+    __super::Update(deltaTime);
 
     if (InputManager::GetInstance().IsKeyDown('1')) {
         hpBarUi->takeDamage(10.f);
@@ -113,9 +120,21 @@ void GameScene::Update(float deltaTime) {
         SceneManager::GetInstance().ChangeScene("StartScene");
     }
 
+    // 동시 사운드 테스트 
+    if (InputManager::GetInstance().IsKeyDown('5')) {
+        // 5번을 클릭할 때 마다 SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3"); 사운드가 
+        // 기존의 사운드는 그대로 출력되고 새 사운드가 중복으로 출력되게 하려고 하는데, 어떻게 하면 좋을까?
+         // 새로운 고유 이름으로 사운드 로드
+        std::wstring soundName = L"gimicSuccess";
+        SoundManager::GetInstance().LoadSound(soundName, L"../Media/gimicSuccess.mp3");
+
+        // 로드된 사운드를 재생
+        SoundManager::GetInstance().PlaySoundW(soundName, true);
+    }
+
     SoundManager::GetInstance().Update();
 }
 
 void GameScene::Render(D2DRenderer* _render) {
-    Scene::Render(_render);
+    __super::Render(_render);
 }
