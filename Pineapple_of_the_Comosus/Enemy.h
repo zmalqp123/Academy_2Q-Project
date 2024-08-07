@@ -53,8 +53,6 @@ public:
 		range = Range;
 	}
 
-
-
 	Enemy& GetEnemy() { return *this; }
 };
 

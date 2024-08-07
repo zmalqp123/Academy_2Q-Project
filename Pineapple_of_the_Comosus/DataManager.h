@@ -1,0 +1,112 @@
+#pragma once
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include "Enemy.h"
+
+struct EnemyData {
+	EnemyData(int _id) : id(_id) {};
+	~EnemyData() = default;
+
+	int id;
+	EliteType eliteType;
+
+	int resistArrow;
+	int resistBullet;
+	int resistBurst;
+	int resistComosus;
+
+	int hp;
+	int moveSpeed;
+	int attack;
+	int attackRate;
+	int range;
+
+	int reward;
+	int expReward;
+};
+
+class DataManager
+{
+private:
+	DataManager()=default;
+	~DataManager() {
+		for (auto& data : enemyDataList) {
+			delete data;
+		}
+		enemyDataList.clear();
+	};
+public:
+	static DataManager& GetInstance() {
+		static DataManager instance;
+		return instance;
+	}
+
+	std::vector<EnemyData*> enemyDataList;
+
+	bool LoadEnemySheetFromCSV(const wchar_t* fileName) //아직 엘리트 타입은 확인하지 않음 확인필요!
+	{
+		std::wifstream file(fileName);
+		if (!file.is_open()) {
+			std::cout << "파일을 열 수 없습니다." << std::endl;
+			std::wcout << fileName << std::endl;
+			return false;
+		}
+		std::wstring line;			// 한줄의 문자열	
+		int DataCount = 0;			// 띄어쓰기 된 정보의 갯수
+		std::getline(file, line);		// 첫번째 줄 읽기
+		{
+			std::getline(file, line);   // 두번째 줄 읽기 (데이터 갯수)
+			std::wstringstream wss(line);
+			wss >> DataCount;
+		}
+
+		for (int j = 0; j < DataCount; j++)
+		{	
+			
+			getline(file, line);		// 한줄 읽기
+			std::wstringstream wss(line);    // 한줄을 읽어서 wstringstream에 저장
+			std::wstring token;
+			{
+				getline(wss, token, L',');	// wss의 내용을 ,를 기준으로 문자열을 분리 ID
+				EnemyData* Enemy = new EnemyData(_wtoi(token.c_str()));
+				getline(wss, token, L',');	// wss의 내용을 ,를 기준으로 문자열을 분리 Name
+				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Size
+				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 EliteType
+				Enemy->eliteType = static_cast<EliteType>(_wtoi(token.c_str()));
+
+				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Resist
+				Enemy->resistArrow = _wtoi(token.c_str());
+				getline(wss, token, L',');
+				Enemy->resistBullet = _wtoi(token.c_str());
+				getline(wss, token, L',');
+				Enemy->resistBurst = _wtoi(token.c_str());
+				getline(wss, token, L',');
+				Enemy->resistComosus = _wtoi(token.c_str());
+
+				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Stat
+				Enemy->hp = _wtoi(token.c_str());
+				getline(wss, token, L',');  
+				Enemy->moveSpeed = _wtoi(token.c_str());
+				getline(wss, token, L',');  
+				Enemy->attack = _wtoi(token.c_str());
+				getline(wss, token, L',');  
+				Enemy->attackRate = _wtoi(token.c_str());
+				getline(wss, token, L',');  
+				Enemy->range = _wtoi(token.c_str());
+
+				getline(wss, token, L',');
+				Enemy->reward = _wtoi(token.c_str());
+				getline(wss, token, L',');
+				Enemy->expReward = _wtoi(token.c_str());
+				enemyDataList.push_back(Enemy);
+			}
+		}
+
+		return true;
+	}
+
+};
+
