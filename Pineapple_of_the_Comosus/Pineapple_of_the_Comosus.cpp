@@ -3,7 +3,7 @@
 
 #include "framework.h"
 #include "WinApp.h"
-#include "WinApp2.h"
+#include "WinApp3.h"
 
 #define MAX_LOADSTRING 100
 
@@ -35,7 +35,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         freopen_s(&_tempFile, "CONOUT$", "w", stdout);
     }
 
-    WinApp2 App;
+    WinApp3 App;
     App.Initialize(hInstance, nCmdShow, 1920.f, 1080.f);
     App.Run();
     App.Uninitialize();

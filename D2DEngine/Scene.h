@@ -22,10 +22,10 @@ public:
 	Camera* camera = nullptr;
 	D2D1_MATRIX_3X2_F cameraMat;
 
-	void Start();
-	void Update(float deltaTime);
-	void Render(D2DRenderer* _render);
-	void Clear();
+	virtual  void Start(); // init
+	virtual void Update(float deltaTime);
+	virtual void Render(D2DRenderer* _render);
+	virtual void Clear(); // exit
 	void SetCullingBound(AABB* pBound);
 	void SetMainCamera(Camera* cam);
 	

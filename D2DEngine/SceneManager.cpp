@@ -1,41 +1,47 @@
+// SceneManager.cpp
 #include "pch.h"
 #include "SceneManager.h"
-#include "Scene.h"
-void SceneManager::Init()
-{
-	if (scenes.empty()) {
-		Scene* scene = new Scene();
-		scenes.insert(make_pair("Default", scene));
+#include <iostream>
 
-		auto camera = scene->CreateGameObject<GameObject>();
-		auto pCam = camera->CreateComponent<Camera>();
-		scene->SetMainCamera(pCam);
-		
-		curScene = scene;
-	}
+// 싱글턴 인스턴스를 가져오는 함수
+SceneManager& SceneManager::GetInstance() {
+    static SceneManager instance;
+    return instance;
 }
 
-void SceneManager::AddScene(string sceneName, Scene* scene)
-{
-	scenes.insert(make_pair(sceneName.c_str(), scene));
+// 생성자
+SceneManager::SceneManager() : currentScene(nullptr) {}
+
+// 소멸자
+SceneManager::~SceneManager() {
+    for (auto& pair : scenes) {
+        delete pair.second;
+    }
 }
 
-void SceneManager::RemoveScene(string sceneName)
-{
-	scenes.erase(sceneName);
+// 씬을 등록하는 함수
+void SceneManager::RegisterScene(const std::string& name, Scene* scene) {
+    scenes[name] = scene;
 }
 
-void SceneManager::LoadScene(string sceneName)
-{
-	//curScene->Release
+// 특정 씬으로 전환하는 함수
+void SceneManager::ChangeScene(const std::string& name) {
+    if (currentScene) {
+        currentScene->Clear(); // 현재 씬에서 자원 정리
+    }
+
+    auto it = scenes.find(name);
+    if (it != scenes.end()) {
+        currentScene = it->second;
+        // 추가적인 초기화가 필요하면 여기서 처리
+        currentScene->Start(); // 새로운 씬의 초기화
+    }
+    else {
+        std::cerr << "Scene " << name << " not found!" << std::endl;
+    }
 }
 
-string SceneManager::GetCurSceneKey()
-{
-	return string();
-}
-
-Scene* SceneManager::GetCurSceneValue()
-{
-	return nullptr;
+// 현재 활성화된 씬을 가져오는 함수
+Scene* SceneManager::GetCurrentScene() {
+    return currentScene;
 }

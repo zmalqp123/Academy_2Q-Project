@@ -32,7 +32,7 @@ void HarvestButton::UpdateButtonOpacity()
 void HarvestButton::Update(float deltaTime)
 {
     // 경험치를 확인하고 수확 가능 여부를 설정
-    if (HarvestAble())
+    if (mp->getCurrMp() >= mp->getMaxMp() * harvestMinmumGage)
     {
         // 버튼의 투명도 업데이트 -> 수확 버튼 활성화
         UpdateButtonOpacity();
