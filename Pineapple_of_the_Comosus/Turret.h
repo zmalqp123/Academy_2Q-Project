@@ -16,10 +16,11 @@ protected:
 	int refund;
 
 	BulletType bulletType;
-	float bulletSpeed;
+	float burstRange;
 	int damage;
 	float fireRate;
 	int penetration;
+	float bulletSpeed;
 
 	float angle;
 
