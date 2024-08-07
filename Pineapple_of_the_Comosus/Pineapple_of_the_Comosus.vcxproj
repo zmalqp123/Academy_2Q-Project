@@ -170,6 +170,7 @@
     <ClCompile Include="WinApp.cpp" />
     <ClCompile Include="WinApp2.cpp" />
     <ClCompile Include="WinApp3.cpp" />
+    <ClCompile Include="WinApp4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\D2DEngine\D2DEngine.vcxproj">
@@ -206,6 +207,7 @@
     <ClInclude Include="WinApp.h" />
     <ClInclude Include="WinApp2.h" />
     <ClInclude Include="WinApp3.h" />
+    <ClInclude Include="WinApp4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -36,6 +36,9 @@
     <ClCompile Include="WinApp3.cpp">
       <Filter>sceneTestfolder</Filter>
     </ClCompile>
+    <ClCompile Include="WinApp4.cpp">
+      <Filter>MyTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h" />
@@ -73,10 +76,19 @@
     <ClInclude Include="WinApp3.h">
       <Filter>sceneTestfolder</Filter>
     </ClInclude>
+    <ClInclude Include="WinApp4.h">
+      <Filter>MyTest</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sceneTestfolder">
       <UniqueIdentifier>{39466412-9f37-453f-9730-a15b04b0e720}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyTest">
+      <UniqueIdentifier>{fac21781-1be0-449e-97ce-f71d225adf71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyTest\TestPineApple">
+      <UniqueIdentifier>{0eb18d89-3285-4ed3-971c-329127866965}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

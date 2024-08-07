@@ -3,7 +3,9 @@
 
 #include "framework.h"
 #include "WinApp.h"
+#include "WinApp2.h"
 #include "WinApp3.h"
+#include "WinApp4.h"
 
 #define MAX_LOADSTRING 100
 

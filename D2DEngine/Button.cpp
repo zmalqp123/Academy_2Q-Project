@@ -58,7 +58,7 @@ void Button::Render(D2D1_MATRIX_3X2_F cameraMat)
 void Button::OnClick()
 {
     std::cout << "ClickDown!" << std::endl;
-    events();
+    if (events != nullptr) events();
 }
 
 void Button::OffClick()
@@ -69,7 +69,7 @@ void Button::OffClick()
 
 void Button::AddListener(std::function<void()> func)
 {
-    events = func;
+     events = func;
 }
 
 bool Button::isCollide(Collider* collider, Vector2& resolution)
@@ -79,10 +79,14 @@ bool Button::isCollide(Collider* collider, Vector2& resolution)
 
 bool Button::isCollide(const Vector2& point)
 {
-    bool result = (gameObject->transform->pos.rectposition.leftBottom.x <= point.x &&
-        gameObject->transform->pos.rectposition.rightTop.x >= point.x &&
-        gameObject->transform->pos.rectposition.leftBottom.y <= point.y &&
-        gameObject->transform->pos.rectposition.rightTop.y >= point.y);
+    float x = gameObject->transform->m_WorldTransform.dx;
+    float y = gameObject->transform->m_WorldTransform.dy;
+    float dx = gameObject->transform->pos.rectposition.rightTop.x - gameObject->transform->pos.rectposition.leftBottom.x;
+    float dy = gameObject->transform->pos.rectposition.rightTop.y - gameObject->transform->pos.rectposition.leftBottom.y;
+    bool result = (x <= point.x &&
+        x + dx >= point.x &&
+        y <= point.y &&
+        y + dy >= point.y);
     return result;
 }
 
