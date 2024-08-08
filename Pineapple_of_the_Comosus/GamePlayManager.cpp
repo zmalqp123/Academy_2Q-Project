@@ -7,13 +7,13 @@
 #include "../D2DEngine/SpriteRenderer.h"
 #include "PineAppleTile.h"
 #include "Turret.h"
+#include "../D2DEngine/BoxCollider.h"
 
+std::wstring hmm;
 void GamePlayManager::Update(float deltaTime)
 {
-	if (isAngle == true) {
-
-	}
-	else if (isDrag == true) {
+	// 터렛 배치용
+	if (isDrag == true) {
 		if (!InputManager::GetInstance().GetPrevMouseState().right && InputManager::GetInstance().GetMouseState().right) {
 			isDrag = false;
 			dragObj->SetActive(false);
@@ -37,18 +37,49 @@ void GamePlayManager::Update(float deltaTime)
 					isDrag = false;
 					dragObj->SetActive(false);
 
-					// 해당 타일의 터렛을 활성화.
-					isAngle = true;
+					// 터렛 활성화
+					pTile->turret->SetActive(true);
+					pTile->SetActivateTurret(hmm);
 				}
 			}
 		}
 	}
-}
 
+	// 터렛 선택용
+	else if (isDrag == false && EventSystem::GetInstance().GetCurrUIObject() == nullptr) {
+		if (isSelect == true) {
+			Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
+			mousePos = camera->ScreenToWorldPosition(mousePos);
+
+			Vector2 center = (mousePos + startPos) * 0.5f;
+			Vector2 extent = (mousePos - startPos) * 0.5f;
+			extent.x = std::abs(extent.x);
+			extent.y = std::abs(extent.y);
+
+			multiSelectBox->SetCenter(center);
+			multiSelectBox->SetExtent(extent);
+			if (InputManager::GetInstance().GetPrevMouseState().left && !InputManager::GetInstance().GetMouseState().left) {
+				// todo?
+				isSelect = false;
+				selectBoxObj->SetActive(false);
+			}
+		}
+		else if (!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left) {
+			Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
+
+			startPos = camera->ScreenToWorldPosition(mousePos);
+			isSelect = true;
+			selectBoxObj->SetActive(true);
+			multiSelectBox->SetCenter({0.f, 0.f});
+			multiSelectBox->SetExtent({ 0.f, 0.f });
+		}
+	}
+}
 void GamePlayManager::StartBatch(int type)
 {
 	isDrag = true;
 	dragObj->SetActive(true);
 	auto spr = dragObj->GetComponent<SpriteRenderer>();
-	spr->LoadTexture(type == 0 ? L"../Resource/Sun.png" : L"../Resource/Earth.png");
+	hmm = type == 0 ? L"../Resource/Sun.png" : L"../Resource/Earth.png";
+	spr->LoadTexture(hmm);
 }

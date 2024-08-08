@@ -83,6 +83,9 @@
     <ClCompile Include="MusKetShooter.cpp">
       <Filter>Enemy\MusKetShooter</Filter>
     </ClCompile>
+    <ClCompile Include="SelectTurretContainer.cpp">
+      <Filter>PineAppleObj</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="MusKetShooter.h">
       <Filter>Enemy\MusKetShooter</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectTurretContainer.h">
+      <Filter>PineAppleObj</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

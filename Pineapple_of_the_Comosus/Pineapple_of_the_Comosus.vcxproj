@@ -159,6 +159,7 @@
     <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="PineAppleTile.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
+    <ClCompile Include="SelectTurretContainer.cpp" />
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="testChar.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Mpbar.h" />
     <ClInclude Include="MusKetShooter.h" />
     <ClInclude Include="PineAppleTile.h" />
+    <ClInclude Include="SelectTurretContainer.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="SwordMan.h" />
     <ClInclude Include="testChar.h" />

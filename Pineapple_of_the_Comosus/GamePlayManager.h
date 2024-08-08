@@ -3,6 +3,7 @@
 #include "../D2DEngine/Vector.h"
 class GameObject;
 class Camera;
+class BoxCollider;
 class GamePlayManager : public Component
 {
 public:
@@ -13,7 +14,11 @@ public:
 
 	GameObject* dragObj = nullptr;
 	bool isDrag = false;
-	bool isAngle = false;
+
+	GameObject* selectBoxObj = nullptr;
+	BoxCollider* multiSelectBox = nullptr;
+	Vector2 startPos;
+	bool isSelect = false;
 
 	virtual void Update(float deltaTime);
 

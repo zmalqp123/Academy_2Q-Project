@@ -38,8 +38,14 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 
 	// 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
 	auto gmObj = scene->CreateGameObject<GameObject>();
-	auto GamaManager = gmObj->CreateComponent<GamePlayManager>();
-	GamaManager->camera = scene->camera;
+	auto GameManager = gmObj->CreateComponent<GamePlayManager>();
+	GameManager->camera = scene->camera;
+
+	auto boxObj = scene->CreateGameObject<GameObject>();
+	boxObj->SetActive(false);
+	auto boxColl = boxObj->CreateComponent<BoxCollider>();
+	GameManager->selectBoxObj = boxObj;
+	GameManager->multiSelectBox = boxColl;
 
 
 	// 코모서스 파인애플 (겁나 큼)
@@ -60,7 +66,7 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	testDragObj->SetActive(false);
 	auto sproper = testDragObj->CreateComponent<SpriteRenderer>();
 	sproper->alpha = 0.5f;
-	GamaManager->dragObj = testDragObj;
+	GameManager->dragObj = testDragObj;
 
 	auto testBtn1 = scene->CreateGameObject<GameObject>();
 	testBtn1->transform->type = Type::Ui;
@@ -70,7 +76,7 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	auto turretUI = testBtn1->CreateComponent<TurretUI>();
 	turretUI->SetIndex(0);
 	btn1->LoadTexture(L"../Resource/Sun.png");
-	btn1->AddListener([GamaManager, turretUI]() {GamaManager->StartBatch(turretUI->GetIndex()); });
+	btn1->AddListener([GameManager, turretUI]() {GameManager->StartBatch(turretUI->GetIndex()); });
 
 	auto testBtn2 = scene->CreateGameObject<GameObject>();
 	testBtn2->transform->type = Type::Ui;
@@ -80,7 +86,7 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	auto turretUI2 = testBtn2->CreateComponent<TurretUI>();
 	turretUI2->SetIndex(1);
 	btn2->LoadTexture(L"../Resource/Earth.png");
-	btn2->AddListener([GamaManager, turretUI2]() {GamaManager->StartBatch(turretUI2->GetIndex()); });
+	btn2->AddListener([GameManager, turretUI2]() {GameManager->StartBatch(turretUI2->GetIndex()); });
 
 	{
 		// 파인애플 타일들
@@ -98,6 +104,7 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetRadius(60.f);
 
 		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
@@ -117,6 +124,13 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 	{
 		// 파인애플 타일들
@@ -132,6 +146,13 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 	{
 		// 파인애플 타일들
@@ -147,6 +168,13 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 	{
 		// 파인애플 타일들
@@ -162,6 +190,13 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 	{
 		// 파인애플 타일들
@@ -177,6 +212,13 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 	{
 		// 파인애플 타일들
@@ -192,6 +234,13 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 	{
 		// 파인애플 타일들
@@ -207,6 +256,13 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->isActive = false;
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 }
 

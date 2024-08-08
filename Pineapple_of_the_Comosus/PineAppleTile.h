@@ -1,6 +1,7 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include "../D2DEngine/EventSystem.h"
+#include <string>
 class MainPineApple;
 class GameObject;
 class PineAppleTile : public Component, public IPointer 
@@ -21,5 +22,9 @@ public:
 	GameObject* turret = nullptr;
 	MainPineApple* pApple = nullptr;
 	int index;
+
+	bool isSelected = false;
+
+	void SetActivateTurret(std::wstring& path);
 };
 
