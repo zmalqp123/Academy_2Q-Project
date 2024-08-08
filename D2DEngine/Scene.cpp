@@ -39,7 +39,7 @@ void Scene::Update(float deltaTime)
 	for (int i = 0; i < collider.size(); i++) {
 		collider[i]->prevPosition = collider[i]->gameObject->transform->m_RelativeLocation;
 	}*/
-
+	if (m_GameObjects.size() == 0) return;
 	auto a = m_GameObjects;
 
 	for (auto gameObject : a) {
