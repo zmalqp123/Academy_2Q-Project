@@ -9,7 +9,7 @@ DayNightCycle::DayNightCycle(WaveSystem* waveSystem)
 void DayNightCycle::Update(float deltaTime) {
     int curWave = waveSystem->getCurrentWave();
 
-    std::cout << curWave;
+    //std::cout << curWave;
     // 4의 배수 웨이브에서 밤이 된다.
     if (curWave % 4 == 0 && curWave != 0) {
         if (!isNight) {
