@@ -141,16 +141,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BombCart.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="GamePlayManager.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Griffin.cpp" />
     <ClCompile Include="HarvestButton.cpp" />
+    <ClCompile Include="HeavyKnight.cpp" />
     <ClCompile Include="Hpbar.cpp" />
     <ClCompile Include="MainPineApple.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
     <ClCompile Include="Mpbar.cpp" />
+    <ClCompile Include="MusKetShooter.cpp" />
     <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="PineAppleTile.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
@@ -172,17 +177,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BombCart.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GamePlayManager.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Griffin.h" />
     <ClInclude Include="HarvestButton.h" />
+    <ClInclude Include="HeavyKnight.h" />
     <ClInclude Include="Hpbar.h" />
     <ClInclude Include="MainPineApple.h" />
     <ClInclude Include="MouseDownTest.h" />
     <ClInclude Include="Mpbar.h" />
+    <ClInclude Include="MusKetShooter.h" />
     <ClInclude Include="PineAppleTile.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="SwordMan.h" />

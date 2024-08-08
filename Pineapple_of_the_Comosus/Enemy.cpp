@@ -27,8 +27,8 @@ void Enemy::Update(float delta)
     //position.y += std::sin(elapsedTime * waveFrequency) * waveAmplitude * delta ;
     
     float tmp = std::sinf(elapsedTime * waveFrequency) * waveAmplitude;// *delta;
-    std::cout << tmp << std::endl;
-    if (tmp < 0.f)
+    //std::cout << tmp << std::endl;
+    if (tmp < 0.f) 
     {
         tmp *= -1.f;
     }
