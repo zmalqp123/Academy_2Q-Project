@@ -104,6 +104,8 @@ void GameScene::Start() {
     turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
     turretImage->LoadTexture(L"../Resource/turret.png");*/
 
+    std::cout << "Ewwwwwww" << std::endl;
+
     // °ñµå º¸À¯·® Ui
     auto GoldObj = CreateGameObject<GameObject>();
     auto GoldImage = GoldObj->CreateComponent<Button>();
