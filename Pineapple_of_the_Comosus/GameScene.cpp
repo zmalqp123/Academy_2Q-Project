@@ -9,6 +9,7 @@
 #include"../D2DEngine/ImageUIRenderer.h"
 #include"../D2DEngine/SceneManager.h"
 #include "../D2DEngine/Button.h"
+#include "EnemyFactory.h"
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
@@ -48,8 +49,9 @@ void GameScene::Start() {
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
     waveSystem->scene = this;
-    waveSystem->InitializePool();
-
+    waveSystem->Init();
+    
+     
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가
     auto nightObj = CreateGameObject<GameObject>();
     nightSystem = nightObj->CreateComponent<DayNightCycle>();

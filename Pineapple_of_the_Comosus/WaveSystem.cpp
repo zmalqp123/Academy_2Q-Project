@@ -1,94 +1,25 @@
 #include "Enemy.h"
 #include "WaveSystem.h"
 #include "../D2DEngine/Scene.h"
-#include"../D2DEngine/SpriteRenderer.h"
+#include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/BoxCollider.h"
 
-#include <iostream> 
-#include <cstdlib>  // rand() 함수 사용을 위해 포함
-#include <ctime>    // 시간 기반 시드 설정
-#include <random>   // 랜덤 분포를 사용하기 위해 포함
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <random>
 #include "EnemyFactory.h"
 
 WaveSystem::WaveSystem()
 {
-    //InitializePool(); // 적 풀 초기화
+    
 }
 
 WaveSystem::~WaveSystem()
 {
-    m_Enemies.clear();
-    m_EnemyPool.clear();
     delete enemyFactory; // EnemyFactory 객체 삭제
-}
-
-void WaveSystem::InitializePool()
-{
-    enemyFactory = new EnemyFactory(scene);
-
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> floatDist(0.0f, 1.0f); // 0.0 ~ 1.0 범위의 실수 생성
-
-    for (int i = 0; i < initialPoolSize; ++i)
-    {
-        float randomValue = floatDist(gen); // 0.0 ~ 1.0 사이의 랜덤 값 생성
-        int enemyType;
-
-        if (randomValue < 0.2f)
-            enemyType = 0; // 20% 확률로 0
-        else if (randomValue < 0.4f)
-            enemyType = 1; // 20% 확률로 1
-        else if (randomValue < 0.6f)
-            enemyType = 2; // 20% 확률로 2
-        else if (randomValue < 0.8f)
-            enemyType = 3; // 20% 확률로 3
-        else
-            enemyType = 4; // 20% 확률로 4
-
-        auto enemy = enemyFactory->CreateEnemy(enemyType); // 0-4 범위의 적 생성
-        enemy->gameObject->isActive = false;
-        m_EnemyPool.push_back(enemy);
-    }
-}
-
-Enemy* WaveSystem::GetEnemyFromPool()
-{
-    if (m_EnemyPool.empty())
-    {
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::uniform_real_distribution<float> floatDist(0.0f, 1.0f); // 0.0 ~ 1.0 범위의 실수 생성
-
-        float randomValue = floatDist(gen); // 0.0 ~ 1.0 사이의 랜덤 값 생성
-        int enemyType;
-
-        if (randomValue < 0.2f)
-            enemyType = 0; // 20% 확률로 0
-        else if (randomValue < 0.4f)
-            enemyType = 1; // 20% 확률로 1
-        else if (randomValue < 0.6f)
-            enemyType = 2; // 20% 확률로 2
-        else if (randomValue < 0.8f)
-            enemyType = 3; // 20% 확률로 3
-        else
-            enemyType = 4; // 20% 확률로 4
-
-        auto enemy = enemyFactory->CreateEnemy(enemyType); // 0-4 범위의 적 생성
-        m_EnemyPool.push_back(enemy);
-    }
-
-    Enemy* enemy = m_EnemyPool.back();
-    enemy->gameObject->isActive = true;
-    m_EnemyPool.pop_back();
-    return enemy;
-}
-
-void WaveSystem::ReturnEnemyToPool(Enemy* enemy)
-{
-    m_EnemyPool.push_back(enemy);
-    enemy->gameObject->isActive = false;
+    m_Enemies.clear();
 }
 
 void WaveSystem::SpawnWave()
@@ -99,13 +30,12 @@ void WaveSystem::SpawnWave()
 
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> distY(-240.0f, 0.0f);
+    std::uniform_real_distribution<float> distY(-240.0f, -100.f);
     std::bernoulli_distribution distSide(0.5); // 50% 확률로 true 또는 false 생성
-
 
     for (int i = 0; i < numEnemiesToSpawn; ++i)
     {
-        Enemy* newEnemy = GetEnemyFromPool();
+        Enemy* newEnemy = enemyFactory->GetEnemyFromPool();
 
         bool spawnOnLeft = distSide(gen); // 50% 확률로 왼쪽 또는 오른쪽에서 스폰
 
@@ -152,6 +82,10 @@ bool WaveSystem::IsMapEmpty()
     return m_Enemies.empty();  // 기본적으로 false 반환
 }
 
+void WaveSystem::Init()
+{
+    enemyFactory = new EnemyFactory(scene); // EnemyFactory 생성
+}
 
 void WaveSystem::Update(float deltaTime)
 {

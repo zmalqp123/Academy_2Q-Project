@@ -1,46 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="DataManager.cpp" />
-    <ClCompile Include="HarvestButton.cpp" />
-    <ClCompile Include="Hpbar.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
-    <ClCompile Include="Mpbar.cpp" />
-    <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
-    <ClCompile Include="testChar.cpp" />
-    <ClCompile Include="WaveSystem.cpp" />
-    <ClCompile Include="Turret.cpp" />
-    <ClCompile Include="WinApp.cpp" />
-    <ClCompile Include="WinApp2.cpp" />
-    <ClCompile Include="UpgradeItem.cpp" />
-    <ClCompile Include="StartScene.cpp">
-      <Filter>sceneTestfolder</Filter>
+    <ClCompile Include="TestDropDown.cpp" />
+    <ClCompile Include="EnemyFactory.cpp">
+      <Filter>Enemy</Filter>
     </ClCompile>
     <ClCompile Include="GameScene.cpp">
-      <Filter>sceneTestfolder</Filter>
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveSystem.cpp">
+      <Filter>GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="WinApp.cpp">
+      <Filter>Winapp</Filter>
+    </ClCompile>
+    <ClCompile Include="WinApp2.cpp">
+      <Filter>Winapp</Filter>
     </ClCompile>
     <ClCompile Include="WinApp3.cpp">
-      <Filter>sceneTestfolder</Filter>
+      <Filter>Winapp</Filter>
     </ClCompile>
     <ClCompile Include="WinApp4.cpp">
-      <Filter>MyTest</Filter>
+      <Filter>Winapp</Filter>
     </ClCompile>
-    <ClCompile Include="DayNightCycle.cpp" />
-    <ClCompile Include="PineAppleTile.cpp">
-      <Filter>MyTest\TestPineApple</Filter>
-    </ClCompile>
-    <ClCompile Include="MainPineApple.cpp">
-      <Filter>MyTest\TestPineApple</Filter>
+    <ClCompile Include="DayNightCycle.cpp">
+      <Filter>GameSystem</Filter>
     </ClCompile>
     <ClCompile Include="GamePlayManager.cpp">
-      <Filter>MyTest\TestPineApple</Filter>
+      <Filter>GameSystem</Filter>
     </ClCompile>
-    <ClCompile Include="TestDropDown.cpp">
-      <Filter>MyTest\TestPineApple</Filter>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Pineapple.cpp">
+      <Filter>PineAppleObj</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPineApple.cpp">
+      <Filter>PineAppleObj</Filter>
+    </ClCompile>
+    <ClCompile Include="HarvestButton.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Hpbar.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Mpbar.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="TurretUI.cpp">
+      <Filter>TurretObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret.cpp">
+      <Filter>TurretObj</Filter>
+    </ClCompile>
+    <ClCompile Include="PineAppleTile.cpp">
+      <Filter>PineAppleObj</Filter>
+    </ClCompile>
+    <ClCompile Include="testChar.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeItem.cpp" />
+    <ClCompile Include="BombCart.cpp">
+      <Filter>Enemy\BombCart</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Enemy</Filter>
+      <Filter>Enemy\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Griffin.cpp">
+      <Filter>Enemy\Griffin</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavyKnight.cpp">
+      <Filter>Enemy\HeavyKnight</Filter>
     </ClCompile>
     <ClCompile Include="SwordMan.cpp">
       <Filter>Enemy\SwordMan</Filter>
@@ -48,62 +83,83 @@
     <ClCompile Include="MusKetShooter.cpp">
       <Filter>Enemy\MusKetShooter</Filter>
     </ClCompile>
-    <ClCompile Include="HeavyKnight.cpp">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClCompile>
-    <ClCompile Include="Griffin.cpp">
-      <Filter>Enemy\Griffin</Filter>
-    </ClCompile>
-    <ClCompile Include="BombCart.cpp">
-      <Filter>Enemy\BombCart</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyFactory.cpp">
-      <Filter>Enemy\EnemyFactory</Filter>
-    <ClCompile Include="TurretUI.cpp">
-      <Filter>MyTest\TestPineApple</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataManager.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="HarvestButton.h" />
-    <ClInclude Include="Hpbar.h" />
     <ClInclude Include="MouseDownTest.h" />
-    <ClInclude Include="Mpbar.h" />
-    <ClInclude Include="testChar.h" />
-    <ClInclude Include="WaveSystem.h" />
-    <ClInclude Include="Pineapple.h" />
-    <ClInclude Include="Turret.h" />
-    <ClInclude Include="WinApp.h" />
-    <ClInclude Include="WinApp2.h" />
-    <ClInclude Include="UpgradeItem.h" />
-    <ClInclude Include="StartScene.h">
-      <Filter>sceneTestfolder</Filter>
+    <ClInclude Include="TestDropDown.h" />
+    <ClInclude Include="EnemyFactory.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
     <ClInclude Include="GameScene.h">
-      <Filter>sceneTestfolder</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="WinApp3.h">
-      <Filter>sceneTestfolder</Filter>
+    <ClInclude Include="StartScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveSystem.h">
+      <Filter>GameSystem</Filter>
     </ClInclude>
     <ClInclude Include="WinApp4.h">
-      <Filter>MyTest</Filter>
+      <Filter>Winapp</Filter>
     </ClInclude>
-    <ClInclude Include="DayNightCycle.h" />
-    <ClInclude Include="PineAppleTile.h">
-      <Filter>MyTest\TestPineApple</Filter>
+    <ClInclude Include="WinApp.h">
+      <Filter>Winapp</Filter>
     </ClInclude>
-    <ClInclude Include="MainPineApple.h">
-      <Filter>MyTest\TestPineApple</Filter>
+    <ClInclude Include="WinApp2.h">
+      <Filter>Winapp</Filter>
+    </ClInclude>
+    <ClInclude Include="WinApp3.h">
+      <Filter>Winapp</Filter>
+    </ClInclude>
+    <ClInclude Include="DayNightCycle.h">
+      <Filter>GameSystem</Filter>
     </ClInclude>
     <ClInclude Include="GamePlayManager.h">
-      <Filter>MyTest\TestPineApple</Filter>
+      <Filter>GameSystem</Filter>
     </ClInclude>
-    <ClInclude Include="TestDropDown.h">
-      <Filter>MyTest\TestPineApple</Filter>
+    <ClInclude Include="DataManager.h">
+      <Filter>GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Pineapple.h">
+      <Filter>PineAppleObj</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPineApple.h">
+      <Filter>PineAppleObj</Filter>
+    </ClInclude>
+    <ClInclude Include="HarvestButton.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Hpbar.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Mpbar.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="TurretUI.h">
+      <Filter>TurretObj</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret.h">
+      <Filter>TurretObj</Filter>
+    </ClInclude>
+    <ClInclude Include="PineAppleTile.h">
+      <Filter>PineAppleObj</Filter>
+    </ClInclude>
+    <ClInclude Include="testChar.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeItem.h" />
+    <ClInclude Include="BombCart.h">
+      <Filter>Enemy\BombCart</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Enemy</Filter>
+      <Filter>Enemy\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Griffin.h">
+      <Filter>Enemy\Griffin</Filter>
+    </ClInclude>
+    <ClInclude Include="HeavyKnight.h">
+      <Filter>Enemy\HeavyKnight</Filter>
     </ClInclude>
     <ClInclude Include="SwordMan.h">
       <Filter>Enemy\SwordMan</Filter>
@@ -111,51 +167,46 @@
     <ClInclude Include="MusKetShooter.h">
       <Filter>Enemy\MusKetShooter</Filter>
     </ClInclude>
-    <ClInclude Include="HeavyKnight.h">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClInclude>
-    <ClInclude Include="Griffin.h">
-      <Filter>Enemy\Griffin</Filter>
-    </ClInclude>
-    <ClInclude Include="BombCart.h">
-      <Filter>Enemy\BombCart</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyFactory.h">
-      <Filter>Enemy\EnemyFactory</Filter>
-    <ClInclude Include="TurretUI.h">
-      <Filter>MyTest\TestPineApple</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="sceneTestfolder">
-      <UniqueIdentifier>{39466412-9f37-453f-9730-a15b04b0e720}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyTest">
-      <UniqueIdentifier>{fac21781-1be0-449e-97ce-f71d225adf71}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyTest\TestPineApple">
-      <UniqueIdentifier>{0eb18d89-3285-4ed3-971c-329127866965}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Enemy">
-      <UniqueIdentifier>{6ccbac39-0d2c-4ebc-88db-987e54ebb7ea}</UniqueIdentifier>
+      <UniqueIdentifier>{0b53e60b-0409-4bd1-9f83-78cfb4558e56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemy\SwordMan">
-      <UniqueIdentifier>{10550b57-cbd8-469f-87ac-7dfd7288ef78}</UniqueIdentifier>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{e082df54-3f06-4617-ac06-b654d2691fea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemy\MusKetShooter">
-      <UniqueIdentifier>{d1c89eac-2969-4fe1-88ee-5cc9744dc1cd}</UniqueIdentifier>
+    <Filter Include="Winapp">
+      <UniqueIdentifier>{6ad5eeed-1f24-4bbc-8608-66cd37c41658}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemy\HeavyKnight">
-      <UniqueIdentifier>{f6df57de-5fd8-44b9-917d-0c6e920fcae1}</UniqueIdentifier>
+    <Filter Include="Ui">
+      <UniqueIdentifier>{d61a648e-ed57-42ea-9fed-34205e5be25b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemy\Griffin">
-      <UniqueIdentifier>{9889981b-5669-4223-af90-2c8dd6e91479}</UniqueIdentifier>
+    <Filter Include="GameSystem">
+      <UniqueIdentifier>{dc88ac8e-b312-465b-8603-54ebc50463e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PineAppleObj">
+      <UniqueIdentifier>{38069c08-8a80-492d-8fe4-d64fc9df8b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TurretObj">
+      <UniqueIdentifier>{9e075352-2e10-4717-aff6-ef68e58ff34c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Enemy\BombCart">
-      <UniqueIdentifier>{741ac103-49f9-40e0-8464-c1d357ec89c9}</UniqueIdentifier>
+      <UniqueIdentifier>{be21b5e0-e0d9-4c16-bfe2-a95f528c007f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemy\EnemyFactory">
-      <UniqueIdentifier>{7a0c251b-b328-43b5-8bfa-6b3a5459201a}</UniqueIdentifier>
+    <Filter Include="Enemy\Enemy">
+      <UniqueIdentifier>{dc2c041d-9e35-4fb0-9c55-cacd0c796077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\Griffin">
+      <UniqueIdentifier>{d0c7f51c-e9b8-40dc-89b3-2b9ab0e701ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\HeavyKnight">
+      <UniqueIdentifier>{f23e2de7-6b97-4641-94c5-1cebbc3d7ffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\SwordMan">
+      <UniqueIdentifier>{2309ca12-ea3e-4a03-aab8-e7a8603587ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\MusKetShooter">
+      <UniqueIdentifier>{5b71832a-e8a1-43a3-b153-0f1842106304}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
