@@ -34,6 +34,7 @@ void TestDropDown::Update(float delta)
 			}
 		}
 		dragObj->transform->m_RelativeRotation = e;
+		std::cout << e << std::endl;
 		if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left)) {
 			state = 0;
 			dragObj = nullptr;
@@ -51,14 +52,18 @@ void TestDropDown::Update(float delta)
 
 		state = 1;
 
-		auto coll = dragObj->GetComponent<Collider>();
-		coll->ignoreEventSystem = false;
+		if (dragObj != nullptr) {
+			auto coll = dragObj->GetComponent<Collider>();
+			coll->ignoreEventSystem = false;
+		}
 
-		auto pTile = a->GetComponent<PineAppleTile>();
-		if (pTile) {
-			gameObject->transform->pos.worldPosition.x = pTile->gameObject->transform->m_WorldTransform.dx;
-			gameObject->transform->pos.worldPosition.y = pTile->gameObject->transform->m_WorldTransform.dy;
-			pTile->turret = gameObject;
+		if (a != nullptr) {
+			auto pTile = a->GetComponent<PineAppleTile>();
+			if (pTile != nullptr) {
+				gameObject->transform->pos.worldPosition.x = pTile->gameObject->transform->m_WorldTransform.dx;
+				gameObject->transform->pos.worldPosition.y = pTile->gameObject->transform->m_WorldTransform.dy;
+				pTile->turret = gameObject;
+			}
 		}
 	}
 	else if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left) && isDrag == false && state == 0) {
@@ -77,6 +82,15 @@ void TestDropDown::Update(float delta)
 		Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
 		if(dragObj != nullptr)
 			dragObj->transform->pos.worldPosition = camera->ScreenToWorldPosition(mousePos) + offset;
+
+		if (a != nullptr) {
+			auto pTile = a->GetComponent<PineAppleTile>();
+			if (pTile != nullptr) {
+				if (pTile->IsPlaceable() == false) return;
+				gameObject->transform->pos.worldPosition.x = pTile->gameObject->transform->m_WorldTransform.dx;
+				gameObject->transform->pos.worldPosition.y = pTile->gameObject->transform->m_WorldTransform.dy;
+			}
+		}
 	}
 }
 

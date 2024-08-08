@@ -10,7 +10,6 @@
     <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
     <ClCompile Include="testChar.cpp" />
-    <ClCompile Include="TestDropDown.cpp" />
     <ClCompile Include="WaveSystem.cpp" />
     <ClCompile Include="Turret.cpp" />
     <ClCompile Include="WinApp.cpp" />
@@ -38,6 +37,9 @@
     <ClCompile Include="GamePlayManager.cpp">
       <Filter>MyTest\TestPineApple</Filter>
     </ClCompile>
+    <ClCompile Include="TestDropDown.cpp">
+      <Filter>MyTest\TestPineApple</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h" />
@@ -48,7 +50,6 @@
     <ClInclude Include="MouseDownTest.h" />
     <ClInclude Include="Mpbar.h" />
     <ClInclude Include="testChar.h" />
-    <ClInclude Include="TestDropDown.h" />
     <ClInclude Include="WaveSystem.h" />
     <ClInclude Include="Pineapple.h" />
     <ClInclude Include="Turret.h" />
@@ -75,6 +76,9 @@
       <Filter>MyTest\TestPineApple</Filter>
     </ClInclude>
     <ClInclude Include="GamePlayManager.h">
+      <Filter>MyTest\TestPineApple</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDropDown.h">
       <Filter>MyTest\TestPineApple</Filter>
     </ClInclude>
   </ItemGroup>
