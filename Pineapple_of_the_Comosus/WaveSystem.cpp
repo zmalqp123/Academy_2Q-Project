@@ -1,5 +1,4 @@
 #include "Enemy.h"
-#include "SwordMan.h"
 #include "WaveSystem.h"
 #include "../D2DEngine/Scene.h"
 #include"../D2DEngine/SpriteRenderer.h"
@@ -10,123 +9,133 @@
 #include <cstdlib>  // rand() 함수 사용을 위해 포함
 #include <ctime>    // 시간 기반 시드 설정
 #include <random>   // 랜덤 분포를 사용하기 위해 포함
+#include "EnemyFactory.h"
+
+WaveSystem::WaveSystem()
+{
+    //InitializePool(); // 적 풀 초기화
+}
+
+WaveSystem::~WaveSystem()
+{
+    m_Enemies.clear();
+    m_EnemyPool.clear();
+    delete enemyFactory; // EnemyFactory 객체 삭제
+}
 
 void WaveSystem::InitializePool()
 {
-    std::srand(static_cast<unsigned>(std::time(nullptr))); // 랜덤 시드 설정
+    enemyFactory = new EnemyFactory(scene);
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> floatDist(0.0f, 1.0f); // 0.0 ~ 1.0 범위의 실수 생성
 
     for (int i = 0; i < initialPoolSize; ++i)
     {
-        auto  mon = scene->CreateGameObject<GameObject>();
-        auto loadMon = mon->CreateComponent<SpriteRenderer>();
-        loadMon->LoadTexture(L"../Resource/swordsman.png");
-        mon->isActive = false;
-        auto monster = mon->CreateComponent<SwordMan>();
-        m_MonsterPool.push_back(monster);
+        float randomValue = floatDist(gen); // 0.0 ~ 1.0 사이의 랜덤 값 생성
+        int enemyType;
+
+        if (randomValue < 0.2f)
+            enemyType = 0; // 20% 확률로 0
+        else if (randomValue < 0.4f)
+            enemyType = 1; // 20% 확률로 1
+        else if (randomValue < 0.6f)
+            enemyType = 2; // 20% 확률로 2
+        else if (randomValue < 0.8f)
+            enemyType = 3; // 20% 확률로 3
+        else
+            enemyType = 4; // 20% 확률로 4
+
+        auto enemy = enemyFactory->CreateEnemy(enemyType); // 0-4 범위의 적 생성
+        enemy->gameObject->isActive = false;
+        m_EnemyPool.push_back(enemy);
     }
 }
 
-SwordMan* WaveSystem::GetMonsterFromPool()
+Enemy* WaveSystem::GetEnemyFromPool()
 {
-    if (m_MonsterPool.empty())
+    if (m_EnemyPool.empty())
     {
-        // 풀에 몬스터가 없으면 새로 생성
-        auto  mon = scene->CreateGameObject<GameObject>();
-        auto loadMon = mon->CreateComponent<SpriteRenderer>();
-        auto movement = mon->CreateComponent<Movement>();
-        auto collider = mon->CreateComponent<BoxCollider>();
-        loadMon->LoadTexture(L"../Resource/swordsman.png");
-        auto monster = mon->CreateComponent<SwordMan>();
-        monster->move = movement;
-        monster->pBoxcollider = collider;
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_real_distribution<float> floatDist(0.0f, 1.0f); // 0.0 ~ 1.0 범위의 실수 생성
 
-        m_MonsterPool.push_back(monster);
+        float randomValue = floatDist(gen); // 0.0 ~ 1.0 사이의 랜덤 값 생성
+        int enemyType;
+
+        if (randomValue < 0.2f)
+            enemyType = 0; // 20% 확률로 0
+        else if (randomValue < 0.4f)
+            enemyType = 1; // 20% 확률로 1
+        else if (randomValue < 0.6f)
+            enemyType = 2; // 20% 확률로 2
+        else if (randomValue < 0.8f)
+            enemyType = 3; // 20% 확률로 3
+        else
+            enemyType = 4; // 20% 확률로 4
+
+        auto enemy = enemyFactory->CreateEnemy(enemyType); // 0-4 범위의 적 생성
+        m_EnemyPool.push_back(enemy);
     }
 
-    SwordMan* monster = m_MonsterPool.back();
-    monster->gameObject->isActive = true;
-    m_MonsterPool.pop_back();
-    return monster;
+    Enemy* enemy = m_EnemyPool.back();
+    enemy->gameObject->isActive = true;
+    m_EnemyPool.pop_back();
+    return enemy;
 }
 
-void WaveSystem::ReturnMonsterToPool(SwordMan* monster)
+void WaveSystem::ReturnEnemyToPool(Enemy* enemy)
 {
-    m_MonsterPool.push_back(monster);
-    monster->gameObject->isActive = false;
+    m_EnemyPool.push_back(enemy);
+    enemy->gameObject->isActive = false;
 }
 
-void WaveSystem::Update(float deltaTime)
-{
-    // 몬스터가 맵에 남아있는지 확인하는 부분은 RemoveMonster가 아닌 다른 시스템에서 처리
-    waveTimer -= deltaTime;  // deltaTime 만큼 waveTimer 감소
-
-    if (waveTimer <= 0.0f && !m_Monster.empty())
-    {
-        auto monster = m_Monster.front();
-        monster->gameObject->isActive = true;
-        m_Monster.erase(m_Monster.begin());  // 이미 그려진 몬스터는 목록에서 제거
-
-        waveTimer = 1.0f / currentWave;  // 다음 몬스터가 나타나기까지의 시간 설정
-    }
-
-    if (m_Monster.empty() && currentWave > 0)
-    {
-        StartNextWave();  // 모든 몬스터가 등장한 후 다음 웨이브로 넘어감
-    }
-}
-
-// SpawnWave 함수: 현재 wave에 해당하는 몬스터를 스폰.  
 void WaveSystem::SpawnWave()
 {
-    int numMonstersToSpawn = 1; // 일단은 웨이브 1개씩 설정
+    int numEnemiesToSpawn = 1; // 일단은 웨이브 1개씩 설정
 
-    m_Monster.clear();  // 이전 웨이브에서 생성된 몬스터를 삭제 (필요한 경우)
+    m_Enemies.clear();  // 이전 웨이브에서 생성된 적을 삭제 (필요한 경우)
 
-    // 랜덤 엔진 및 분포 설정
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> distY(-240.0f, 0.0f); // y좌표의 범위를 설정
+    std::uniform_real_distribution<float> distY(-240.0f, 0.0f);
+    std::bernoulli_distribution distSide(0.5); // 50% 확률로 true 또는 false 생성
 
-    for (int i = 0; i < numMonstersToSpawn; ++i)
+
+    for (int i = 0; i < numEnemiesToSpawn; ++i)
     {
-        // 풀에서 몬스터를 가져옵니다.
-        SwordMan* newMonster = GetMonsterFromPool();
+        Enemy* newEnemy = GetEnemyFromPool();
 
-        // 랜덤하게 왼쪽 또는 오른쪽에서 생성
-        bool spawnOnLeft = rand() % 2 == 0;
+        bool spawnOnLeft = distSide(gen); // 50% 확률로 왼쪽 또는 오른쪽에서 스폰
 
-        // 고정된 x 좌표와 랜덤한 y 좌표를 사용하여 위치 설정
         float spawnY = distY(gen);
 
         Vector2 spawnPosition;
-        Vector2 moveDirection;  // 이동 방향을 저장할 변수
+        Vector2 moveDirection;
 
         if (spawnOnLeft)
         {
             spawnPosition = Vector2(-800.0f, spawnY);
-            moveDirection = Vector2(1.0f, 0.0f);  // 오른쪽으로 이동
+            moveDirection = Vector2(1.0f, 0.0f);
         }
         else
         {
             spawnPosition = Vector2(900.0f, spawnY);
-            moveDirection = Vector2(-1.0f, 0.0f);  // 왼쪽으로 이동
-            newMonster->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
+            moveDirection = Vector2(-1.0f, 0.0f);
+            newEnemy->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
         }
 
-        newMonster->gameObject->transform->pos.worldPosition = spawnPosition;
+        newEnemy->gameObject->transform->pos.worldPosition = spawnPosition;
+        newEnemy->move->SetDirection(moveDirection);
+        newEnemy->move->SetSpeed(50.0f);
+        newEnemy->tmpY = spawnPosition.y;
 
-        // 이동 방향과 속도를 설정합니다.
-        //std::cout << moveDirection.x <<std::endl ;
-        newMonster->move->SetDirection(moveDirection);
-        newMonster->move->SetSpeed(50.0f);  // 원하는 이동 속도로 설정
-        newMonster->tmpY = spawnPosition.y;
-
-        m_Monster.push_back(newMonster);
-        std::cout << "몬스터가 생성되었습니다" << std::endl;
+        m_Enemies.push_back(newEnemy);
+        std::cout << "적이 생성되었습니다" << std::endl;
     }
 }
 
-// StartNextWave 함수: wave를 진행시키고 타이머를 초기화
 void WaveSystem::StartNextWave()
 {
     if (currentWave < maxWave)
@@ -138,16 +147,32 @@ void WaveSystem::StartNextWave()
     // maxWave에 도달했을 경우 추가적인 처리 필요 (게임 종료 또는 루프 등)
 }
 
-// IsMapEmpty 함수: 맵에 몬스터가 하나도 없는지 확인
 bool WaveSystem::IsMapEmpty()
 {
-    // 맵에서 몬스터가 남아있는지 확인하는 로직 (필요 시 사용)
-    return m_Monster.empty();  // 기본적으로 false 반환
+    return m_Enemies.empty();  // 기본적으로 false 반환
 }
 
-WaveSystem::~WaveSystem()
-{
-    m_Monster.clear();
 
-    m_MonsterPool.clear();
+void WaveSystem::Update(float deltaTime)
+{
+    // 웨이브 타이머 감소
+    waveTimer -= deltaTime;
+
+    // 웨이브 타이머가 0 이하가 되었고, 적이 남아 있으면
+    if (waveTimer <= 0.0f && !m_Enemies.empty())
+    {
+        // 적을 활성화하고 적 목록에서 제거
+        auto enemy = m_Enemies.front();
+        enemy->gameObject->isActive = true;
+        m_Enemies.erase(m_Enemies.begin());
+
+        // 웨이브 타이머를 다음 웨이브에 맞게 설정
+        waveTimer = 1.0f / currentWave;
+    }
+
+    // 웨이브가 끝난 후 다음 웨이브 시작
+    if (m_Enemies.empty() && currentWave > 0)
+    {
+        StartNextWave();
+    }
 }

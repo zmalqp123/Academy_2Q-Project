@@ -48,6 +48,7 @@ void GameScene::Start() {
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
     waveSystem->scene = this;
+    waveSystem->InitializePool();
 
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가
     auto nightObj = CreateGameObject<GameObject>();

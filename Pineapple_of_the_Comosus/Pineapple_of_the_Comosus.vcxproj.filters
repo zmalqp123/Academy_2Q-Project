@@ -45,6 +45,21 @@
     <ClCompile Include="SwordMan.cpp">
       <Filter>Enemy\SwordMan</Filter>
     </ClCompile>
+    <ClCompile Include="MusKetShooter.cpp">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavyKnight.cpp">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="Griffin.cpp">
+      <Filter>Enemy\Griffin</Filter>
+    </ClCompile>
+    <ClCompile Include="BombCart.cpp">
+      <Filter>Enemy\BombCart</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFactory.cpp">
+      <Filter>Enemy\EnemyFactory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h" />
@@ -91,6 +106,21 @@
     <ClInclude Include="SwordMan.h">
       <Filter>Enemy\SwordMan</Filter>
     </ClInclude>
+    <ClInclude Include="MusKetShooter.h">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClInclude>
+    <ClInclude Include="HeavyKnight.h">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="Griffin.h">
+      <Filter>Enemy\Griffin</Filter>
+    </ClInclude>
+    <ClInclude Include="BombCart.h">
+      <Filter>Enemy\BombCart</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFactory.h">
+      <Filter>Enemy\EnemyFactory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sceneTestfolder">
@@ -107,6 +137,21 @@
     </Filter>
     <Filter Include="Enemy\SwordMan">
       <UniqueIdentifier>{10550b57-cbd8-469f-87ac-7dfd7288ef78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\MusKetShooter">
+      <UniqueIdentifier>{d1c89eac-2969-4fe1-88ee-5cc9744dc1cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\HeavyKnight">
+      <UniqueIdentifier>{f6df57de-5fd8-44b9-917d-0c6e920fcae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\Griffin">
+      <UniqueIdentifier>{9889981b-5669-4223-af90-2c8dd6e91479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\BombCart">
+      <UniqueIdentifier>{741ac103-49f9-40e0-8464-c1d357ec89c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\EnemyFactory">
+      <UniqueIdentifier>{7a0c251b-b328-43b5-8bfa-6b3a5459201a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
