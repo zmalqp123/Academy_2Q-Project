@@ -1,6 +1,8 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include "../D2DEngine/Vector.h"
+#include <cmath>
+
 enum class EliteType
 {
 	Normal,
@@ -8,6 +10,9 @@ enum class EliteType
 	Fast,
 	Hero
 };
+
+class BoxCollider;
+class Movement;
 class SpriteRenderer;
 class Enemy : public Component
 {
@@ -35,12 +40,18 @@ protected:
 	//SpriteRenderer* spriteRenderer;  // 추가: SpriteRenderer 포인터
 
 public:
+	float elapsedTime = 0.0f;
+	float tmpY = 0.0f;
+
 	Enemy() = default;
 	virtual ~Enemy() = default;
 
-	void Init() override;
-	void Update(float delta) override;
-	void Render(D2D1_MATRIX_3X2_F cameraMat) override;
+	Movement* move;
+	BoxCollider* pBoxcollider;
+
+	virtual void Init() override;
+	virtual void Update(float delta) override;
+	virtual void Render(D2D1_MATRIX_3X2_F cameraMat) override;
 
 	void SetReward(int Reward, int ExpReward) {
 		reward = Reward;

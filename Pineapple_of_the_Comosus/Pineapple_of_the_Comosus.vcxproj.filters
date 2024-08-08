@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="DataManager.cpp" />
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="HarvestButton.cpp" />
     <ClCompile Include="Hpbar.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
@@ -40,10 +39,15 @@
     <ClCompile Include="TestDropDown.cpp">
       <Filter>MyTest\TestPineApple</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordMan.cpp">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h" />
-    <ClInclude Include="Enemy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="HarvestButton.h" />
     <ClInclude Include="Hpbar.h" />
@@ -81,6 +85,12 @@
     <ClInclude Include="TestDropDown.h">
       <Filter>MyTest\TestPineApple</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordMan.h">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sceneTestfolder">
@@ -91,6 +101,12 @@
     </Filter>
     <Filter Include="MyTest\TestPineApple">
       <UniqueIdentifier>{0eb18d89-3285-4ed3-971c-329127866965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{6ccbac39-0d2c-4ebc-88db-987e54ebb7ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\SwordMan">
+      <UniqueIdentifier>{10550b57-cbd8-469f-87ac-7dfd7288ef78}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

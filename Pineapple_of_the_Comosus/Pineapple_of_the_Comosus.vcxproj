@@ -155,6 +155,7 @@
     <ClCompile Include="PineAppleTile.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
     <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="testChar.cpp" />
     <ClCompile Include="TestDropDown.cpp" />
     <ClCompile Include="UpgradeItem.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Mpbar.h" />
     <ClInclude Include="PineAppleTile.h" />
     <ClInclude Include="StartScene.h" />
+    <ClInclude Include="SwordMan.h" />
     <ClInclude Include="testChar.h" />
     <ClInclude Include="TestDropDown.h" />
     <ClInclude Include="UpgradeItem.h" />
