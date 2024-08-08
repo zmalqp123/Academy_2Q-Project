@@ -6,6 +6,8 @@
 #include <vector>
 #include "Enemy.h"
 #include "Turret.h"
+#include "Projectile.h"
+
 struct EnemyData {
 	EnemyData(int _id) : id(_id) {};
 	~EnemyData() = default;
@@ -41,7 +43,7 @@ struct TurretData
 	float fireRate;
 	int penetration;
 
-	BulletType bulletType;
+	ProjectileType bulletType;
 	float bulletSpeed;
 	int slowRate;
 	float slowDuration;
@@ -60,6 +62,10 @@ public:
 			delete data;
 		}
 		enemyDataList.clear();
+		for (auto& data : turretDataList) {
+			delete data;
+		}
+		turretDataList.clear();
 	};
 	static DataManager& GetInstance() {
 		static DataManager instance;
@@ -68,6 +74,7 @@ public:
 
 	std::vector<EnemyData*> enemyDataList;
 	std::vector<TurretData*> turretDataList;
+
 	bool LoadEnemySheetFromCSV(const wchar_t* fileName) //아직 엘리트 타입은 확인하지 않음 확인필요!
 	{
 		std::wifstream file(fileName);
@@ -176,7 +183,7 @@ public:
 				Turret->penetration = _wtoi(token.c_str());
 				getline(wss, token, L','); 
 				//이 부분은 검증이 안됨 잘 들어가는지 확인 할 것. 아마도 다이나믹 캐스트 해야할 것 같은디...
-				Turret->bulletType = static_cast<BulletType>(_wtoi(token.c_str())); 
+				Turret->bulletType = static_cast<ProjectileType>(_wtoi(token.c_str()));
 				getline(wss, token, L',');
 				Turret->bulletSpeed = _wtof(token.c_str());
 

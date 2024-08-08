@@ -1,13 +1,8 @@
 #pragma once
 #include "../D2DEngine/Component.h"
+#include "Projectile.h"
 
-enum class BulletType
-{	
-	Normal,
-	Arrow,
-	Bullet,
-	Burst
-};
+
 
 class Turret : public Component
 {	
@@ -15,7 +10,7 @@ protected:
 	int cost;
 	int refund;
 
-	BulletType bulletType;
+	ProjectileType bulletType;
 	float burstRange;
 	int damage;
 	float fireRate;
@@ -28,7 +23,10 @@ public:
 	Turret() = default;
 	virtual ~Turret() = default;
 
-	virtual void Init() = 0; //여기서 위의 private 변수들을 초기화 해줘야함.
+	virtual void Init() {
+		
+	
+	}; //여기서 위의 private 변수들을 초기화 해줘야함.
 
 	void SetCost(int cost) { this->cost = cost; }
 	int GetCost() { return cost; }
@@ -36,8 +34,8 @@ public:
 	void SetRefund(int refund) { this->refund = refund; }
 	int GetRefund() { return refund; }
 
-	void SetBulletType(BulletType bulletType) { this->bulletType = bulletType; }
-	BulletType GetBulletType() { return bulletType; }
+	void SetBulletType(ProjectileType bulletType) { this->bulletType = bulletType; }
+	ProjectileType GetBulletType() { return bulletType; }
 
 	void SetBulletSpeed(float bulletSpeed) { this->bulletSpeed = bulletSpeed; }
 	float GetBulletSpeed() { return bulletSpeed; }
@@ -53,9 +51,6 @@ public:
 
 	void SetAngle(float angle) { this->angle = angle; }
 	float GetAngle() { return angle; }
-
-
-
 
 };
 
