@@ -145,12 +145,20 @@ public:
 		}
 		std::wstring line;			// 한줄의 문자열	
 		int DataCount = 0;			// 띄어쓰기 된 정보의 갯수
-		std::getline(file, line);		// 첫번째 줄 읽기
-		{	
-			std::getline(file, line);   // 두번째 줄 읽기
-			std::getline(file, line);   // 세번째 줄 읽기 (데이터 갯수)
+		for (int i = 0; i < 7; i++) { // 7번째 줄 까지 흘려보내기.
+			std::getline(file, line);
+		}
+
+		{
+			std::getline(file, line);   // 8번째 줄 읽기 (데이터 갯수)
 			std::wstringstream wss(line);
-			wss >> DataCount;
+			std::wstring token;
+			getline(wss, token, L',');
+			while (_wtoi(token.c_str()) == 0) {
+				getline(wss, token, L',');
+				if (_wtoi(token.c_str()) != 0) break;
+			}
+			DataCount = _wtoi(token.c_str());
 		}
 
 		for (int j = 0; j < DataCount; j++)
@@ -160,14 +168,17 @@ public:
 			std::wstringstream wss(line);    // 한줄을 읽어서 wstringstream에 저장
 			std::wstring token;
 			{
-				getline(wss, token, L',');	// wss의 내용을 ,를 기준으로 문자열을 분리 ID
+				while (_wtoi(token.c_str()) == 0) {
+					getline(wss, token, L',');
+					if (_wtoi(token.c_str()) != 0) break;
+				}
 				TurretData* Turret = new TurretData(_wtoi(token.c_str()));
 				getline(wss, token, L',');	// wss의 내용을 ,를 기준으로 문자열을 분리 Name
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Size
 
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Cost
 				Turret->cost = _wtoi(token.c_str());
-				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Refund
+				getline(wss, token, L',');  // Refund
 				Turret->refund = _wtoi(token.c_str());
 
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Stat
@@ -178,22 +189,22 @@ public:
 				Turret->fireRate = _wtof(token.c_str());
 				getline(wss, token, L',');
 				Turret->penetration = _wtoi(token.c_str());
-				getline(wss, token, L','); 
-				//이 부분은 검증이 안됨 잘 들어가는지 확인 할 것. 아마도 다이나믹 캐스트 해야할 것 같은디...
-				Turret->bulletType = _wtoi(token.c_str());
+
+				getline(wss, token, L',');
+				Turret->bulletType = _wtoi(token.c_str());//투사체 타입
 				getline(wss, token, L',');
 				Turret->bulletSpeed = _wtof(token.c_str());
-
 				getline(wss, token, L',');
 				Turret->slowRate = _wtof(token.c_str());
 				getline(wss, token, L',');
 				Turret->slowDuration = _wtof(token.c_str());
 
-				Turret->angle = 0.f;
+				getline(wss, token, L',');
+				Turret->angle = _wtof(token.c_str());
 				turretDataList.push_back(Turret);
 			}
 		}
-
+		file.close();
 		return true;
 	}
 
