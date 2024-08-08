@@ -63,7 +63,8 @@ void SpriteRenderer::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X
 		* m_ScreenTransform;
 	;// * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+	if (m_pTexture == nullptr) return;
+	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
 }
 
 void SpriteRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
@@ -82,7 +83,8 @@ void SpriteRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
 		* m_ScreenTransform;
 	;// * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+	if (m_pTexture == nullptr) return;
+	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
 }
 
 AABB SpriteRenderer::GetBound()

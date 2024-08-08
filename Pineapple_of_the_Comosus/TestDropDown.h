@@ -10,7 +10,6 @@ public:
 	Camera* camera;
 
 	GameObject* dragObj;
-	Vector2 offset;
 	bool isDrag = false;
 	virtual void Update(float delta);
 

@@ -24,6 +24,8 @@
 #include "PineAppleTile.h"
 #include "MainPineApple.h"
 #include "GamePlayManager.h"
+#include "TurretUI.h"
+#include "Turret.h"
 
 void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
@@ -37,17 +39,48 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	// 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
 	auto gmObj = scene->CreateGameObject<GameObject>();
 	auto GamaManager = gmObj->CreateComponent<GamePlayManager>();
+	GamaManager->camera = scene->camera;
+
 
 	// 코모서스 파인애플 (겁나 큼)
 	auto paObj = scene->CreateGameObject<GameObject>();
 	paObj->transform->pos.worldPosition = { 0.f, -200.f };
 	auto pineApple = paObj->CreateComponent<MainPineApple>();
 
-	auto turretTest = scene->CreateGameObject<GameObject>();
+	/*auto turretTest = scene->CreateGameObject<GameObject>();
 	auto drop = turretTest->CreateComponent<TestDropDown>();
 	drop->camera = scene->camera;
 	auto circle = turretTest->CreateComponent<CircleCollider>();
 	circle->SetRadius(100.f);
+	auto tspr = turretTest->CreateComponent<SpriteRenderer>();
+	tspr->LoadTexture(L"../Resource/Sun.png");*/
+
+
+	auto testDragObj = scene->CreateGameObject<GameObject>();
+	testDragObj->SetActive(false);
+	auto sproper = testDragObj->CreateComponent<SpriteRenderer>();
+	sproper->alpha = 0.5f;
+	GamaManager->dragObj = testDragObj;
+
+	auto testBtn1 = scene->CreateGameObject<GameObject>();
+	testBtn1->transform->type = Type::Ui;
+	testBtn1->transform->pos.rectposition.leftBottom = { 100.f, 100.f };
+	testBtn1->transform->pos.rectposition.rightTop = { 300.f, 300.f };
+	auto btn1 = testBtn1->CreateComponent<Button>();
+	auto turretUI = testBtn1->CreateComponent<TurretUI>();
+	turretUI->SetIndex(0);
+	btn1->LoadTexture(L"../Resource/Sun.png");
+	btn1->AddListener([GamaManager, turretUI]() {GamaManager->StartBatch(turretUI->GetIndex()); });
+
+	auto testBtn2 = scene->CreateGameObject<GameObject>();
+	testBtn2->transform->type = Type::Ui;
+	testBtn2->transform->pos.rectposition.leftBottom = { 400.f, 100.f };
+	testBtn2->transform->pos.rectposition.rightTop = { 600.f, 300.f };
+	auto btn2 = testBtn2->CreateComponent<Button>();
+	auto turretUI2 = testBtn2->CreateComponent<TurretUI>();
+	turretUI2->SetIndex(1);
+	btn2->LoadTexture(L"../Resource/Earth.png");
+	btn2->AddListener([GamaManager, turretUI2]() {GamaManager->StartBatch(turretUI2->GetIndex()); });
 
 	{
 		// 파인애플 타일들
@@ -63,6 +96,12 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		coll->SetCollisionType(CollisionType::Overlap);
 		coll->isKinemetic = true;
 		coll->SetRadius(60.f);
+
+		auto childObj = scene->CreateGameObject<GameObject>();
+		childObj->CreateComponent<Turret>();
+		childObj->transform->SetParent(paTileObj->transform);
+		auto spr = childObj->CreateComponent<SpriteRenderer>();
+		pineTile->turret = childObj;
 	}
 	{
 		// 파인애플 타일들

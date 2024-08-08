@@ -15,6 +15,8 @@ EventSystem& EventSystem::GetInstance()
 	return instance;
 }
 
+// 충돌체가 있는 오브젝트들을 받아와서
+// 해당 오브젝트들 중 ipointer가 있다면 관련함수 호출
 void EventSystem::Update(Scene* scene, float delta)
 {
 	prevWorldObject = currentWorldObject;
@@ -22,6 +24,7 @@ void EventSystem::Update(Scene* scene, float delta)
 	prevObject = currentObject;
 	prevPointer = curPointer;
 	curPointer = nullptr;
+	hovered.clear();
 
 	auto m_GameObjects = scene->m_GameObjects;
 
@@ -117,6 +120,13 @@ void EventSystem::Update(Scene* scene, float delta)
 	currentWorldObject = worldObjects.size() > 0 ? worldObjects[0] : nullptr;
 	currentUIObject = uiObjects.size() > 0 ? uiObjects[0] : nullptr;
 
+	for (auto& object : worldObjects) {
+		hovered.push_back(object);
+	}
+	for (auto& object : uiObjects) {
+		hovered.push_back(object);
+	}
+
 	if (currentUIObject != nullptr)
 		currentObject = currentUIObject;
 	else if (currentWorldObject != nullptr)
@@ -144,10 +154,10 @@ void EventSystem::Update(Scene* scene, float delta)
 
 	if (prevPointer == nullptr && curPointer == nullptr) return;
 	if ( prevPointer == curPointer) {
-		if (curPointer)curPointer->IPointerStay();
+		if (curPointer) curPointer->IPointerStay();
 	}
 	else if (prevPointer != curPointer) {
-		if (curPointer)curPointer->IPointerEnter();
+		if (curPointer) curPointer->IPointerEnter();
 		if (prevPointer) prevPointer->IPointerExit();
 	}
 }

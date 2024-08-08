@@ -8,6 +8,7 @@
 #include "PineAppleTile.h"
 int state = 0;
 float angle = 0.f;
+Vector2 startPos;
 void TestDropDown::Update(float delta)
 {
 	auto a = EventSystem::GetInstance().GetCurrWorldObject();
@@ -17,7 +18,7 @@ void TestDropDown::Update(float delta)
 	if (state == 1) {
 		Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
 
-		Vector2 dir = camera->ScreenToWorldPosition(mousePos) - dragObj->transform->pos.worldPosition;
+		Vector2 dir = camera->ScreenToWorldPosition(mousePos) - Vector2(dragObj->transform->m_WorldTransform.dx, dragObj->transform->m_WorldTransform.dy);
 		dir.Normalize();
 
 		float x1 = 1.f;
@@ -60,10 +61,15 @@ void TestDropDown::Update(float delta)
 		if (a != nullptr) {
 			auto pTile = a->GetComponent<PineAppleTile>();
 			if (pTile != nullptr) {
-				gameObject->transform->pos.worldPosition.x = pTile->gameObject->transform->m_WorldTransform.dx;
-				gameObject->transform->pos.worldPosition.y = pTile->gameObject->transform->m_WorldTransform.dy;
+				//gameObject->transform->pos.worldPosition.x = pTile->gameObject->transform->m_WorldTransform.dx;
+				//gameObject->transform->pos.worldPosition.y = pTile->gameObject->transform->m_WorldTransform.dy;
 				pTile->turret = gameObject;
+				gameObject->transform->SetParent(pTile->gameObject->transform);
+				gameObject->transform->pos.worldPosition = { 0.f, 0.f };
 			}
+		}
+		else {
+			gameObject->transform->pos.worldPosition = startPos;
 		}
 	}
 	else if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left) && isDrag == false && state == 0) {
@@ -71,17 +77,20 @@ void TestDropDown::Update(float delta)
 		isDrag = true;
 		dragObj = a;
 		Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
-		offset = dragObj->transform->pos.worldPosition - camera->ScreenToWorldPosition(mousePos);
+		//offset = dragObj->transform->pos.worldPosition - camera->ScreenToWorldPosition(mousePos);
 
 		angle = dragObj->transform->m_RelativeRotation;
 
 		auto coll = dragObj->GetComponent<Collider>();
 		coll->ignoreEventSystem = true;
+
+		startPos = dragObj->transform->pos.worldPosition;
+		gameObject->transform->SetParent(nullptr);
 	}
 	else if (isDrag && state == 0) {
 		Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
 		if(dragObj != nullptr)
-			dragObj->transform->pos.worldPosition = camera->ScreenToWorldPosition(mousePos) + offset;
+			dragObj->transform->pos.worldPosition = camera->ScreenToWorldPosition(mousePos);
 
 		if (a != nullptr) {
 			auto pTile = a->GetComponent<PineAppleTile>();

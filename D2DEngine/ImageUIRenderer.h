@@ -1,10 +1,10 @@
 #pragma once
 #include "Renderer.h"
-
+#include "Collider.h"
 class Transform;
 class Texture;
 class AABB;
-class ImageUIRenderer : public Renderer
+class ImageUIRenderer : virtual public Renderer, virtual public Collider
 {
 public:
 	ImageUIRenderer();
@@ -29,5 +29,9 @@ public:
 	void Render(D2D1_MATRIX_3X2_F cameraMat);
 
 	AABB GetBound();
+
+	// Collider을(를) 통해 상속됨
+	bool isCollide(Collider* collider, Vector2& resolution) override;
+	bool isCollide(const Vector2& point) override;
 };
 

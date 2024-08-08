@@ -101,3 +101,21 @@ AABB ImageUIRenderer::GetBound()
 	ab.SetExtent(float((m_DstRect.right - m_DstRect.left) / 2), float((m_DstRect.bottom - m_DstRect.top) / 2));
 	return ab;
 }
+
+bool ImageUIRenderer::isCollide(Collider* collider, Vector2& resolution)
+{
+	return false;
+}
+
+bool ImageUIRenderer::isCollide(const Vector2& point)
+{
+	float x = gameObject->transform->m_WorldTransform.dx;
+	float y = gameObject->transform->m_WorldTransform.dy;
+	float dx = gameObject->transform->pos.rectposition.rightTop.x - gameObject->transform->pos.rectposition.leftBottom.x;
+	float dy = gameObject->transform->pos.rectposition.rightTop.y - gameObject->transform->pos.rectposition.leftBottom.y;
+	bool result = (x <= point.x &&
+		x + dx >= point.x &&
+		y <= point.y &&
+		y + dy >= point.y);
+	return result;
+}

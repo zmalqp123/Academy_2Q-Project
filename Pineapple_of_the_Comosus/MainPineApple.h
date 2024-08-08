@@ -7,5 +7,8 @@ public:
 	virtual ~MainPineApple() { };
 
 	void PrintIndex(int index);
+
+	float elapsedTime = 0.f;
+	virtual void Update(float deltaTime);
 };
 

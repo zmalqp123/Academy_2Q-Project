@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "Vector.h"
 // ignore layer나 tag를 만들어 eventSystem에 검출되지 않게 만들어야 할지도
 class GameObject;
@@ -45,6 +46,8 @@ private:
 
 	IPointer* curPointer = nullptr;
 	IPointer* prevPointer = nullptr;
+
+	std::vector<GameObject*> hovered;
 
 public:
 	static EventSystem& GetInstance();

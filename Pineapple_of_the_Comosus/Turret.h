@@ -4,6 +4,15 @@
 
 
 
+enum class TurretType {
+	Crossbow,
+	Musket,
+	MineThrower,
+	SuperCrossbow,
+	SlowWand,
+	GrowthPromoter
+};
+
 class Turret : public Component
 {	
 protected:

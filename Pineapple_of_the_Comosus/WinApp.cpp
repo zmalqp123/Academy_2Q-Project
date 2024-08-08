@@ -51,6 +51,9 @@ void WinApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	btn->AddListener([test]() {test->TestlamdaFunc(); });
 	
 	//areaObj->CreateComponent<MouseDownTest>();
+
+
+	//DataManager::LoadTurretSheetFromCSV(L"../Resource/")
 }
 
 void WinApp::Update(float deltaTime)
