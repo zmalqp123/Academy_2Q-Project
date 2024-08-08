@@ -4,16 +4,13 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "Enemy.h"
-#include "Turret.h"
-#include "Projectile.h"
 
 struct EnemyData {
 	EnemyData(int _id) : id(_id) {};
 	~EnemyData() = default;
 
 	int id;
-	EliteType eliteType;
+	int eliteType;
 
 	int resistArrow;
 	int resistBullet;
@@ -43,7 +40,7 @@ struct TurretData
 	float fireRate;
 	int penetration;
 
-	ProjectileType bulletType;
+	int bulletType;
 	float bulletSpeed;
 	int slowRate;
 	float slowDuration;
@@ -106,7 +103,7 @@ public:
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Size
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 EliteType
 				//이 부분은 검증이 안됨 잘 들어가는지 확인 할 것. 아마도 다이나믹 캐스트 해야할 것 같은디...
-				Enemy->eliteType = static_cast<EliteType>(_wtoi(token.c_str()));
+				Enemy->eliteType = (_wtoi(token.c_str()));
 
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Resist
 				Enemy->resistArrow = _wtoi(token.c_str());
@@ -183,7 +180,7 @@ public:
 				Turret->penetration = _wtoi(token.c_str());
 				getline(wss, token, L','); 
 				//이 부분은 검증이 안됨 잘 들어가는지 확인 할 것. 아마도 다이나믹 캐스트 해야할 것 같은디...
-				Turret->bulletType = static_cast<ProjectileType>(_wtoi(token.c_str()));
+				Turret->bulletType = _wtoi(token.c_str());
 				getline(wss, token, L',');
 				Turret->bulletSpeed = _wtof(token.c_str());
 
@@ -200,5 +197,22 @@ public:
 		return true;
 	}
 
+	EnemyData* GetEnemyData(int id) {
+		for (auto& data : enemyDataList) {
+			if (data->id == id) {
+				return data;
+			}
+		}
+		return nullptr;
+	}
+
+	TurretData* GetTurretData(int id) {
+		for (auto& data : turretDataList) {
+			if (data->id == id) {
+				return data;
+			}
+		}
+		return nullptr;
+	}
 };
 
