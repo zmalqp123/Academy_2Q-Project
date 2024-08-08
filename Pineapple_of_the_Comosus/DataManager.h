@@ -72,7 +72,7 @@ public:
 	std::vector<EnemyData*> enemyDataList;
 	std::vector<TurretData*> turretDataList;
 
-	bool LoadEnemySheetFromCSV(const wchar_t* fileName) //아직 엘리트 타입은 확인하지 않음 확인필요!
+	bool LoadEnemySheetFromCSV(const wchar_t* fileName)
 	{
 		std::wifstream file(fileName);
 		if (!file.is_open()) {
@@ -85,14 +85,13 @@ public:
 		std::getline(file, line);		// 첫번째 줄 읽기
 		{
 			std::getline(file, line);   // 두번째 줄 읽기 (데이터 갯수)
-			std::getline(file, line);   // 세번째 줄 읽기 (데이터 갯수)
 			std::wstringstream wss(line);
 			wss >> DataCount;
 		}
 
 		for (int j = 0; j < DataCount; j++)
-		{	
-			
+		{
+
 			getline(file, line);		// 한줄 읽기
 			std::wstringstream wss(line);    // 한줄을 읽어서 wstringstream에 저장
 			std::wstring token;
@@ -101,9 +100,8 @@ public:
 				EnemyData* Enemy = new EnemyData(_wtoi(token.c_str()));
 				getline(wss, token, L',');	// wss의 내용을 ,를 기준으로 문자열을 분리 Name
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Size
-				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 EliteType
-				//이 부분은 검증이 안됨 잘 들어가는지 확인 할 것. 아마도 다이나믹 캐스트 해야할 것 같은디...
-				Enemy->eliteType = (_wtoi(token.c_str()));
+				getline(wss, token, L',');  // EliteType
+				Enemy->eliteType = _wtoi(token.c_str());
 
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Resist
 				Enemy->resistArrow = _wtoi(token.c_str());
@@ -116,13 +114,13 @@ public:
 
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Stat
 				Enemy->hp = _wtoi(token.c_str());
-				getline(wss, token, L',');  
+				getline(wss, token, L',');
 				Enemy->moveSpeed = _wtoi(token.c_str());
-				getline(wss, token, L',');  
+				getline(wss, token, L',');
 				Enemy->attack = _wtoi(token.c_str());
-				getline(wss, token, L',');  
+				getline(wss, token, L',');
 				Enemy->attackRate = _wtoi(token.c_str());
-				getline(wss, token, L',');  
+				getline(wss, token, L',');
 				Enemy->range = _wtoi(token.c_str());
 
 				getline(wss, token, L',');
@@ -132,7 +130,7 @@ public:
 				enemyDataList.push_back(Enemy);
 			}
 		}
-
+		file.close();
 		return true;
 	}
 
