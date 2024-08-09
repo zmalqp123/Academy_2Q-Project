@@ -13,6 +13,7 @@ class BulletFactory;
 class EnemyFactory
 {
 public:
+    int enemyType;
     EnemyFactory(Scene* scene);
     ~EnemyFactory();
 

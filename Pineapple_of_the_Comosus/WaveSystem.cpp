@@ -32,6 +32,7 @@ void WaveSystem::SpawnWave()
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<float> distY(-240.0f, -100.f);
+    std::uniform_real_distribution<float> flyDistY(300.f,400.0f);
     std::bernoulli_distribution distSide(0.5); // 50% 확률로 true 또는 false 생성
 
     for (int i = 0; i < numEnemiesToSpawn; ++i)
@@ -41,21 +42,44 @@ void WaveSystem::SpawnWave()
         bool spawnOnLeft = distSide(gen); // 50% 확률로 왼쪽 또는 오른쪽에서 스폰
 
         float spawnY = distY(gen);
+        float skySpanY = flyDistY(gen);
 
         Vector2 spawnPosition;
         Vector2 moveDirection;
 
-        if (spawnOnLeft)
+        auto type = enemyFactory->enemyType;
+        if (type == 2)
         {
-            spawnPosition = Vector2(-800.0f, spawnY);
-            moveDirection = Vector2(1.0f, 0.0f);
+            if (spawnOnLeft)
+            {
+                spawnPosition = Vector2(-800.0f, skySpanY);
+                moveDirection = Vector2(1.0f, 0.0f);
+
+                newEnemy->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
+            }
+            else
+            {
+                spawnPosition = Vector2(900.0f, skySpanY);
+                moveDirection = Vector2(-1.0f, 0.0f);
+
+            }
         }
         else
         {
-            spawnPosition = Vector2(900.0f, spawnY);
-            moveDirection = Vector2(-1.0f, 0.0f);
-            newEnemy->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
+            if (spawnOnLeft)
+            {
+                spawnPosition = Vector2(-800.0f, spawnY);
+                moveDirection = Vector2(1.0f, 0.0f);
+            }
+            else
+            {
+                spawnPosition = Vector2(900.0f, spawnY);
+                moveDirection = Vector2(-1.0f, 0.0f);
+                newEnemy->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
+            }
         }
+
+        
 
         newEnemy->gameObject->transform->pos.worldPosition = spawnPosition;
         newEnemy->move->SetDirection(moveDirection);
@@ -72,7 +96,7 @@ void WaveSystem::StartNextWave()
     if (currentWave < maxWave)
     {
         currentWave++;
-        waveTimer = 3.0f;  // 타이머 초기화
+        waveTimer = 1.0f;  // 타이머 초기화
         SpawnWave();        // 새로운 wave 스폰
     }
     // maxWave에 도달했을 경우 추가적인 처리 필요 (게임 종료 또는 루프 등)
