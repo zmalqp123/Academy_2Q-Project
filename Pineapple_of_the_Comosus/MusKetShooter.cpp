@@ -20,14 +20,14 @@ void MusKetShooter::Update(float delta)
 {
     __super::Update(delta);
 
-    timeSinceLastShot += delta;
+    //timeSinceLastShot += delta;
 
-    // 총알을 발사할 조건이 만족되면 발사
-    if (timeSinceLastShot >= shootCooldown)
-    {
-        Shoot();
-        timeSinceLastShot = 0.0f;  // 타이머 초기화
-    }
+    //// 총알을 발사할 조건이 만족되면 발사
+    //if (timeSinceLastShot >= shootCooldown)
+    //{
+    //    Shoot();
+    //    timeSinceLastShot = 0.0f;  // 타이머 초기화
+    //}
 
     // 기타 업데이트 코드 추가
 }

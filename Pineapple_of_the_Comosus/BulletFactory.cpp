@@ -36,7 +36,7 @@ Bullet* BulletFactory::CreateBullet()
     auto collider = bulletObj->CreateComponent<BoxCollider>();
     collider->SetCollisionType(CollisionType::Overlap);
 
-    spriteRenderer->LoadTexture(L"../Resource/circle.png");  // 총알 텍스처 로드
+    spriteRenderer->LoadTexture(L"../Resource/arrow.png");  // 총알 텍스처 로드
 
     Bullet* bullet = bulletObj->CreateComponent<Bullet>();
     bullet->move = movement;
