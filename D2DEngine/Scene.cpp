@@ -42,8 +42,9 @@ void Scene::Update(float deltaTime)
 	if (m_GameObjects.size() == 0) return;
 	auto a = m_GameObjects;
 
-	for (auto gameObject : a) {
-		gameObject->Update(deltaTime);
+	for (auto gameObject : a) { 
+		if(gameObject->isActive == true)
+			gameObject->Update(deltaTime);
 	}
 
 	EventSystem::GetInstance().Update(this, deltaTime);

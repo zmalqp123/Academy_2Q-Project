@@ -2,7 +2,7 @@
 #include "Movement.h"
 #include "GameObject.h"
 #include "Transform.h"
-void Movement::SetDirection(D2D1_VECTOR_2F direction)
+void Movement::SetDirection(Vector2 direction)
 {
 	m_direction = direction;
 	

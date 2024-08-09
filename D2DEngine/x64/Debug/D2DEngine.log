@@ -1,15 +1,2 @@
-﻿  SpriteRenderer.cpp
-  TestObject.cpp
-  WinGameApp.cpp
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(44,19): warning C4244: '초기화 중': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(45,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(46,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,29): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,29): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,36): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,36): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(90,56): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(94,54): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(126,46): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  D2DEngine.vcxproj -> D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\x64\Debug\D2DEngine.lib
+﻿  SideMovement.cpp
+  D2DEngine.vcxproj -> C:\Users\User\Desktop\Academy_2Q-Project\x64\Debug\D2DEngine.lib

@@ -52,12 +52,6 @@ void GameScene::Start() {
     GameManager->multiSelectBox = boxColl;
     GameManager->selectTurrets = selector;
 
-    // 코모서스 파인애플 (겁나 큼)
-    auto paObj = CreateGameObject<GameObject>();
-    paObj->transform->pos.worldPosition = { 0.f, -200.f };
-    auto pineApple = paObj->CreateComponent<MainPineApple>();
-    auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
-    pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
 
     // 드래그 시 이미지 보여줄 오브젝트
     auto testDragObj = CreateGameObject<GameObject>();
@@ -69,6 +63,14 @@ void GameScene::Start() {
 
     // 파인애플 타일들
     {
+        // 코모서스 파인애플 (겁나 큼)
+        auto paObj = CreateGameObject<GameObject>();
+        paObj->transform->pos.worldPosition = { 0.f, -200.f };
+        auto pineApple = paObj->CreateComponent<MainPineApple>();
+        pineApple->bulletFactory = bulletFactory;
+        auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
+        pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
+
         {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
@@ -86,7 +88,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);
@@ -110,7 +113,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);
@@ -134,7 +138,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);
@@ -158,7 +163,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);
@@ -182,7 +188,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);
@@ -206,7 +213,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);
@@ -230,7 +238,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);
@@ -254,7 +263,8 @@ void GameScene::Start() {
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
-            childObj->CreateComponent<Turret>();
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
             childObj->transform->SetParent(paTileObj->transform);

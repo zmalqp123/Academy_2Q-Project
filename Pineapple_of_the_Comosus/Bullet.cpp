@@ -19,10 +19,12 @@ void Bullet::Init(float initSpeed, const Vector2& initDirection)
     if (move)
     {
         // 방향 설정
-        move->SetDirection(D2D1_VECTOR_2F{ direction.x, direction.y });
+        //move->SetDirection(D2D1_VECTOR_2F{ direction.x, direction.y });
 
         // 속도 설정
-        move->SetSpeed(speed);
+        //move->SetSpeed(speed);
+
+        move->AddForce(direction * speed);
     }
 }
 

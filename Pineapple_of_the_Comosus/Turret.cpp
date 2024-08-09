@@ -1,5 +1,6 @@
 #include "Turret.h"
 #include "BulletFactory.h"
+#include "MainPineApple.h"
 #include "Bullet.h"
 #include"../D2DEngine/GameObject.h"
 #include "../D2DEngine/Transform.h"
@@ -12,6 +13,8 @@ void Turret::Update(float delta)
 {
     __super::Update(delta);
     // 총알을 발사할 조건이 만족되면 발사
+    timeSinceLastShot += delta;
+
     if (timeSinceLastShot >= shootCooldown)
     {
         Shoot();
@@ -21,13 +24,20 @@ void Turret::Update(float delta)
 
 void Turret::Shoot()
 {
-    if (bulletFactory)
+    if (parentPineApple->bulletFactory)
     {
         // BulletFactory에서 Bullet을 가져온다
-        Bullet* bullet = bulletFactory->GetBulletFromPool();
+        Bullet* bullet = parentPineApple->bulletFactory->GetBulletFromPool();
 
         // 총알 초기화 (속도와 방향 설정)
         Vector2 shootDirection = { 1.0f, 0.0f };  // 예를 들어 오른쪽으로 발사
+
+        float angle = gameObject->transform->m_RelativeRotation;
+        shootDirection.x = std::cosf(angle / 180.f * 3.14159f);
+        shootDirection.y = std::sinf(angle / 180.f * 3.14159f);
+
+        std::cout << shootDirection.x << ",  " << shootDirection.y << std::endl;
+
         float bulletSpeed = 500.0f;
         bullet->Init(bulletSpeed, shootDirection);
 

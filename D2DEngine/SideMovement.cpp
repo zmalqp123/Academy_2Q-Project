@@ -13,9 +13,20 @@ void SideMovement::Update(float delta)
     float speedX = m_direction.x * m_speed * delta;
 
     // 수직 속도 업데이트 (중력 적용)
-    m_verticalVelocity += m_gravity * delta;
-    y -= m_verticalVelocity * delta;
+    m_verticalVelocity -= m_gravity * delta;
+    y += m_verticalVelocity * delta;
 
+    //std::cout << "m_verticalVelocity : " << m_verticalVelocity << std::endl;
     // 새 위치 적용
     gameObject->transform->pos.worldPosition = { x + speedX, y };
+}
+
+void SideMovement::AddForce(Vector2 velocity)
+{
+    m_verticalVelocity = velocity.y;
+
+    float movespeed = velocity.Length();
+    m_speed = movespeed;
+    velocity.Normalize();
+    m_direction = velocity;
 }

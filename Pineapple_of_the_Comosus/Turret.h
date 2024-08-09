@@ -4,7 +4,7 @@
 #include "Bullet.h"
 
 
-
+class MainPineApple;
 enum class TurretType {
 	Crossbow,
 	Musket,
@@ -24,7 +24,7 @@ protected:
 	int refund;
 
 	ProjectileType bulletType;
-	BulletFactory* bulletFactory;
+
 	float burstRange;
 	int damage;
 	float fireRate;
@@ -34,6 +34,7 @@ protected:
 	float angle;
 
 public:
+	MainPineApple* parentPineApple;
 	float prevAngle;
 	float currAngle;
 	Turret() = default;
