@@ -2,6 +2,8 @@
 #include "../D2DEngine/SideMovement.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/Transform.h"
+#include "../D2DEngine/GameObject.h"
+#include "Enemy.h"
 
 Bullet::Bullet()
 {
@@ -65,4 +67,23 @@ void Bullet::Reset()
     // 기타 필요한 초기화 코드들
     speed = 0.0f;
     direction = Vector2(0.0f, 0.0f);
+}
+
+void Bullet::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
+}
+
+void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
+    auto e = pOtherComponent->gameObject->GetComponent<Enemy>();
+    if(e!= nullptr)
+        gameObject->isActive = false;
+}
+
+void Bullet::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
+}
+
+void Bullet::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
 }

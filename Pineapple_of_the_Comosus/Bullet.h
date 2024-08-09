@@ -1,12 +1,12 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include "../D2DEngine/Vector.h"
+#include "../D2DEngine/Collider.h"
 
 class SideMovement;
 class BoxCollider;
 
-class BulletFactory;
-class Bullet : public Component
+class Bullet : public Component, public IColliderNotify
 {
 public:
     Bullet();
@@ -16,7 +16,7 @@ public:
     void Update(float deltaTime) override;
     void Reset();
 
-    // Movement¿Í BoxCollider´Â BulletFactory¿¡¼­ ¼³Á¤
+    // Movementï¿½ï¿½ BoxColliderï¿½ï¿½ BulletFactoryï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     SideMovement* move;
     BoxCollider* pBoxcollider;
 
@@ -24,4 +24,10 @@ public:
 private:
     float speed;
     Vector2 direction;
+
+    // IColliderNotifyï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Óµï¿½
+    void OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+    void OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+    void OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+    void OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
 };
