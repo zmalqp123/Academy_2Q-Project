@@ -1,5 +1,4 @@
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\BombCart.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\BombCart.obj
-C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\BomberDie.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\BomberDie.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\BomberMove.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\BomberMove.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\Bullet.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\BulletFactory.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\BulletFactory.obj
@@ -12,11 +11,9 @@ C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\GamePlayManage
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\GameScene.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\GameScene.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\Griffin.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\Griffin.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\GriffinAttack.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\GriffinAttack.obj
-C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\GriffinDie.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\GriffinDie.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\GriffinMove.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\GriffinMove.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\HarvestButton.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\HarvestButton.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\HeavyAttack.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\HeavyAttack.obj
-C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\HeavyDie.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\HeavyDie.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\HeavyKnight.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\HeavyKnight.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\HeavyMove.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\HeavyMove.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\Hpbar.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\Hpbar.obj
@@ -24,7 +21,6 @@ C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\MouseDownTest.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\MouseDownTest.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\Mpbar.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\Mpbar.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\MusKetAttack.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\MusKetAttack.obj
-C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\MusKetDie.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\MusKetDie.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\MusKetMove.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\MusKetMove.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\MusKetShooter.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\MusKetShooter.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\Pineapple.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\Pineapple.obj
@@ -32,7 +28,6 @@ C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\PineAppleTile.
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\Pineapple_of_the_Comosus.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\Pineapple_of_the_Comosus.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\SelectTurretContainer.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\SelectTurretContainer.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\StartScene.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\StartScene.obj
-C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\SwordDie.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\SwordDie.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\SwordMan.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\SwordMan.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\SwordManAttack.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\SwordManAttack.obj
 C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\SwordMove.cpp;C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\x64\Debug\SwordMove.obj
