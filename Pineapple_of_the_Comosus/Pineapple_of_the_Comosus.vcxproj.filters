@@ -104,7 +104,39 @@
     <ClCompile Include="GriffinAttack.cpp">
       <Filter>Enemy\Griffin</Filter>
     </ClCompile>
-    <ClCompile Include="HeavyAttack.cpp" />
+    <ClCompile Include="SwordMove.cpp">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClCompile>
+    <ClCompile Include="MusKetMove.cpp">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavyAttack.cpp">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavyMove.cpp">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="GriffinMove.cpp">
+      <Filter>Enemy\Griffin</Filter>
+    </ClCompile>
+    <ClCompile Include="BomberMove.cpp">
+      <Filter>Enemy\BombCart</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordDie.cpp">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClCompile>
+    <ClCompile Include="MusKetDie.cpp">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavyDie.cpp">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClCompile>
+    <ClCompile Include="GriffinDie.cpp">
+      <Filter>Enemy\Griffin</Filter>
+    </ClCompile>
+    <ClCompile Include="BomberDie.cpp">
+      <Filter>Enemy\BombCart</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -211,7 +243,39 @@
     <ClInclude Include="GriffinAttack.h">
       <Filter>Enemy\Griffin</Filter>
     </ClInclude>
-    <ClInclude Include="HeavyAttack.h" />
+    <ClInclude Include="SwordMove.h">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClInclude>
+    <ClInclude Include="MusKetMove.h">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClInclude>
+    <ClInclude Include="HeavyAttack.h">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="HeavyMove.h">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="GriffinMove.h">
+      <Filter>Enemy\Griffin</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberMove.h">
+      <Filter>Enemy\BombCart</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordDie.h">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClInclude>
+    <ClInclude Include="MusKetDie.h">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClInclude>
+    <ClInclude Include="HeavyDie.h">
+      <Filter>Enemy\HeavyKnight</Filter>
+    </ClInclude>
+    <ClInclude Include="GriffinDie.h">
+      <Filter>Enemy\Griffin</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberDie.h">
+      <Filter>Enemy\BombCart</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Enemy">

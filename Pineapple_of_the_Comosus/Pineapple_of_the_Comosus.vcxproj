@@ -142,6 +142,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BombCart.cpp" />
+    <ClCompile Include="BomberDie.cpp" />
+    <ClCompile Include="BomberMove.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletFactory.cpp" />
     <ClCompile Include="BomberAttack.cpp" />
@@ -153,22 +155,30 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Griffin.cpp" />
     <ClCompile Include="GriffinAttack.cpp" />
+    <ClCompile Include="GriffinDie.cpp" />
+    <ClCompile Include="GriffinMove.cpp" />
     <ClCompile Include="HarvestButton.cpp" />
     <ClCompile Include="HeavyAttack.cpp" />
+    <ClCompile Include="HeavyDie.cpp" />
     <ClCompile Include="HeavyKnight.cpp" />
+    <ClCompile Include="HeavyMove.cpp" />
     <ClCompile Include="Hpbar.cpp" />
     <ClCompile Include="MainPineApple.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
     <ClCompile Include="Mpbar.cpp" />
     <ClCompile Include="MusKetAttack.cpp" />
+    <ClCompile Include="MusKetDie.cpp" />
+    <ClCompile Include="MusKetMove.cpp" />
     <ClCompile Include="MusKetShooter.cpp" />
     <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="PineAppleTile.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
     <ClCompile Include="SelectTurretContainer.cpp" />
     <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="SwordDie.cpp" />
     <ClCompile Include="SwordMan.cpp" />
     <ClCompile Include="SwordManAttack.cpp" />
+    <ClCompile Include="SwordMove.cpp" />
     <ClCompile Include="testChar.cpp" />
     <ClCompile Include="TestDropDown.cpp" />
     <ClCompile Include="TurretUI.cpp" />
@@ -187,6 +197,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
+    <ClInclude Include="BomberDie.h" />
+    <ClInclude Include="BomberMove.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletFactory.h" />
     <ClInclude Include="BomberAttack.h" />
@@ -199,21 +211,29 @@
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Griffin.h" />
     <ClInclude Include="GriffinAttack.h" />
+    <ClInclude Include="GriffinDie.h" />
+    <ClInclude Include="GriffinMove.h" />
     <ClInclude Include="HarvestButton.h" />
     <ClInclude Include="HeavyAttack.h" />
+    <ClInclude Include="HeavyDie.h" />
     <ClInclude Include="HeavyKnight.h" />
+    <ClInclude Include="HeavyMove.h" />
     <ClInclude Include="Hpbar.h" />
     <ClInclude Include="MainPineApple.h" />
     <ClInclude Include="MouseDownTest.h" />
     <ClInclude Include="Mpbar.h" />
     <ClInclude Include="MusKetAttack.h" />
+    <ClInclude Include="MusKetDie.h" />
+    <ClInclude Include="MusKetMove.h" />
     <ClInclude Include="MusKetShooter.h" />
     <ClInclude Include="PineAppleTile.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SelectTurretContainer.h" />
     <ClInclude Include="StartScene.h" />
+    <ClInclude Include="SwordDie.h" />
     <ClInclude Include="SwordMan.h" />
     <ClInclude Include="SwordManAttack.h" />
+    <ClInclude Include="SwordMove.h" />
     <ClInclude Include="testChar.h" />
     <ClInclude Include="TestDropDown.h" />
     <ClInclude Include="TurretUI.h" />
