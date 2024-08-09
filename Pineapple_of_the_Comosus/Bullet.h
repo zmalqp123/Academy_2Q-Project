@@ -5,6 +5,7 @@
 class SideMovement;
 class BoxCollider;
 
+class BulletFactory;
 class Bullet : public Component
 {
 public:
@@ -19,6 +20,7 @@ public:
     SideMovement* move;
     BoxCollider* pBoxcollider;
 
+    BulletFactory* bulletFactory;
 private:
     float speed;
     Vector2 direction;
