@@ -1,6 +1,6 @@
 #pragma once
 #include "Renderer.h"
-
+#include "Vector.h"
 class Transform;
 class Texture;
 class AABB;
@@ -30,5 +30,6 @@ public:
 	AABB GetBound();
 
 	void SetFilp(bool x, bool y);
+	void SetCenter(Vector2 normalize);
 };
 
