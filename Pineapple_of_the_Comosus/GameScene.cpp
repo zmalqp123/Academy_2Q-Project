@@ -102,28 +102,47 @@ void GameScene::Start() {
     float startX = 0.f;
     float width = 120.f;
 
+    //std::vector<Button*> btn;
+    // 이미지 파일 경로 배열
+    std::wstring turretImages[] = {
+        L"../Resource/CrossBow.png",
+        L"../Resource/Musket.png",
+        L"../Resource/Wand.png",
+        L"../Resource/CrossBow.png",
+        L"../Resource/Musket.png",
+        L"../Resource/Wand.png"
+    };
+
+    // UI 생성 및 이미지 설정 코드
     std::vector<Button*> btn;
+
     for (size_t i = 0; i < 6; i++) {
         auto turretUI = CreateGameObject<GameObject>();
-        startX = i * (spacing + width);
+        float startX = i * (spacing + width);
         turretUI->transform->SetParent(uiObj->transform);
         turretUI->transform->type = Type::Ui;
         turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
+
         auto backImage = turretUI->CreateComponent<ImageUIRenderer>();
         backImage->ignoreEventSystem = true;
-        backImage->LoadTexture(L"../Resource/turret.png");
+
+        // 각 터렛 UI에 대해 다른 이미지 로드
+        backImage->LoadTexture(turretImages[i]);
 
         // 변경사항 터렛UI
         auto turretUIChild = CreateGameObject<GameObject>();
         turretUIChild->transform->SetParent(turretUI->transform);
         turretUIChild->transform->type = Type::Ui;
         turretUIChild->transform->pos.rectposition = { {0.f, 0.f} ,{120.f, 120.f} };
+
         auto turretButton = turretUIChild->CreateComponent<Button>();
-        turretButton->LoadTexture(L"../Resource/turret.png");
+        turretButton->LoadTexture(turretImages[i]);
+        //turretButton->LoadTexture(L"../Resource/turret.png");  // 버튼의 이미지는 고정
         auto turretUIComp = turretUIChild->CreateComponent<TurretUI>();
         turretUIComp->SetIndex(i);
-        turretButton->LoadTexture(L"../Resource/Sun.png");
+
         btn.push_back(turretButton);
+        // 터렛 버튼 클릭 시 동작 정의
         //turretButton->AddListener([GameManager, turretUIComp]() {GameManager->StartBatch(turretUIComp->GetIndex()); });
     }
     auto t1 = btn[0]->gameObject->GetComponent<TurretUI>();

@@ -5,12 +5,17 @@
 
 void SideMovement::Update(float delta)
 {
-    // 중력 효과를 무시한 측면 이동 처리
+    // 현재 위치 가져오기
     float x = gameObject->transform->pos.worldPosition.x;
     float y = gameObject->transform->pos.worldPosition.y;
 
-    // Y축 이동을 제거하여 수평(측면) 이동만 처리
+    // 수평 이동 계산
     float speedX = m_direction.x * m_speed * delta;
 
+    // 수직 속도 업데이트 (중력 적용)
+    m_verticalVelocity += m_gravity * delta;
+    y -= m_verticalVelocity * delta;
+
+    // 새 위치 적용
     gameObject->transform->pos.worldPosition = { x + speedX, y };
 }

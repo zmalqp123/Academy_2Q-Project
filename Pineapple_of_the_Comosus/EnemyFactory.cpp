@@ -58,12 +58,12 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 2:
         enemy = mon->CreateComponent<Griffin>();
-        loadMon->LoadTexture(L"../Resource/Sun.png");
+        loadMon->LoadTexture(L"../Resource/griffin.png");
         //fsm->CreateState<GriffinAttack>("Attack");
         break;
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
-        loadMon->LoadTexture(L"../Resource/moon.png");
+        loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
         //fsm->CreateState<HeavyAttack>("Attack");
         break;
     case 4:
@@ -90,7 +90,7 @@ Enemy* EnemyFactory::CreateRandomEnemy()
     std::uniform_real_distribution<float> floatDist(0.0f, 1.0f); // 0.0 ~ 1.0 ������ �Ǽ� ����
 
     float randomValue = floatDist(gen); // 0.0 ~ 1.0 ������ ���� �� ����
-    int enemyType;
+    
 
     if (randomValue < 0.2f)
         enemyType = 0; // 20% Ȯ���� 0
