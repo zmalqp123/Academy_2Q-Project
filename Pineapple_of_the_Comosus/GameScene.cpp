@@ -9,7 +9,12 @@
 #include"../D2DEngine/ImageUIRenderer.h"
 #include"../D2DEngine/SceneManager.h"
 #include "../D2DEngine/Button.h"
+#include "../D2DEngine/BoxCollider.h"
 #include "EnemyFactory.h"
+#include "TurretUI.h"
+#include "GamePlayManager.h"
+#include "MainPineApple.h"
+#include "SelectTurretContainer.h"
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
@@ -27,6 +32,36 @@ void GameScene::Start() {
     auto camera = CreateGameObject<GameObject>();
     auto pCam = camera->CreateComponent<Camera>();
     SetMainCamera(pCam);
+
+
+
+    // 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
+    auto gmObj = CreateGameObject<GameObject>();
+    auto GameManager = gmObj->CreateComponent<GamePlayManager>();
+    GameManager->camera = pCam;
+    auto boxObj = CreateGameObject<GameObject>();
+    boxObj->SetActive(false);
+    auto boxColl = boxObj->CreateComponent<BoxCollider>();
+    boxColl->SetCollisionType(CollisionType::Overlap);
+    auto selector = boxObj->CreateComponent<SelectTurretContainer>();
+    GameManager->selectBoxObj = boxObj;
+    GameManager->multiSelectBox = boxColl;
+    GameManager->selectTurrets = selector;
+
+    // 코모서스 파인애플 (겁나 큼)
+    auto paObj = CreateGameObject<GameObject>();
+    paObj->transform->pos.worldPosition = { 0.f, -200.f };
+    auto pineApple = paObj->CreateComponent<MainPineApple>();
+
+    // 드래그 시 이미지 보여줄 오브젝트
+    auto testDragObj = CreateGameObject<GameObject>();
+    testDragObj->SetActive(false);
+    auto sproper = testDragObj->CreateComponent<SpriteRenderer>();
+    sproper->alpha = 0.7f;
+    GameManager->dragObj = testDragObj;
+    testDragObj->transform->SetSortingLayer(1);
+
+
 
     // 사운드 초기화 및 로드
     SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3");
@@ -65,16 +100,42 @@ void GameScene::Start() {
     float startX = 0.f;
     float width = 120.f;
 
+    std::vector<Button*> btn;
     for (size_t i = 0; i < 6; i++) {
         auto turretUI = CreateGameObject<GameObject>();
-        auto turretImage = turretUI->CreateComponent<Button>();
         startX = i * (spacing + width);
         turretUI->transform->SetParent(uiObj->transform);
         turretUI->transform->type = Type::Ui;
         turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
-        turretImage->LoadTexture(L"../Resource/turret.png");
-    }
+        auto backImage = turretUI->CreateComponent<ImageUIRenderer>();
+        backImage->ignoreEventSystem = true;
+        backImage->LoadTexture(L"../Resource/turret.png");
 
+        // 변경사항 터렛UI
+        auto turretUIChild = CreateGameObject<GameObject>();
+        turretUIChild->transform->SetParent(turretUI->transform);
+        turretUIChild->transform->type = Type::Ui;
+        turretUIChild->transform->pos.rectposition = { {0.f, 0.f} ,{120.f, 120.f} };
+        auto turretButton = turretUIChild->CreateComponent<Button>();
+        turretButton->LoadTexture(L"../Resource/turret.png");
+        auto turretUIComp = turretUIChild->CreateComponent<TurretUI>();
+        turretUIComp->SetIndex(i);
+        turretButton->LoadTexture(L"../Resource/Sun.png");
+        btn.push_back(turretButton);
+        //turretButton->AddListener([GameManager, turretUIComp]() {GameManager->StartBatch(turretUIComp->GetIndex()); });
+    }
+    auto t1 = btn[0]->gameObject->GetComponent<TurretUI>();
+    btn[0]->AddListener([GameManager, t1]() {GameManager->StartBatch(t1->GetIndex()); });
+    auto t2 = btn[1]->gameObject->GetComponent<TurretUI>();
+    btn[1]->AddListener([GameManager, t2]() {GameManager->StartBatch(t2->GetIndex()); });
+    auto t3 = btn[2]->gameObject->GetComponent<TurretUI>();
+    btn[2]->AddListener([GameManager, t3]() {GameManager->StartBatch(t3->GetIndex()); });
+    auto t4 = btn[3]->gameObject->GetComponent<TurretUI>();
+    btn[3]->AddListener([GameManager, t4]() {GameManager->StartBatch(t4->GetIndex()); });
+    auto t5 = btn[4]->gameObject->GetComponent<TurretUI>();
+    btn[4]->AddListener([GameManager, t5]() {GameManager->StartBatch(t5->GetIndex()); });
+    auto t6 = btn[5]->gameObject->GetComponent<TurretUI>();
+    btn[5]->AddListener([GameManager, t6]() {GameManager->StartBatch(t6->GetIndex()); });
     // HP 및 MP 바 UI
 
     auto hpBarObj = CreateGameObject<GameObject>();

@@ -134,4 +134,5 @@ void GamePlayManager::StartBatch(int type)
 	auto spr = dragObj->GetComponent<SpriteRenderer>();
 	hmm = type == 0 ? L"../Resource/Sun.png" : L"../Resource/Earth.png";
 	spr->LoadTexture(hmm);
+	std::cout << type << std::endl;
 }
