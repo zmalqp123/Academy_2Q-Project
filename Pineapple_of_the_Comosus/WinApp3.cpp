@@ -23,8 +23,14 @@ void WinApp3::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y) {
 void WinApp3::Update(float deltaTime) {
     __super::Update(deltaTime);
 
+    auto& sManager = SceneManager::GetInstance();
     // 씬 업데이트 호출 (씬 매니저 사용)
-    SceneManager::GetInstance().GetCurrentScene()->Update(deltaTime);
+    sManager.GetCurrentScene()->Update(deltaTime);
+
+    if (sManager.shouldChangeSceneFlag == true) {
+        sManager.ChangeScene(sManager.nextSceneName);
+        sManager.shouldChangeSceneFlag = false;
+    }
 }
 
 void WinApp3::Render(D2DRenderer* _render) {

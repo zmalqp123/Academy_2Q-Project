@@ -28,7 +28,7 @@ public:
 	virtual void Clear(); // exit
 	void SetCullingBound(AABB* pBound);
 	void SetMainCamera(Camera* cam);
-	
+
 	template<typename T>
 	T* CreateGameObject() {
 		bool bIsBase = std::is_base_of<GameObject, T>::value;

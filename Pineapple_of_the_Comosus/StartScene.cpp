@@ -44,7 +44,7 @@ void StartScene::Start() {
     startButton->transform->pos.rectposition = { {1490,800} ,{1890,900} };
     strtSpr->LoadTexture(L"../Resource/gameStart.png");
     //auto& curS = SceneManager::GetInstance();
-    strtSpr->AddListener([]() {SceneManager::GetInstance().ChangeScene("GameScene"); });
+    strtSpr->AddListener([&]() {SceneManager::GetInstance().SetChangeSceneFlag("GameScene"); });
 
     auto ruleButton = CreateGameObject<GameObject>();
     auto ruleSpr = ruleButton->CreateComponent<Button>();

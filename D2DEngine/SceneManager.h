@@ -12,6 +12,8 @@ public:
     // 씬을 등록하는 함수
     void RegisterScene(const std::string& name, Scene* scene);
 
+    void SetChangeSceneFlag(const std::string& name);
+
     // 특정 씬으로 전환하는 함수
     void ChangeScene(const std::string& name);
 
@@ -20,6 +22,8 @@ public:
     // 현재 활성화된 씬을 가져오는 함수
     Scene* GetCurrentScene();
 
+    bool shouldChangeSceneFlag = false;
+    std::string nextSceneName;
 private:
     // 생성자 및 소멸자
     SceneManager();
@@ -31,4 +35,6 @@ private:
 
     std::unordered_map<std::string, Scene*> scenes;
     Scene* currentScene;
+
+
 };
