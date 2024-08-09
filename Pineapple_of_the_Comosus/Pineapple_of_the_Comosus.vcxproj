@@ -149,7 +149,9 @@
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyDead.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
+    <ClCompile Include="EnemyMove.cpp" />
     <ClCompile Include="GamePlayManager.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Griffin.cpp" />
@@ -199,7 +201,9 @@
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyDead.h" />
     <ClInclude Include="EnemyFactory.h" />
+    <ClInclude Include="EnemyMove.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GamePlayManager.h" />
     <ClInclude Include="GameScene.h" />
