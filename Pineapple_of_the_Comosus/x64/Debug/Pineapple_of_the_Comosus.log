@@ -1,1 +1,4 @@
-﻿  Pineapple_of_the_Comosus.vcxproj -> D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\x64\Debug\Pineapple_of_the_Comosus.exe
+﻿  GamePlayManager.cpp
+C:\Users\User\Desktop\Academy_2Q-Project\D2DEngine\BoxCollider.h(5,7): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
+C:\Users\User\Desktop\Academy_2Q-Project\Pineapple_of_the_Comosus\GamePlayManager.cpp(109,14): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Pineapple_of_the_Comosus.vcxproj -> C:\Users\User\Desktop\Academy_2Q-Project\x64\Debug\Pineapple_of_the_Comosus.exe

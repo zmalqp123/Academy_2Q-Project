@@ -73,6 +73,7 @@ void GamePlayManager::Update(float deltaTime)
 			if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left)) {
 				isAngle = false;
 				turrets.clear();
+				object->currAngle = e;
 			}
 			else if ((!InputManager::GetInstance().GetPrevMouseState().right && InputManager::GetInstance().GetMouseState().right)) {
 				//dragObj->transform->m_RelativeRotation = angle;
@@ -132,7 +133,7 @@ void GamePlayManager::StartBatch(int type)
 	isDrag = true;
 	dragObj->SetActive(true);
 	auto spr = dragObj->GetComponent<SpriteRenderer>();
-	hmm = type == 0 ? L"../Resource/Sun.png" : L"../Resource/Earth.png";
+	hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
 	spr->LoadTexture(hmm);
 	std::cout << type << std::endl;
 }

@@ -13,4 +13,5 @@ void MainPineApple::Update(float deltaTime)
 	float temp = std::sinf(elapsedTime * 10.f) * 30.f;
 	//std::cout << temp << std::endl;
 	gameObject->transform->pos.worldPosition.y = temp;
+	//gameObject->transform->m_RelativeRotation = elapsedTime * 30.f;
 }

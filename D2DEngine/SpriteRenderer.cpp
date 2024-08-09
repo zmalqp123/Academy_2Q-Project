@@ -109,3 +109,8 @@ void SpriteRenderer::SetFilp(bool x, bool y)
 	m_ImageTransform = D2D1::Matrix3x2F::Scale(m_flipX ? -1.f : 1.f, m_flipY ? -1.f : 1.f, D2D1::Point2F(0, 0)) *
 		D2D1::Matrix3x2F::Translation(m_flipX ? size.width / 2.f : -size.width / 2.f, m_flipY ? -size.width / 2.f : size.height / 2.f);
 }
+
+void SpriteRenderer::SetCenter(Vector2 normalize)
+{
+
+}
