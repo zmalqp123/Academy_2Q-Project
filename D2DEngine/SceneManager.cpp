@@ -22,6 +22,12 @@ void SceneManager::RegisterScene(const std::string& name, Scene* scene) {
     scenes[name] = scene;
 }
 
+void SceneManager::SetChangeSceneFlag(const std::string& name)
+{
+    nextSceneName = name.c_str();
+    shouldChangeSceneFlag = true;
+}
+
 // 특정 씬으로 전환하는 함수
 void SceneManager::ChangeScene(const std::string& name) {
     if (currentScene) {

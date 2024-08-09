@@ -1,11 +1,17 @@
 #include "EnemyFactory.h"
 #include "BulletFactory.h"
+#include "SwordManAttack.h"
+#include "MusKetAttack.h"
+#include "BomberAttack.h"
+#include "GriffinAttack.h"
+#include "HeavyAttack.h"
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/GameObject.h"
 #include "MusKetShooter.h"
+#include "../D2DEngine/FiniteStateMachine.h"
 
 EnemyFactory::EnemyFactory(Scene* scene)
     : scene(scene)
@@ -22,7 +28,7 @@ void EnemyFactory::InitializePool()
 {
     for (int i = 0; i < initialPoolSize; ++i)
     {
-        auto enemy = CreateRandomEnemy(); // ·£´ý Àû »ý¼º
+        auto enemy = CreateRandomEnemy(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         enemy->gameObject->isActive = false;
         m_EnemyPool.push_back(enemy);
     }
@@ -34,7 +40,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto loadMon = mon->CreateComponent<SpriteRenderer>();
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
-
+    auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // ï¿½ß°ï¿½ï¿½ï¿½ FSM state ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     Enemy* enemy = nullptr;
     MusKetShooter* b = nullptr;
     switch (type)
@@ -43,27 +49,32 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy = mon->CreateComponent<SwordMan>();
         enemy->Init();
         loadMon->LoadTexture(L"../Resource/swordsman.png");
+        fsm->CreateState<SwordManAttack>("Attack");
         break;
     case 1:
         enemy = mon->CreateComponent<BombCart>();
         loadMon->LoadTexture(L"../Resource/tile.png");
+        fsm->CreateState<BomberAttack>("Attack");
         break;
     case 2:
         enemy = mon->CreateComponent<Griffin>();
         loadMon->LoadTexture(L"../Resource/Sun.png");
+        fsm->CreateState<GriffinAttack>("Attack");
         break;
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
         loadMon->LoadTexture(L"../Resource/moon.png");
+        fsm->CreateState<HeavyAttack>("Attack");
         break;
     case 4:
         b = mon->CreateComponent<MusKetShooter>();
         b->bulletFactory = bulletFactory;
         enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
+        fsm->CreateState<MusKetAttack>("Attack");
         break;
     default:
-        // ±âº» Àû ¶Ç´Â ¿À·ù Ã³¸®
+        // ï¿½âº» ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
         return nullptr;
     }
 
@@ -76,30 +87,30 @@ Enemy* EnemyFactory::CreateRandomEnemy()
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> floatDist(0.0f, 1.0f); // 0.0 ~ 1.0 ¹üÀ§ÀÇ ½Ç¼ö »ý¼º
+    std::uniform_real_distribution<float> floatDist(0.0f, 1.0f); // 0.0 ~ 1.0 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    float randomValue = floatDist(gen); // 0.0 ~ 1.0 »çÀÌÀÇ ·£´ý °ª »ý¼º
+    float randomValue = floatDist(gen); // 0.0 ~ 1.0 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     int enemyType;
 
     if (randomValue < 0.2f)
-        enemyType = 0; // 20% È®·ü·Î 0
+        enemyType = 0; // 20% È®ï¿½ï¿½ï¿½ï¿½ 0
     else if (randomValue < 0.4f)
-        enemyType = 1; // 20% È®·ü·Î 1
+        enemyType = 1; // 20% È®ï¿½ï¿½ï¿½ï¿½ 1
     else if (randomValue < 0.6f)
-        enemyType = 2; // 20% È®·ü·Î 2
+        enemyType = 2; // 20% È®ï¿½ï¿½ï¿½ï¿½ 2
     else if (randomValue < 0.8f)
-        enemyType = 3; // 20% È®·ü·Î 3
+        enemyType = 3; // 20% È®ï¿½ï¿½ï¿½ï¿½ 3
     else
-        enemyType = 4; // 20% È®·ü·Î 4
+        enemyType = 4; // 20% È®ï¿½ï¿½ï¿½ï¿½ 4
 
-    return CreateEnemy(enemyType); // 0-4 ¹üÀ§ÀÇ Àû »ý¼º
+    return CreateEnemy(enemyType); // 0-4 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 Enemy* EnemyFactory::GetEnemyFromPool()
 {
     if (m_EnemyPool.empty())
     {
-        auto enemy = CreateRandomEnemy(); // Ç®¿¡ ÀûÀÌ ¾øÀ¸¸é ·£´ý Àû »ý¼º
+        auto enemy = CreateRandomEnemy(); // Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         m_EnemyPool.push_back(enemy);
     }
 

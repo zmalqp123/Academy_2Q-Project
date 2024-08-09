@@ -92,6 +92,19 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>TurretObj</Filter>
     </ClCompile>
+    <ClCompile Include="SwordManAttack.cpp">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClCompile>
+    <ClCompile Include="MusKetAttack.cpp">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClCompile>
+    <ClCompile Include="BomberAttack.cpp">
+      <Filter>Enemy\BombCart</Filter>
+    </ClCompile>
+    <ClCompile Include="GriffinAttack.cpp">
+      <Filter>Enemy\Griffin</Filter>
+    </ClCompile>
+    <ClCompile Include="HeavyAttack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -186,6 +199,19 @@
     <ClInclude Include="Bullet.h">
       <Filter>TurretObj</Filter>
     </ClInclude>
+    <ClInclude Include="SwordManAttack.h">
+      <Filter>Enemy\SwordMan</Filter>
+    </ClInclude>
+    <ClInclude Include="MusKetAttack.h">
+      <Filter>Enemy\MusKetShooter</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberAttack.h">
+      <Filter>Enemy\BombCart</Filter>
+    </ClInclude>
+    <ClInclude Include="GriffinAttack.h">
+      <Filter>Enemy\Griffin</Filter>
+    </ClInclude>
+    <ClInclude Include="HeavyAttack.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Enemy">
