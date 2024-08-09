@@ -15,6 +15,7 @@
 #include "GamePlayManager.h"
 #include "MainPineApple.h"
 #include "SelectTurretContainer.h"
+#include "BulletFactory.h"
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
@@ -33,7 +34,7 @@ void GameScene::Start() {
     auto pCam = camera->CreateComponent<Camera>();
     SetMainCamera(pCam);
 
-
+    auto bulletFactory = new BulletFactory(this);
 
     // 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
     auto gmObj = CreateGameObject<GameObject>();
@@ -84,6 +85,7 @@ void GameScene::Start() {
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
     waveSystem->scene = this;
+    waveSystem->bulletFactory = bulletFactory;
     waveSystem->Init();
     
      

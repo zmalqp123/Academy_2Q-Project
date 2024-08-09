@@ -10,6 +10,7 @@
 #include <ctime>
 #include <random>
 #include "EnemyFactory.h"
+#include "BulletFactory.h"
 
 WaveSystem::WaveSystem()
 {
@@ -85,6 +86,7 @@ bool WaveSystem::IsMapEmpty()
 void WaveSystem::Init()
 {
     enemyFactory = new EnemyFactory(scene); // EnemyFactory »ý¼º
+    enemyFactory->bulletFactory = bulletFactory;
 }
 
 void WaveSystem::Update(float deltaTime)

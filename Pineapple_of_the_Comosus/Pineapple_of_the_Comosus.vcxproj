@@ -142,6 +142,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BombCart.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletFactory.cpp" />
     <ClCompile Include="BomberAttack.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
@@ -185,6 +187,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletFactory.h" />
     <ClInclude Include="BomberAttack.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
@@ -205,6 +209,7 @@
     <ClInclude Include="MusKetAttack.h" />
     <ClInclude Include="MusKetShooter.h" />
     <ClInclude Include="PineAppleTile.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SelectTurretContainer.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="SwordMan.h" />
@@ -220,6 +225,9 @@
     <ClInclude Include="WinApp2.h" />
     <ClInclude Include="WinApp3.h" />
     <ClInclude Include="WinApp4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

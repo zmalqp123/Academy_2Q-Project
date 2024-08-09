@@ -9,7 +9,7 @@
 
 #include <vector>
 #include <random>
-
+class BulletFactory;
 class EnemyFactory
 {
 public:
@@ -29,6 +29,8 @@ public:
     void ReturnEnemyToPool(Enemy* enemy);
 
     void InitializePool(); // 적 풀 초기화 메서드
+
+    BulletFactory* bulletFactory;
 private:
     
 

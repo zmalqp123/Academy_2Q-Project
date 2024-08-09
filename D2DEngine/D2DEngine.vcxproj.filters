@@ -102,6 +102,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Component\Renderer\UI\Button</Filter>
     </ClCompile>
+    <ClCompile Include="SideMovement.cpp">
+      <Filter>Component\Movement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -211,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Component\Renderer\UI\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="SideMovement.h">
+      <Filter>Component\Movement</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
