@@ -2,6 +2,7 @@
 #include "../D2DEngine/FiniteStateMachine.h"
 class HeavyAttack : public FSMState
 {
+public:
 	HeavyAttack(FiniteStateMachine* _fsm,std::string _name) : FSMState(_fsm, _name) {}
 	virtual ~HeavyAttack() {}
 

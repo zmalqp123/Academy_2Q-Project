@@ -40,7 +40,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto loadMon = mon->CreateComponent<SpriteRenderer>();
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
-    auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // �߰��� FSM state ���� ��
+    //auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // �߰��� FSM state ���� ��
     Enemy* enemy = nullptr;
     MusKetShooter* b = nullptr;
     switch (type)
@@ -49,29 +49,29 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy = mon->CreateComponent<SwordMan>();
         enemy->Init();
         loadMon->LoadTexture(L"../Resource/swordsman.png");
-        fsm->CreateState<SwordManAttack>("Attack");
+        //fsm->CreateState<SwordManAttack>("Attack");
         break;
     case 1:
         enemy = mon->CreateComponent<BombCart>();
         loadMon->LoadTexture(L"../Resource/tile.png");
-        fsm->CreateState<BomberAttack>("Attack");
+        //fsm->CreateState<BomberAttack>("Attack");
         break;
     case 2:
         enemy = mon->CreateComponent<Griffin>();
         loadMon->LoadTexture(L"../Resource/Sun.png");
-        fsm->CreateState<GriffinAttack>("Attack");
+        //fsm->CreateState<GriffinAttack>("Attack");
         break;
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
         loadMon->LoadTexture(L"../Resource/moon.png");
-        fsm->CreateState<HeavyAttack>("Attack");
+        //fsm->CreateState<HeavyAttack>("Attack");
         break;
     case 4:
         b = mon->CreateComponent<MusKetShooter>();
         b->bulletFactory = bulletFactory;
         enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
-        fsm->CreateState<MusKetAttack>("Attack");
+        //fsm->CreateState<MusKetAttack>("Attack");
         break;
     default:
         // �⺻ �� �Ǵ� ���� ó��
