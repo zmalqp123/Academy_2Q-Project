@@ -86,6 +86,12 @@
     <ClCompile Include="SelectTurretContainer.cpp">
       <Filter>PineAppleObj</Filter>
     </ClCompile>
+    <ClCompile Include="BulletFactory.cpp">
+      <Filter>TurretObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>TurretObj</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -173,6 +179,13 @@
     <ClInclude Include="SelectTurretContainer.h">
       <Filter>PineAppleObj</Filter>
     </ClInclude>
+    <ClInclude Include="BulletFactory.h">
+      <Filter>TurretObj</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Bullet.h">
+      <Filter>TurretObj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Enemy">
@@ -214,5 +227,8 @@
     <Filter Include="Enemy\MusKetShooter">
       <UniqueIdentifier>{5b71832a-e8a1-43a3-b153-0f1842106304}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />
   </ItemGroup>
 </Project>

@@ -64,7 +64,7 @@ void Scene::Update(float deltaTime)
 			}
 		}
 	}
-
+	//std::cout << colliders.size() << std::endl;
 	// 面倒贸府 包访
 	for (int i = 0; i < colliders.size(); i++) {
 

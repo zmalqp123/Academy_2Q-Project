@@ -1,9 +1,11 @@
 #include "EnemyFactory.h"
+#include "BulletFactory.h"
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/GameObject.h"
+#include "MusKetShooter.h"
 
 EnemyFactory::EnemyFactory(Scene* scene)
     : scene(scene)
@@ -34,7 +36,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto collider = mon->CreateComponent<BoxCollider>();
 
     Enemy* enemy = nullptr;
-
+    MusKetShooter* b = nullptr;
     switch (type)
     {
     case 0:
@@ -55,7 +57,9 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         loadMon->LoadTexture(L"../Resource/moon.png");
         break;
     case 4:
-        enemy = mon->CreateComponent<MusKetShooter>();
+        b = mon->CreateComponent<MusKetShooter>();
+        b->bulletFactory = bulletFactory;
+        enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
         break;
     default:

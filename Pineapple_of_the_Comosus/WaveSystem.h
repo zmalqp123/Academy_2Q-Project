@@ -7,6 +7,7 @@
 class Scene;
 class Enemy;
 class EnemyFactory;
+class BulletFactory;
 
 class WaveSystem : public Component
 {
@@ -23,7 +24,8 @@ private:
     
     
 public:
-    EnemyFactory* enemyFactory;
+    EnemyFactory* enemyFactory;  
+    BulletFactory* bulletFactory;
     Vector2 rightPos; 
     Vector2 leftPos;
 
