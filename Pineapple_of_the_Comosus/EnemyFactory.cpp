@@ -5,6 +5,9 @@
 #include "BomberAttack.h"
 #include "GriffinAttack.h"
 #include "HeavyAttack.h"
+#include "EnemyMove.h"
+#include "EnemyDead.h"
+
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Movement.h"
@@ -40,7 +43,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto loadMon = mon->CreateComponent<SpriteRenderer>();
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
-    //auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // �߰��� FSM state ���� ��
+    //auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
+    //fsm->SetOwner(mon);
     Enemy* enemy = nullptr;
     MusKetShooter* b = nullptr;
     switch (type)
@@ -50,21 +54,33 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy->Init();
         loadMon->LoadTexture(L"../Resource/swordsman.png");
         //fsm->CreateState<SwordManAttack>("Attack");
+        //fsm->CreateState<EnemyMove>("Move");
+        //fsm->CreateState<EnemyDead>("Dead");
+        //fsm->SetState("Move");
         break;
     case 1:
         enemy = mon->CreateComponent<BombCart>();
         loadMon->LoadTexture(L"../Resource/tile.png");
         //fsm->CreateState<BomberAttack>("Attack");
+        //fsm->CreateState<EnemyMove>("Move");
+        //fsm->CreateState<EnemyDead>("Dead");
+        //fsm->SetState("Move");
         break;
     case 2:
         enemy = mon->CreateComponent<Griffin>();
         loadMon->LoadTexture(L"../Resource/griffin.png");
         //fsm->CreateState<GriffinAttack>("Attack");
+        //fsm->CreateState<EnemyMove>("Move");
+        //fsm->CreateState<EnemyDead>("Dead");
+        //fsm->SetState("Move");
         break;
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
         loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
         //fsm->CreateState<HeavyAttack>("Attack");
+        //fsm->CreateState<EnemyMove>("Move");
+        //fsm->CreateState<EnemyDead>("Dead");
+        //fsm->SetState("Move");
         break;
     case 4:
         b = mon->CreateComponent<MusKetShooter>();
@@ -72,6 +88,9 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
         //fsm->CreateState<MusKetAttack>("Attack");
+        //fsm->CreateState<EnemyMove>("Move");
+        //fsm->CreateState<EnemyDead>("Dead");
+        //fsm->SetState("Move");
         break;
     default:
         // �⺻ �� �Ǵ� ���� ó��
