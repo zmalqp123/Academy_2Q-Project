@@ -16,7 +16,7 @@ class Movement;
 class SpriteRenderer;
 class Enemy : public Component
 {
-protected:
+public:
 	int resistArrow;
 	int resistBullet;
 	int resistBurst;
@@ -27,7 +27,7 @@ protected:
 	int attack;
 	int attackRate;
 	int range;
-	
+
 	EliteType eliteType;
 	int reward;
 	int expReward;
@@ -39,7 +39,7 @@ protected:
 
 	//SpriteRenderer* spriteRenderer;  // 추가: SpriteRenderer 포인터
 
-public:
+	
 	float elapsedTime = 0.0f;
 	float tmpY = 0.0f;
 
