@@ -23,9 +23,9 @@ public:
 	int resistComosus;
 
 	int hp;
-	int moveSpeed; // 몬스터의 이동 속도
+	float moveSpeed; // 몬스터의 이동 속도
 	int attack;
-	int attackRate;
+	float attackRate;
 	int range;
 
 	EliteType eliteType;
@@ -65,7 +65,7 @@ public:
 		resistComosus = ResistComosus;
 	}
 
-	void SetStat(int Hp, int MoveSpeed, int Attack, int AttackRate, int Range) {
+	void SetStat(int Hp, float MoveSpeed, int Attack, float AttackRate, int Range) {
 		hp = Hp;
 		moveSpeed = MoveSpeed;
 		attack = Attack;

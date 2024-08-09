@@ -12,8 +12,12 @@ MusKetShooter::MusKetShooter(Scene* scene)
 
 void MusKetShooter::Init()
 {
-    __super::Init();
-    // 필요한 초기화 코드 추가
+    // BombCart 특성 초기화 -> 수치 변경 해야함
+    SetStat(16, 5.0f, 10, 3.0f, 240);
+    SetResist(0, 0, 0, 0);
+    SetReward(50, 10);
+
+    eliteType = EliteType::Normal; // 기본 엘리트 타입 설정 (Normal)
 }
 
 void MusKetShooter::Update(float delta)
