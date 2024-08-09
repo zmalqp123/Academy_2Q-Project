@@ -1,6 +1,7 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include "Projectile.h"
+#include "Bullet.h"
 
 
 
@@ -13,13 +14,17 @@ enum class TurretType {
 	GrowthPromoter
 };
 
+class BulletFactory;
 class Turret : public Component
 {	
+	float shootCooldown = 1.f;           // 총알 발사 간격을 위한 쿨다운 타이머
+	float timeSinceLastShot;       // 마지막으로 총알을 발사한 이후의 시간
 protected:
 	int cost;
 	int refund;
 
 	ProjectileType bulletType;
+	BulletFactory* bulletFactory;
 	float burstRange;
 	int damage;
 	float fireRate;
@@ -34,10 +39,10 @@ public:
 	Turret() = default;
 	virtual ~Turret() = default;
 
-	virtual void Init() {
-		
-	
-	}; //여기서 위의 private 변수들을 초기화 해줘야함.
+	void virtual Init() override;
+	void virtual Update(float delta) override;
+
+	void Shoot();  // 총알 발사 함수
 
 	void SetCost(int cost) { this->cost = cost; }
 	int GetCost() { return cost; }

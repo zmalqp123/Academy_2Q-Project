@@ -12,13 +12,13 @@ MusKetShooter::MusKetShooter(Scene* scene)
 
 void MusKetShooter::Init()
 {
-    Enemy::Init();
+    __super::Init();
     // 필요한 초기화 코드 추가
 }
 
 void MusKetShooter::Update(float delta)
 {
-    Enemy::Update(delta);
+    __super::Update(delta);
 
     timeSinceLastShot += delta;
 
@@ -34,7 +34,7 @@ void MusKetShooter::Update(float delta)
 
 void MusKetShooter::Render(D2D1_MATRIX_3X2_F cameraMat)
 {
-    Enemy::Render(cameraMat);
+    __super::Render(cameraMat);
     // 렌더링 관련 추가 코드
 }
 

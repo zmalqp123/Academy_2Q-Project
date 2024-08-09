@@ -1,322 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="BombCart.cpp" />
+    <ClCompile Include="BomberDie.cpp" />
+    <ClCompile Include="BomberMove.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletFactory.cpp" />
+    <ClCompile Include="BomberAttack.cpp" />
+    <ClCompile Include="DataManager.cpp" />
+    <ClCompile Include="DayNightCycle.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyFactory.cpp" />
+    <ClCompile Include="GamePlayManager.cpp" />
+    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Griffin.cpp" />
+    <ClCompile Include="GriffinAttack.cpp" />
+    <ClCompile Include="GriffinDie.cpp" />
+    <ClCompile Include="GriffinMove.cpp" />
+    <ClCompile Include="HarvestButton.cpp" />
+    <ClCompile Include="HeavyAttack.cpp" />
+    <ClCompile Include="HeavyDie.cpp" />
+    <ClCompile Include="HeavyKnight.cpp" />
+    <ClCompile Include="HeavyMove.cpp" />
+    <ClCompile Include="Hpbar.cpp" />
+    <ClCompile Include="MainPineApple.cpp" />
     <ClCompile Include="MouseDownTest.cpp" />
+    <ClCompile Include="Mpbar.cpp" />
+    <ClCompile Include="MusKetAttack.cpp" />
+    <ClCompile Include="MusKetDie.cpp" />
+    <ClCompile Include="MusKetMove.cpp" />
+    <ClCompile Include="MusKetShooter.cpp" />
+    <ClCompile Include="Pineapple.cpp" />
+    <ClCompile Include="PineAppleTile.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
+    <ClCompile Include="SelectTurretContainer.cpp" />
+    <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="SwordDie.cpp" />
+    <ClCompile Include="SwordMan.cpp" />
+    <ClCompile Include="SwordManAttack.cpp" />
+    <ClCompile Include="SwordMove.cpp" />
+    <ClCompile Include="testChar.cpp" />
     <ClCompile Include="TestDropDown.cpp" />
-    <ClCompile Include="EnemyFactory.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="StartScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="WaveSystem.cpp">
-      <Filter>GameSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="WinApp.cpp">
-      <Filter>Winapp</Filter>
-    </ClCompile>
-    <ClCompile Include="WinApp2.cpp">
-      <Filter>Winapp</Filter>
-    </ClCompile>
-    <ClCompile Include="WinApp3.cpp">
-      <Filter>Winapp</Filter>
-    </ClCompile>
-    <ClCompile Include="WinApp4.cpp">
-      <Filter>Winapp</Filter>
-    </ClCompile>
-    <ClCompile Include="DayNightCycle.cpp">
-      <Filter>GameSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="GamePlayManager.cpp">
-      <Filter>GameSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="DataManager.cpp">
-      <Filter>GameSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Pineapple.cpp">
-      <Filter>PineAppleObj</Filter>
-    </ClCompile>
-    <ClCompile Include="MainPineApple.cpp">
-      <Filter>PineAppleObj</Filter>
-    </ClCompile>
-    <ClCompile Include="HarvestButton.cpp">
-      <Filter>Ui</Filter>
-    </ClCompile>
-    <ClCompile Include="Hpbar.cpp">
-      <Filter>Ui</Filter>
-    </ClCompile>
-    <ClCompile Include="Mpbar.cpp">
-      <Filter>Ui</Filter>
-    </ClCompile>
-    <ClCompile Include="TurretUI.cpp">
-      <Filter>TurretObj</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret.cpp">
-      <Filter>TurretObj</Filter>
-    </ClCompile>
-    <ClCompile Include="PineAppleTile.cpp">
-      <Filter>PineAppleObj</Filter>
-    </ClCompile>
-    <ClCompile Include="testChar.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
+    <ClCompile Include="TurretUI.cpp" />
     <ClCompile Include="UpgradeItem.cpp" />
-    <ClCompile Include="BombCart.cpp">
-      <Filter>Enemy\BombCart</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Enemy\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Griffin.cpp">
-      <Filter>Enemy\Griffin</Filter>
-    </ClCompile>
-    <ClCompile Include="HeavyKnight.cpp">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClCompile>
-    <ClCompile Include="SwordMan.cpp">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClCompile>
-    <ClCompile Include="MusKetShooter.cpp">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectTurretContainer.cpp">
-      <Filter>PineAppleObj</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletFactory.cpp">
-      <Filter>TurretObj</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>TurretObj</Filter>
-    </ClCompile>
-    <ClCompile Include="SwordManAttack.cpp">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClCompile>
-    <ClCompile Include="MusKetAttack.cpp">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClCompile>
-    <ClCompile Include="BomberAttack.cpp">
-      <Filter>Enemy\BombCart</Filter>
-    </ClCompile>
-    <ClCompile Include="GriffinAttack.cpp">
-      <Filter>Enemy\Griffin</Filter>
-    </ClCompile>
-    <ClCompile Include="SwordMove.cpp">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClCompile>
-    <ClCompile Include="MusKetMove.cpp">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClCompile>
-    <ClCompile Include="HeavyAttack.cpp">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClCompile>
-    <ClCompile Include="HeavyMove.cpp">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClCompile>
-    <ClCompile Include="GriffinMove.cpp">
-      <Filter>Enemy\Griffin</Filter>
-    </ClCompile>
-    <ClCompile Include="BomberMove.cpp">
-      <Filter>Enemy\BombCart</Filter>
-    </ClCompile>
-    <ClCompile Include="SwordDie.cpp">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClCompile>
-    <ClCompile Include="MusKetDie.cpp">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClCompile>
-    <ClCompile Include="HeavyDie.cpp">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClCompile>
-    <ClCompile Include="GriffinDie.cpp">
-      <Filter>Enemy\Griffin</Filter>
-    </ClCompile>
-    <ClCompile Include="BomberDie.cpp">
-      <Filter>Enemy\BombCart</Filter>
-    </ClCompile>
+    <ClCompile Include="WaveSystem.cpp" />
+    <ClCompile Include="Turret.cpp" />
+    <ClCompile Include="WinApp.cpp" />
+    <ClCompile Include="WinApp2.cpp" />
+    <ClCompile Include="WinApp3.cpp" />
+    <ClCompile Include="WinApp4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BombCart.h" />
+    <ClInclude Include="BomberDie.h" />
+    <ClInclude Include="BomberMove.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletFactory.h" />
+    <ClInclude Include="BomberAttack.h" />
+    <ClInclude Include="DataManager.h" />
+    <ClInclude Include="DayNightCycle.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GamePlayManager.h" />
+    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Griffin.h" />
+    <ClInclude Include="GriffinAttack.h" />
+    <ClInclude Include="GriffinDie.h" />
+    <ClInclude Include="GriffinMove.h" />
+    <ClInclude Include="HarvestButton.h" />
+    <ClInclude Include="HeavyAttack.h" />
+    <ClInclude Include="HeavyDie.h" />
+    <ClInclude Include="HeavyKnight.h" />
+    <ClInclude Include="HeavyMove.h" />
+    <ClInclude Include="Hpbar.h" />
+    <ClInclude Include="MainPineApple.h" />
     <ClInclude Include="MouseDownTest.h" />
-    <ClInclude Include="TestDropDown.h" />
-    <ClInclude Include="EnemyFactory.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="StartScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="WaveSystem.h">
-      <Filter>GameSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="WinApp4.h">
-      <Filter>Winapp</Filter>
-    </ClInclude>
-    <ClInclude Include="WinApp.h">
-      <Filter>Winapp</Filter>
-    </ClInclude>
-    <ClInclude Include="WinApp2.h">
-      <Filter>Winapp</Filter>
-    </ClInclude>
-    <ClInclude Include="WinApp3.h">
-      <Filter>Winapp</Filter>
-    </ClInclude>
-    <ClInclude Include="DayNightCycle.h">
-      <Filter>GameSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="GamePlayManager.h">
-      <Filter>GameSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="DataManager.h">
-      <Filter>GameSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Pineapple.h">
-      <Filter>PineAppleObj</Filter>
-    </ClInclude>
-    <ClInclude Include="MainPineApple.h">
-      <Filter>PineAppleObj</Filter>
-    </ClInclude>
-    <ClInclude Include="HarvestButton.h">
-      <Filter>Ui</Filter>
-    </ClInclude>
-    <ClInclude Include="Hpbar.h">
-      <Filter>Ui</Filter>
-    </ClInclude>
-    <ClInclude Include="Mpbar.h">
-      <Filter>Ui</Filter>
-    </ClInclude>
-    <ClInclude Include="TurretUI.h">
-      <Filter>TurretObj</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret.h">
-      <Filter>TurretObj</Filter>
-    </ClInclude>
-    <ClInclude Include="PineAppleTile.h">
-      <Filter>PineAppleObj</Filter>
-    </ClInclude>
-    <ClInclude Include="testChar.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="UpgradeItem.h" />
-    <ClInclude Include="BombCart.h">
-      <Filter>Enemy\BombCart</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Enemy\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Griffin.h">
-      <Filter>Enemy\Griffin</Filter>
-    </ClInclude>
-    <ClInclude Include="HeavyKnight.h">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClInclude>
-    <ClInclude Include="SwordMan.h">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClInclude>
-    <ClInclude Include="MusKetShooter.h">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectTurretContainer.h">
-      <Filter>PineAppleObj</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletFactory.h">
-      <Filter>TurretObj</Filter>
-    </ClInclude>
+    <ClInclude Include="Mpbar.h" />
+    <ClInclude Include="MusKetAttack.h" />
+    <ClInclude Include="MusKetDie.h" />
+    <ClInclude Include="MusKetMove.h" />
+    <ClInclude Include="MusKetShooter.h" />
+    <ClInclude Include="PineAppleTile.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Bullet.h">
-      <Filter>TurretObj</Filter>
-    </ClInclude>
-    <ClInclude Include="SwordManAttack.h">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClInclude>
-    <ClInclude Include="MusKetAttack.h">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClInclude>
-    <ClInclude Include="BomberAttack.h">
-      <Filter>Enemy\BombCart</Filter>
-    </ClInclude>
-    <ClInclude Include="GriffinAttack.h">
-      <Filter>Enemy\Griffin</Filter>
-    </ClInclude>
-    <ClInclude Include="SwordMove.h">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClInclude>
-    <ClInclude Include="MusKetMove.h">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClInclude>
-    <ClInclude Include="HeavyAttack.h">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClInclude>
-    <ClInclude Include="HeavyMove.h">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClInclude>
-    <ClInclude Include="GriffinMove.h">
-      <Filter>Enemy\Griffin</Filter>
-    </ClInclude>
-    <ClInclude Include="BomberMove.h">
-      <Filter>Enemy\BombCart</Filter>
-    </ClInclude>
-    <ClInclude Include="SwordDie.h">
-      <Filter>Enemy\SwordMan</Filter>
-    </ClInclude>
-    <ClInclude Include="MusKetDie.h">
-      <Filter>Enemy\MusKetShooter</Filter>
-    </ClInclude>
-    <ClInclude Include="HeavyDie.h">
-      <Filter>Enemy\HeavyKnight</Filter>
-    </ClInclude>
-    <ClInclude Include="GriffinDie.h">
-      <Filter>Enemy\Griffin</Filter>
-    </ClInclude>
-    <ClInclude Include="BomberDie.h">
-      <Filter>Enemy\BombCart</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Enemy">
-      <UniqueIdentifier>{0b53e60b-0409-4bd1-9f83-78cfb4558e56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{e082df54-3f06-4617-ac06-b654d2691fea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Winapp">
-      <UniqueIdentifier>{6ad5eeed-1f24-4bbc-8608-66cd37c41658}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ui">
-      <UniqueIdentifier>{d61a648e-ed57-42ea-9fed-34205e5be25b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameSystem">
-      <UniqueIdentifier>{dc88ac8e-b312-465b-8603-54ebc50463e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="PineAppleObj">
-      <UniqueIdentifier>{38069c08-8a80-492d-8fe4-d64fc9df8b7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TurretObj">
-      <UniqueIdentifier>{9e075352-2e10-4717-aff6-ef68e58ff34c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemy\BombCart">
-      <UniqueIdentifier>{be21b5e0-e0d9-4c16-bfe2-a95f528c007f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemy\Enemy">
-      <UniqueIdentifier>{dc2c041d-9e35-4fb0-9c55-cacd0c796077}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemy\Griffin">
-      <UniqueIdentifier>{d0c7f51c-e9b8-40dc-89b3-2b9ab0e701ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemy\HeavyKnight">
-      <UniqueIdentifier>{f23e2de7-6b97-4641-94c5-1cebbc3d7ffc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemy\SwordMan">
-      <UniqueIdentifier>{2309ca12-ea3e-4a03-aab8-e7a8603587ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemy\MusKetShooter">
-      <UniqueIdentifier>{5b71832a-e8a1-43a3-b153-0f1842106304}</UniqueIdentifier>
-    </Filter>
+    <ClInclude Include="SelectTurretContainer.h" />
+    <ClInclude Include="StartScene.h" />
+    <ClInclude Include="SwordDie.h" />
+    <ClInclude Include="SwordMan.h" />
+    <ClInclude Include="SwordManAttack.h" />
+    <ClInclude Include="SwordMove.h" />
+    <ClInclude Include="testChar.h" />
+    <ClInclude Include="TestDropDown.h" />
+    <ClInclude Include="TurretUI.h" />
+    <ClInclude Include="UpgradeItem.h" />
+    <ClInclude Include="WaveSystem.h" />
+    <ClInclude Include="Pineapple.h" />
+    <ClInclude Include="Turret.h" />
+    <ClInclude Include="WinApp.h" />
+    <ClInclude Include="WinApp2.h" />
+    <ClInclude Include="WinApp3.h" />
+    <ClInclude Include="WinApp4.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />
