@@ -122,7 +122,7 @@ void GamePlayManager::Update(float deltaTime)
 			startPos = camera->ScreenToWorldPosition(mousePos);
 			isSelect = true;
 			selectBoxObj->SetActive(true);
-			multiSelectBox->SetCenter({0.f, 0.f});
+			multiSelectBox->SetCenter(mousePos);
 			multiSelectBox->SetExtent({ 0.f, 0.f });
 			selectTurrets->ClearContainer();
 		}

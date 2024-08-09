@@ -13,7 +13,7 @@ void Mpbar::takeMp(float manaPoint)
 		currentMp = 100;
 }
 
-float Mpbar::getCurrMp() const
+float Mpbar::getCurrMp() const 
 {
 	return currentMp;
 }

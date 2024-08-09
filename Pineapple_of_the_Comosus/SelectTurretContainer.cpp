@@ -5,8 +5,9 @@
 
 void SelectTurretContainer::Update(float delta)
 {
-	//std::cout << container.size() << std::endl;
+	//std::cout << "dd" << std::endl;
 	//ClearContainer();
+
 }
 
 void SelectTurretContainer::ClearContainer()

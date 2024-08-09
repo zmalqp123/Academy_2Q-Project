@@ -8,6 +8,7 @@
 #include "../D2DEngine/Scene.h"  // Scene 헤더를 포함합니다.
 
 #include <vector>
+#include <unordered_map>
 #include <random>
 class BulletFactory;
 class EnemyFactory
@@ -33,9 +34,10 @@ public:
 
     BulletFactory* bulletFactory;
 private:
-    
-
     Scene* scene;
+
+    std::unordered_map<std::wstring, std::vector<Enemy*>> enemyPool;
+
     std::vector<Enemy*> m_EnemyPool;  // 적 풀을 저장하는 벡터
     const int initialPoolSize = 20;   // 초기 풀 크기 (임의로 설정, 필요에 따라 변경 가능)
 };
