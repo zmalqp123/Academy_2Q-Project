@@ -3,14 +3,31 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 
+void SelectTurretContainer::Update(float delta)
+{
+	//std::cout << container.size() << std::endl;
+	//ClearContainer();
+}
+
+void SelectTurretContainer::ClearContainer()
+{
+	container.clear();
+}
+
+std::unordered_set<Turret*> SelectTurretContainer::GetContainer()
+{
+	return container;
+}
+
 void SelectTurretContainer::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
 }
 
 void SelectTurretContainer::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
-
-
+	auto turret = pOtherComponent->gameObject->GetComponent<Turret>();
+	if(turret != nullptr)
+		container.insert(turret);
 }
 
 void SelectTurretContainer::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
@@ -19,4 +36,5 @@ void SelectTurretContainer::OnStayOverlap(Collider* pOwnedComponent, Collider* p
 
 void SelectTurretContainer::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
+
 }

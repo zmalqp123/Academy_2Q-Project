@@ -1,9 +1,12 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include "../D2DEngine/Vector.h"
+#include <unordered_set>
 class GameObject;
 class Camera;
 class BoxCollider;
+class SelectTurretContainer;
+class Turret;
 class GamePlayManager : public Component
 {
 public:
@@ -17,8 +20,11 @@ public:
 
 	GameObject* selectBoxObj = nullptr;
 	BoxCollider* multiSelectBox = nullptr;
+	SelectTurretContainer* selectTurrets = nullptr;
 	Vector2 startPos;
+	std::unordered_set<Turret*> turrets;
 	bool isSelect = false;
+	bool isAngle = false;
 
 	virtual void Update(float deltaTime);
 

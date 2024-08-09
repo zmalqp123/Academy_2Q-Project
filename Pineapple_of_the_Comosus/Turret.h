@@ -29,6 +29,7 @@ protected:
 	float angle;
 
 public:
+	float prevAngle;
 	Turret() = default;
 	virtual ~Turret() = default;
 

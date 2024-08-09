@@ -8,6 +8,7 @@
 #include "PineAppleTile.h"
 #include "Turret.h"
 #include "../D2DEngine/BoxCollider.h"
+#include "SelectTurretContainer.h"
 
 std::wstring hmm;
 void GamePlayManager::Update(float deltaTime)
@@ -45,6 +46,47 @@ void GamePlayManager::Update(float deltaTime)
 		}
 	}
 
+
+	else if (isAngle == true) {
+		Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
+		auto temp = turrets;
+		for (auto& object : temp) {
+
+			Vector2 dir = camera->ScreenToWorldPosition(mousePos) - Vector2(object->gameObject->transform->m_WorldTransform.dx, object->gameObject->transform->m_WorldTransform.dy);
+			dir.Normalize();
+
+			float x1 = 1.f;
+			float y1 = 0.f;
+
+			float e = atan2f(x1 * dir.y - y1 * dir.x, x1 * dir.x + y1 * dir.y) / 3.14159f * 180.f;
+
+			auto spr = object->gameObject->GetComponent<SpriteRenderer>();
+			if (spr) {
+				if (dir.x > 0)
+					spr->SetFilp(false, false);
+				else {
+					spr->SetFilp(false, true);
+				}
+			}
+			object->gameObject->transform->m_RelativeRotation = e;
+			//std::cout << e << std::endl;
+			if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left)) {
+				isAngle = false;
+				turrets.clear();
+			}
+			else if ((!InputManager::GetInstance().GetPrevMouseState().right && InputManager::GetInstance().GetMouseState().right)) {
+				//dragObj->transform->m_RelativeRotation = angle;
+				isAngle = false;
+				turrets.clear();
+				object->gameObject->transform->m_RelativeRotation = object->prevAngle;
+				if (object->prevAngle > 90 || object->prevAngle < -90) 
+					spr->SetFilp(false, true);
+				else
+					spr->SetFilp(false, false);
+			}
+		}
+	}
+
 	// ÅÍ·¿ ¼±ÅÃ¿ë
 	else if (isDrag == false && EventSystem::GetInstance().GetCurrUIObject() == nullptr) {
 		if (isSelect == true) {
@@ -62,6 +104,15 @@ void GamePlayManager::Update(float deltaTime)
 				// todo?
 				isSelect = false;
 				selectBoxObj->SetActive(false);
+				turrets = selectTurrets->GetContainer();
+				int size = turrets.size();
+				if (size > 0) {
+					isAngle = true;
+
+					for (auto& t : turrets) {
+						t->prevAngle = t->gameObject->transform->m_RelativeRotation;
+					}
+				}
 			}
 		}
 		else if (!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left) {
@@ -72,6 +123,7 @@ void GamePlayManager::Update(float deltaTime)
 			selectBoxObj->SetActive(true);
 			multiSelectBox->SetCenter({0.f, 0.f});
 			multiSelectBox->SetExtent({ 0.f, 0.f });
+			selectTurrets->ClearContainer();
 		}
 	}
 }

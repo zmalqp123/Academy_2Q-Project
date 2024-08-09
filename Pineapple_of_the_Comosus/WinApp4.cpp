@@ -26,6 +26,7 @@
 #include "GamePlayManager.h"
 #include "TurretUI.h"
 #include "Turret.h"
+#include "SelectTurretContainer.h"
 
 void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
@@ -44,9 +45,11 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	auto boxObj = scene->CreateGameObject<GameObject>();
 	boxObj->SetActive(false);
 	auto boxColl = boxObj->CreateComponent<BoxCollider>();
+	boxColl->SetCollisionType(CollisionType::Overlap);
+	auto selector = boxObj->CreateComponent<SelectTurretContainer>();
 	GameManager->selectBoxObj = boxObj;
 	GameManager->multiSelectBox = boxColl;
-
+	GameManager->selectTurrets = selector;
 
 	// 코모서스 파인애플 (겁나 큼)
 	auto paObj = scene->CreateGameObject<GameObject>();
@@ -106,6 +109,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;
@@ -128,6 +133,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;
@@ -150,6 +157,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;
@@ -172,6 +181,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;
@@ -194,6 +205,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;
@@ -216,6 +229,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;
@@ -238,6 +253,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;
@@ -260,6 +277,8 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 		auto childObj = scene->CreateGameObject<GameObject>();
 		childObj->isActive = false;
 		childObj->CreateComponent<Turret>();
+		auto circleColl = childObj->CreateComponent<CircleCollider>();
+		circleColl->SetCollisionType(CollisionType::Overlap);
 		childObj->transform->SetParent(paTileObj->transform);
 		auto spr = childObj->CreateComponent<SpriteRenderer>();
 		pineTile->turret = childObj;

@@ -1,15 +1,21 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include "../D2DEngine/Collider.h"
-#include <vector>
+#include <unordered_set>
 class Turret;
 class SelectTurretContainer : public Component, public IColliderNotify
 {
+private:
+	std::unordered_set<Turret*> container;
 public:
 	SelectTurretContainer() {}
 	virtual ~SelectTurretContainer() {}
 
-	std::vector<Turret*> container;
+	virtual void Update(float delta);
+
+	// 실행은 GamePlayManager가 컨테이너 탐색 후 할거임.
+	void ClearContainer();
+	std::unordered_set<Turret*> GetContainer();
 
 	// IColliderNotify을(를) 통해 상속됨
 	void OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent) override;
