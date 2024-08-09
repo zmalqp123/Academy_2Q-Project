@@ -5,7 +5,7 @@
 
 class SideMovement;
 class BoxCollider;
-
+class BulletFactory;
 class Bullet : public Component, public IColliderNotify
 {
 public:

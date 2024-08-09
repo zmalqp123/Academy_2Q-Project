@@ -23,7 +23,7 @@ public:
 	int resistComosus;
 
 	int hp;
-	int moveSpeed;
+	int moveSpeed; // 몬스터의 이동 속도
 	int attack;
 	int attackRate;
 	int range;
@@ -33,7 +33,7 @@ public:
 	int expReward;
 
 	//Vector2 position; // 몬스터의 위치
-	float speed; // 몬스터의 이동 속도
+	//float speed; // 몬스터의 이동 속도
 	Vector2 minBounds; // 이동 범위 최소값
 	Vector2 maxBounds; // 이동 범위 최대값
 
@@ -74,5 +74,7 @@ public:
 	}
 
 	Enemy& GetEnemy() { return *this; }
+
+	void WaveMove(float delta);
 };
 
