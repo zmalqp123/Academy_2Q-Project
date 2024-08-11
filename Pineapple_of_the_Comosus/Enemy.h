@@ -1,6 +1,8 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include "../D2DEngine/Vector.h"
+#include "../D2DEngine/EventSystem.h"
+#include "../D2DEngine/Collider.h"
 #include <cmath>
 
 enum class EliteType
@@ -14,7 +16,7 @@ enum class EliteType
 class BoxCollider;
 class Movement;
 class SpriteRenderer;
-class Enemy : public Component
+class Enemy : public Component, public IColliderNotify
 {
 public:
 	int resistArrow;
@@ -76,5 +78,11 @@ public:
 	Enemy& GetEnemy() { return *this; }
 
 	void WaveMove(float delta);
+
+	// IColliderNotify을(를) 통해 상속됨
+	void OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+	void OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+	void OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+	void OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
 };
 

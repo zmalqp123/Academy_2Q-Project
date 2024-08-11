@@ -43,6 +43,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto loadMon = mon->CreateComponent<SpriteRenderer>();
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
+    collider->SetCollisionType(CollisionType::Overlap);
+    auto colliderPhysics = mon->CreateComponent<BoxCollider>();
+    colliderPhysics->SetExtent({ 1.f, 1.f });
+    mon->SetActive(false);
     // auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
     // fsm->SetOwner(mon);
     Enemy* enemy = nullptr;

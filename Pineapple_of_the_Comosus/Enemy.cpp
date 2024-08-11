@@ -3,6 +3,7 @@
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
+#include "Bullet.h"
 
 void Enemy::Init()
 {
@@ -73,4 +74,24 @@ void Enemy::WaveMove(float delta)
 
     // 갱신된 위치를 적용
     // gameObject->transform->pos.worldPosition = position;  
+}
+
+void Enemy::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
+}
+
+void Enemy::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
+    auto a = pOtherComponent->gameObject->GetComponent<Bullet>();
+    if (a != nullptr) {
+        gameObject->isActive = false;
+    }
+}
+
+void Enemy::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
+}
+
+void Enemy::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
+{
 }

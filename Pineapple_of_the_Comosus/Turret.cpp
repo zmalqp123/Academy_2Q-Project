@@ -38,7 +38,7 @@ void Turret::Shoot()
 
         std::cout << shootDirection.x << ",  " << shootDirection.y << std::endl;
 
-        float bulletSpeed = 500.0f;
+        float bulletSpeed = 1000.0f;
         bullet->Init(bulletSpeed, shootDirection);
 
         // 총알의 위치를 MusKetShooter의 위치로 설정

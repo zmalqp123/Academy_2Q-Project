@@ -65,11 +65,21 @@ void GameScene::Start() {
     {
         // 코모서스 파인애플 (겁나 큼)
         auto paObj = CreateGameObject<GameObject>();
-        paObj->transform->pos.worldPosition = { 0.f, -200.f };
+        paObj->transform->pos.worldPosition = { 0.f, 0.f };
         auto pineApple = paObj->CreateComponent<MainPineApple>();
         pineApple->bulletFactory = bulletFactory;
         auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
         pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
+        auto pineColl = paObj->CreateComponent<BoxCollider>();
+        pineColl->ignoreEventSystem = true;
+        pineColl->isKinemetic = true;
+        pineColl->SetCenter({ 300.f, 100.f });
+        pineColl->SetExtent({ 0.f, 400.f });
+        pineColl = paObj->CreateComponent<BoxCollider>();
+        pineColl->ignoreEventSystem = true;
+        pineColl->isKinemetic = true;
+        pineColl->SetCenter({ -300.f, 100.f });
+        pineColl->SetExtent({ 0.f, 400.f });
 
         {
             // 파인애플 타일들

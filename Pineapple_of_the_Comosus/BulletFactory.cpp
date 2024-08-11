@@ -33,6 +33,7 @@ Bullet* BulletFactory::CreateBullet()
     auto bulletObj = scene->CreateGameObject<GameObject>();
     auto spriteRenderer = bulletObj->CreateComponent<SpriteRenderer>();
     auto movement = bulletObj->CreateComponent<SideMovement>();  // SideMovement »ç¿ë
+    movement->freezeRotate = false;
     auto collider = bulletObj->CreateComponent<BoxCollider>();
     collider->SetCollisionType(CollisionType::Overlap);
 

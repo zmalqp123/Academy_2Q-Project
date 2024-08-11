@@ -71,6 +71,7 @@ void Scene::Update(float deltaTime)
 
 		for (int target = i + 1; target < colliders.size(); target++) {
 			Vector2 resolution; // 충돌 결과지점?
+			if (colliders[i]->gameObject->isActive == false || colliders[target]->gameObject->isActive == false) continue;
 			if (colliders[i]->gameObject == colliders[target]->gameObject) continue;
 			if (!colliders[i]->isCollide(colliders[target], resolution)) continue;
 

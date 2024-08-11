@@ -38,7 +38,7 @@ void WaveSystem::SpawnWave()
     for (int i = 0; i < numEnemiesToSpawn; ++i)
     {
         Enemy* newEnemy = enemyFactory->GetEnemyFromPool();
-
+     
         bool spawnOnLeft = distSide(gen); // 50% 확률로 왼쪽 또는 오른쪽에서 스폰
 
         float spawnY = distY(gen);
@@ -86,6 +86,7 @@ void WaveSystem::SpawnWave()
         newEnemy->move->SetSpeed(50.0f);
         newEnemy->tmpY = spawnPosition.y;
 
+        newEnemy->gameObject->SetActive(true);
         m_Enemies.push_back(newEnemy);
         std::cout << "적이 생성되었습니다" << std::endl;
     }
