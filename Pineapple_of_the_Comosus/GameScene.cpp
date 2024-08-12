@@ -307,7 +307,7 @@ void GameScene::Start() {
     auto uiImage = uiObj->CreateComponent<ImageUIRenderer>();
     uiObj->transform->type = Type::Ui;
     uiObj->transform->pos.rectposition = { {180,0} ,{1560 + 180,200} };
-    uiImage->LoadTexture(L"../Resource/BG/BG.png");
+    uiImage->LoadTexture(L"../Resource/30401_상태창배경.png");
 
     // 웨이브 시스템
     auto waveObj = CreateGameObject<GameObject>();
@@ -333,10 +333,10 @@ void GameScene::Start() {
     //std::vector<Button*> btn;
     // 이미지 파일 경로 배열
     std::wstring turretImages[] = {
-        L"../Resource/CrossBow.png",
-        L"../Resource/Musket.png",
-        L"../Resource/Wand.png",
-        L"../Resource/CrossBow.png",
+        L"../Resource/30201_터렛버튼_석궁타워.png",
+        L"../Resource/30202_터렛버튼_머스킷타워.png",
+        L"../Resource/30203_터렛버튼_박격포타워.png",
+        L"../Resource/30205_터렛버튼_슬로우완드타워.png",
         L"../Resource/Musket.png",
         L"../Resource/Wand.png"
     };
@@ -394,7 +394,7 @@ void GameScene::Start() {
     hpBarObj->transform->pos.rectposition = { {20.f,0.f} ,{20.f + 820.f,20.f} };
     hpBarUi = hpBarObj->CreateComponent<Hpbar>();
     hpBarUi->ImageRender = hpBarImage;
-    hpBarImage->LoadTexture(L"../Resource/Hpbar.png");
+    hpBarImage->LoadTexture(L"../Resource/30403_HP_02_꽉참.png");
 
 
     auto mpBarObj = CreateGameObject<GameObject>();
@@ -404,7 +404,7 @@ void GameScene::Start() {
     mpBarObj->transform->pos.rectposition = { {20.f,20.f} ,{20.f + 820.f,40.f} };
     mpBarUi = mpBarObj->CreateComponent<Mpbar>();
     mpBarUi->ImageRender = mpBarImage;
-    mpBarImage->LoadTexture(L"../Resource/Mpbar.png");
+    mpBarImage->LoadTexture(L"../Resource/30402_수확바_02_꽉참.png");
 
     /*auto turretUI = CreateGameObject<GameObject>();
     auto turretImage = turretUI->CreateComponent<Button>();
@@ -424,7 +424,7 @@ void GameScene::Start() {
     GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,40.f} ,{20.f + 820.f + spacing + 270.f, (200.f - spacing)} };
     /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
     harvestUi->ImageRender = HarvestbtnImage;*/
-    GoldImage->LoadTexture(L"../Resource/upgradeButton.png");
+    GoldImage->LoadTexture(L"../Resource/30404_골드보유량창.png");
 
     // 강화 버튼 
     auto UpgradeObj = CreateGameObject<GameObject>();
@@ -434,7 +434,7 @@ void GameScene::Start() {
     UpgradeObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,10.f} ,{20.f + 820.f + spacing + 270.f, (200.f - spacing) / 2} };
     /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
     harvestUi->ImageRender = HarvestbtnImage;*/
-    UpgradeImage->LoadTexture(L"../Resource/button.png");
+    UpgradeImage->LoadTexture(L"../Resource/30406_파인애플레벨창.png");
 
     // 수확 버튼 -> 이거 완성 500 * 500
     auto Harvestobj = CreateGameObject<GameObject>();

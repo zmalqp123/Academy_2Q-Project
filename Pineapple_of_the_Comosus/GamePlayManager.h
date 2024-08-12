@@ -7,6 +7,7 @@ class Camera;
 class BoxCollider;
 class SelectTurretContainer;
 class Turret;
+class MainPineApple;
 class GamePlayManager : public Component
 {
 public:
@@ -18,6 +19,7 @@ public:
 	GameObject* dragObj = nullptr;
 	bool isDrag = false;
 
+	MainPineApple* pineApple = nullptr;
 	GameObject* selectBoxObj = nullptr;
 	BoxCollider* multiSelectBox = nullptr;
 	SelectTurretContainer* selectTurrets = nullptr;
