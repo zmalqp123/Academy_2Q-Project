@@ -7,13 +7,14 @@
 #include "HeavyAttack.h"
 #include "EnemyMove.h"
 #include "EnemyDead.h"
+#include "MusKetShooter.h"
+#include "DataManager.h"
 
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/GameObject.h"
-#include "MusKetShooter.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 
 EnemyFactory::EnemyFactory(Scene* scene)
@@ -46,11 +47,11 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     collider->SetCollisionType(CollisionType::Overlap);
     auto colliderPhysics = mon->CreateComponent<BoxCollider>();
     colliderPhysics->SetExtent({ 1.f, 1.f });
-    mon->SetActive(false);
+    mon->SetActive(true);
     // auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
     // fsm->SetOwner(mon);
     Enemy* enemy = nullptr;
-    MusKetShooter* b = nullptr;
+    DataManager& d = DataManager::GetInstance();
     switch (type)
     {
     case 0:
@@ -87,9 +88,9 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         fsm->SetState("Move");*/
         break;
     case 4:
-        b = mon->CreateComponent<MusKetShooter>();
-        b->bulletFactory = bulletFactory;
-        enemy = b;
+        enemy = mon->CreateComponent<MusKetShooter>();
+        //b->bulletFactory = bulletFactory;
+        //enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
         /*fsm->CreateState<MusKetAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");

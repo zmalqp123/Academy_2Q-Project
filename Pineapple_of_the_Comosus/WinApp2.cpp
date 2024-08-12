@@ -58,10 +58,10 @@ void WinApp2::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
     UI->transform->pos.rectposition = { {180,0} ,{1560 + 180,200} };
     Image->LoadTexture(L"../Resource/BG/BG.png");
 
-    //데이터 매니저 초기화
-    auto DataManager = DataManager::GetInstance();
-    DataManager.LoadEnemySheetFromCSV(L"../Resource/EnemyData.csv");
-    DataManager.LoadTurretSheetFromCSV(L"../Resource/Tr.csv");
+    ////데이터 매니저 초기화
+    //auto DataManager = DataManager::GetInstance();
+    //DataManager.LoadEnemySheetFromCSV(L"../Resource/EnemyData.csv");
+    //DataManager.LoadTurretSheetFromCSV(L"../Resource/Tr.csv");
 
     // 몬스터 테스트 
     /*auto monsterObj = scene->CreateGameObject<GameObject>();

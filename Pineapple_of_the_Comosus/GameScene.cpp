@@ -19,6 +19,7 @@
 #include "Turret.h"
 #include "PineAppleTile.h"
 #include "../D2DEngine/CircleCollider.h"
+#include "DataManager.h"
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
@@ -38,6 +39,11 @@ void GameScene::Start() {
     SetMainCamera(pCam);
 
     auto bulletFactory = new BulletFactory(this);
+
+    //데이터 매니저 초기화
+    auto& DataManager = DataManager::GetInstance();
+    DataManager.LoadEnemySheetFromCSV(L"../Resource/EnemyData.csv");
+    DataManager.LoadTurretSheetFromCSV(L"../Resource/TurretData.csv");
 
     // 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
     auto gmObj = CreateGameObject<GameObject>();

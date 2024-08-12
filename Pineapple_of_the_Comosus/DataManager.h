@@ -52,8 +52,6 @@ class DataManager
 {
 private:
 	DataManager()=default;
-	
-public:
 	~DataManager() {
 		for (auto& data : enemyDataList) {
 			delete data;
@@ -64,10 +62,17 @@ public:
 		}
 		turretDataList.clear();
 	};
+public:
+	
+
 	static DataManager& GetInstance() {
 		static DataManager instance;
 		return instance;
 	}
+
+	DataManager(const DataManager&) = delete;
+	DataManager& operator=(const DataManager&) = delete;
+
 
 	std::vector<EnemyData*> enemyDataList;
 	std::vector<TurretData*> turretDataList;
@@ -143,12 +148,12 @@ public:
 		}
 		std::wstring line;			// 한줄의 문자열	
 		int DataCount = 0;			// 띄어쓰기 된 정보의 갯수
-		for (int i = 0; i < 7; i++) { // 7번째 줄 까지 흘려보내기.
+		for (int i = 0; i < 6; i++) { // 6번째 줄 까지 흘려보내기.
 			std::getline(file, line);
 		}
 
 		{
-			std::getline(file, line);   // 8번째 줄 읽기 (데이터 갯수)
+			std::getline(file, line);   // 7번째 줄 읽기 (데이터 갯수)
 			std::wstringstream wss(line);
 			std::wstring token;
 			getline(wss, token, L',');
