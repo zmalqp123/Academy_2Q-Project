@@ -75,6 +75,7 @@ void GameScene::Start() {
         auto pineApple = paObj->CreateComponent<MainPineApple>();
         pineApple->bulletFactory = bulletFactory;
         auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
+        pineappleSpr->SetCenter({ 0.5f, 0.6f });
         pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
         auto pineColl = paObj->CreateComponent<BoxCollider>();
         pineColl->ignoreEventSystem = true;

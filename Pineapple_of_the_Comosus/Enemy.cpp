@@ -42,6 +42,8 @@ void Enemy::Update(float delta)
 
   //  // 갱신된 위치를 적용
   //  // gameObject->transform->pos.worldPosition = position;  
+
+    WaveMove(delta);
 }
 
 void Enemy::Render(D2D1_MATRIX_3X2_F cameraMat)

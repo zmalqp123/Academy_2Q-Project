@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 #include "../D2DEngine/FiniteStateMachine.h"
 class BomberMove : public FSMState
 {

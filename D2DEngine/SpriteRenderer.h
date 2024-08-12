@@ -8,6 +8,7 @@ class SpriteRenderer : public Renderer
 {
 	bool m_flipX = false;
 	bool m_flipY = false;
+	Vector2 centerPos = { 0.5f, 0.5f };
 public:
 	SpriteRenderer();
 	virtual ~SpriteRenderer();
@@ -30,6 +31,8 @@ public:
 	AABB GetBound();
 
 	void SetFilp(bool x, bool y);
+
+	//loadTexture를 하기 전에 사용할 것
 	void SetCenter(Vector2 normalize);
 };
 
