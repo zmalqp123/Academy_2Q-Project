@@ -3,6 +3,7 @@
 #include "../D2DEngine/Vector.h"
 #include "../D2DEngine/EventSystem.h"
 #include "../D2DEngine/Collider.h"
+#include "DataManager.h"
 #include <cmath>
 
 enum class EliteType
@@ -19,20 +20,9 @@ class SpriteRenderer;
 class Enemy : public Component, public IColliderNotify
 {
 public:
-	int resistArrow;
-	int resistBullet;
-	int resistBurst;
-	int resistComosus;
-
-	int hp;
-	float moveSpeed; // 몬스터의 이동 속도
-	int attack;
-	float attackRate;
-	int range;
-
-	EliteType eliteType;
-	int reward;
-	int expReward;
+	Enemy() = default;
+	virtual ~Enemy() = default;
+	EnemyData enemyData;
 
 	//Vector2 position; // 몬스터의 위치
 	//float speed; // 몬스터의 이동 속도
@@ -45,8 +35,8 @@ public:
 	float elapsedTime = 0.0f;
 	float tmpY = 0.0f;
 
-	Enemy() = default;
-	virtual ~Enemy() = default;
+	
+	
 
 	Movement* move;
 	BoxCollider* pBoxcollider;
@@ -54,26 +44,6 @@ public:
 	virtual void Init() override;
 	virtual void Update(float delta) override;
 	virtual void Render(D2D1_MATRIX_3X2_F cameraMat) override;
-
-	void SetReward(int Reward, int ExpReward) {
-		reward = Reward;
-		expReward = ExpReward;
-	}
-
-	void SetResist(int ResistArrow, int ResistBullet, int ResistBurst, int ResistComosus) {
-		resistArrow = ResistArrow;
-		resistBullet = ResistBullet;
-		resistBurst = ResistBurst;
-		resistComosus = ResistComosus;
-	}
-
-	void SetStat(int Hp, float MoveSpeed, int Attack, float AttackRate, int Range) {
-		hp = Hp;
-		moveSpeed = MoveSpeed;
-		attack = Attack;
-		attackRate = AttackRate;
-		range = Range;
-	}
 
 	Enemy& GetEnemy() { return *this; }
 

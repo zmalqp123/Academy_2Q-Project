@@ -4,7 +4,7 @@
 class BombCart : public Enemy
 {
 public:
-    BombCart();
+    BombCart() = default;
 
     virtual void Init() override;
     virtual void Update(float delta) override;

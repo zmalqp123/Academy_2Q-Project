@@ -7,10 +7,14 @@
 #include "../D2DEngine/SpriteRenderer.h"
 #include "PineAppleTile.h"
 #include "Turret.h"
+#include "DataManager.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "SelectTurretContainer.h"
 
 std::wstring hmm;
+int Turret_Type = 0; // 터렛 타입 가지는 변수
+
+
 void GamePlayManager::Update(float deltaTime)
 {
 	// 터렛 배치용
@@ -36,11 +40,15 @@ void GamePlayManager::Update(float deltaTime)
 				{
 					//설치 가능할 때 좌클릭 시 설치.
 					isDrag = false;
-					dragObj->SetActive(false);
 
 					// 터렛 활성화
 					pTile->turret->SetActive(true);
 					pTile->SetActivateTurret(hmm);
+
+					// 터렛 스탯 초기화
+					auto turret = pTile->turret->GetComponent<Turret>();
+					auto& d = DataManager::GetInstance();
+
 				}
 			}
 		}
@@ -133,7 +141,33 @@ void GamePlayManager::StartBatch(int type)
 	isDrag = true;
 	dragObj->SetActive(true);
 	auto spr = dragObj->GetComponent<SpriteRenderer>();
-	hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
+	//hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
+	switch (type)
+	{
+	case 0:
+		hmm = L"../Resource/30501.png"; // 석궁
+		Turret_Type = 30501;
+		break;
+	case 1:
+		hmm = L"../Resource/30511.png"; // 머스켓
+		Turret_Type = 30511;
+		break;
+	case 2:
+		hmm = L"../Resource/30521.png"; // 대포
+		Turret_Type = 30521;
+		break;
+	case 3:
+		hmm = L"../Resource/30531.png"; // 슈퍼 석궁
+		Turret_Type = 30531;
+		break;
+	case 4:
+		hmm = L"../Resource/30541.png"; // 슬로우 완드
+		Turret_Type = 30541;
+		break;
+	default:
+		break;
+	}
 	spr->LoadTexture(hmm);
+	
 	std::cout << type << std::endl;
 }

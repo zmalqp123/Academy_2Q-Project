@@ -3,9 +3,36 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <vector>
+#include <map>
+
+enum class EnemyID {
+	swordMan = 30601, 
+	swordMan_solid,
+	swordMan_fast,
+	swordMan_hero,
+	musketeer,
+	musketeer_solid,
+	musketeer_fast,
+	musketeer_hero,
+	heavyArmor,
+	heavyArmor_solid,
+	heavyArmor_fast,
+	heavyArmor_hero,
+	griffin,
+	griffin_solid,
+	griffin_fast,
+	griffin_hero,
+	bombCarrier,
+	bombCarrier_solid,
+	bombCarrier_fast,
+	bombCarrier_hero,
+	boss1,
+	boss2,
+};
+
 
 struct EnemyData {
+	EnemyData() = default;
 	EnemyData(int _id) : id(_id) {};
 	~EnemyData() = default;
 
@@ -53,14 +80,14 @@ class DataManager
 private:
 	DataManager()=default;
 	~DataManager() {
-		for (auto& data : enemyDataList) {
-			delete data;
+		for (auto& enemyData : enemyDataMap) {
+			delete enemyData.second;
 		}
-		enemyDataList.clear();
-		for (auto& data : turretDataList) {
-			delete data;
+		enemyDataMap.clear();
+		for (auto& turretData : turretDataMap) {
+			delete turretData.second;
 		}
-		turretDataList.clear();
+		turretDataMap.clear();
 	};
 public:
 	
@@ -74,8 +101,8 @@ public:
 	DataManager& operator=(const DataManager&) = delete;
 
 
-	std::vector<EnemyData*> enemyDataList;
-	std::vector<TurretData*> turretDataList;
+	std::map<int, EnemyData*> enemyDataMap;
+	std::map<int ,TurretData*> turretDataMap;
 
 	bool LoadEnemySheetFromCSV(const wchar_t* fileName)
 	{
@@ -132,7 +159,7 @@ public:
 				Enemy->reward = _wtoi(token.c_str());
 				getline(wss, token, L',');
 				Enemy->expReward = _wtoi(token.c_str());
-				enemyDataList.push_back(Enemy);
+				enemyDataMap.insert(std::make_pair(Enemy->id, Enemy));
 			}
 		}
 		file.close();
@@ -204,7 +231,7 @@ public:
 
 				getline(wss, token, L',');
 				Turret->angle = _wtof(token.c_str());
-				turretDataList.push_back(Turret);
+				turretDataMap.insert(std::make_pair(Turret->id, Turret));
 			}
 		}
 		file.close();
@@ -212,21 +239,13 @@ public:
 	}
 
 	EnemyData* GetEnemyData(int id) {
-		for (auto& data : enemyDataList) {
-			if (data->id == id) {
-				return data;
-			}
-		}
-		return nullptr;
+		
+		return enemyDataMap[id];
 	}
 
 	TurretData* GetTurretData(int id) {
-		for (auto& data : turretDataList) {
-			if (data->id == id) {
-				return data;
-			}
-		}
-		return nullptr;
+		
+		return turretDataMap[id];
 	}
 };
 

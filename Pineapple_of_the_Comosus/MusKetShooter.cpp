@@ -5,19 +5,19 @@
 #include"../D2DEngine/GameObject.h"
 #include "../D2DEngine/Transform.h"
 
-MusKetShooter::MusKetShooter(Scene* scene)
-{
-    // BulletFactory를 초기화 (Scene을 전달)
-}
+//MusKetShooter::MusKetShooter(Scene* scene)
+//{
+//    // BulletFactory를 초기화 (Scene을 전달)
+//}
 
 void MusKetShooter::Init()
 {
-    // BombCart 특성 초기화 -> 수치 변경 해야함
-    SetStat(16, 5.0f, 10, 3.0f, 240);
-    SetResist(0, 0, 0, 0);
-    SetReward(50, 10);
+    //// BombCart 특성 초기화 -> 수치 변경 해야함
+    //SetStat(16, 5.0f, 10, 3.0f, 240);
+    //SetResist(0, 0, 0, 0);
+    //SetReward(50, 10);
 
-    eliteType = EliteType::Normal; // 기본 엘리트 타입 설정 (Normal)
+    //eliteType = EliteType::Normal; // 기본 엘리트 타입 설정 (Normal)
 }
 
 void MusKetShooter::Update(float delta)

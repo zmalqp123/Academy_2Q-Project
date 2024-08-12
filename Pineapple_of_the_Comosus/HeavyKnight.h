@@ -4,7 +4,7 @@
 class HeavyKnight : public Enemy
 {
 public:
-	HeavyKnight();
+	HeavyKnight() = default;
 
     virtual void Init() override;
     virtual void Update(float delta) override;

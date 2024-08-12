@@ -8,7 +8,7 @@ class SpriteRenderer;
 class SwordMan : public Enemy
 {
 public:
-    SwordMan();
+    SwordMan() = default;
     void Init();  // 수정된 Init 메서드
     void Update(float delta) override;
     void Render(D2D1_MATRIX_3X2_F cameraMat) override;

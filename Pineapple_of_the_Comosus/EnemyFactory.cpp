@@ -56,7 +56,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     {
     case 0:
         enemy = mon->CreateComponent<SwordMan>();
-        enemy->Init();
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::swordMan));
         loadMon->LoadTexture(L"../Resource/swordsman.png");
         /*fsm->CreateState<SwordManAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
@@ -65,6 +65,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 1:
         enemy = mon->CreateComponent<BombCart>();
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::bombCarrier));
         loadMon->LoadTexture(L"../Resource/tile.png");
         /*fsm->CreateState<BomberAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
@@ -73,6 +74,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 2:
         enemy = mon->CreateComponent<Griffin>();
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::griffin));
         loadMon->LoadTexture(L"../Resource/griffin.png");
         /*fsm->CreateState<GriffinAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
@@ -81,6 +83,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::heavyArmor));
         loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
         /*fsm->CreateState<HeavyAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
@@ -89,6 +92,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 4:
         enemy = mon->CreateComponent<MusKetShooter>();
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::musketeer));
         //b->bulletFactory = bulletFactory;
         //enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");

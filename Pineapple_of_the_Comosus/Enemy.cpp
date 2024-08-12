@@ -1,5 +1,4 @@
 #include "Enemy.h"
-#include "DataManager.h"
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"

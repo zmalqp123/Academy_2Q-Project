@@ -6,8 +6,8 @@ class Scene;
 class MusKetShooter : public Enemy
 {
 public:
-    MusKetShooter() {};
-	MusKetShooter(Scene* scene);
+    MusKetShooter() = default;
+	//MusKetShooter(Scene* scene);
 
     virtual void Init() override;
     virtual void Update(float delta) override;

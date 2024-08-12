@@ -4,7 +4,7 @@
 class Griffin : public Enemy
 {
 public:
-    Griffin();
+    Griffin() = default;
 
     virtual void Init() override;
     virtual void Update(float delta) override;
