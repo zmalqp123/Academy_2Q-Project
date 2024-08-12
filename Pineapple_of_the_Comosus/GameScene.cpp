@@ -421,17 +421,19 @@ void GameScene::Start() {
     auto GoldImage = GoldObj->CreateComponent<Button>();
     GoldObj->transform->SetParent(uiObj->transform);
     GoldObj->transform->type = Type::Ui;
-    GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,40.f} ,{20.f + 820.f + spacing + 270.f, (200.f - spacing)} };
+    GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,113.f} ,{20.f + 820.f + spacing + 270.f, 196.f} };
     /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
     harvestUi->ImageRender = HarvestbtnImage;*/
     GoldImage->LoadTexture(L"../Resource/30404_골드보유량창.png");
+    // wstring str;
+    
 
-    // 강화 버튼 
+    // 레벨 버튼 
     auto UpgradeObj = CreateGameObject<GameObject>();
     auto UpgradeImage = UpgradeObj->CreateComponent<Button>();
     UpgradeObj->transform->SetParent(uiObj->transform);
     UpgradeObj->transform->type = Type::Ui;
-    UpgradeObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,10.f} ,{20.f + 820.f + spacing + 270.f, (200.f - spacing) / 2} };
+    UpgradeObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,0.f} ,{20.f + 820.f + spacing + 270.f, 98.f} };
     /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
     harvestUi->ImageRender = HarvestbtnImage;*/
     UpgradeImage->LoadTexture(L"../Resource/30406_파인애플레벨창.png");
@@ -493,4 +495,13 @@ void GameScene::Update(float deltaTime) {
 
 void GameScene::Render(D2DRenderer* _render) {
     __super::Render(_render);
+
+    auto& pd = MainPineApple::GetInstance();
+    int gold = pd.GetPineAppleGold();
+    std::wstring pineAppleGold = std::to_wstring(gold);
+    std::wcout << "pineAppleGold" << pineAppleGold << std::endl;
+   
+    D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
+    std::cout << m_GameObjects[0]->transform->m_WorldTransform.dx << std::endl;
+    std::cout << m_GameObjects[0]->transform->m_WorldTransform.dy << std::endl;
 }

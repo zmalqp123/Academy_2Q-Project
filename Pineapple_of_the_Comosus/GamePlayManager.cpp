@@ -169,6 +169,10 @@ void GamePlayManager::StartBatch(int type)
 		hmm = L"../Resource/30541.png"; // 슬로우 완드
 		Turret_Type = 30541;
 		break;
+	case 5:
+		hmm = L"../Resource/30551.png"; // 슬로우 완드
+		Turret_Type = 30551;
+		break;
 	default:
 		break;
 	}
