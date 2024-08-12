@@ -56,7 +56,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     {
     case 0:
         enemy = mon->CreateComponent<SwordMan>();
-        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::swordMan));
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::swordMan)); //복사가 되야하는 부분!
         loadMon->LoadTexture(L"../Resource/swordsman.png");
         /*fsm->CreateState<SwordManAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
@@ -65,7 +65,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 1:
         enemy = mon->CreateComponent<BombCart>();
-        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::bombCarrier));
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::bombCarrier)); //복사가 되야하는 부분!
         loadMon->LoadTexture(L"../Resource/tile.png");
         /*fsm->CreateState<BomberAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
@@ -74,8 +74,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 2:
         enemy = mon->CreateComponent<Griffin>();
-        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::griffin));
-        loadMon->LoadTexture(L"../Resource/griffin.png");
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::griffin)); //복사가 되야하는 부분!
+        loadMon->LoadTexture(L"../Resource/griffin.png"); 
         /*fsm->CreateState<GriffinAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -83,7 +83,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
-        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::heavyArmor));
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::heavyArmor)); //복사가 되야하는 부분!
         loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
         /*fsm->CreateState<HeavyAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
@@ -92,7 +92,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         break;
     case 4:
         enemy = mon->CreateComponent<MusKetShooter>();
-        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::musketeer));
+        enemy->enemyData = *(d.GetEnemyData((int)EnemyID::musketeer)); //복사가 되야하는 부분!
         //b->bulletFactory = bulletFactory;
         //enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");

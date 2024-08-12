@@ -48,6 +48,7 @@ void GamePlayManager::Update(float deltaTime)
 					// ÅÍ·¿ ½ºÅÈ ÃÊ±âÈ­
 					auto turret = pTile->turret->GetComponent<Turret>();
 					auto& d = DataManager::GetInstance();
+					turret->turretData = *(d.GetTurretData(Turret_Type));
 
 				}
 			}

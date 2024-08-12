@@ -30,6 +30,35 @@ enum class EnemyID {
 	boss2,
 };
 
+enum class TurretID {
+	crossBow0 = 30501,
+	crossBow1,
+	crossBow2,
+	crossBow3,
+	crossBow4,
+	musket0 = 30511,
+	musket1,
+	musket2,
+	musket3,
+	musket4,
+	cannon0 = 30521,
+	cannon1,
+	cannon2,
+	cannon3,
+	cannon4,
+	superCrossBow0 = 30531,
+	superCrossBow1,
+	superCrossBow2,
+	superCrossBow3,
+	superCrossBow4,
+	slow0 = 30541,
+	slow1,
+	slow2,
+	slow3,
+	slow4,
+	fertilizer0 = 30551,
+};
+
 
 struct EnemyData {
 	EnemyData() = default;
@@ -55,7 +84,8 @@ struct EnemyData {
 };
 
 struct TurretData
-{
+{	
+	TurretData() = default;
 	TurretData(int _id) : id(_id) {}; //id가 안들어가는 경우 오류 가능성 있음 주의.
 	~TurretData() = default;
 	int id;
