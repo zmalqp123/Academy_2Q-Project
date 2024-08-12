@@ -41,7 +41,7 @@ void GamePlayManager::Update(float deltaTime)
 				{
 					//설치 가능할 때 좌클릭 시 설치.
 					isDrag = false;
-
+					dragObj->SetActive(false);
 					// 터렛 활성화
 					pTile->turret->SetActive(true);
 					pTile->SetActivateTurret(hmm);
