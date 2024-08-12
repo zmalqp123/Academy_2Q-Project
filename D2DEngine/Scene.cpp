@@ -209,6 +209,7 @@ void Scene::Render(D2DRenderer* _render)
 	//std::wstring tempS = std::to_wstring(count);
 
 	//_render->DrawStringText(tempS.c_str());
+
 }
 
 void Scene::Clear()

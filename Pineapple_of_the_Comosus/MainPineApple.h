@@ -16,6 +16,7 @@ public:
 	void PrintIndex(int index);
 	void acquireGold(int cost);
 	void spendGold(int cost);
+	int GetPineAppleGold() { return PineAppleGold; }
 
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);
