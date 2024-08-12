@@ -83,9 +83,9 @@ void WaveSystem::SpawnWave()
 
         newEnemy->gameObject->transform->pos.worldPosition = spawnPosition;
         newEnemy->move->SetDirection(moveDirection);
-        newEnemy->move->SetSpeed(50.0f);
+        //newEnemy->move->SetSpeed(50.0f);
         newEnemy->tmpY = spawnPosition.y;
-
+        newEnemy->move->SetSpeed(newEnemy->enemyData.moveSpeed);
         newEnemy->gameObject->SetActive(true);
         m_Enemies.push_back(newEnemy);
         std::cout << "적이 생성되었습니다" << std::endl;
