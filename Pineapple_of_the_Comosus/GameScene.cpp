@@ -23,6 +23,8 @@
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
+MainPineApple* testPineApple = nullptr;
+
 GameScene::GameScene() {
     std::cout << "GameScene Constructor" << std::endl;
 }
@@ -73,6 +75,7 @@ void GameScene::Start() {
         auto paObj = CreateGameObject<GameObject>();
         paObj->transform->pos.worldPosition = { 0.f, 0.f };
         auto pineApple = paObj->CreateComponent<MainPineApple>();
+        testPineApple = pineApple;
         pineApple->bulletFactory = bulletFactory;
         auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
         pineappleSpr->SetCenter({ 0.5f, 0.6f });
@@ -87,6 +90,8 @@ void GameScene::Start() {
         pineColl->isKinemetic = true;
         pineColl->SetCenter({ -300.f, 100.f });
         pineColl->SetExtent({ 0.f, 400.f });
+
+        GameManager->pineApple = pineApple;
 
         {
             // 파인애플 타일들
@@ -496,12 +501,12 @@ void GameScene::Update(float deltaTime) {
 void GameScene::Render(D2DRenderer* _render) {
     __super::Render(_render);
 
-    auto& pd = MainPineApple::GetInstance();
-    int gold = pd.GetPineAppleGold();
+    auto pd = testPineApple;
+    int gold = pd->GetPineAppleGold();
     std::wstring pineAppleGold = std::to_wstring(gold);
-    std::wcout << "pineAppleGold" << pineAppleGold << std::endl;
+    //std::wcout << "pineAppleGold" << pineAppleGold << std::endl;
    
     D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
-    std::cout << m_GameObjects[0]->transform->m_WorldTransform.dx << std::endl;
-    std::cout << m_GameObjects[0]->transform->m_WorldTransform.dy << std::endl;
+    //std::cout << cam->transform->m_WorldTransform.dx << std::endl;
+    //std::cout << cam->transform->m_WorldTransform.dy << std::endl;
 }

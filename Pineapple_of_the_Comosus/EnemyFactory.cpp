@@ -47,7 +47,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     collider->SetCollisionType(CollisionType::Overlap);
     auto colliderPhysics = mon->CreateComponent<BoxCollider>();
     colliderPhysics->SetExtent({ 1.f, 1.f });
-    mon->SetActive(true);
+    mon->SetActive(false);
     // auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
     // fsm->SetOwner(mon);
     Enemy* enemy = nullptr;

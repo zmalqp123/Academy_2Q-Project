@@ -8,11 +8,6 @@ public:
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 
-	static MainPineApple& GetInstance() {
-		static MainPineApple instance;
-		return instance;
-	}
-
 	void PrintIndex(int index);
 	void acquireGold(int cost);
 	void spendGold(int cost);

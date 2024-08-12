@@ -3,6 +3,7 @@
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
+#include "BulletFactory.h"
 #include "Enemy.h"
 
 Bullet::Bullet()
@@ -76,8 +77,10 @@ void Bullet::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
 void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
     auto e = pOtherComponent->gameObject->GetComponent<Enemy>();
-    if(e!= nullptr)
-        gameObject->isActive = false;
+    if (e != nullptr) {
+        //gameObject->isActive = false;
+        bulletFactory->ReturnBulletToPool(this);
+    }
 }
 
 void Bullet::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)

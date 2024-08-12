@@ -31,10 +31,12 @@ void BulletFactory::InitializePool()
 Bullet* BulletFactory::CreateBullet()
 {
     auto bulletObj = scene->CreateGameObject<GameObject>();
+    bulletObj->SetActive(false);
     auto spriteRenderer = bulletObj->CreateComponent<SpriteRenderer>();
     auto movement = bulletObj->CreateComponent<SideMovement>();  // SideMovement 사용
     movement->freezeRotate = false;
     auto collider = bulletObj->CreateComponent<BoxCollider>();
+    collider->ignoreEventSystem = true;
     collider->SetCollisionType(CollisionType::Overlap);
 
     spriteRenderer->LoadTexture(L"../Resource/arrow.png");  // 총알 텍스처 로드
@@ -42,6 +44,7 @@ Bullet* BulletFactory::CreateBullet()
     Bullet* bullet = bulletObj->CreateComponent<Bullet>();
     bullet->move = movement;
     bullet->pBoxcollider = collider;
+    bullet->bulletFactory = this;
 
     return bullet;
 }
