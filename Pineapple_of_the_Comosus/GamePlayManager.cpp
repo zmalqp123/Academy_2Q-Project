@@ -6,6 +6,7 @@
 #include "../D2DEngine/Camera.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "PineAppleTile.h"
+#include "MainPineApple.h"
 #include "Turret.h"
 #include "DataManager.h"
 #include "../D2DEngine/BoxCollider.h"
@@ -49,7 +50,10 @@ void GamePlayManager::Update(float deltaTime)
 					auto turret = pTile->turret->GetComponent<Turret>();
 					auto& d = DataManager::GetInstance();
 					turret->turretData = *(d.GetTurretData(Turret_Type));
-
+					std::cout << "터렛 설치 : " << turret->turretData.cost << std::endl;
+					auto& pd = MainPineApple::GetInstance();
+					// 터렛을 설치하면, 파인애플의 gold를 소모 시키는 func 을 호출해야한다. 
+					pd.spendGold(turret->turretData.cost);
 				}
 			}
 		}
