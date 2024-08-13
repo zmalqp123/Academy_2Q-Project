@@ -4,8 +4,11 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/FiniteStateMachine.h"
+#include "../D2DEngine/Scene.h"
 #include "BulletFactory.h"
 #include "Enemy.h"
+
+
 
 Bullet::Bullet()
 {
@@ -53,6 +56,7 @@ void Bullet::Update(float deltaTime)
     if (x < -1920.f || x > 1920.f || y < -600.f || y > 600.f) {
         bulletFactory->ReturnBulletToPool(this);
     }
+    OnGround();
 }
 
 void Bullet::Reset()
@@ -116,8 +120,11 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
         e->gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");*/
         e->Ondamage(attackPower,bulletType);
         if (penetratingPower <= 0) {
-            bulletFactory->ReturnBulletToPool(this);
             gameObject->isActive = false;
+            if (bulletType == BulletType::burst) {
+                OnBurst(bombRange);
+            }
+            bulletFactory->ReturnBulletToPool(this);
         }
 
 
@@ -130,4 +137,32 @@ void Bullet::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 
 void Bullet::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
+}
+
+void Bullet::OnGround()
+{
+    if (gameObject->transform->pos.worldPosition.y < -300) {
+        gameObject->isActive = false;
+        if (bulletType == BulletType::burst) {
+            OnBurst(bombRange);
+        }
+        bulletFactory->ReturnBulletToPool(this);
+			
+    }
+	
+}
+
+void Bullet::OnBurst(float _bombRange) {
+    auto iter = gameObject->ownerScene->m_GameObjects.begin();
+    for(iter; iter != gameObject->ownerScene->m_GameObjects.end(); iter++) {
+		auto e = (*iter)->GetComponent<Enemy>();
+        if(e == nullptr) continue;
+        else if(e->gameObject->transform->pos.worldPosition.x > gameObject->transform->pos.worldPosition.x - _bombRange &&
+			e->gameObject->transform->pos.worldPosition.x < gameObject->transform->pos.worldPosition.x + _bombRange &&
+			e->gameObject->transform->pos.worldPosition.y > gameObject->transform->pos.worldPosition.y - _bombRange &&
+			e->gameObject->transform->pos.worldPosition.y < gameObject->transform->pos.worldPosition.y + _bombRange) {
+			e->Ondamage(attackPower, bulletType);
+		}
+	}
+
 }
