@@ -1,6 +1,7 @@
 #pragma once
 #include "../D2DEngine/FiniteStateMachine.h"
 class Enemy;
+class MainPineApple;
 class MusKetAttack : public FSMState
 {
 public:
@@ -8,6 +9,7 @@ public:
 	virtual ~MusKetAttack() {}
 
 	Enemy* enemy;
+	MainPineApple* mainPineApple;
 
 	void Enter() override;
 	void Update(float deltaTime) override;

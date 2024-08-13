@@ -9,11 +9,11 @@ class MainPineApple : public Component
 {
 	int gold = 300;
 	int LV = 1;
-	int HP = 0;					// 현재 파인애플 체력. HP가 0이되면 게임오버
 	int maxHP = 100;			// 파인애플 최대체력 
-	float currentEXP = 0;			// 현재 파인애플의 경험치
+	int HP = maxHP;				// 현재 파인애플 체력. HP가 0이되면 게임오버
+	float currentEXP = 0;		// 현재 파인애플의 경험치
 	float maxEXP = 100;			// 파인애플 최대 경험치 값
-	float solarGain = 50;			// 현재 파인애플의 초당 수확경험치량
+	float solarGain = 50;		// 현재 파인애플의 초당 수확경험치량
 	int morningValue = 1;		// 낮 시간대 적용 값
 	int nightValue = 0;			// 밤 시간대 적용 값
 	float killMultiply = 1.0;	// 몬스터 처치시 경험치 배율. currentExp = currentExp + 몬스터 처치 exp * killMultiply값
@@ -39,7 +39,8 @@ public:
 	void PrintIndex(int index);
 	void acquireGold(int cost);		// 몬스터 사망시 획득한 골드
 	void spendGold(int cost);		// 터렛 설치시 사용한 골드
-	void monAcquireEXP(float exp);	// 몬스터 사망시 획득한 경험치 
+	void monAcquireEXP(float exp);	// 몬스터 사망시 획득한 경험치
+	void pineAppleDamageHP(int damage);	// 몬스터에서 atk 때 파인애플 데미지
 	void solarAcquireEXP(float deltaTime);
 	void throwUiEXP(int currentEXP);
 	void UpdateMaxEXP();
@@ -47,6 +48,7 @@ public:
 	int GetPineAppleGold() { return gold; }	// 현재 파인애플 골드량
 	int GetCurrentExp() { return currentEXP; }			// 현재 파인애플 경험치 -> 파인애플 수확 횟수									
 	int GetPineAppleLV() { return LV; }
+	int GetPineAppleHP() { return HP; }				// 현재 파인애플 hp 가져오기 
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);
 
