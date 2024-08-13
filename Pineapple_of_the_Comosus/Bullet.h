@@ -6,6 +6,14 @@
 class SideMovement;
 class BoxCollider;
 class BulletFactory;
+
+enum class BulletType {
+    arrow,
+    bullet,
+    burst,
+    normal,
+};
+
 class Bullet : public Component, public IColliderNotify
 {
 public:
@@ -16,7 +24,7 @@ public:
     void Update(float deltaTime) override;
     void Reset();
 
-    void SetAttackValue(const Vector2& direction, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime);
+    void SetAttackValue(const Vector2& direction, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime, BulletType _bulletType);
 
     // Movement�� BoxCollider�� BulletFactory���� ����
     SideMovement* move;
@@ -30,6 +38,7 @@ private:
     float moveSpeed = 0.f;
     float slowPower = 0.f;
     float slowTime = 0.f;
+    BulletType bulletType;
 
 private:
     // IColliderNotify��(��) ���� ��ӵ�

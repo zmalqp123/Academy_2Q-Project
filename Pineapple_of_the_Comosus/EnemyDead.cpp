@@ -13,6 +13,7 @@ void EnemyDead::Enter()
 
 void EnemyDead::Update(float deltaTime)
 {
+	//죽는 애니메이션 넣을 것
 }
 
 void EnemyDead::Exit()

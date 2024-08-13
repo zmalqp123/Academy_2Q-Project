@@ -41,7 +41,7 @@ void Turret::Shoot()
         auto data = DataManager::GetInstance().GetTurretData((int)turretType);
         //float bulletSpeed = 1000.0f;
         //bullet->Init(bulletSpeed, shootDirection);
-        bullet->SetAttackValue(shootDirection, data->burstRange, data->damage, data->penetration, data->bulletSpeed, data->slowRate, data->slowDuration);
+        bullet->SetAttackValue(shootDirection, data->burstRange, data->damage, data->penetration, data->bulletSpeed, data->slowRate, data->slowDuration,static_cast<BulletType>(data->bulletType));
 
     }
 }

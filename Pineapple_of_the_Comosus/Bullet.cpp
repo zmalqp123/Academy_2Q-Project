@@ -84,7 +84,7 @@ void Bullet::Reset()
     slowTime = 0.f;
 }
 
-void Bullet::SetAttackValue(const Vector2& direction, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime)
+void Bullet::SetAttackValue(const Vector2& direction, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime, BulletType _bulletType)
 {
     bombRange = _bombRange;
     attackPower = _attackPower;
@@ -92,6 +92,7 @@ void Bullet::SetAttackValue(const Vector2& direction, float _bombRange, float _a
     moveSpeed = _moveSpeed;
     slowPower = _slowPower;
     slowTime = _slowTime;
+    bulletType = _bulletType;
 
     if (move)
     {
@@ -108,13 +109,18 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
 {
     auto e = pOtherComponent->gameObject->GetComponent<Enemy>();
     if (e != nullptr) {
+
         //gameObject->isActive = false;
         penetratingPower--;
-        e->gameObject->isActive = false;
-        e->gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
+        /*e->gameObject->isActive = false;
+        e->gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");*/
+        e->Ondamage(attackPower,bulletType);
         if (penetratingPower <= 0) {
             bulletFactory->ReturnBulletToPool(this);
+            gameObject->isActive = false;
         }
+
+
     }
 }
 

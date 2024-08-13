@@ -4,6 +4,7 @@
 #include "../D2DEngine/EventSystem.h"
 #include "../D2DEngine/Collider.h"
 #include "DataManager.h"
+#include "Bullet.h"
 #include <cmath>
 
 enum class EliteType
@@ -17,6 +18,7 @@ class MainPineApple;
 class BoxCollider;
 class Movement;
 class SpriteRenderer;
+
 class Enemy : public Component, public IColliderNotify
 {
 public:
@@ -52,5 +54,6 @@ public:
 	void OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
 	void OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
 	void OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+	void Ondamage(int damage, BulletType bulletType);
 };
 
