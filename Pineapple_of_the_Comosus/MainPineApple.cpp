@@ -55,8 +55,8 @@ void MainPineApple::throwUiEXP(int currentEXP)
 	// maxEXP가 100이고 currentEXP가 0에서 100 사이일 경우에만 동작
 	if (maxEXP <= maxEXP && currentEXP >= 0 && currentEXP <= maxEXP)
 	{
-		expbar->takeMp(currentEXP);
-		expbar->ImageRender->slideBar = expbar->getBarWidth();
+		//expbar->takeMp(currentEXP);
+		expbar->ImageRender->slideBar = currentEXP / maxEXP;//expbar->getBarWidth();
 	}
 }
 
