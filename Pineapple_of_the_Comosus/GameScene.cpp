@@ -392,17 +392,20 @@ void GameScene::Start() {
     auto t6 = btn[5]->gameObject->GetComponent<TurretUI>();
     btn[5]->AddListener([GameManager, t6]() {GameManager->StartBatch(t6->GetIndex()); });
     // HP 및 MP 바 UI
-
+    
+    // hpbar
     auto hpBarObj = CreateGameObject<GameObject>();
     auto hpBarImage = hpBarObj->CreateComponent<ImageUIRenderer>();
     hpBarObj->transform->SetParent(uiObj->transform);
     hpBarObj->transform->type = Type::Ui;
     hpBarObj->transform->pos.rectposition = { {20.f,0.f} ,{20.f + 820.f,20.f} };
     hpBarUi = hpBarObj->CreateComponent<Hpbar>();
+    pineApple->hpbar = hpBarUi;
     hpBarUi->ImageRender = hpBarImage;
     hpBarImage->LoadTexture(L"../Resource/30403_02.png");
 
 
+    // expbar
     auto mpBarObj = CreateGameObject<GameObject>();
     auto mpBarImage = mpBarObj->CreateComponent<ImageUIRenderer>();
     mpBarObj->transform->SetParent(uiObj->transform);
@@ -422,7 +425,7 @@ void GameScene::Start() {
     turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
     turretImage->LoadTexture(L"../Resource/turret.png");*/
 
-    // ��� ������ Ui
+    // 골드 Ui
     auto GoldObj = CreateGameObject<GameObject>();
     auto GoldImage = GoldObj->CreateComponent<Button>();
     GoldObj->transform->SetParent(uiObj->transform);

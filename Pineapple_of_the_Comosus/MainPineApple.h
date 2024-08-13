@@ -1,10 +1,11 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 #include <vector>
-#include "Mpbar.h"
 #include "HarvestButton.h"
 
 class BulletFactory;
+class Mpbar;
+class Hpbar;
 class MainPineApple : public Component
 {
 	int gold = 300;
@@ -32,6 +33,7 @@ class MainPineApple : public Component
 
 public:
 	Mpbar* expbar;
+	Hpbar* hpbar;
 	HarvestButton* harvest;
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
@@ -43,6 +45,7 @@ public:
 	void pineAppleDamageHP(int damage);	// 몬스터에서 atk 때 파인애플 데미지
 	void solarAcquireEXP(float deltaTime);
 	void throwUiEXP(int currentEXP);
+	void throwUiHP(int HP);
 	void UpdateMaxEXP();
 	void Harvest();					// 경험치를 소비해서 파인애플 수확, 파인애플 최대 경험치 참고
 	int GetPineAppleGold() { return gold; }	// 현재 파인애플 골드량
