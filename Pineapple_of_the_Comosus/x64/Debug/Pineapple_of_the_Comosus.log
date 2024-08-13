@@ -1,19 +1,21 @@
 ﻿  Enemy.cpp
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(245,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(249,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(256,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(258,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(260,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(52,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\Enemy.cpp(126,47): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(178,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(245,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(249,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(256,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(258,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(260,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(52,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   EnemyDead.cpp
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(245,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(249,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(256,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(258,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(260,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(52,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(178,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(245,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(249,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(256,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(258,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(260,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(52,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\Pineapple_of_the_Comosus\EnemyDead.cpp(11,54): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다...
-  Pineapple_of_the_Comosus.vcxproj -> D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\x64\Debug\Pineapple_of_the_Comosus.exe
+  Pineapple_of_the_Comosus.vcxproj -> C:\Users\User\Documents\GitHub\Academy_2Q-Project\x64\Debug\Pineapple_of_the_Comosus.exe
