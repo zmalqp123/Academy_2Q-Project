@@ -1,6 +1,7 @@
 #pragma once
 #include "../D2DEngine/Component.h"
 class BulletFactory;
+class DataManager;
 class MainPineApple : public Component
 {
 	int PineAppleGold = 300; 

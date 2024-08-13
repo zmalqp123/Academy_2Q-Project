@@ -5,13 +5,14 @@
 #include "DataManager.h"
 
 class MainPineApple;
+class TurretData;
 enum class TurretType {
-	Crossbow,
-	Musket,
-	MineThrower,
-	SuperCrossbow,
-	SlowWand,
-	GrowthPromoter
+	Crossbow = 30501,
+	Musket = 30511,
+	MineThrower = 30521,
+	SuperCrossbow = 30531,
+	SlowWand = 30541,
+	GrowthPromoter = 30551
 };
 
 class BulletFactory;
@@ -21,12 +22,12 @@ class Turret : public Component
 	float timeSinceLastShot;       // 마지막으로 총알을 발사한 이후의 시간
 protected:
 
-	TurretType turretType;
 	ProjectileType bulletType;
 
 public:
+	TurretType turretType;
 	MainPineApple* parentPineApple;
-	TurretData turretData;
+	TurretData* turretData;
 
 	float prevAngle;
 	float currAngle;

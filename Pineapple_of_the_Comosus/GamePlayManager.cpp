@@ -12,7 +12,7 @@
 #include "../D2DEngine/BoxCollider.h"
 #include "SelectTurretContainer.h"
 
-std::wstring hmm;
+//std::wstring hmm;
 int Turret_Type = 0; // 터렛 타입 가지는 변수
 
 
@@ -44,16 +44,16 @@ void GamePlayManager::Update(float deltaTime)
 					dragObj->SetActive(false);
 					// 터렛 활성화
 					pTile->turret->SetActive(true);
-					pTile->SetActivateTurret(hmm);
+					pTile->SetActivateTurret(Turret_Type);
 
 					// 터렛 스탯 초기화
 					auto turret = pTile->turret->GetComponent<Turret>();
 					auto& d = DataManager::GetInstance();
-					turret->turretData = *(d.GetTurretData(Turret_Type));
-					std::cout << "터렛 설치 : " << turret->turretData.cost << std::endl;
+					turret->turretData = (d.GetTurretData(Turret_Type));
+					std::cout << "터렛 설치 : " << turret->turretData->cost << std::endl;
 					//auto& pd = MainPineApple::GetInstance();
 					// 터렛을 설치하면, 파인애플의 gold를 소모 시키는 func 을 호출해야한다. 
-					pineApple->spendGold(turret->turretData.cost);
+					pineApple->spendGold(turret->turretData->cost);
 				}
 			}
 		}
@@ -147,36 +147,38 @@ void GamePlayManager::StartBatch(int type)
 	dragObj->SetActive(true);
 	auto spr = dragObj->GetComponent<SpriteRenderer>();
 	//hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
-	switch (type)
-	{
-	case 0:
-		hmm = L"../Resource/30501.png"; // 석궁
-		Turret_Type = 30501;
-		break;
-	case 1:
-		hmm = L"../Resource/30511.png"; // 머스켓
-		Turret_Type = 30511;
-		break;
-	case 2: 
-		hmm = L"../Resource/30521.png"; // 대포
-		Turret_Type = 30521;
-		break;
-	case 3:
-		hmm = L"../Resource/30541.png"; // 슬로우 완드
-		Turret_Type = 30531;
-		break;
-	case 4:
-		hmm = L"../Resource/30531.png"; // 슈퍼 석궁
-		Turret_Type = 30541;
-		break;
-	case 5:
-		hmm = L"../Resource/30551_성장촉진제_01.png"; // 성장 촉진제
-		Turret_Type = 30551;
-		break;
-	default:
-		break;
-	}
-	spr->LoadTexture(hmm);
+	auto data = DataManager::GetInstance().GetTurretData(type);
+	Turret_Type = type;
+	//switch (type)
+	//{
+	//case 0:
+	//	hmm = L"../Resource/30501.png"; // 석궁
+	//	Turret_Type = 30501;
+	//	break;
+	//case 1:
+	//	hmm = L"../Resource/30511.png"; // 머스켓
+	//	Turret_Type = 30511;
+	//	break;
+	//case 2: 
+	//	hmm = L"../Resource/30521.png"; // 대포
+	//	Turret_Type = 30521;
+	//	break;
+	//case 3:
+	//	hmm = L"../Resource/30541.png"; // 슬로우 완드
+	//	Turret_Type = 30531;
+	//	break;
+	//case 4:
+	//	hmm = L"../Resource/30531.png"; // 슈퍼 석궁
+	//	Turret_Type = 30541;
+	//	break;
+	//case 5:
+	//	hmm = L"../Resource/30551_성장촉진제_01.png"; // 성장 촉진제
+	//	Turret_Type = 30551;
+	//	break;
+	//default:
+	//	break;
+	//}
+	spr->LoadTexture(data->imagePath);
 	
-	std::cout << type << std::endl;
+	std::cout << "Turret Type ID : " << type << std::endl;
 }

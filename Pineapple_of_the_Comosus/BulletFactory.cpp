@@ -32,7 +32,7 @@ void BulletFactory::InitializePool()
 Bullet* BulletFactory::CreateBullet()
 {
     auto bulletObj = scene->CreateGameObject<GameObject>();
-    //bulletObj->transform->SetSortingLayer(2);
+    bulletObj->transform->SetSortingLayer(INT_MAX);
     bulletObj->SetActive(false);
     auto spriteRenderer = bulletObj->CreateComponent<SpriteRenderer>();
     auto movement = bulletObj->CreateComponent<SideMovement>();  // SideMovement 사용
@@ -61,6 +61,7 @@ Bullet* BulletFactory::GetBulletFromPool()
 
     Bullet* bullet = m_BulletPool.back();
     bullet->gameObject->isActive = true;
+    bullet->gameObject->transform->SetSortingLayer(INT_MAX);
     m_BulletPool.pop_back();
     return bullet;
 }
@@ -69,7 +70,8 @@ void BulletFactory::ReturnBulletToPool(Bullet* bullet)
 {
     m_BulletPool.push_back(bullet);
     bullet->gameObject->isActive = false;
-
+    bullet->gameObject->transform->pos.worldPosition = Vector2(0.f, 0.f);
+    bullet->gameObject->transform->SetSortingLayer(INT_MIN);
     // 총알 상태 초기화
     bullet->Reset();
 }

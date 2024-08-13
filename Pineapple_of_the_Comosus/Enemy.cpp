@@ -87,7 +87,7 @@ void Enemy::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
     auto a = pOtherComponent->gameObject->GetComponent<Bullet>();
     if (a != nullptr) {
         //gameObject->isActive = false;
-        gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
+        //gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
     }
 }
 

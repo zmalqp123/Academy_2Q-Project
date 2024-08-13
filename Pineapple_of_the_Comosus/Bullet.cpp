@@ -3,6 +3,7 @@
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
+#include "../D2DEngine/FiniteStateMachine.h"
 #include "BulletFactory.h"
 #include "Enemy.h"
 
@@ -14,22 +15,22 @@ Bullet::~Bullet()
 {
 }
 
-void Bullet::Init(float initSpeed, const Vector2& initDirection)
-{
-    speed = initSpeed;
-    direction = initDirection;
-
-    if (move)
-    {
-        // 방향 설정
-        //move->SetDirection(D2D1_VECTOR_2F{ direction.x, direction.y });
-
-        // 속도 설정
-        //move->SetSpeed(speed);
-
-        move->AddForce(direction * speed);
-    }
-}
+//void Bullet::Init(float initSpeed, const Vector2& initDirection)
+//{
+//    speed = initSpeed;
+//    direction = initDirection;
+//
+//    if (move)
+//    {
+//        // 방향 설정
+//        //move->SetDirection(D2D1_VECTOR_2F{ direction.x, direction.y });
+//
+//        // 속도 설정
+//        //move->SetSpeed(speed);
+//
+//        move->AddForce(direction * speed);
+//    }
+//}
 
 void Bullet::Update(float deltaTime)
 {
@@ -37,25 +38,31 @@ void Bullet::Update(float deltaTime)
 
     // BoxCollider를 사용해 충돌 처리
     // 충돌 처리와 관련된 로직을 여기서 구현할 수 있음
-    if (pBoxcollider)
-    {
-        AABB bound = pBoxcollider->GetBound();
-        if (bound.m_Center.x < 0 || bound.m_Center.x > 1920 ||
-            bound.m_Center.y < 0 || bound.m_Center.y > 1080)
-        {
-            // 화면 밖으로 나가면 총알을 비활성화
-            //gameObject->isActive = false;
-        }
+    //if (pBoxcollider)
+    //{
+    //    AABB bound = pBoxcollider->GetBound();
+    //    if (bound.m_Center.x < 0 || bound.m_Center.x > 1920 ||
+    //        bound.m_Center.y < 0 || bound.m_Center.y > 1080)
+    //    {
+    //        // 화면 밖으로 나가면 총알을 비활성화
+    //        //gameObject->isActive = false;
+    //    }
+    //}
+    float x = gameObject->transform->m_WorldTransform.dx;
+    float y = gameObject->transform->m_WorldTransform.dy;
+    if (x < -1920.f || x > 1920.f || y < -600.f || y > 600.f) {
+        bulletFactory->ReturnBulletToPool(this);
     }
 }
 
 void Bullet::Reset()
 {
+    gameObject->transform->pos.worldPosition = { 0.f, 0.f };
     // 총알의 상태를 초기화
     if (move)
     {
         move->SetSpeed(0.0f);
-        move->SetDirection(D2D1_VECTOR_2F{ 0.0f, 0.0f });
+        move->SetDirection(Vector2{ 0.0f, 0.0f });
     }
 
     // 박스 콜라이더 초기화 (필요시)
@@ -66,8 +73,31 @@ void Bullet::Reset()
     }
 
     // 기타 필요한 초기화 코드들
-    speed = 0.0f;
-    direction = Vector2(0.0f, 0.0f);
+    //speed = 0.0f;
+    //direction = Vector2(0.0f, 0.0f);
+
+    bombRange = 0.f;
+    attackPower = 0.f;
+    penetratingPower = 0;
+    moveSpeed = 0.f;
+    slowPower = 0.f;
+    slowTime = 0.f;
+}
+
+void Bullet::SetAttackValue(const Vector2& direction, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime)
+{
+    bombRange = _bombRange;
+    attackPower = _attackPower;
+    penetratingPower = _penetratingPower;
+    moveSpeed = _moveSpeed;
+    slowPower = _slowPower;
+    slowTime = _slowTime;
+
+    if (move)
+    {
+        Vector2 dir = direction;
+        move->AddForce(dir * moveSpeed);
+    }
 }
 
 void Bullet::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
@@ -79,7 +109,12 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
     auto e = pOtherComponent->gameObject->GetComponent<Enemy>();
     if (e != nullptr) {
         //gameObject->isActive = false;
-        bulletFactory->ReturnBulletToPool(this);
+        penetratingPower--;
+        e->gameObject->isActive = false;
+        e->gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
+        if (penetratingPower <= 0) {
+            bulletFactory->ReturnBulletToPool(this);
+        }
     }
 }
 

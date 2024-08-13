@@ -129,6 +129,12 @@ void Scene::Update(float deltaTime)
 	for (auto& pColl : colliders) {
 		pColl->ProcessOverlap();
 	}
+
+	auto b = m_GameObjects;
+
+	for (auto gameObject : b) {
+		gameObject->transform->UpdateTrasnform();
+	}
 }
 //int count = 0;
 void Scene::Render(D2DRenderer* _render)

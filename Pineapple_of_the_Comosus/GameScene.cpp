@@ -39,7 +39,7 @@ void GameScene::Start() {
     auto camera = CreateGameObject<GameObject>();
     auto pCam = camera->CreateComponent<Camera>();
     SetMainCamera(pCam);
-
+    DataManager::GetInstance().LoadTurretSheetFromCSV(L"../Resource/TurretData.csv");
     auto bulletFactory = new BulletFactory(this);
 
     //데이터 매니저 초기화
@@ -73,6 +73,7 @@ void GameScene::Start() {
     {
         // 코모서스 파인애플 (겁나 큼)
         auto paObj = CreateGameObject<GameObject>();
+        paObj->transform->SetSortingLayer(-5);
         paObj->transform->pos.worldPosition = { 0.f, 0.f };
         auto pineApple = paObj->CreateComponent<MainPineApple>();
         testPineApple = pineApple;
@@ -373,7 +374,7 @@ void GameScene::Start() {
         turretButton->LoadTexture(turretImages[i]);
         //turretButton->LoadTexture(L"../Resource/turret.png");  // 버튼의 이미지는 고정
         auto turretUIComp = turretUIChild->CreateComponent<TurretUI>();
-        turretUIComp->SetIndex(i);
+        turretUIComp->SetIndex(30501 + (i * 10));
 
         btn.push_back(turretButton);
         // 터렛 버튼 클릭 시 동작 정의
