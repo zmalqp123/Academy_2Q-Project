@@ -2,6 +2,8 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/ImageUIRenderer.h"
+#include "Mpbar.h"
+#include "Hpbar.h"
 #include <iostream>
 void MainPineApple::PrintIndex(int index)
 {
@@ -75,6 +77,18 @@ void MainPineApple::throwUiEXP(int currentEXP)
 	}
 }
 
+void MainPineApple::throwUiHP(int HP)
+{
+	// HP가 maxHP를 초과하거나 0 미만으로 내려가지 않도록 제한
+	if (HP < 0)
+		HP = 0;
+	else if (HP > maxHP)
+		HP = maxHP;
+
+	// UI 바를 업데이트 (비율을 계산하여 전달)
+	hpbar->ImageRender->slideBar =HP / maxHP;
+}
+
 void MainPineApple::UpdateMaxEXP()
 {
 	maxEXP = EXP_TABLE[LV - 1];
@@ -112,7 +126,7 @@ void MainPineApple::Update(float deltaTime)
 	// UI MP바 업데이트 
 	// GetCurrentExp() 현재 경험치를 mpbar에게 넘기는 함수 호출 
 	throwUiEXP(GetCurrentExp());
-
+	throwUiHP(GetPineAppleHP());
 	//elapsedTime += deltaTime;
 	//float temp = std::sinf(elapsedTime * 10.f) * 30.f;
 	////std::cout << temp << std::endl;
