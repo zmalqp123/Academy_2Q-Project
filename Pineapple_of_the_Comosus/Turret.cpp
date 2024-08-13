@@ -4,6 +4,7 @@
 #include "Bullet.h"
 #include"../D2DEngine/GameObject.h"
 #include "../D2DEngine/Transform.h"
+#include "DynamicData.h"
 void Turret::Init()
 {
 	__super::Init();
@@ -38,7 +39,7 @@ void Turret::Shoot()
         shootDirection.x = std::cosf(angle / 180.f * 3.14159f);
         shootDirection.y = std::sinf(angle / 180.f * 3.14159f);
 
-        auto data = DataManager::GetInstance().GetTurretData((int)turretType);
+        auto data = dynamicData->GetTurretData(turretType);//DataManager::GetInstance().GetTurretData((int)turretType);
         //float bulletSpeed = 1000.0f;
         //bullet->Init(bulletSpeed, shootDirection);
         bullet->SetAttackValue(shootDirection, data->burstRange, data->damage, data->penetration, data->bulletSpeed, data->slowRate, data->slowDuration,static_cast<BulletType>(data->bulletType));

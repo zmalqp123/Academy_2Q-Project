@@ -4,13 +4,17 @@
 #include "Turret.h"
 class DynamicData : public Component
 {
+private:
+	std::unordered_map<TurretType, int> turretLevel;
+
 public:
 	DynamicData() {};
 	virtual ~DynamicData() {};
 
 	void Init();
 
-	std::unordered_map<TurretType, int> turretLevel;
+	void UpgradeTurret(TurretType turretType);
 
+	TurretData* GetTurretData(TurretType turretType);
 };
 

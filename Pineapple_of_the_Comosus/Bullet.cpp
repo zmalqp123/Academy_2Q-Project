@@ -53,7 +53,7 @@ void Bullet::Update(float deltaTime)
     //}
     float x = gameObject->transform->m_WorldTransform.dx;
     float y = gameObject->transform->m_WorldTransform.dy;
-    if (x < -1920.f || x > 1920.f || y < -600.f || y > 600.f) {
+    if (x < -1920.f || x > 1920.f || y < -600.f || y > 1600.f) {
         bulletFactory->ReturnBulletToPool(this);
     }
     OnGround();
@@ -115,6 +115,9 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
     if (e != nullptr) {
 
         //gameObject->isActive = false;
+        if (bombRange > 0.f) {
+            
+        }
         penetratingPower--;
         /*e->gameObject->isActive = false;
         e->gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");*/
@@ -126,8 +129,6 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
             }
             bulletFactory->ReturnBulletToPool(this);
         }
-
-
     }
 }
 

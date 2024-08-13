@@ -5,6 +5,7 @@
 
 class MainPineApple;
 class TurretData;
+class DynamicData;
 enum class TurretType {
 
 	Crossbow = 30501,
@@ -25,6 +26,7 @@ public:
 	TurretType turretType;
 	MainPineApple* parentPineApple;
 	TurretData* turretData;
+	DynamicData* dynamicData;
 
 	float prevAngle;
 	float currAngle;

@@ -20,6 +20,7 @@
 #include "PineAppleTile.h"
 #include "../D2DEngine/CircleCollider.h"
 #include "DataManager.h"
+#include "DynamicData.h"
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
@@ -50,6 +51,9 @@ void GameScene::Start() {
     // 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
     auto gmObj = CreateGameObject<GameObject>();
     auto GameManager = gmObj->CreateComponent<GamePlayManager>();
+    auto dynamicData = gmObj->CreateComponent<DynamicData>();
+    dynamicData->Init();
+
     GameManager->camera = pCam;
     auto boxObj = CreateGameObject<GameObject>();
     boxObj->SetActive(false);
@@ -75,7 +79,7 @@ void GameScene::Start() {
     testPineApple = pineApple;
     pineApple->bulletFactory = bulletFactory;
     auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
-    pineappleSpr->SetCenter({ 0.5f, 0.6f });
+    pineappleSpr->SetCenter({ 0.5f, 0.67f });
     pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
     auto pineColl = paObj->CreateComponent<BoxCollider>();
     pineColl->ignoreEventSystem = true;
@@ -91,13 +95,11 @@ void GameScene::Start() {
     GameManager->pineApple = pineApple;
     // 파인애플 타일들
     {
-
-
         {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { -200.f, 200.f };
+            paTileObj->transform->pos.worldPosition = { -3.f, 190.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
@@ -106,11 +108,12 @@ void GameScene::Start() {
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
@@ -122,20 +125,21 @@ void GameScene::Start() {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { 0.f, 200.f };
+            paTileObj->transform->pos.worldPosition = { -85.f, 120.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 1;
+            pineTile->index = 0;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
@@ -147,20 +151,21 @@ void GameScene::Start() {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { 200.f, 200.f };
+            paTileObj->transform->pos.worldPosition = { 80.f, 120.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 2;
+            pineTile->index = 0;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
@@ -172,20 +177,21 @@ void GameScene::Start() {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { -100.f, 100.f };
+            paTileObj->transform->pos.worldPosition = { -3.f, 53.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 3;
+            pineTile->index = 0;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
@@ -197,20 +203,21 @@ void GameScene::Start() {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { 100.f, 100.f };
+            paTileObj->transform->pos.worldPosition = { -85.f, -16.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 4;
+            pineTile->index = 0;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
@@ -222,20 +229,21 @@ void GameScene::Start() {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { -200.f, 0.f };
+            paTileObj->transform->pos.worldPosition = { 80.f, -16.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 5;
+            pineTile->index = 0;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
@@ -247,20 +255,21 @@ void GameScene::Start() {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { 0.f, 0.f };
+            paTileObj->transform->pos.worldPosition = { -3.f, -84.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 6;
+            pineTile->index = 0;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);
@@ -272,20 +281,281 @@ void GameScene::Start() {
             // 파인애플 타일들
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
-            paTileObj->transform->pos.worldPosition = { 200.f, 0.f };
+            paTileObj->transform->pos.worldPosition = { -85.f, -154.f };
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 7;
+            pineTile->index = 0;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
             coll->isKinemetic = true;
-            coll->SetRadius(60.f);
+            coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { 80.f, -154.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { -3.f, -220.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { -165.f, 53.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { 158.f, 53.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { -165.f, -84.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { 158.f, -84.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { -155.f, 190.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { 150.f, 190.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { -155.f, -220.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
+            tur->parentPineApple = pineApple;
+            auto circleColl = childObj->CreateComponent<CircleCollider>();
+            circleColl->SetCollisionType(CollisionType::Overlap);
+            childObj->transform->SetParent(paTileObj->transform);
+            auto spr = childObj->CreateComponent<SpriteRenderer>();
+            pineTile->turret = childObj;
+        }
+        {
+            // 파인애플 타일들
+            auto paTileObj = CreateGameObject<GameObject>();
+            paTileObj->transform->SetParent(paObj->transform);
+            paTileObj->transform->pos.worldPosition = { 150.f, -220.f };
+
+            auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
+            pineTile->pApple = pineApple;
+            pineTile->index = 0;
+
+            auto coll = paTileObj->CreateComponent<CircleCollider>();
+            coll->SetCollisionType(CollisionType::Overlap);
+            coll->isKinemetic = true;
+            coll->SetRadius(50.f);
+
+            auto childObj = CreateGameObject<GameObject>();
+            childObj->isActive = false;
+            auto tur = childObj->CreateComponent<Turret>();
+            tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
             circleColl->SetCollisionType(CollisionType::Overlap);

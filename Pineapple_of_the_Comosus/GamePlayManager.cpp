@@ -74,14 +74,16 @@ void GamePlayManager::Update(float deltaTime)
 			float e = atan2f(x1 * dir.y - y1 * dir.x, x1 * dir.x + y1 * dir.y) / 3.14159f * 180.f;
 
 			auto spr = object->gameObject->GetComponent<SpriteRenderer>();
-			if (spr) {
-				if (dir.x > 0)
-					spr->SetFilp(false, false);
-				else {
-					spr->SetFilp(false, true);
+			if (object->turretType != TurretType::GrowthPromoter) {
+				if (spr) {
+					if (dir.x > 0)
+						spr->SetFilp(false, false);
+					else {
+						spr->SetFilp(false, true);
+					}
 				}
+				object->gameObject->transform->m_RelativeRotation = e;
 			}
-			object->gameObject->transform->m_RelativeRotation = e;
 			//std::cout << e << std::endl;
 			if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left)) {
 				isAngle = false;
@@ -92,11 +94,13 @@ void GamePlayManager::Update(float deltaTime)
 				//dragObj->transform->m_RelativeRotation = angle;
 				isAngle = false;
 				turrets.clear();
+				if (object->turretType != TurretType::GrowthPromoter) {
 				object->gameObject->transform->m_RelativeRotation = object->prevAngle;
-				if (object->prevAngle > 90 || object->prevAngle < -90) 
-					spr->SetFilp(false, true);
-				else
-					spr->SetFilp(false, false);
+					if (object->prevAngle > 90 || object->prevAngle < -90)
+						spr->SetFilp(false, true);
+					else
+						spr->SetFilp(false, false);
+				}
 			}
 		}
 	}
