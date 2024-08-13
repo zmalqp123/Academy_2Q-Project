@@ -8,9 +8,9 @@ Mpbar::Mpbar(float initialHp, float width)
 
 void Mpbar::takeMp(float manaPoint)
 {
-	currentMp += manaPoint;
-	if (currentMp >= 100)
-		currentMp = 100;
+	currentMp = manaPoint;
+	/*if (currentMp >= 100)
+		currentMp = 100;*/
 }
 
 float Mpbar::getCurrMp() const 

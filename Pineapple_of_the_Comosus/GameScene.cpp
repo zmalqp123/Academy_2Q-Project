@@ -68,30 +68,30 @@ void GameScene::Start() {
     sproper->alpha = 0.7f;
     GameManager->dragObj = testDragObj;
     testDragObj->transform->SetSortingLayer(1);
+    // 코모서스 파인애플 (겁나 큼)
+    auto paObj = CreateGameObject<GameObject>();
+    paObj->transform->pos.worldPosition = { 0.f, 0.f };
+    auto pineApple = paObj->CreateComponent<MainPineApple>();
+    testPineApple = pineApple;
+    pineApple->bulletFactory = bulletFactory;
+    auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
+    pineappleSpr->SetCenter({ 0.5f, 0.6f });
+    pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
+    auto pineColl = paObj->CreateComponent<BoxCollider>();
+    pineColl->ignoreEventSystem = true;
+    pineColl->isKinemetic = true;
+    pineColl->SetCenter({ 300.f, 100.f });
+    pineColl->SetExtent({ 0.f, 400.f });
+    pineColl = paObj->CreateComponent<BoxCollider>();
+    pineColl->ignoreEventSystem = true;
+    pineColl->isKinemetic = true;
+    pineColl->SetCenter({ -300.f, 100.f });
+    pineColl->SetExtent({ 0.f, 400.f });
 
+    GameManager->pineApple = pineApple;
     // 파인애플 타일들
     {
-        // 코모서스 파인애플 (겁나 큼)
-        auto paObj = CreateGameObject<GameObject>();
-        paObj->transform->pos.worldPosition = { 0.f, 0.f };
-        auto pineApple = paObj->CreateComponent<MainPineApple>();
-        testPineApple = pineApple;
-        pineApple->bulletFactory = bulletFactory;
-        auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
-        pineappleSpr->SetCenter({ 0.5f, 0.6f });
-        pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
-        auto pineColl = paObj->CreateComponent<BoxCollider>();
-        pineColl->ignoreEventSystem = true;
-        pineColl->isKinemetic = true;
-        pineColl->SetCenter({ 300.f, 100.f });
-        pineColl->SetExtent({ 0.f, 400.f });
-        pineColl = paObj->CreateComponent<BoxCollider>();
-        pineColl->ignoreEventSystem = true;
-        pineColl->isKinemetic = true;
-        pineColl->SetCenter({ -300.f, 100.f });
-        pineColl->SetExtent({ 0.f, 400.f });
-
-        GameManager->pineApple = pineApple;
+        
 
         {
             // 파인애플 타일들
@@ -408,9 +408,11 @@ void GameScene::Start() {
     mpBarObj->transform->SetParent(uiObj->transform);
     mpBarObj->transform->type = Type::Ui;
     mpBarObj->transform->pos.rectposition = { {20.f,20.f} ,{20.f + 820.f,40.f} };
-    mpBarUi = mpBarObj->CreateComponent<Mpbar>();
-    mpBarUi->ImageRender = mpBarImage;
+    auto mpBar = mpBarObj->CreateComponent<Mpbar>();
+    pineApple->expbar = mpBar;
+    mpBar->ImageRender = mpBarImage;
     mpBarImage->LoadTexture(L"../Resource/30402_수확바_02_꽉참.png");
+   
 
     /*auto turretUI = CreateGameObject<GameObject>();
     auto turretImage = turretUI->CreateComponent<Button>();
@@ -472,12 +474,12 @@ void GameScene::Update(float deltaTime) {
         std::cout << hpBarUi->getBarWidth() << std::endl;
     }
 
-    if (InputManager::GetInstance().IsKeyDown('2')) {
+    /*if (InputManager::GetInstance().IsKeyDown('2')) {
         mpBarUi->takeMp(10.f);
         mpBarUi->ImageRender->slideBar = mpBarUi->getBarWidth();
         std::cout << mpBarUi->ImageRender->m_DstRect.right << std::endl;
         std::cout << mpBarUi->getBarWidth() << std::endl;
-    }
+    }*/
 
     // 메인 씬 전환 테스트
     if (InputManager::GetInstance().IsKeyDown('3')) {
