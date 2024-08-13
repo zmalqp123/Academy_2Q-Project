@@ -4,6 +4,7 @@
 #include "../D2DEngine/SideMovement.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/GameObject.h"
+#include "../D2DEngine/Transform.h"
 #include "Bullet.h"
 
 
@@ -31,6 +32,7 @@ void BulletFactory::InitializePool()
 Bullet* BulletFactory::CreateBullet()
 {
     auto bulletObj = scene->CreateGameObject<GameObject>();
+    //bulletObj->transform->SetSortingLayer(2);
     bulletObj->SetActive(false);
     auto spriteRenderer = bulletObj->CreateComponent<SpriteRenderer>();
     auto movement = bulletObj->CreateComponent<SideMovement>();  // SideMovement »ç¿ë

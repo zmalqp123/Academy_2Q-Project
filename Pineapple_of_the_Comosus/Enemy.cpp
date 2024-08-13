@@ -2,6 +2,7 @@
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
+#include "../D2DEngine/FiniteStateMachine.h"
 #include "Bullet.h"
 
 void Enemy::Init()
@@ -42,7 +43,7 @@ void Enemy::Update(float delta)
   //  // 갱신된 위치를 적용
   //  // gameObject->transform->pos.worldPosition = position;  
 
-    WaveMove(delta);
+    //WaveMove(delta);
 }
 
 void Enemy::Render(D2D1_MATRIX_3X2_F cameraMat)
@@ -85,7 +86,8 @@ void Enemy::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
     auto a = pOtherComponent->gameObject->GetComponent<Bullet>();
     if (a != nullptr) {
-        gameObject->isActive = false;
+        //gameObject->isActive = false;
+        gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
     }
 }
 

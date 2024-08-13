@@ -112,6 +112,7 @@ void WaveSystem::Init()
 {
     enemyFactory = new EnemyFactory(scene); // EnemyFactory »ý¼º
     enemyFactory->bulletFactory = bulletFactory;
+    enemyFactory->mainPineApple = mainPineApple;
 }
 
 void WaveSystem::Update(float deltaTime)

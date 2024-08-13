@@ -13,7 +13,7 @@ enum class EliteType
 	Fast,
 	Hero
 };
-
+class MainPineApple;
 class BoxCollider;
 class Movement;
 class SpriteRenderer;
@@ -35,11 +35,9 @@ public:
 	float elapsedTime = 0.0f;
 	float tmpY = 0.0f;
 
-	
-	
-
 	Movement* move;
 	BoxCollider* pBoxcollider;
+	MainPineApple* mainPineApple;
 
 	virtual void Init() override;
 	virtual void Update(float delta) override;

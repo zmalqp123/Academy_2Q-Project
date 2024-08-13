@@ -319,6 +319,7 @@ void GameScene::Start() {
     waveSystem = waveObj->CreateComponent<WaveSystem>();
     waveSystem->scene = this;
     waveSystem->bulletFactory = bulletFactory;
+    waveSystem->mainPineApple = GameManager->pineApple;
     waveSystem->Init();
     
      
@@ -342,8 +343,8 @@ void GameScene::Start() {
         L"../Resource/30202_터렛버튼_머스킷타워.png",
         L"../Resource/30203_터렛버튼_박격포타워.png",
         L"../Resource/30205_터렛버튼_슬로우완드타워.png",
-        L"../Resource/Musket.png",
-        L"../Resource/Wand.png"
+        L"../Resource/30204_터렛버튼_슈퍼석궁.png",
+        L"../Resource/30206_터렛버튼_성장촉진제.png"
     };
 
     // UI 생성 및 이미지 설정 코드
