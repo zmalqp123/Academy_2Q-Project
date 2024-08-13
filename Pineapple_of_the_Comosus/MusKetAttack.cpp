@@ -8,10 +8,7 @@ void MusKetAttack::Enter()
 
 void MusKetAttack::Update(float deltaTime)
 {
-	if (enemy->enemyData.hp < 0)
-	{
-		fsm->SetState("Dead");
-	}
+
 }
 
 void MusKetAttack::Exit()

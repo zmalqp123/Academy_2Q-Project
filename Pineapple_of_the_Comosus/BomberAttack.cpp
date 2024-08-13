@@ -8,10 +8,7 @@ void BomberAttack::Enter()
 
 void BomberAttack::Update(float deltaTime)
 {
-	if (enemy->enemyData.hp < 0)
-	{
-		fsm->SetState("Dead");
-	}
+
 }
 
 void BomberAttack::Exit()

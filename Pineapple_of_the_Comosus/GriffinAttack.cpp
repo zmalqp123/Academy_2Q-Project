@@ -8,10 +8,7 @@ void GriffinAttack::Enter()
 
 void GriffinAttack::Update(float deltaTime)
 {
-	if (enemy->enemyData.hp < 0)
-	{
-		fsm->SetState("Dead");
-	}
+
 }
 
 void GriffinAttack::Exit()

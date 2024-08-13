@@ -9,10 +9,7 @@ void SwordManAttack::Enter()
 
 void SwordManAttack::Update(float deltaTime)
 {
-	if (enemy->enemyData.hp < 0)
-	{
-		fsm->SetState("Dead");
-	}
+
 }
 
 void SwordManAttack::Exit()

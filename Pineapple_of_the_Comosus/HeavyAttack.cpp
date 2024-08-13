@@ -8,10 +8,7 @@ void HeavyAttack::Enter()
 
 void HeavyAttack::Update(float deltaTime)
 {
-	if (enemy->enemyData.hp < 0)
-	{
-		fsm->SetState("Dead");
-	}
+
 }
 
 void HeavyAttack::Exit()

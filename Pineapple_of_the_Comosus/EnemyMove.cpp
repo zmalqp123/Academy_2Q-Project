@@ -17,10 +17,6 @@ void EnemyMove::Update(float deltaTime)
 	{
 		fsm->SetState("Attack");
 	}
-	else if(enemy->enemyData.hp<0)
-	{
-		fsm->SetState("Dead");
-	}
 }
 
 void EnemyMove::Exit()
