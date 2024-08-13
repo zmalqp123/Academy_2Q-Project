@@ -64,3 +64,8 @@ void GameObject::SetActive(bool active)
 {
 	isActive = active;
 }
+
+void GameObject::SetOwner(Scene* scene)
+{
+	ownerScene = scene;
+}

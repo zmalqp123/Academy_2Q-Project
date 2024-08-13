@@ -148,6 +148,7 @@
     <ClCompile Include="BomberAttack.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
+    <ClCompile Include="DynamicData.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyDead.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="BomberAttack.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
+    <ClInclude Include="DynamicData.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyDead.h" />
     <ClInclude Include="EnemyFactory.h" />
