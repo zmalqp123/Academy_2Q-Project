@@ -3,15 +3,29 @@
 class BulletFactory;
 class MainPineApple : public Component
 {
-	int PineAppleGold = 30000;
+	int PineAppleGold = 300; 
+	int HP = 0;					// 현재 파인애플 체력. HP가 0이되면 게임오버
+	int maxHP = 100;			// 파인애플 최대체력 
+	int currentEXP = 0;			// 현재 파인애플의 경험치
+	int maxEXP = 100;			// 파인애플 최대 경험치 값
+	int solarGain = 1;			// 현재 파인애플의 초당 수확경험치량
+	int morningValue = 1;		// 낮 시간대 적용 값
+	int nightValue = 0;			// 밤 시간대 적용 값
+	float killMultiply = 1.0;	// 몬스터 처치시 경험치 배율. currentExp = currentExp + 몬스터 처치 exp * killMultiply값
+	float offeringMultiply = 0.75; // 기본 0.75 설정,  75퍼 채웠을 때 사용가능 
+	int offeringValue = maxEXP * offeringValue;
 public:
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 
 	void PrintIndex(int index);
-	void acquireGold(int cost);
-	void spendGold(int cost);
-	int GetPineAppleGold() { return PineAppleGold; }
+	void acquireGold(int cost);		// 몬스터 사망시 획득한 골드
+	void spendGold(int cost);		// 터렛 설치시 사용한 골드
+	void monAcquireEXP(int exp);	// 몬스터 사망시 획득한 경험치 
+	void solarAcquireEXP(int exp);
+	void Harvest(int exp);			// 경험치를 소비해서 파인애플 수확, 파인애플 최대 경험치 참고
+	int GetPineAppleGold() { return PineAppleGold; }	// 현재 파인애플 골드량
+	int GetCurrentExp() { return currentEXP; }			// 현재 파인애플 경험치 -> 파인애플 수확 횟수									
 
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);
