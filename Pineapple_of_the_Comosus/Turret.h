@@ -9,7 +9,7 @@ enum class TurretType {
 
 	Crossbow = 30501,
 	Musket = 30511,
-	MineThrower = 30521,
+	Cannon = 30521,
 	SuperCrossbow = 30531,
 	SlowWand = 30541,
 	GrowthPromoter = 30551

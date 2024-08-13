@@ -8,10 +8,11 @@ class BoxCollider;
 class BulletFactory;
 
 enum class BulletType {
+    normal,
     arrow,
     bullet,
     burst,
-    normal,
+    
 };
 
 class Bullet : public Component, public IColliderNotify
@@ -46,4 +47,6 @@ private:
     void OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
     void OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
     void OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
+    void OnGround();
+    void OnBurst(float _bombRange);
 };
