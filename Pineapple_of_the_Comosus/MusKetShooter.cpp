@@ -52,7 +52,7 @@ void MusKetShooter::Shoot()
         // 총알 초기화 (속도와 방향 설정)
         Vector2 shootDirection = { 1.0f, 0.0f };  // 예를 들어 오른쪽으로 발사
         float bulletSpeed = 500.0f;
-        bullet->Init(bulletSpeed, shootDirection);
+        //bullet->Init(bulletSpeed, shootDirection);
 
         // 총알의 위치를 MusKetShooter의 위치로 설정
         bullet->gameObject->transform->pos.worldPosition = gameObject->transform->pos.worldPosition;

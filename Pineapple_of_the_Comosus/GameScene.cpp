@@ -39,15 +39,15 @@ void GameScene::Start() {
     auto camera = CreateGameObject<GameObject>();
     auto pCam = camera->CreateComponent<Camera>();
     SetMainCamera(pCam);
-
+    DataManager::GetInstance().LoadTurretSheetFromCSV(L"../Resource/TurretData.csv");
     auto bulletFactory = new BulletFactory(this);
 
-    //µ¥ÀÌÅÍ ¸Å´ÏÀú ÃÊ±âÈ­
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
     auto& DataManager = DataManager::GetInstance();
     DataManager.LoadEnemySheetFromCSV(L"../Resource/EnemyData.csv");
     DataManager.LoadTurretSheetFromCSV(L"../Resource/TurretData.csv");
 
-    // °ÔÀÓ ¸Å´ÏÀú µå·¡±×¿£ µå·Ó, ÆÄÀÎ¾ÖÇÃ ¼³Ä¡, ÅÍ·¿ ÆÄÀÎ¾ÖÇÃ ¸÷ µ¥ÀÌÅÍ µîÀ» °ü¸®ÇÔ.
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ ï¿½å·¡ï¿½×¿ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡, ï¿½Í·ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
     auto gmObj = CreateGameObject<GameObject>();
     auto GameManager = gmObj->CreateComponent<GamePlayManager>();
     GameManager->camera = pCam;
@@ -61,14 +61,14 @@ void GameScene::Start() {
     GameManager->selectTurrets = selector;
 
 
-    // µå·¡±× ½Ã ÀÌ¹ÌÁö º¸¿©ÁÙ ¿ÀºêÁ§Æ®
+    // ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     auto testDragObj = CreateGameObject<GameObject>();
     testDragObj->SetActive(false);
     auto sproper = testDragObj->CreateComponent<SpriteRenderer>();
     sproper->alpha = 0.7f;
     GameManager->dragObj = testDragObj;
     testDragObj->transform->SetSortingLayer(1);
-    // ÄÚ¸ð¼­½º ÆÄÀÎ¾ÖÇÃ (°Ì³ª Å­)
+    // ï¿½Ú¸ð¼­½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ (ï¿½Ì³ï¿½ Å­)
     auto paObj = CreateGameObject<GameObject>();
     paObj->transform->pos.worldPosition = { 0.f, 0.f };
     auto pineApple = paObj->CreateComponent<MainPineApple>();
@@ -89,12 +89,34 @@ void GameScene::Start() {
     pineColl->SetExtent({ 0.f, 400.f });
 
     GameManager->pineApple = pineApple;
-    // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+    // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
     {
         
+        // ï¿½Ú¸ð¼­½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ (ï¿½Ì³ï¿½ Å­)
+        auto paObj = CreateGameObject<GameObject>();
+        paObj->transform->SetSortingLayer(-5);
+        paObj->transform->pos.worldPosition = { 0.f, 0.f };
+        auto pineApple = paObj->CreateComponent<MainPineApple>();
+        testPineApple = pineApple;
+        pineApple->bulletFactory = bulletFactory;
+        auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
+        pineappleSpr->SetCenter({ 0.5f, 0.6f });
+        pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
+        auto pineColl = paObj->CreateComponent<BoxCollider>();
+        pineColl->ignoreEventSystem = true;
+        pineColl->isKinemetic = true;
+        pineColl->SetCenter({ 300.f, 100.f });
+        pineColl->SetExtent({ 0.f, 400.f });
+        pineColl = paObj->CreateComponent<BoxCollider>();
+        pineColl->ignoreEventSystem = true;
+        pineColl->isKinemetic = true;
+        pineColl->SetCenter({ -300.f, 100.f });
+        pineColl->SetExtent({ 0.f, 400.f });
+
+        GameManager->pineApple = pineApple;
 
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { -200.f, 200.f };
@@ -119,7 +141,7 @@ void GameScene::Start() {
             pineTile->turret = childObj;
         }
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { 0.f, 200.f };
@@ -144,7 +166,7 @@ void GameScene::Start() {
             pineTile->turret = childObj;
         }
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { 200.f, 200.f };
@@ -169,7 +191,7 @@ void GameScene::Start() {
             pineTile->turret = childObj;
         }
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { -100.f, 100.f };
@@ -194,7 +216,7 @@ void GameScene::Start() {
             pineTile->turret = childObj;
         }
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { 100.f, 100.f };
@@ -219,7 +241,7 @@ void GameScene::Start() {
             pineTile->turret = childObj;
         }
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { -200.f, 0.f };
@@ -244,7 +266,7 @@ void GameScene::Start() {
             pineTile->turret = childObj;
         }
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { 0.f, 0.f };
@@ -269,7 +291,7 @@ void GameScene::Start() {
             pineTile->turret = childObj;
         }
         {
-            // ÆÄÀÎ¾ÖÇÃ Å¸ÀÏµé
+            // ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Å¸ï¿½Ïµï¿½
             auto paTileObj = CreateGameObject<GameObject>();
             paTileObj->transform->SetParent(paObj->transform);
             paTileObj->transform->pos.worldPosition = { 200.f, 0.f };
@@ -296,25 +318,25 @@ void GameScene::Start() {
     }
 
 
-    // »ç¿îµå ÃÊ±âÈ­ ¹× ·Îµå
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ ï¿½Îµï¿½
     SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3");
     SoundManager::GetInstance().SetVolume(L"backgroundMusic", 0.5f);
     SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true);
 
-    // ¹è°æ ÀÌ¹ÌÁö
+    // ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
     auto bgObj = CreateGameObject<GameObject>();
     bgObj->transform->SetSortingLayer(-10);
     auto bgSpr = bgObj->CreateComponent<SpriteRenderer>();
     bgSpr->LoadTexture(L"../Resource/morningBG.png");
 
-    // ¸Þ´º¹Ù
+    // ï¿½Þ´ï¿½ï¿½ï¿½
     auto uiObj = CreateGameObject<GameObject>();
     auto uiImage = uiObj->CreateComponent<ImageUIRenderer>();
     uiObj->transform->type = Type::Ui;
     uiObj->transform->pos.rectposition = { {180,0} ,{1560 + 180,200} };
-    uiImage->LoadTexture(L"../Resource/30401_»óÅÂÃ¢¹è°æ.png");
+    uiImage->LoadTexture(L"../Resource/30401_ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½.png");
 
-    // ¿þÀÌºê ½Ã½ºÅÛ
+    // ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
     waveSystem->scene = this;
@@ -323,31 +345,31 @@ void GameScene::Start() {
     waveSystem->Init();
     
      
-    // DayNightCycleComponent »ý¼º ¹× °ÔÀÓ ¿ÀºêÁ§Æ®¿¡ Ãß°¡
+    // DayNightCycleComponent ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
     auto nightObj = CreateGameObject<GameObject>();
     nightSystem = nightObj->CreateComponent<DayNightCycle>();
 
-    // ³»ºÎ ÄÄÆ÷³ÍÆ® Æ÷ÀÎÅÍ ÁÖ¼Ò ¿¬°á
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
     nightSystem->waveSystem = waveSystem;
 
 
-    // ÅÍ·¿ UI
+    // ï¿½Í·ï¿½ UI
     float spacing = 20.0f;
     float startX = 0.f;
     float width = 120.f;
 
     //std::vector<Button*> btn;
-    // ÀÌ¹ÌÁö ÆÄÀÏ °æ·Î ¹è¿­
+    // ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½è¿­
     std::wstring turretImages[] = {
-        L"../Resource/30201_ÅÍ·¿¹öÆ°_¼®±ÃÅ¸¿ö.png",
-        L"../Resource/30202_ÅÍ·¿¹öÆ°_¸Ó½ºÅ¶Å¸¿ö.png",
-        L"../Resource/30203_ÅÍ·¿¹öÆ°_¹Ú°ÝÆ÷Å¸¿ö.png",
-        L"../Resource/30205_ÅÍ·¿¹öÆ°_½½·Î¿ì¿ÏµåÅ¸¿ö.png",
-        L"../Resource/30204_ÅÍ·¿¹öÆ°_½´ÆÛ¼®±Ã.png",
-        L"../Resource/30206_ÅÍ·¿¹öÆ°_¼ºÀåÃËÁøÁ¦.png"
+        L"../Resource/30201_ï¿½Í·ï¿½ï¿½ï¿½Æ°_ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½.png",
+        L"../Resource/30202_ï¿½Í·ï¿½ï¿½ï¿½Æ°_ï¿½Ó½ï¿½Å¶Å¸ï¿½ï¿½.png",
+        L"../Resource/30203_ï¿½Í·ï¿½ï¿½ï¿½Æ°_ï¿½Ú°ï¿½ï¿½ï¿½Å¸ï¿½ï¿½.png",
+        L"../Resource/30205_ï¿½Í·ï¿½ï¿½ï¿½Æ°_ï¿½ï¿½ï¿½Î¿ï¿½Ïµï¿½Å¸ï¿½ï¿½.png",
+        L"../Resource/30204_ï¿½Í·ï¿½ï¿½ï¿½Æ°_ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½.png",
+        L"../Resource/30206_ï¿½Í·ï¿½ï¿½ï¿½Æ°_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.png"
     };
 
-    // UI »ý¼º ¹× ÀÌ¹ÌÁö ¼³Á¤ ÄÚµå
+    // UI ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
     std::vector<Button*> btn;
 
     for (size_t i = 0; i < 6; i++) {
@@ -360,10 +382,10 @@ void GameScene::Start() {
         auto backImage = turretUI->CreateComponent<ImageUIRenderer>();
         backImage->ignoreEventSystem = true;
 
-        // °¢ ÅÍ·¿ UI¿¡ ´ëÇØ ´Ù¸¥ ÀÌ¹ÌÁö ·Îµå
+        // ï¿½ï¿½ ï¿½Í·ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Îµï¿½
         backImage->LoadTexture(turretImages[i]);
 
-        // º¯°æ»çÇ× ÅÍ·¿UI
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Í·ï¿½UI
         auto turretUIChild = CreateGameObject<GameObject>();
         turretUIChild->transform->SetParent(turretUI->transform);
         turretUIChild->transform->type = Type::Ui;
@@ -371,12 +393,12 @@ void GameScene::Start() {
 
         auto turretButton = turretUIChild->CreateComponent<Button>();
         turretButton->LoadTexture(turretImages[i]);
-        //turretButton->LoadTexture(L"../Resource/turret.png");  // ¹öÆ°ÀÇ ÀÌ¹ÌÁö´Â °íÁ¤
+        //turretButton->LoadTexture(L"../Resource/turret.png");  // ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         auto turretUIComp = turretUIChild->CreateComponent<TurretUI>();
-        turretUIComp->SetIndex(i);
+        turretUIComp->SetIndex(30501 + (i * 10));
 
         btn.push_back(turretButton);
-        // ÅÍ·¿ ¹öÆ° Å¬¸¯ ½Ã µ¿ÀÛ Á¤ÀÇ
+        // ï¿½Í·ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         //turretButton->AddListener([GameManager, turretUIComp]() {GameManager->StartBatch(turretUIComp->GetIndex()); });
     }
     auto t1 = btn[0]->gameObject->GetComponent<TurretUI>();
@@ -391,7 +413,7 @@ void GameScene::Start() {
     btn[4]->AddListener([GameManager, t5]() {GameManager->StartBatch(t5->GetIndex()); });
     auto t6 = btn[5]->gameObject->GetComponent<TurretUI>();
     btn[5]->AddListener([GameManager, t6]() {GameManager->StartBatch(t6->GetIndex()); });
-    // HP ¹× MP ¹Ù UI
+    // HP ï¿½ï¿½ MP ï¿½ï¿½ UI
 
     auto hpBarObj = CreateGameObject<GameObject>();
     auto hpBarImage = hpBarObj->CreateComponent<ImageUIRenderer>();
@@ -400,7 +422,7 @@ void GameScene::Start() {
     hpBarObj->transform->pos.rectposition = { {20.f,0.f} ,{20.f + 820.f,20.f} };
     hpBarUi = hpBarObj->CreateComponent<Hpbar>();
     hpBarUi->ImageRender = hpBarImage;
-    hpBarImage->LoadTexture(L"../Resource/30403_HP_02_²ËÂü.png");
+    hpBarImage->LoadTexture(L"../Resource/30403_HP_02_ï¿½ï¿½ï¿½ï¿½.png");
 
 
     auto mpBarObj = CreateGameObject<GameObject>();
@@ -411,7 +433,7 @@ void GameScene::Start() {
     auto mpBar = mpBarObj->CreateComponent<Mpbar>();
     pineApple->expbar = mpBar;
     mpBar->ImageRender = mpBarImage;
-    mpBarImage->LoadTexture(L"../Resource/30402_¼öÈ®¹Ù_02_²ËÂü.png");
+    mpBarImage->LoadTexture(L"../Resource/30402_ï¿½ï¿½È®ï¿½ï¿½_02_ï¿½ï¿½ï¿½ï¿½.png");
    
 
     /*auto turretUI = CreateGameObject<GameObject>();
@@ -424,7 +446,7 @@ void GameScene::Start() {
 
     std::cout << "Ewwwwwww" << std::endl;
 
-    // °ñµå º¸À¯·® Ui
+    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ui
     auto GoldObj = CreateGameObject<GameObject>();
     auto GoldImage = GoldObj->CreateComponent<Button>();
     GoldObj->transform->SetParent(uiObj->transform);
@@ -432,11 +454,11 @@ void GameScene::Start() {
     GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,113.f} ,{20.f + 820.f + spacing + 270.f, 196.f} };
     /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
     harvestUi->ImageRender = HarvestbtnImage;*/
-    GoldImage->LoadTexture(L"../Resource/30404_°ñµåº¸À¯·®Ã¢.png");
+    GoldImage->LoadTexture(L"../Resource/30404_ï¿½ï¿½åº¸ï¿½ï¿½ï¿½ï¿½Ã¢.png");
     // wstring str;
     
 
-    // ·¹º§ ¹öÆ° 
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° 
     auto UpgradeObj = CreateGameObject<GameObject>();
     auto UpgradeImage = UpgradeObj->CreateComponent<Button>();
     UpgradeObj->transform->SetParent(uiObj->transform);
@@ -444,9 +466,9 @@ void GameScene::Start() {
     UpgradeObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,0.f} ,{20.f + 820.f + spacing + 270.f, 98.f} };
     /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
     harvestUi->ImageRender = HarvestbtnImage;*/
-    UpgradeImage->LoadTexture(L"../Resource/30406_ÆÄÀÎ¾ÖÇÃ·¹º§Ã¢.png");
+    UpgradeImage->LoadTexture(L"../Resource/30406_ï¿½ï¿½ï¿½Î¾ï¿½ï¿½Ã·ï¿½ï¿½ï¿½Ã¢.png");
 
-    // ¼öÈ® ¹öÆ° -> ÀÌ°Å ¿Ï¼º 500 * 500
+    // ï¿½ï¿½È® ï¿½ï¿½Æ° -> ï¿½Ì°ï¿½ ï¿½Ï¼ï¿½ 500 * 500
     auto Harvestobj = CreateGameObject<GameObject>();
     auto HarvestbtnImage = Harvestobj->CreateComponent<Button>();
     Harvestobj->transform->SetParent(uiObj->transform);
@@ -460,7 +482,7 @@ void GameScene::Start() {
 void GameScene::Clear() {
     __super::Clear();
     std::cout << "Exiting GameScene" << std::endl;
-    // Á¤¸® ÀÛ¾÷
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
     SoundManager::GetInstance().ReleaseSound(L"backgroundMusic");
 }
 
@@ -481,20 +503,20 @@ void GameScene::Update(float deltaTime) {
         std::cout << mpBarUi->getBarWidth() << std::endl;
     }*/
 
-    // ¸ÞÀÎ ¾À ÀüÈ¯ Å×½ºÆ®
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½×½ï¿½Æ®
     if (InputManager::GetInstance().IsKeyDown('3')) {
         SceneManager::GetInstance().ChangeScene("StartScene");
     }
 
-    // µ¿½Ã »ç¿îµå Å×½ºÆ® 
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ® 
     if (InputManager::GetInstance().IsKeyDown('5')) {
-        // 5¹øÀ» Å¬¸¯ÇÒ ¶§ ¸¶´Ù SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3"); »ç¿îµå°¡ 
-        // ±âÁ¸ÀÇ »ç¿îµå´Â ±×´ë·Î Ãâ·ÂµÇ°í »õ »ç¿îµå°¡ Áßº¹À¸·Î Ãâ·ÂµÇ°Ô ÇÏ·Á°í ÇÏ´Âµ¥, ¾î¶»°Ô ÇÏ¸é ÁÁÀ»±î?
-         // »õ·Î¿î °íÀ¯ ÀÌ¸§À¸·Î »ç¿îµå ·Îµå
+        // 5ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3"); ï¿½ï¿½ï¿½å°¡ 
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ÂµÇ°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½å°¡ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÂµÇ°ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½Ï´Âµï¿½, ï¿½î¶»ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+         // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½
         std::wstring soundName = L"gimicSuccess";
         SoundManager::GetInstance().LoadSound(soundName, L"../Media/gimicSuccess.mp3");
 
-        // ·ÎµåµÈ »ç¿îµå¸¦ Àç»ý
+        // ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½
         SoundManager::GetInstance().PlaySoundW(soundName, true);
     }
 

@@ -25,6 +25,6 @@ public:
 
 	bool isSelected = false;
 
-	void SetActivateTurret(std::wstring& path);
+	void SetActivateTurret(int typeID);
 };
 

@@ -178,6 +178,7 @@
     <ClCompile Include="SwordMove.cpp" />
     <ClCompile Include="testChar.cpp" />
     <ClCompile Include="TestDropDown.cpp" />
+    <ClCompile Include="TurretManager.cpp" />
     <ClCompile Include="TurretUI.cpp" />
     <ClCompile Include="UpgradeItem.cpp" />
     <ClCompile Include="WaveSystem.cpp" />
@@ -230,6 +231,7 @@
     <ClInclude Include="SwordMove.h" />
     <ClInclude Include="testChar.h" />
     <ClInclude Include="TestDropDown.h" />
+    <ClInclude Include="TurretManager.h" />
     <ClInclude Include="TurretUI.h" />
     <ClInclude Include="UpgradeItem.h" />
     <ClInclude Include="WaveSystem.h" />

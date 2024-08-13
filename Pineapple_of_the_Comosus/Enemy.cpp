@@ -3,7 +3,7 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/FiniteStateMachine.h"
-#include "Bullet.h"
+
 
 void Enemy::Init()
 {
@@ -84,11 +84,13 @@ void Enemy::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
 
 void Enemy::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
-    auto a = pOtherComponent->gameObject->GetComponent<Bullet>();
-    if (a != nullptr) {
-        //gameObject->isActive = false;
-        gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
-    }
+
+    //auto a = pOtherComponent->gameObject->GetComponent<Bullet>();
+    //if (a != nullptr) {
+    //    //gameObject->isActive = false;
+    //    //gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
+    //}
+
 }
 
 void Enemy::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
@@ -97,4 +99,28 @@ void Enemy::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 
 void Enemy::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
+}
+
+void Enemy::Ondamage(int damage, BulletType bulletType)
+{   
+    int resist = 0;
+    switch (bulletType)
+    {
+    case BulletType::arrow:
+        resist = enemyData.resistArrow;
+        break;
+    case BulletType::bullet:
+        resist = enemyData.resistBullet;
+        break;
+    case BulletType::burst:
+        resist = enemyData.resistBurst;
+        break;
+    }
+    float hundred = 0.01f;
+    enemyData.hp = (int)(enemyData.hp - (damage * ((100 - resist) * hundred)));
+	if (enemyData.hp <= 0)
+	{
+	    gameObject->isActive = false;
+	    gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
+	}
 }

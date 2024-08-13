@@ -3,6 +3,7 @@
 #include "Mpbar.h"
 
 class BulletFactory;
+class DataManager;
 class MainPineApple : public Component
 {
 	int gold = 300; 

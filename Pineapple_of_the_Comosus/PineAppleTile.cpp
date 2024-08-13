@@ -2,6 +2,8 @@
 #include "MainPineApple.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include "DataManager.h"
+#include "Turret.h"
 #include <string>
 void PineAppleTile::Update(float deltaTime)
 {
@@ -29,9 +31,16 @@ bool PineAppleTile::IsPlaceable()
 	return turret->isActive == false;
 }
 
-void PineAppleTile::SetActivateTurret(std::wstring& path)
+void PineAppleTile::SetActivateTurret(int typeID)
 {
+	auto data = DataManager::GetInstance().GetTurretData(typeID);
 	auto spr = turret->GetComponent<SpriteRenderer>();
-	spr->LoadTexture(path.c_str());
+	spr->LoadTexture(data->imagePath);
+
+	auto turretCom = turret->GetComponent<Turret>();
+	turretCom->turretType = (TurretType)typeID;
+
+	//auto spr = turret->GetComponent<SpriteRenderer>();
+	//spr->LoadTexture(path.c_str());
 }
 
