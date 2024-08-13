@@ -512,14 +512,15 @@ void GameScene::Render(D2DRenderer* _render) {
 
     auto pd = testPineApple;
     int gold = pd->GetPineAppleGold();
+    std::cout << gold << std::endl;
     std::wstring pineAppleGold = std::to_wstring(gold);
     D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
     //std::cout << cam->transform->m_WorldTransform.dx << std::endl;
     //std::cout << cam->transform->m_WorldTransform.dy << std::endl;
 
-    int pineappleLV = pd->GetPineAppleLV();
+    /*int pineappleLV = pd->GetPineAppleLV();
     std::wstring pineAppleLV = std::to_wstring(pineappleLV);
-    D2DRenderer::getIncetance().DrawStringTextw(pineAppleLV.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Blue);
+    D2DRenderer::getIncetance().DrawStringTextw(pineAppleLV.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Blue);*/
 
 
 }

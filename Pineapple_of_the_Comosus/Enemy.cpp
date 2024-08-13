@@ -3,6 +3,7 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/FiniteStateMachine.h"
+#include "MainPineApple.h"
 
 
 void Enemy::Init()
@@ -120,6 +121,9 @@ void Enemy::Ondamage(int damage, BulletType bulletType)
     enemyData.hp = (int)(enemyData.hp - (damage * ((100 - resist) * hundred)));
 	if (enemyData.hp <= 0)
 	{
+
+        mainPineApple->acquireGold(enemyData.reward);
+        mainPineApple->monAcquireEXP(enemyData.expReward);
 	    gameObject->isActive = false;
 	    gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
 	}
