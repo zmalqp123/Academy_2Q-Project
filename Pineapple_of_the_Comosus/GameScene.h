@@ -9,7 +9,7 @@ class GameScene : public Scene {
 private:
     WaveSystem* waveSystem; // WaveSystem 포인터
     DayNightCycle* nightSystem; // DayNightCycle 포인터
-    Mpbar* mpBarUi; // 선언
+    //Mpbar* mpBarUi; // 선언
     Hpbar* hpBarUi;
 public:
     GameScene();
