@@ -47,6 +47,7 @@
     <ClCompile Include="EnemyDead.cpp" />
     <ClCompile Include="EnemyMove.cpp" />
     <ClCompile Include="TurretManager.cpp" />
+    <ClCompile Include="DynamicData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -96,6 +97,7 @@
     <ClInclude Include="EnemyDead.h" />
     <ClInclude Include="EnemyMove.h" />
     <ClInclude Include="TurretManager.h" />
+    <ClInclude Include="DynamicData.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />

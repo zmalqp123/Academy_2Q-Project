@@ -422,9 +422,7 @@ void GameScene::Start() {
     turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
     turretImage->LoadTexture(L"../Resource/turret.png");*/
 
-    std::cout << "Ewwwwwww" << std::endl;
-
-    // 골드 보유량 Ui
+    // ��� ������ Ui
     auto GoldObj = CreateGameObject<GameObject>();
     auto GoldImage = GoldObj->CreateComponent<Button>();
     GoldObj->transform->SetParent(uiObj->transform);
