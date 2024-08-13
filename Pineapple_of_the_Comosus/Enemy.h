@@ -55,5 +55,6 @@ public:
 	void OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
 	void OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
 	void Ondamage(int damage, BulletType bulletType);
+
 };
 

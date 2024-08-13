@@ -73,7 +73,7 @@ struct EnemyData {
 	int resistBurst;
 	int resistComosus;
 
-	int hp;
+	float hp;
 	int moveSpeed;
 	int attack;
 	int attackRate;
