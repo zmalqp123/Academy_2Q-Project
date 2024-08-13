@@ -319,6 +319,7 @@ void GameScene::Start() {
     waveSystem = waveObj->CreateComponent<WaveSystem>();
     waveSystem->scene = this;
     waveSystem->bulletFactory = bulletFactory;
+    waveSystem->mainPineApple = GameManager->pineApple;
     waveSystem->Init();
     
      

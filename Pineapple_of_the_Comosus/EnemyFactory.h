@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include <random>
 class BulletFactory;
+class MainPineApple;
 class EnemyFactory
 {
 public:
@@ -33,6 +34,7 @@ public:
     void InitializePool(); // 적 풀 초기화 메서드
 
     BulletFactory* bulletFactory;
+    MainPineApple* mainPineApple;
 private:
     Scene* scene;
 

@@ -9,6 +9,7 @@
 #include "EnemyDead.h"
 #include "MusKetShooter.h"
 #include "DataManager.h"
+#include "MainPineApple.h"
 
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
@@ -16,6 +17,7 @@
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/FiniteStateMachine.h"
+
 
 EnemyFactory::EnemyFactory(Scene* scene)
     : scene(scene)
@@ -48,8 +50,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto colliderPhysics = mon->CreateComponent<BoxCollider>();
     colliderPhysics->SetExtent({ 1.f, 1.f });
     mon->SetActive(false);
-    // auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
-    // fsm->SetOwner(mon);
+    auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
+    fsm->SetOwner(mon);
     Enemy* enemy = nullptr;
     DataManager& d = DataManager::GetInstance();
     switch (type)
@@ -58,37 +60,37 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy = mon->CreateComponent<SwordMan>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::swordMan)); //복사가 되야하는 부분!
         loadMon->LoadTexture(L"../Resource/swordsman.png");
-        /*fsm->CreateState<SwordManAttack>("Attack");
+        fsm->CreateState<SwordManAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
-        fsm->SetState("Move");*/
+        fsm->SetState("Move");
         break;
     case 1:
         enemy = mon->CreateComponent<BombCart>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::bombCarrier)); //복사가 되야하는 부분!
         loadMon->LoadTexture(L"../Resource/tile.png");
-        /*fsm->CreateState<BomberAttack>("Attack");
+        fsm->CreateState<BomberAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
-        fsm->SetState("Move");*/
+        fsm->SetState("Move");
         break;
     case 2:
         enemy = mon->CreateComponent<Griffin>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::griffin)); //복사가 되야하는 부분!
         loadMon->LoadTexture(L"../Resource/griffin.png"); 
-        /*fsm->CreateState<GriffinAttack>("Attack");
+        fsm->CreateState<GriffinAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
-        fsm->SetState("Move");*/
+        fsm->SetState("Move");
         break;
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::heavyArmor)); //복사가 되야하는 부분!
         loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
-        /*fsm->CreateState<HeavyAttack>("Attack");
+        fsm->CreateState<HeavyAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
-        fsm->SetState("Move");*/
+        fsm->SetState("Move");
         break;
     case 4:
         enemy = mon->CreateComponent<MusKetShooter>();
@@ -96,16 +98,16 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         //b->bulletFactory = bulletFactory;
         //enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
-        /*fsm->CreateState<MusKetAttack>("Attack");
+        fsm->CreateState<MusKetAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
-        fsm->SetState("Move");*/
+        fsm->SetState("Move");
         break;
     default:
         // �⺻ �� �Ǵ� ���� ó��
         return nullptr;
     }
-
+    enemy->mainPineApple = mainPineApple;
     enemy->move = movement;
     enemy->pBoxcollider = collider;
     return enemy;
