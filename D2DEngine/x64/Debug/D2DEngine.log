@@ -1,48 +1,26 @@
 ﻿  pch.cpp
   AABB.cpp
   BoxCollider.cpp
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 '/BoxCollider.cpp'을(를) 컴파일하는 중)
-  C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\CircleCollider.h(29,1): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 '/BoxCollider.cpp'을(를) 컴파일하는 중)
-  C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\BoxCollider.h(5,7): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\CircleCollider.h(4,7): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
   Button.cpp
   Camera.cpp
   CircleCollider.cpp
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\CircleCollider.h(29,1): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 '/CircleCollider.cpp'을(를) 컴파일하는 중)
-  C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 '/CircleCollider.cpp'을(를) 컴파일하는 중)
-  C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\CircleCollider.h(4,7): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\BoxCollider.h(5,7): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
   Collider.cpp
   Component.cpp
   D2DEngine.cpp
   D2DRenderer.cpp
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\D2DRenderer.cpp(262,18): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/D2DRenderer.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\D2DRenderer.cpp(283,18): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/D2DRenderer.cpp'을(를) 컴파일하는 중)
-  
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\D2DRenderer.cpp(262,18): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\D2DRenderer.cpp(283,18): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   DeltaTime.cpp
   EventSystem.cpp
   FiniteStateMachine.cpp
   GameObject.cpp
   ImageUIRenderer.cpp
   InputManager.cpp
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\InputManager.cpp(116,23): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/InputManager.cpp'을(를) 컴파일하는 중)
-  
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\InputManager.cpp(116,23): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Movement.cpp
   Object.cpp
   PublicData.cpp
@@ -56,44 +34,10 @@ C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\InputManager.cpp(116,23): war
   SceneManager.cpp
   SideMovement.cpp
   SoundManager.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xutility(4537,18): warning C4244: '=': 'const wchar_t'에서 'char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/SoundManager.cpp'을(를) 컴파일하는 중)
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xutility(4537,18):
-  템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-  	C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\SoundManager.cpp(11,59):
-  	컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Elem=wchar_t,
-              _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
-              _Alloc=std::allocator<char>
-          ]
-  		C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\SoundManager.cpp(11,24):
-  		'SoundManager::LoadSound'에서 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string'에 대한 첫 번째 참조를 확인하세요.
-  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2600,17):
-  	컴파일되는 함수 템플릿 인스턴스화 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<const wchar_t*,const wchar_t*,_Size_type>(_Iter,const _Sent,_Size)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Size_type=unsigned __int64,
-              _Iter=const wchar_t *,
-              _Sent=const wchar_t *,
-              _Size=unsigned __int64
-          ]
-  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2756,18):
-  	컴파일되는 함수 템플릿 인스턴스화 '_OutIt *std::_Copy_n_unchecked4<const wchar_t*,_Size,char*>(_InIt,_SizeTy,_OutIt)'에 대한 참조를 확인하세요.
-          with
-          [
-              _OutIt=char *,
-              _Size=unsigned __int64,
-              _InIt=const wchar_t *,
-              _SizeTy=unsigned __int64
-          ]
-  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include\xutility(4672,18): warning C4244: '=': 'const wchar_t'에서 'char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Sprite.cpp
   SpriteAnimation.cpp
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\SpriteAnimation.cpp(145,38): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/SpriteAnimation.cpp'을(를) 컴파일하는 중)
-  
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\SpriteAnimation.cpp(145,38): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   SpriteAnimationAsset.cpp
   SpriteRenderer.cpp
   TestObject.cpp
@@ -101,35 +45,15 @@ C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\SpriteAnimation.cpp(145,38): 
   Texture.cpp
   Transform.cpp
   WinGameApp.cpp
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(44,19): warning C4244: '초기화 중': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(45,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(46,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,29): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,29): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,36): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,36): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(90,56): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(94,54): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\user\Desktop\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(126,46): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/WinGameApp.cpp'을(를) 컴파일하는 중)
-  
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(44,19): warning C4244: '초기화 중': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(45,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(46,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,29): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,29): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,36): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,36): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(90,56): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(94,54): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(126,46): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다...
-  D2DEngine.vcxproj -> C:\Users\user\Desktop\Academy_2Q-Project\x64\Debug\D2DEngine.lib
+  D2DEngine.vcxproj -> D:\새 폴더\D2D팀프로젝트\Academy_2Q-Project\x64\Debug\D2DEngine.lib

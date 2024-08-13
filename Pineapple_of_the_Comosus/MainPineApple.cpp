@@ -21,6 +21,15 @@ void MainPineApple::spendGold(int cost)
 	}
 }
 
+void MainPineApple::monAcquireEXP(int exp)
+{
+	currentEXP += exp;
+}
+
+void MainPineApple::Harvest(int exp)
+{
+}
+
 void MainPineApple::Update(float deltaTime)
 {
 	//elapsedTime += deltaTime;

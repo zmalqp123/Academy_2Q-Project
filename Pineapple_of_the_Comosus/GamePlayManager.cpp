@@ -157,20 +157,20 @@ void GamePlayManager::StartBatch(int type)
 		hmm = L"../Resource/30511.png"; // 머스켓
 		Turret_Type = 30511;
 		break;
-	case 2:
+	case 2: 
 		hmm = L"../Resource/30521.png"; // 대포
 		Turret_Type = 30521;
 		break;
 	case 3:
-		hmm = L"../Resource/30531.png"; // 슈퍼 석궁
+		hmm = L"../Resource/30541.png"; // 슬로우 완드
 		Turret_Type = 30531;
 		break;
 	case 4:
-		hmm = L"../Resource/30541.png"; // 슬로우 완드
+		hmm = L"../Resource/30531.png"; // 슈퍼 석궁
 		Turret_Type = 30541;
 		break;
 	case 5:
-		hmm = L"../Resource/30551.png"; // 슬로우 완드
+		hmm = L"../Resource/30551_성장촉진제_01.png"; // 성장 촉진제
 		Turret_Type = 30551;
 		break;
 	default:
