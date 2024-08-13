@@ -35,6 +35,21 @@ void MainPineApple::monAcquireEXP(float exp)
 	}
 }
 
+// 몬스터 atk 에서 호출 
+void MainPineApple::pineAppleDamageHP(int damage)
+{
+	if (HP > 0)
+	{
+		std::cout << "초기 HP : " << HP << std::endl;
+		HP -= damage;
+		std::cout << "데미지 후 HP : " << HP << std::endl;
+	}
+	else
+	{
+		HP = 0;
+	}
+}
+
 void MainPineApple::solarAcquireEXP(float deltaTime)
 {
 	// 현재 경험치를 증가시키지만, 최대 maxEXP까지만 허용
