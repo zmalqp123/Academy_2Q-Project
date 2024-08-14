@@ -50,6 +50,7 @@
     <ClCompile Include="DynamicData.cpp" />
     <ClCompile Include="HarvestReward.cpp" />
     <ClCompile Include="Comosus.cpp" />
+    <ClCompile Include="EnemyColliderNotify.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -102,6 +103,7 @@
     <ClInclude Include="DynamicData.h" />
     <ClInclude Include="HarvestReward.h" />
     <ClInclude Include="Comosus.h" />
+    <ClInclude Include="EnemyColliderNotify.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />

@@ -19,7 +19,7 @@ class BoxCollider;
 class Movement;
 class SpriteRenderer;
 
-class Enemy : public Component, public IColliderNotify
+class Enemy : public Component
 {
 public:
 	Enemy() = default;
@@ -38,8 +38,8 @@ public:
 	float tmpY = 0.0f;
 
 	Movement* move;
-	BoxCollider* pBoxcollider;
 	MainPineApple* mainPineApple;
+	GameObject* notify;
 
 	virtual void Init() override;
 	virtual void Update(float delta) override;
@@ -49,11 +49,6 @@ public:
 
 	void WaveMove(float delta);
 
-	// IColliderNotify을(를) 통해 상속됨
-	void OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent) override;
-	void OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
-	void OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
-	void OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent) override;
 	void Ondamage(int damage, BulletType bulletType);
 
 };

@@ -10,11 +10,13 @@
 #include "MusKetShooter.h"
 #include "DataManager.h"
 #include "MainPineApple.h"
+#include "EnemyColliderNotify.h"
 
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/BoxCollider.h"
+#include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 
@@ -46,9 +48,16 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto loadMon = mon->CreateComponent<SpriteRenderer>();
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
-    collider->SetCollisionType(CollisionType::Overlap);
-    auto colliderPhysics = mon->CreateComponent<BoxCollider>();
-    colliderPhysics->SetExtent({ 1.f, 1.f });
+    collider->SetExtent({ 1.f, 1.f });
+
+    auto child = scene->CreateGameObject<GameObject>();
+    child->transform->SetParent(mon->transform);
+    auto notify = child->CreateComponent<EnemyColliderNotify>();
+    auto notifyColl = child->CreateComponent<BoxCollider>();
+    notifyColl->SetCollisionType(CollisionType::Overlap);
+
+    //auto colliderPhysics = mon->CreateComponent<BoxCollider>();
+    //colliderPhysics->SetExtent({ 1.f, 1.f });
     mon->SetActive(false);
     auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
     fsm->SetOwner(mon);
@@ -109,7 +118,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     }
     enemy->mainPineApple = mainPineApple;
     enemy->move = movement;
-    enemy->pBoxcollider = collider;
+    notify->enemy = enemy;
+    enemy->notify = child;
     return enemy;
 }
 

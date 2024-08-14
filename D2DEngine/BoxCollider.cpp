@@ -139,25 +139,25 @@ AABB BoxCollider::GetBound()
 
 void BoxCollider::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat)
 {
-	if (gameObject->isActive == false) return;
+	//if (gameObject->isActive == false) return;
 
-	D2D1_MATRIX_3X2_F m_ScreenTransform =
-		D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
-		D2D1::Matrix3x2F::Translation(PublicData::GetInstance().GetScreenSize().x * 0.5f, PublicData::GetInstance().GetScreenSize().y * 0.5f);
-	D2D1_MATRIX_3X2_F Transform =
-		gameObject->transform->m_WorldTransform
-		* cameraMat
-		* m_ScreenTransform;
-	pRenderTarget->SetTransform(Transform);
-	//pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, m_SrcRect);
-	D2DRenderer::getIncetance().DrawHollowRectangle(
-		m_Collider.GetMinX() + m_Collider.m_Center.x + offset.x,
-		m_Collider.GetMinY() + m_Collider.m_Center.y + offset.y,
-		m_Collider.GetMaxX() + m_Collider.m_Center.x + offset.x,
-		m_Collider.GetMaxY() + m_Collider.m_Center.y + offset.y,
-		2.f,
-		D2D1::ColorF::LimeGreen
-	);
+	//D2D1_MATRIX_3X2_F m_ScreenTransform =
+	//	D2D1::Matrix3x2F::Scale(1.0f, -1.0f) *
+	//	D2D1::Matrix3x2F::Translation(PublicData::GetInstance().GetScreenSize().x * 0.5f, PublicData::GetInstance().GetScreenSize().y * 0.5f);
+	//D2D1_MATRIX_3X2_F Transform =
+	//	gameObject->transform->m_WorldTransform
+	//	* cameraMat
+	//	* m_ScreenTransform;
+	//pRenderTarget->SetTransform(Transform);
+	////pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, m_SrcRect);
+	//D2DRenderer::getIncetance().DrawHollowRectangle(
+	//	m_Collider.GetMinX() + m_Collider.m_Center.x + offset.x,
+	//	m_Collider.GetMinY() + m_Collider.m_Center.y + offset.y,
+	//	m_Collider.GetMaxX() + m_Collider.m_Center.x + offset.x,
+	//	m_Collider.GetMaxY() + m_Collider.m_Center.y + offset.y,
+	//	2.f,
+	//	D2D1::ColorF::LimeGreen
+	//);
 }
 
 bool BoxCollider::isCollide(const Vector2& point)
