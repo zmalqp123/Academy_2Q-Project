@@ -1,4 +1,7 @@
 #include "Comosus.h"
+
+#include "../D2DEngine/GameTime.h"
+
 Comosus::Comosus()
 {
     // √ ±‚»≠
