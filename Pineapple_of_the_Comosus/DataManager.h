@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <map>
+#include <vector>
 
 enum class EnemyID {
 	swordMan = 30601, 
@@ -106,6 +107,24 @@ struct TurretData
 	std::wstring bulletImagePath;
 };
 
+struct WaveEnemyData {
+	int id;
+	std::wstring name;
+	int count;
+	float interval;
+	float startTime;
+};
+
+struct WaveData {
+	WaveData() = default;
+	WaveData(int _id) : id(_id) {};
+	~WaveData() = default;
+	int id;
+
+	std::vector<WaveEnemyData> leftWaveData;
+	std::vector<WaveEnemyData> rightWaveData;
+};
+
 class DataManager
 {
 private:
@@ -133,7 +152,8 @@ public:
 
 
 	std::map<int, EnemyData*> enemyDataMap; // int = id
-	std::map<int ,TurretData*> turretDataMap; // int = id
+	std::map<int, TurretData*> turretDataMap; // int = id
+	std::map<int, WaveData*> waveDataMap;
 
 	bool LoadEnemySheetFromCSV(const wchar_t* fileName)
 	{
@@ -270,6 +290,73 @@ public:
 			}
 		}
 		file.close();
+		return true;
+	}
+
+	bool LoadWaveSheetFromCSV(const wchar_t* fileName) {
+		std::wstring fileBase = fileName;
+		int count = 1;
+		std::wstring extension = L".csv";
+
+		while (true) {
+			std::wstring newPath = fileBase + std::to_wstring(count) + extension;
+			std::wifstream file(newPath);
+			if (!file.is_open()) {
+				std::cout << "파일을 열 수 없습니다." << std::endl;
+				std::wcout << newPath << std::endl;
+				break;
+			}
+			std::wstring line;			// 한줄의 문자열	
+			WaveData* wave = new WaveData(count);
+			getline(file, line);
+			for(int i = 0; i < 22; i++)
+			{
+				getline(file, line);		// 한줄 읽기
+				std::wstringstream wss(line);    // 한줄을 읽어서 wstringstream에 저장
+				std::wstring token;
+				{
+					WaveEnemyData leftData;
+					getline(wss, token, L',');
+					leftData.id = _wtoi(token.c_str());
+					getline(wss, token, L',');
+					leftData.name = token.c_str();
+					getline(wss, token, L',');
+					leftData.count = _wtoi(token.c_str());
+					getline(wss, token, L',');
+					leftData.interval = _wtof(token.c_str());
+					getline(wss, token, L',');
+					leftData.startTime = _wtof(token.c_str());
+
+					wave->leftWaveData.push_back(leftData);
+
+					getline(wss, token, L',');
+					getline(wss, token, L',');
+					getline(wss, token, L',');
+
+					WaveEnemyData rightData;
+					rightData.id = _wtoi(token.c_str());
+					getline(wss, token, L',');
+					rightData.name = token.c_str();
+					getline(wss, token, L',');
+					rightData.count = _wtoi(token.c_str());
+					getline(wss, token, L',');
+					rightData.interval = _wtof(token.c_str());
+					getline(wss, token, L',');
+					rightData.startTime = _wtof(token.c_str());
+
+					wave->rightWaveData.push_back(rightData);
+				}
+			}
+			waveDataMap.insert(std::make_pair(count, wave));
+			file.close();
+
+
+			count++;
+		}
+
+
+
+		
 		return true;
 	}
 

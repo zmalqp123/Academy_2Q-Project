@@ -53,6 +53,7 @@ void GameScene::Start() {
     auto& DataManager = DataManager::GetInstance();
     DataManager.LoadEnemySheetFromCSV(L"../Resource/EnemyData.csv");
     DataManager.LoadTurretSheetFromCSV(L"../Resource/TurretData.csv");
+    DataManager.LoadWaveSheetFromCSV(L"../Resource/WaveData");
 
     // 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
     auto gmObj = CreateGameObject<GameObject>();

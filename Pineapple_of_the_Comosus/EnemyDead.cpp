@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "MainPineApple.h"
 #include "GamePlayManager.h"
+#include "EnemyColliderNotify.h"
 #include "../D2DEngine/GameObject.h"
 
 void EnemyDead::Enter()
@@ -19,8 +20,10 @@ void EnemyDead::Update(float deltaTime)
 	bool isDeadAnimationEnd = false;
 	//죽는 애니메이션 넣을 것
 
-	if(isDeadAnimationEnd)
+	if (isDeadAnimationEnd) {
 		fsm->gameObject->isActive = false;
+		fsm->gameObject->GetComponent<Enemy>()->notify->isActive = false;
+	}
 }
 
 void EnemyDead::Exit()

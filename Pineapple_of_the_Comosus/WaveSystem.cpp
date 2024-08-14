@@ -129,7 +129,7 @@ void WaveSystem::Update(float deltaTime)
     {
         // 적을 활성화하고 적 목록에서 제거
         auto enemy = m_Enemies.front();
-        enemy->gameObject->isActive = true;
+        //enemy->gameObject->isActive = true;
         m_Enemies.erase(m_Enemies.begin());
 
         // 웨이브 타이머를 다음 웨이브에 맞게 설정
