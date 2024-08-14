@@ -146,6 +146,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletFactory.cpp" />
     <ClCompile Include="BomberAttack.cpp" />
+    <ClCompile Include="Comosus.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
     <ClCompile Include="DynamicData.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletFactory.h" />
     <ClInclude Include="BomberAttack.h" />
+    <ClInclude Include="Comosus.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
     <ClInclude Include="DynamicData.h" />

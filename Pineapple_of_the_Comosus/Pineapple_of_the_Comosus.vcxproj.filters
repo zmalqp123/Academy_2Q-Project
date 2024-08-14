@@ -49,6 +49,7 @@
     <ClCompile Include="TurretManager.cpp" />
     <ClCompile Include="DynamicData.cpp" />
     <ClCompile Include="HarvestReward.cpp" />
+    <ClCompile Include="Comosus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -100,6 +101,7 @@
     <ClInclude Include="TurretManager.h" />
     <ClInclude Include="DynamicData.h" />
     <ClInclude Include="HarvestReward.h" />
+    <ClInclude Include="Comosus.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />

@@ -33,6 +33,10 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(10, L"../Resource/Animations/DodgeRollRightUp.txt");
 		LoadAnimationFromCSV(11, L"../Resource/Animations/DodgeRollUp.txt");
 	}
+	if (FilePath == std::wstring(L"Comosus"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/kraken.txt");
+	}
 	return true;
 }
 
