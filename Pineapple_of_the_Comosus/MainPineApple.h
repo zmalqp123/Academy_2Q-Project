@@ -6,6 +6,8 @@
 class BulletFactory;
 class Mpbar;
 class Hpbar;
+class Button;
+class DynamicData;
 class MainPineApple : public Component
 {
 	int gold = 300;
@@ -19,7 +21,7 @@ class MainPineApple : public Component
 	int nightValue = 0;			// 밤 시간대 적용 값
 	float killMultiply = 1.0;	// 몬스터 처치시 경험치 배율. currentExp = currentExp + 몬스터 처치 exp * killMultiply값
 	float offeringMultiply = 0.75; // 기본 0.75 설정,  75퍼 채웠을 때 사용가능 
-	float offeringValue = maxEXP * offeringMultiply;
+	// float offeringValue;
 
 	// 레벨별 최대 경험치 테이블
 	std::vector<float> EXP_TABLE = {
@@ -34,7 +36,9 @@ class MainPineApple : public Component
 public:
 	Mpbar* expbar;
 	Hpbar* hpbar;
+	Button* harvestbtn;
 	HarvestButton* harvest;
+	DynamicData* rewardData;
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 
@@ -48,10 +52,12 @@ public:
 	void throwUiHP(int HP);
 	void UpdateMaxEXP();
 	void Harvest();					// 경험치를 소비해서 파인애플 수확, 파인애플 최대 경험치 참고
+	bool HarvestAble();
 	int GetPineAppleGold() { return gold; }	// 현재 파인애플 골드량
 	int GetCurrentExp() { return currentEXP; }			// 현재 파인애플 경험치 -> 파인애플 수확 횟수									
 	int GetPineAppleLV() { return LV; }
 	int GetPineAppleHP() { return HP; }				// 현재 파인애플 hp 가져오기 
+	float GetOfferingValue(); // float offeringValue;
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);
 

@@ -4,6 +4,8 @@
 #include "../D2DEngine/ImageUIRenderer.h"
 #include "Mpbar.h"
 #include "Hpbar.h"
+#include "../D2DEngine/Button.h"
+#include "DynamicData.h"
 #include <iostream>
 void MainPineApple::PrintIndex(int index)
 {
@@ -27,8 +29,10 @@ void MainPineApple::spendGold(int cost)
 // 몬스터에서 호출 
 void MainPineApple::monAcquireEXP(float exp)
 {
+
+	float dyKillMultiply = rewardData->GetRewardPineAppleStat().killMultiply;
 	// 몬스터로부터 경험치를 획득
-	currentEXP += exp * killMultiply;
+	currentEXP += exp * (killMultiply + dyKillMultiply);
 
 	// currentEXP가 maxEXP을 초과하면 maxEXP으로 설정
 	if (currentEXP > maxEXP)
@@ -103,16 +107,41 @@ void MainPineApple::Harvest()
 	// 최대 경험치에 도달한 경우 레벨업
 	if (currentEXP == maxEXP)
 	{
+		LV++;
 		UpdateMaxEXP(); // 새로운 최대 경험치 설정
 		std::cout << maxEXP << std::endl;
 		//offeringValue = maxEXP * offeringMultiply; // 새로운 offeringValue 업데이트
 		currentEXP = 0;
-		LV++;
 		// harvest UI 호출 -> harvest btn 애니메이션 호출
 	}
 	else {
-		// 최대 경험치가 아닙니다.
+		// 최대 경험치가 아닐때 75퍼면 수확가능 또 아니면 수확불가 
+		if (HarvestAble())
+		{
+			LV++;
+			std::cout << "최대경험치 이하 수확 :" << maxEXP << std::endl;
+			UpdateMaxEXP(); // 새로운 최대 경험치 설정
+			currentEXP = 0;
+		}
+		else
+		{
+			std::cout <<  "수확불가 :" << maxEXP << std::endl;
+		}
 	}
+}
+
+bool MainPineApple::HarvestAble()
+{
+	if (currentEXP >= GetOfferingValue())
+	{
+		return true;
+	}
+	return false;
+}
+
+float MainPineApple::GetOfferingValue()
+{
+	return maxEXP * (offeringMultiply+rewardData->GetRewardPineAppleStat().offeringMultiply);
 }
 
 void MainPineApple::Update(float deltaTime)
@@ -127,6 +156,19 @@ void MainPineApple::Update(float deltaTime)
 	// GetCurrentExp() 현재 경험치를 mpbar에게 넘기는 함수 호출 
 	throwUiEXP(GetCurrentExp());
 	throwUiHP(GetPineAppleHP());
+
+	// 수확 버튼 활성화
+	// 수확이 가능하다면 수확 버튼 활성화
+	if (HarvestAble())
+	{
+		harvestbtn->LoadTexture(L"../Resource/harvestable.png");
+
+	}
+	else
+	{
+		harvestbtn->LoadTexture(L"../Resource/harvest.png");
+	}
+
 	//elapsedTime += deltaTime;
 	//float temp = std::sinf(elapsedTime * 10.f) * 30.f;
 	////std::cout << temp << std::endl;
