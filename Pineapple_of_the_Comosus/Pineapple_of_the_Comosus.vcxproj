@@ -155,6 +155,7 @@
     <ClCompile Include="EnemyDead.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="EnemyMove.cpp" />
+    <ClCompile Include="FSMHarvest.cpp" />
     <ClCompile Include="GamePlayManager.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Griffin.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EnemyMove.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="FSMHarvest.h" />
     <ClInclude Include="GamePlayManager.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Griffin.h" />

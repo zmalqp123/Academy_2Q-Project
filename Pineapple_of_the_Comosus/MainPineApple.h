@@ -9,6 +9,7 @@ class Hpbar;
 class Button;
 class DynamicData;
 class SpriteAnimation;
+class FiniteStateMachine;
 class MainPineApple : public Component
 {
 	int gold = 300;
@@ -41,6 +42,7 @@ public:
 	HarvestButton* harvest;
 	DynamicData* rewardData;
 	SpriteAnimation* comosus;
+	FiniteStateMachine* fsm;
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 

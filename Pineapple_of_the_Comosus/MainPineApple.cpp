@@ -3,6 +3,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/ImageUIRenderer.h"
 #include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/GameTime.h"
 #include "Mpbar.h"
 #include "Hpbar.h"
@@ -119,6 +120,8 @@ void MainPineApple::Harvest()
 		currentEXP = 0;
 		// harvest UI 호출 -> harvest btn 애니메이션 호출
 		comosus->SetAnimation(0, false);
+		//gameObject->transform->pos.worldPosition = { 0.f, 0.f };
+		//fsm->SetState();
 		//throwUiHP(GetPineAppleHP());
 	}
 	else {

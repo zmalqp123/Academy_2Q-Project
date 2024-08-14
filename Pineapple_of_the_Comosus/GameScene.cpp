@@ -25,6 +25,8 @@
 #include "Comosus.h"
 #include "../D2DEngine/ResourceManager.h"
 #include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/FiniteStateMachine.h"
+#include "FSMHarvest.h"
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
 
@@ -81,6 +83,15 @@ void GameScene::Start() {
     auto paObj = CreateGameObject<GameObject>();
     paObj->transform->pos.worldPosition = { 0.f, 0.f };
     auto pineApple = paObj->CreateComponent<MainPineApple>();
+
+    // 상태 생성
+    /*auto pineFSM = paObj->CreateComponent<FiniteStateMachine>();
+    pineApple->fsm = pineFSM;
+    pineFSM->CreateState<TentacleDefault>("harveststart");
+    pineFSM->CreateState<TentacleDownState>("TentacleDownState");
+    pineFSM->CreateState<TentacleUpState>("TentacleUpState");
+    pineFSM->CreateState<ShowPopupState>("ShowPopupState");*/
+
     pineApple->rewardData = dynamicData;
     testPineApple = pineApple;
     pineApple->bulletFactory = bulletFactory;
@@ -621,7 +632,7 @@ void GameScene::Start() {
     auto sunObj = CreateGameObject<GameObject>();
     sunObj->transform->SetSortingLayer(-9);
     auto sunSpr = sunObj->CreateComponent<SpriteRenderer>();
-    sunSpr->LoadTexture(L"../Resource/Sun.png");
+    sunSpr->LoadTexture(L"../Resource/BGSun.png");
     sunObj->transform->pos.worldPosition = { 800.f, 400.f };
     nightSystem->m_Sun = sunObj;
 
@@ -629,7 +640,7 @@ void GameScene::Start() {
     auto moonObj = CreateGameObject<GameObject>();
     moonObj->transform->SetSortingLayer(-9);
     auto moonSpr = moonObj->CreateComponent<SpriteRenderer>();
-    moonSpr->LoadTexture(L"../Resource/Moon.png");
+    moonSpr->LoadTexture(L"../Resource/BGMoon.png");
     moonObj->transform->pos.worldPosition = { 800.f, -300.f };
     nightSystem->m_Moon = moonObj;
 
