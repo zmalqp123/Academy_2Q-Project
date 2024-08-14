@@ -77,19 +77,6 @@ void GameScene::Start() {
     GameManager->dragObj = testDragObj;
     testDragObj->transform->SetSortingLayer(1);
 
-    // 코모서스 강림
-    auto comoObj = CreateGameObject<GameObject>();
-    comoObj->transform->pos.worldPosition = { 0.f,0.f };
-    auto comosus = comoObj->CreateComponent<Comosus>();
-    comoObj->transform->SetSortingLayer(100);
-    auto comsusSpr = comoObj->CreateComponent<SpriteAnimation>();
-    Texture* t = nullptr;
-    ResourceManager::GetInstance().CreateTextureFromFile(L"../Resource/30722_tentacle_animation.png", &t);
-    comsusSpr->m_pTexture = t;
-    comsusSpr->LoadAnimationAsset(L"Comosus");
-    comsusSpr->SetAnimation(0, false);
-    //auto comususAnim = comoObj->CreateComponent<>
-
     // 코모서스 파인애플 (겁나 큼)
     auto paObj = CreateGameObject<GameObject>();
     paObj->transform->pos.worldPosition = { 0.f, 0.f };
@@ -110,6 +97,19 @@ void GameScene::Start() {
     pineColl->isKinemetic = true;
     pineColl->SetCenter({ -300.f, 100.f });
     pineColl->SetExtent({ 0.f, 400.f });
+
+    // 코모서스 강림
+    auto comoObj = CreateGameObject<GameObject>();
+    comoObj->transform->pos.worldPosition = { 0.f,340.f };
+    auto comosus = comoObj->CreateComponent<Comosus>();
+    comoObj->transform->SetSortingLayer(100);
+    auto comsusSpr = comoObj->CreateComponent<SpriteAnimation>();
+    Texture* t = nullptr;
+    ResourceManager::GetInstance().CreateTextureFromFile(L"../Resource/30722_tentacle_animation.png", &t);
+    comsusSpr->m_pTexture = t;
+    comsusSpr->LoadAnimationAsset(L"Comosus");
+    comsusSpr->SetAnimation(0, false);
+    pineApple->comosus = comsusSpr;
 
     GameManager->pineApple = pineApple;
     // 파인애플 타일들
