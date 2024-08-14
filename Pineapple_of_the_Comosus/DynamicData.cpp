@@ -15,8 +15,18 @@ void DynamicData::UpgradeTurret(TurretType turretType)
 	turretLevel[turretType] += 1;
 }
 
-TurretData* DynamicData::GetTurretData(TurretType turretType)
+const TurretData* DynamicData::GetStaticTurretData(TurretType turretType)
 {
 	int number = turretLevel[turretType] + (int)turretType;
 	return DataManager::GetInstance().GetTurretData(number);
+}
+
+const RewardTurretStat DynamicData::GetRewardTurretData(TurretType turretType)
+{
+	return rewardTurretStat[turretType];
+}
+
+const RewardPineAppleStat DynamicData::GetRewardPineAppleStat()
+{
+	return rewardPineAppleStat;
 }

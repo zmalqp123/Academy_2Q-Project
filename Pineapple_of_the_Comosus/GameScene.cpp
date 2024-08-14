@@ -782,7 +782,7 @@ void GameScene::Render(D2DRenderer* _render) {
 
     auto pd = testPineApple;
     int gold = pd->GetPineAppleGold();
-    std::cout << gold << std::endl;
+    //std::cout << gold << std::endl;
     std::wstring pineAppleGold = std::to_wstring(gold);
     D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
     //std::cout << cam->transform->m_WorldTransform.dx << std::endl;
