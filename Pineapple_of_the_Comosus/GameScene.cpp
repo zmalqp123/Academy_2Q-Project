@@ -76,6 +76,7 @@ void GameScene::Start() {
     auto paObj = CreateGameObject<GameObject>();
     paObj->transform->pos.worldPosition = { 0.f, 0.f };
     auto pineApple = paObj->CreateComponent<MainPineApple>();
+    pineApple->rewardData = dynamicData;
     testPineApple = pineApple;
     pineApple->bulletFactory = bulletFactory;
     auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
@@ -723,6 +724,8 @@ void GameScene::Start() {
     harvestUi->ImageRender = HarvestbtnImage;*/
 
     HarvestbtnImage->LoadTexture(L"../Resource/harvest.png");
+    
+    pineApple->harvestbtn = HarvestbtnImage;
 
     // 수확 버튼 클릭시
 

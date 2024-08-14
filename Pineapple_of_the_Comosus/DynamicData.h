@@ -32,6 +32,7 @@ struct RewardPineAppleStat {
 	int morningValue = 0;
 	int nightValue = 0;
 	float comosusLight = 0.f;
+	float killMultiply = 0.f;
 	float offeringMultiply = 0.f;
 };
 
