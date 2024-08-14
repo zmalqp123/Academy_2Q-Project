@@ -17,6 +17,7 @@ public:
 	void InitTime();
 	void UpdateTime();
 	float GetDeltaTime();
+	float GetUnScaleDeltaTime();
 	float GetFPS();
 
 	void SetTimeScale(float value) { timeScale = value; }

@@ -19,6 +19,11 @@ void GameTime::UpdateTime()
 
 float GameTime::GetDeltaTime()
 {
+	return deltaTime * timeScale;
+}
+
+float GameTime::GetUnScaleDeltaTime()
+{
 	return deltaTime;
 }
 
