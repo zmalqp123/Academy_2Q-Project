@@ -8,7 +8,8 @@ private:
     bool isNight;          // 밤/낮 상태를 나타내는 변수
 
 public:
-    float sphereLocation[4] = {750.0f,400.0f,50.f,-300.f};
+    float sunLocation[4] = {750.0f,400.0f,50.f,-300.f};
+    float moonLocation[4] = { 750.0f,400.0f,-750.f,-750.0f };
     //WaveSystem* waveSystem; // 웨이브 시스템에 대한 포인터
     Scene* scene;
     GameObject* m_Sun;
@@ -24,5 +25,9 @@ public:
     void SunMove(float deltaTime,int period);
 
     void SunReset();
+
+    void MoonMove(float deltaTime, int period);
+
+    void MoonReset();
     
 };

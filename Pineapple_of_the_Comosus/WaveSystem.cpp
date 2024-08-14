@@ -99,7 +99,7 @@ void WaveSystem::StartNextWave()
     if (currentWave < maxWave)
     {
         currentWave++;
-        waveTimer = 1.0f;  // 타이머 초기화 //현재 15초
+        waveTimer = 3.0f;  // 타이머 초기화 //현재 15초
         SpawnWave();        // 새로운 wave 스폰
         
     }
@@ -143,7 +143,9 @@ void WaveSystem::Update(float deltaTime)
         
     }
     // 태양 이동
+    
     dayNightCycle->SunMove(GameTime::GetInstance().GetDeltaTime(), (currentWave + 2) % 4); //하드코딩 하긴했는데 +2는 시작할때 태양이 중간에 있으면 안되서 그런거임!
+    dayNightCycle->MoonMove(GameTime::GetInstance().GetDeltaTime(), (currentWave - 1)% 4); 
     dayNightCycle->ApplyNightEffects(currentWave); // 밤이 되었을 때 적용할 효과
     dayNightCycle->RemoveNightEffects(currentWave); // 낮이 되었을 때 제거할 효과
 }
