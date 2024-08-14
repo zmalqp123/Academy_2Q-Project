@@ -8,6 +8,13 @@ void DynamicData::Init()
 	turretLevel[TurretType::SuperCrossbow] = 0;
 	turretLevel[TurretType::SlowWand] = 0;
 	turretLevel[TurretType::GrowthPromoter] = 0;
+
+	rewardTurretStat[TurretType::Crossbow];
+	rewardTurretStat[TurretType::Musket];
+	rewardTurretStat[TurretType::Cannon];
+	rewardTurretStat[TurretType::SuperCrossbow];
+	rewardTurretStat[TurretType::SlowWand];
+	rewardTurretStat[TurretType::GrowthPromoter];
 }
 
 void DynamicData::UpgradeTurret(TurretType turretType)

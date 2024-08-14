@@ -4,6 +4,17 @@
 #include "Turret.h"
 
 struct RewardTurretStat {
+	RewardTurretStat() {
+		burstRange = 0.f;
+		damage = 0;
+		fireRate = 0.f;
+		penetration = 0;
+
+		bulletType = 0;
+		bulletSpeed = 0.f;
+		slowRate = 0;
+		slowDuration = 0.f;
+	}
 	float burstRange;
 	int damage;
 	float fireRate;
@@ -16,12 +27,12 @@ struct RewardTurretStat {
 };
 
 struct RewardPineAppleStat {
-	int maxHp;
-	int solarGain;
-	int morningValue;
-	int nightValue;
-	float comosusLight;
-	float offeringMultiply;
+	int maxHp = 0;
+	int solarGain = 0;
+	int morningValue = 0;
+	int nightValue = 0;
+	float comosusLight = 0.f;
+	float offeringMultiply = 0.f;
 };
 
 class DynamicData : public Component

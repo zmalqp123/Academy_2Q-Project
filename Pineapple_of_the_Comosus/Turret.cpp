@@ -7,19 +7,27 @@
 #include "DynamicData.h"
 void Turret::Init()
 {
-	__super::Init();
+    auto data = dynamicData->GetStaticTurretData(turretType);
+    auto rewardData = dynamicData->GetRewardTurretData(turretType);
+    float shootTimer = data->fireRate + rewardData.fireRate;
+
+    timeSinceLastShot = 0.f;
 }
 
 void Turret::Update(float delta)
 {
     __super::Update(delta);
     // 총알을 발사할 조건이 만족되면 발사
+    auto data = dynamicData->GetStaticTurretData(turretType);
+    auto rewardData = dynamicData->GetRewardTurretData(turretType);
+    float shootTimer = data->fireRate + rewardData.fireRate;
+
     timeSinceLastShot += delta;
 
-    if (timeSinceLastShot >= shootCooldown)
+    if (timeSinceLastShot >= shootTimer)
     {
         Shoot();
-        timeSinceLastShot = 0.0f;  // 타이머 초기화
+        timeSinceLastShot -= shootTimer;  // 타이머 초기화
     }
 }
 
@@ -40,9 +48,17 @@ void Turret::Shoot()
         shootDirection.y = std::sinf(angle / 180.f * 3.14159f);
 
         auto data = dynamicData->GetStaticTurretData(turretType);//DataManager::GetInstance().GetTurretData((int)turretType);
+        auto rewardData = dynamicData->GetRewardTurretData(turretType);
         //float bulletSpeed = 1000.0f;
         //bullet->Init(bulletSpeed, shootDirection);
-        bullet->SetAttackValue(shootDirection, data->burstRange, data->damage, data->penetration, data->bulletSpeed, data->slowRate, data->slowDuration,static_cast<BulletType>(data->bulletType));
+        bullet->SetAttackValue(shootDirection, 
+            data->burstRange + rewardData.burstRange,
+            data->damage + rewardData.damage,
+            data->penetration + rewardData.penetration,
+            data->bulletSpeed + rewardData.bulletSpeed,
+            data->slowRate + rewardData.slowRate,
+            data->slowDuration + rewardData.slowDuration,
+            static_cast<BulletType>(data->bulletType));
 
     }
 }
