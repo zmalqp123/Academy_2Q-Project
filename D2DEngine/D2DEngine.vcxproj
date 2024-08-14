@@ -155,7 +155,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="D2DEngine.h" />
     <ClInclude Include="D2DRenderer.h" />
-    <ClInclude Include="DeltaTime.h" />
+    <ClInclude Include="GameTime.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="FiniteStateMachine.h" />
     <ClInclude Include="framework.h" />
@@ -196,7 +196,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="D2DEngine.cpp" />
     <ClCompile Include="D2DRenderer.cpp" />
-    <ClCompile Include="DeltaTime.cpp" />
+    <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="FiniteStateMachine.cpp" />
     <ClCompile Include="GameObject.cpp" />

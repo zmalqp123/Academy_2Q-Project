@@ -1,6 +1,6 @@
 #pragma once
 #include "Windows.h"
-#include "DeltaTime.h"
+//#include "DeltaTime.h"
 #include "D2DRenderer.h"
 
 #include <d2d1.h>
@@ -17,7 +17,7 @@ private:
 	HWND hwnd;
 	//D2DRenderer& render;
 
-	DeltaTime deltaTime;
+	//DeltaTime deltaTime;
 public:
 
 	// 자식 클래스가 재정의 가능하도록 virtual keyword 를 붙인다.

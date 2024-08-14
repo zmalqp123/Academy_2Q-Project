@@ -3,6 +3,7 @@
 #include <cmath>
 #include "InputManager.h"
 #include "PublicData.h"
+#include "GameTime.h"
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -66,7 +67,7 @@ void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 
 
     InputManager::GetInstance().InitInput(hwnd);
-    deltaTime.InitTime();
+    GameTime::GetInstance().InitTime();
 
 }
 
@@ -106,7 +107,7 @@ void WinGameApp::Run()
             }
         }
         InputManager::GetInstance().UpdateMouse(wheelMoved, doubleClicked);
-        deltaTime.UpdateTime();
+        GameTime::GetInstance().UpdateTime();
         
         // 이걸 사용하면 화면 크기를 마음대로 변경 가능.
        /* if (GetKeyState(0x44) < 0) {
@@ -123,7 +124,7 @@ void WinGameApp::Run()
 
         static ULONGLONG elapsedTime;
 
-        elapsedTime += deltaTime.GetDeltaTime();
+        elapsedTime += GameTime::GetInstance().GetDeltaTime();
 
         while (elapsedTime >= 20) //0.02초
         {
@@ -132,7 +133,7 @@ void WinGameApp::Run()
             elapsedTime -= 20;
         }
 
-        Update(deltaTime.GetDeltaTime());
+        Update(GameTime::GetInstance().GetDeltaTime());
         D2DRenderer::getIncetance().BeginDraw();
         D2DRenderer::getIncetance().Clear(D2D1::ColorF(D2D1::ColorF::Black));
         Render(&D2DRenderer::getIncetance());
