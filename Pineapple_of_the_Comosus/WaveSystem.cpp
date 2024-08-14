@@ -1,10 +1,11 @@
 #include "Enemy.h"
+
 #include "WaveSystem.h"
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/BoxCollider.h"
-
+#include "../D2DEngine/GameTime.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -93,13 +94,16 @@ void WaveSystem::SpawnWave()
 }
 
 void WaveSystem::StartNextWave()
-{
+{   
+
     if (currentWave < maxWave)
     {
         currentWave++;
-        waveTimer = 1.0f;  // 타이머 초기화
+        waveTimer = 1.0f;  // 타이머 초기화 //현재 15초
         SpawnWave();        // 새로운 wave 스폰
+        
     }
+    
     // maxWave에 도달했을 경우 추가적인 처리 필요 (게임 종료 또는 루프 등)
 }
 
@@ -136,5 +140,10 @@ void WaveSystem::Update(float deltaTime)
     if (m_Enemies.empty() && currentWave > 0)
     {
         StartNextWave();
+        
     }
+    // 태양 이동
+    dayNightCycle->SunMove(GameTime::GetInstance().GetDeltaTime(), (currentWave + 2) % 4); //하드코딩 하긴했는데 +2는 시작할때 태양이 중간에 있으면 안되서 그런거임!
+    dayNightCycle->ApplyNightEffects(currentWave); // 밤이 되었을 때 적용할 효과
+    dayNightCycle->RemoveNightEffects(currentWave); // 낮이 되었을 때 제거할 효과
 }

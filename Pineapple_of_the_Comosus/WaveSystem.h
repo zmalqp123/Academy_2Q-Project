@@ -2,6 +2,7 @@
 #include "../D2DEngine/Component.h"
 #include "../D2DEngine/Vector.h"
 #include "../D2DEngine/Movement.h"
+#include "DayNightCycle.h"
 #include <vector>
 
 class Scene;
@@ -28,6 +29,7 @@ public:
     EnemyFactory* enemyFactory;  
     BulletFactory* bulletFactory;
     MainPineApple* mainPineApple;
+    DayNightCycle* dayNightCycle;
     Vector2 rightPos; 
     Vector2 leftPos;
 

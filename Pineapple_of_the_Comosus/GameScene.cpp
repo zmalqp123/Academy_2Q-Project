@@ -615,9 +615,27 @@ void GameScene::Start() {
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가
     auto nightObj = CreateGameObject<GameObject>();
     nightSystem = nightObj->CreateComponent<DayNightCycle>();
+    waveSystem->dayNightCycle = nightSystem;
+
+    // 해 이미지
+    auto sunObj = CreateGameObject<GameObject>();
+    sunObj->transform->SetSortingLayer(-9);
+    auto sunSpr = sunObj->CreateComponent<SpriteRenderer>();
+    sunSpr->LoadTexture(L"../Resource/Sun.png");
+    sunObj->transform->pos.worldPosition = { 800.f, 400.f };
+    nightSystem->m_Sun = sunObj;
+
+    // 달 이미지
+    auto moonObj = CreateGameObject<GameObject>();
+    moonObj->transform->SetSortingLayer(-9);
+    auto moonSpr = moonObj->CreateComponent<SpriteRenderer>();
+    moonSpr->LoadTexture(L"../Resource/Moon.png");
+    moonObj->transform->pos.worldPosition = { 800.f, -300.f };
+    nightSystem->m_Moon = moonObj;
+
 
     // 내부 컴포넌트 포인터 주소 연결
-    nightSystem->waveSystem = waveSystem;
+    //nightSystem->waveSystem = waveSystem;
 
 
     // 터렛 UI

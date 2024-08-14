@@ -1,5 +1,4 @@
 #include "Comosus.h"
-#include "../D2DEngine/DeltaTime.h"
 Comosus::Comosus()
 {
     // √ ±‚»≠
