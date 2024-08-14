@@ -79,29 +79,6 @@ void Enemy::WaveMove(float delta)
     // gameObject->transform->pos.worldPosition = position;  
 }
 
-void Enemy::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
-{
-}
-
-void Enemy::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
-{
-
-    //auto a = pOtherComponent->gameObject->GetComponent<Bullet>();
-    //if (a != nullptr) {
-    //    //gameObject->isActive = false;
-    //    //gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
-    //}
-
-}
-
-void Enemy::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
-{
-}
-
-void Enemy::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
-{
-}
-
 void Enemy::Ondamage(int damage, BulletType bulletType)
 {   
     int resist = 0;
@@ -122,6 +99,7 @@ void Enemy::Ondamage(int damage, BulletType bulletType)
 	if (enemyData.hp <= 0)
 	{
         gameObject->isActive = false;
+        notify->isActive = false;
         //mainPineApple->acquireGold(enemyData.reward);
         //mainPineApple->monAcquireEXP(enemyData.expReward);
 	    gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");

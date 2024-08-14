@@ -7,6 +7,7 @@
 #include "../D2DEngine/Scene.h"
 #include "BulletFactory.h"
 #include "Enemy.h"
+#include "EnemyColliderNotify.h"
 
 
 
@@ -111,7 +112,7 @@ void Bullet::OnBlock(Collider* pOwnedComponent, Collider* pOtherComponent)
 
 void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
-    auto e = pOtherComponent->gameObject->GetComponent<Enemy>();
+    auto e = pOtherComponent->gameObject->GetComponent<EnemyColliderNotify>();
     if (e != nullptr) {
 
         //gameObject->isActive = false;
@@ -121,8 +122,8 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
         penetratingPower--;
         /*e->gameObject->isActive = false;
         e->gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");*/
-        e->Ondamage(attackPower,bulletType);
-        std::cout << "bulletID" <<gameObject->GetInstanceID() << "instanceid: " << e->GetInstanceID() << std::endl;
+        e->enemy->Ondamage(attackPower,bulletType);
+        std::cout << "bulletID: " <<gameObject->GetInstanceID() << "instanceid: " << e->GetInstanceID() << std::endl;
         if (penetratingPower <= 0) {
             gameObject->isActive = false;
             if (bulletType == BulletType::burst) {
@@ -157,13 +158,13 @@ void Bullet::OnGround()
 void Bullet::OnBurst(float _bombRange) {
     auto iter = gameObject->ownerScene->m_GameObjects.begin();
     for(iter; iter != gameObject->ownerScene->m_GameObjects.end(); iter++) {
-		auto e = (*iter)->GetComponent<Enemy>();
-        if(e == nullptr) continue;
-        else if(e->gameObject->transform->pos.worldPosition.x > gameObject->transform->pos.worldPosition.x - _bombRange &&
-			e->gameObject->transform->pos.worldPosition.x < gameObject->transform->pos.worldPosition.x + _bombRange &&
-			e->gameObject->transform->pos.worldPosition.y > gameObject->transform->pos.worldPosition.y - _bombRange &&
-			e->gameObject->transform->pos.worldPosition.y < gameObject->transform->pos.worldPosition.y + _bombRange) {
-			e->Ondamage(attackPower, bulletType);
+		auto e = (*iter)->GetComponent<EnemyColliderNotify>();
+        if(e == nullptr || e->enemy == nullptr) continue;
+        else if(e->enemy->gameObject->transform->pos.worldPosition.x > gameObject->transform->pos.worldPosition.x - _bombRange &&
+			e->enemy->gameObject->transform->pos.worldPosition.x < gameObject->transform->pos.worldPosition.x + _bombRange &&
+			e->enemy->gameObject->transform->pos.worldPosition.y > gameObject->transform->pos.worldPosition.y - _bombRange &&
+			e->enemy->gameObject->transform->pos.worldPosition.y < gameObject->transform->pos.worldPosition.y + _bombRange) {
+			e->enemy->Ondamage(attackPower, bulletType);
 		}
 	}
 
