@@ -105,6 +105,9 @@
     <ClCompile Include="SideMovement.cpp">
       <Filter>Component\Movement</Filter>
     </ClCompile>
+    <ClCompile Include="TextUIRenderer.cpp">
+      <Filter>Component\Renderer\UI\TextUIRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -218,6 +221,9 @@
     <ClInclude Include="SideMovement.h">
       <Filter>Component\Movement</Filter>
     </ClInclude>
+    <ClInclude Include="TextUIRenderer.h">
+      <Filter>Component\Renderer\UI\TextUIRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
@@ -322,6 +328,9 @@
     </Filter>
     <Filter Include="Component\Renderer\UI\ImageUIRenderer">
       <UniqueIdentifier>{ab076258-0aba-4b04-980a-7a5efae7d1b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer\UI\TextUIRenderer">
+      <UniqueIdentifier>{4d3825dd-a01c-4f05-a3f5-4f2213341aad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

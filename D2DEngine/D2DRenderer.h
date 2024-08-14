@@ -19,6 +19,7 @@ class D2DRenderer
 	D2DRenderer& operator=(const D2DRenderer& ref) {}
 	~D2DRenderer() {}
 
+public:
 	//  D2D 개체 인터페이스 포인터 변수
 	ID2D1Factory* _D2DFactory = nullptr;
 

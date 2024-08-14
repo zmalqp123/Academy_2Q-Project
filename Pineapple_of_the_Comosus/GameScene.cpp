@@ -19,6 +19,7 @@
 #include "Turret.h"
 #include "PineAppleTile.h"
 #include "../D2DEngine/CircleCollider.h"
+#include "../D2DEngine/TextUIRenderer.h"
 #include "DataManager.h"
 #include "DynamicData.h"
 //Hpbar* hpBarUi;

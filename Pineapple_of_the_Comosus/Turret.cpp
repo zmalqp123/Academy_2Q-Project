@@ -21,6 +21,7 @@ void Turret::Update(float delta)
     auto data = dynamicData->GetStaticTurretData(turretType);
     auto rewardData = dynamicData->GetRewardTurretData(turretType);
     float shootTimer = data->fireRate + rewardData.fireRate;
+    shootTimer = 1.f / shootTimer;
 
     timeSinceLastShot += delta;
 

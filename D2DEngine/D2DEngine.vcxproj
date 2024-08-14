@@ -180,6 +180,7 @@
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="TestObject.h" />
     <ClInclude Include="TextRenderer.h" />
+    <ClInclude Include="TextUIRenderer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector.h" />
@@ -224,6 +225,7 @@
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
+    <ClCompile Include="TextUIRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="WinGameApp.cpp" />
