@@ -46,11 +46,14 @@ Enemy* EnemyFactory::CreateEnemy(int type)
 {
     auto mon = scene->CreateGameObject<GameObject>();
     auto loadMon = mon->CreateComponent<SpriteRenderer>();
+   
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
     collider->SetExtent({ 1.f, 1.f });
 
     auto child = scene->CreateGameObject<GameObject>();
+    auto monBar = child->CreateComponent<SpriteRenderer>();
+    child->transform->SetSortingLayer(-1);
     child->transform->SetParent(mon->transform);
     auto notify = child->CreateComponent<EnemyColliderNotify>();
     auto notifyColl = child->CreateComponent<BoxCollider>();
@@ -68,16 +71,21 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     case 0:
         enemy = mon->CreateComponent<SwordMan>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::swordMan)); //복사가 되야하는 부분!
+        monBar->LoadTexture(L"../Resource/30631.png");
+        monBar->SetCenter(Vector2(0.5f, 0.f));
         loadMon->LoadTexture(L"../Resource/swordsman.png");
         fsm->CreateState<SwordManAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
         fsm->SetState("Move");
+        
         break;
     case 1:
         enemy = mon->CreateComponent<BombCart>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::bombCarrier)); //복사가 되야하는 부분!
+        monBar->LoadTexture(L"../Resource/30631.png");
         loadMon->LoadTexture(L"../Resource/tile.png");
+        monBar->SetCenter(Vector2(0.5f, 0.f));
         fsm->CreateState<BomberAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -86,7 +94,9 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     case 2:
         enemy = mon->CreateComponent<Griffin>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::griffin)); //복사가 되야하는 부분!
-        loadMon->LoadTexture(L"../Resource/griffin.png"); 
+        monBar->LoadTexture(L"../Resource/30632.png");
+        loadMon->LoadTexture(L"../Resource/griffin.png");
+        monBar->SetCenter(Vector2(0.5f, 1.f));
         fsm->CreateState<GriffinAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -95,7 +105,9 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     case 3:
         enemy = mon->CreateComponent<HeavyKnight>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::heavyArmor)); //복사가 되야하는 부분!
+        monBar->LoadTexture(L"../Resource/30631.png");
         loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
+        monBar->SetCenter(Vector2(0.5f, 0.f));
         fsm->CreateState<HeavyAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -104,6 +116,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     case 4:
         enemy = mon->CreateComponent<MusKetShooter>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::musketeer)); //복사가 되야하는 부분!
+        monBar->LoadTexture(L"../Resource/30631.png");
+        monBar->SetCenter(Vector2(0.5f, 0.f));
         //b->bulletFactory = bulletFactory;
         //enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
