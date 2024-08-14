@@ -8,6 +8,7 @@ class Mpbar;
 class Hpbar;
 class Button;
 class DynamicData;
+class SpriteAnimation;
 class MainPineApple : public Component
 {
 	int gold = 300;
@@ -39,6 +40,7 @@ public:
 	Button* harvestbtn;
 	HarvestButton* harvest;
 	DynamicData* rewardData;
+	SpriteAnimation* comosus;
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 
