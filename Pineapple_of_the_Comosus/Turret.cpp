@@ -2,8 +2,9 @@
 #include "BulletFactory.h"
 #include "MainPineApple.h"
 #include "Bullet.h"
-#include"../D2DEngine/GameObject.h"
+#include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/Transform.h"
+#include "../D2DEngine/SpriteRenderer.h"
 #include "DynamicData.h"
 void Turret::Init()
 {
@@ -60,6 +61,6 @@ void Turret::Shoot()
             data->slowRate + rewardData.slowRate,
             data->slowDuration + rewardData.slowDuration,
             static_cast<BulletType>(data->bulletType));
-
+        bullet->gameObject->GetComponent<SpriteRenderer>()->LoadTexture(data->bulletImagePath);
     }
 }
