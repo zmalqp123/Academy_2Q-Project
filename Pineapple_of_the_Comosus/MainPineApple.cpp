@@ -2,10 +2,13 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/ImageUIRenderer.h"
+#include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/GameTime.h"
 #include "Mpbar.h"
 #include "Hpbar.h"
 #include "../D2DEngine/Button.h"
 #include "DynamicData.h"
+#include "Comosus.h"
 #include <iostream>
 void MainPineApple::PrintIndex(int index)
 {
@@ -107,27 +110,37 @@ void MainPineApple::Harvest()
 	// 최대 경험치에 도달한 경우 레벨업
 	if (currentEXP == maxEXP)
 	{
+		HP = maxHP;
+		// 4초동안 초당 currentexp / 3 만큼 줄어든다. cu
 		LV++;
 		UpdateMaxEXP(); // 새로운 최대 경험치 설정
 		std::cout << maxEXP << std::endl;
 		//offeringValue = maxEXP * offeringMultiply; // 새로운 offeringValue 업데이트
 		currentEXP = 0;
 		// harvest UI 호출 -> harvest btn 애니메이션 호출
+		comosus->SetAnimation(0, false);
+		//throwUiHP(GetPineAppleHP());
 	}
 	else {
-		// 최대 경험치가 아닐때 75퍼면 수확가능 또 아니면 수확불가 
+		// 최대 경험치가 아닐때 75퍼면 수확가능 또 아니면 수확불가  
 		if (HarvestAble())
 		{
+			HP = maxHP;
 			LV++;
 			std::cout << "최대경험치 이하 수확 :" << maxEXP << std::endl;
 			UpdateMaxEXP(); // 새로운 최대 경험치 설정
 			currentEXP = 0;
+			comosus->SetAnimation(0, false);
+			//comosus->m_ImageTransform.dy;
+
+			//throwUiHP(GetPineAppleHP());
 		}
 		else
 		{
 			std::cout <<  "수확불가 :" << maxEXP << std::endl;
 		}
 	}
+
 }
 
 bool MainPineApple::HarvestAble()
