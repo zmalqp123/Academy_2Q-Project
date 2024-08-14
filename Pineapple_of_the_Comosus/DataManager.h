@@ -103,6 +103,7 @@ struct TurretData
 	float slowDuration;
 
 	std::wstring imagePath;
+	std::wstring bulletImagePath;
 };
 
 class DataManager
@@ -262,6 +263,9 @@ public:
 				getline(wss, token, L',');
 				//Turret->angle = _wtof(token.c_str());
 				Turret->imagePath = (L"../Resource/" + token).c_str();
+				getline(wss, token, L',');
+				//Turret->angle = _wtof(token.c_str());
+				Turret->bulletImagePath = (L"../Resource/" + token).c_str();
 				turretDataMap.insert(std::make_pair(Turret->id, Turret));
 			}
 		}

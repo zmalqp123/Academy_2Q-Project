@@ -1,14 +1,4 @@
-﻿  GameTime.cpp
-  WinGameApp.cpp
-  코드를 생성하고 있습니다...
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(45,19): warning C4244: '초기화 중': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(46,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(47,21): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(48,29): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(48,29): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(48,36): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(48,36): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(91,56): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(95,54): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\WinGameApp.cpp(127,60): warning C4244: '+=': 'float'에서 'ULONGLONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  BoxCollider.cpp
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\BoxCollider.h(5,7): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
+C:\Users\User\Documents\GitHub\Academy_2Q-Project\D2DEngine\CircleCollider.h(4,7): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
   D2DEngine.vcxproj -> C:\Users\User\Documents\GitHub\Academy_2Q-Project\x64\Debug\D2DEngine.lib
