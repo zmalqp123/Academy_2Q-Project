@@ -65,6 +65,7 @@ void GameScene::Start() {
     auto boxObj = CreateGameObject<GameObject>();
     boxObj->SetActive(false);
     auto boxColl = boxObj->CreateComponent<BoxCollider>();
+    boxColl->ignoreEventSystem = true;
     boxColl->SetCollisionType(CollisionType::Overlap);
     auto selector = boxObj->CreateComponent<SelectTurretContainer>();
     GameManager->selectBoxObj = boxObj;
@@ -143,6 +144,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -169,6 +171,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -195,6 +198,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -221,6 +225,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -247,6 +252,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -273,6 +279,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -299,6 +306,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -325,6 +333,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -351,6 +360,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -377,6 +387,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -403,6 +414,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -429,6 +441,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -455,6 +468,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -481,6 +495,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -507,6 +522,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -533,6 +549,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -559,6 +576,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
@@ -585,6 +603,7 @@ void GameScene::Start() {
             coll->SetRadius(50.f);
 
             auto childObj = CreateGameObject<GameObject>();
+            childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
             tur->dynamicData = dynamicData;
