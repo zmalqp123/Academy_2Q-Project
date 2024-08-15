@@ -681,8 +681,8 @@ void GameScene::Start() {
         L"../Resource/30201.png",
         L"../Resource/30202.png",
         L"../Resource/30203.png",
-        L"../Resource/30205.png",
         L"../Resource/30204.png",
+        L"../Resource/30205.png",
         L"../Resource/30206.png"
     };
 
