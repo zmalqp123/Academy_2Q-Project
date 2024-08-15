@@ -844,6 +844,18 @@ void GameScene::Update(float deltaTime) {
         // 로드된 사운드를 재생
         SoundManager::GetInstance().PlaySoundW(soundName, true);
     }
+    //마우스 스크롤 기능
+    if (InputManager::GetInstance().GetMousePosition().x>0.f && InputManager::GetInstance().GetMousePosition().x < 100.f) {
+		camera->gameObject->transform->pos.worldPosition.x -= 10.f;
+    }
+
+    if (InputManager::GetInstance().GetMousePosition().x < 1920.f && InputManager::GetInstance().GetMousePosition().x > 1820.f) {
+        camera->gameObject->transform->pos.worldPosition.x += 10.f;
+    }
+
+    if (InputManager::GetInstance().IsKeyUp(VK_SPACE)) {
+        camera->gameObject->transform->pos.worldPosition.x = 0.f;
+    }
 
     SoundManager::GetInstance().Update();
 }
