@@ -113,45 +113,51 @@ void WaveSystem::Generator()
 
     float delta = GameTime::GetInstance().GetDeltaTime();
     for (auto& left : leftEnemyDatas) {
-        left.startTime -= delta;
-        if (left.startTime < 0.f && left.count > 0) {
-            left.interval -= delta;
-            if (left.interval < 0.f) {
-                left.interval += left.maxInterval;
-                // 光社発
-                Enemy* enemy = enemyFactory->GetEnemyFromPool(left.id);
+        if (left.count > 0) {
+            left.startTime -= delta;
+            if (left.startTime < 0.f) {
+                left.interval -= delta;
+                if (left.interval < 0.f) {
+                    left.count -= 1;
+                    left.interval += left.maxInterval;
+                    // 光社発
+                    Enemy* enemy = enemyFactory->GetEnemyFromPool(left.id);
 
-                float spawnY =  IsFly(left.id) ? flyDistY(gen) : distY(gen);
-                Vector2 spawnPosition = Vector2(-800.0f, spawnY);
-                Vector2 moveDirection = Vector2(1.0f, 0.0f);
+                    float spawnY = IsFly(left.id) ? flyDistY(gen) : distY(gen);
+                    Vector2 spawnPosition = Vector2(-800.0f, spawnY);
+                    Vector2 moveDirection = Vector2(1.0f, 0.0f);
 
-                enemy->gameObject->transform->pos.worldPosition = spawnPosition;
-                enemy->move->SetDirection(moveDirection);
-                enemy->tmpY = spawnPosition.y;
-                enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
-                enemy->gameObject->SetActive(true);
+                    enemy->gameObject->transform->pos.worldPosition = spawnPosition;
+                    enemy->move->SetDirection(moveDirection);
+                    enemy->tmpY = spawnPosition.y;
+                    enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
+                    enemy->gameObject->SetActive(true);
+                }
             }
         }
     }
     for (auto& right : rightEnemyDatas) {
-        right.startTime -= delta;
-        if (right.startTime < 0.f && right.count > 0) {
-            right.interval -= delta;
-            if (right.interval < 0.f) {
-                right.interval += right.maxInterval;
-                // 光社発
-                Enemy* enemy = enemyFactory->GetEnemyFromPool(right.id);
+        if (right.count > 0) {
+            right.startTime -= delta;
+            if (right.startTime < 0.f) {
+                right.interval -= delta;
+                if (right.interval < 0.f) {
+                    right.count -= 1;
+                    right.interval += right.maxInterval;
+                    // 光社発
+                    Enemy* enemy = enemyFactory->GetEnemyFromPool(right.id);
 
-                float spawnY = IsFly(right.id) ? flyDistY(gen) : distY(gen);
-                Vector2 spawnPosition = Vector2(900.0f, spawnY);
-                Vector2 moveDirection = Vector2(-1.0f, 0.0f);
-                enemy->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
+                    float spawnY = IsFly(right.id) ? flyDistY(gen) : distY(gen);
+                    Vector2 spawnPosition = Vector2(900.0f, spawnY);
+                    Vector2 moveDirection = Vector2(-1.0f, 0.0f);
+                    enemy->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
 
-                enemy->gameObject->transform->pos.worldPosition = spawnPosition;
-                enemy->move->SetDirection(moveDirection);
-                enemy->tmpY = spawnPosition.y;
-                enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
-                enemy->gameObject->SetActive(true);
+                    enemy->gameObject->transform->pos.worldPosition = spawnPosition;
+                    enemy->move->SetDirection(moveDirection);
+                    enemy->tmpY = spawnPosition.y;
+                    enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
+                    enemy->gameObject->SetActive(true);
+                }
             }
         }
     }
@@ -206,6 +212,8 @@ void WaveSystem::Update(float deltaTime)
         waveTimer += maxWaveTimer;
         StartNextWave();
     }
+
+    Generator();
 
     // 殿丞 戚疑
     
