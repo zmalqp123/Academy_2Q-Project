@@ -62,7 +62,34 @@ void GameScene::Start() {
     auto GameManager = gmObj->CreateComponent<GamePlayManager>();
     auto dynamicData = gmObj->CreateComponent<DynamicData>();
     dynamicData->Init();
+    // pineapple random reward
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"단단한 껍질",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"광기어린 광합성",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 햇빛",[dynamicData]() {dynamicData->rewardPineAppleStat.morningValue += 1; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",[dynamicData]() {dynamicData->rewardPineAppleStat.killMultiply += 0.1f; } });
 
+    //// comosus light
+    //// DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
+    //// DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.1f; } });
+
+    //// arrow tower
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁피해량",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"투사체공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 2.f; } });
+
+    
     GameManager->camera = pCam;
     auto boxObj = CreateGameObject<GameObject>();
     boxObj->SetActive(false);

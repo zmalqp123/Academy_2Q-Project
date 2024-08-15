@@ -5,6 +5,15 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <functional>
+
+struct HarvestPopupStruct
+{
+	std::wstring Imagepath;
+	std::wstring reward;
+	std::wstring rewarOption;
+	std::function<void()> fn;
+};
 
 enum class EnemyID {
 	swordMan = 30601, 
@@ -151,7 +160,7 @@ public:
 	DataManager(const DataManager&) = delete;
 	DataManager& operator=(const DataManager&) = delete;
 
-
+	std::vector<HarvestPopupStruct> harvestPopupStruct;
 	std::map<int, EnemyData*> enemyDataMap; // int = id
 	std::map<int, TurretData*> turretDataMap; // int = id
 	std::map<int, WaveData*> waveDataMap;
