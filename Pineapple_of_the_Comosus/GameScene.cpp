@@ -845,12 +845,12 @@ void GameScene::Update(float deltaTime) {
         SoundManager::GetInstance().PlaySoundW(soundName, true);
     }
     //마우스 스크롤 기능
-    if (InputManager::GetInstance().GetMousePosition().x>0.f && InputManager::GetInstance().GetMousePosition().x < 100.f) {
-		camera->gameObject->transform->pos.worldPosition.x -= 10.f;
+    if (InputManager::GetInstance().GetMousePosition().x>0.f && InputManager::GetInstance().GetMousePosition().x < 100.f && camera->gameObject->transform->pos.worldPosition.x>-1560.f) {
+		camera->gameObject->transform->pos.worldPosition.x -= 1000.f * deltaTime;
     }
 
-    if (InputManager::GetInstance().GetMousePosition().x < 1920.f && InputManager::GetInstance().GetMousePosition().x > 1820.f) {
-        camera->gameObject->transform->pos.worldPosition.x += 10.f;
+    if (InputManager::GetInstance().GetMousePosition().x < 1920.f && InputManager::GetInstance().GetMousePosition().x > 1820.f && camera->gameObject->transform->pos.worldPosition.x < 1560.f) {
+        camera->gameObject->transform->pos.worldPosition.x += 1000.f * deltaTime;
     }
 
     if (InputManager::GetInstance().IsKeyUp(VK_SPACE)) {
