@@ -26,7 +26,7 @@ public:
     Enemy* CreateRandomEnemy();
 
     // 풀에서 적을 가져오는 메서드
-    Enemy* GetEnemyFromPool();
+    Enemy* GetEnemyFromPool(int type);
 
     // 적을 풀에 반환하는 메서드
     void ReturnEnemyToPool(Enemy* enemy);

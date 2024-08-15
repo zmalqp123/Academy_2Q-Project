@@ -112,6 +112,7 @@ struct WaveEnemyData {
 	std::wstring name;
 	int count;
 	float interval;
+	float maxInterval;
 	float startTime;
 };
 
@@ -323,7 +324,9 @@ public:
 					getline(wss, token, L',');
 					leftData.count = _wtoi(token.c_str());
 					getline(wss, token, L',');
-					leftData.interval = _wtof(token.c_str());
+					float interval = _wtof(token.c_str());
+					leftData.interval = interval;
+					leftData.maxInterval = interval;
 					getline(wss, token, L',');
 					leftData.startTime = _wtof(token.c_str());
 
@@ -340,7 +343,9 @@ public:
 					getline(wss, token, L',');
 					rightData.count = _wtoi(token.c_str());
 					getline(wss, token, L',');
-					rightData.interval = _wtof(token.c_str());
+					float interval2 = _wtof(token.c_str());
+					rightData.interval = interval2;
+					rightData.maxInterval = interval2;
 					getline(wss, token, L',');
 					rightData.startTime = _wtof(token.c_str());
 
@@ -368,6 +373,10 @@ public:
 	TurretData* GetTurretData(int id) {
 		
 		return turretDataMap[id];
+	}
+
+	WaveData* GetWaveData(int number) {
+		return waveDataMap[number];
 	}
 };
 

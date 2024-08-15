@@ -68,7 +68,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     DataManager& d = DataManager::GetInstance();
     switch (type)
     {
-    case 0:
+    case (int)EnemyID::swordMan:
+    case (int)EnemyID::swordMan + 1:
+    case (int)EnemyID::swordMan + 2:
+    case (int)EnemyID::swordMan + 3:
         enemy = mon->CreateComponent<SwordMan>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::swordMan)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
@@ -80,7 +83,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         fsm->SetState("Move");
         
         break;
-    case 1:
+    case (int)EnemyID::bombCarrier:
+    case (int)EnemyID::bombCarrier + 1:
+    case (int)EnemyID::bombCarrier + 2:
+    case (int)EnemyID::bombCarrier + 3:
         enemy = mon->CreateComponent<BombCart>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::bombCarrier)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
@@ -91,7 +97,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         fsm->CreateState<EnemyDead>("Dead");
         fsm->SetState("Move");
         break;
-    case 2:
+    case (int)EnemyID::griffin:
+    case (int)EnemyID::griffin + 1:
+    case (int)EnemyID::griffin + 2:
+    case (int)EnemyID::griffin + 3:
         enemy = mon->CreateComponent<Griffin>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::griffin)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30632.png");
@@ -102,7 +111,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         fsm->CreateState<EnemyDead>("Dead");
         fsm->SetState("Move");
         break;
-    case 3:
+    case (int)EnemyID::heavyArmor:
+    case (int)EnemyID::heavyArmor + 1:
+    case (int)EnemyID::heavyArmor + 2:
+    case (int)EnemyID::heavyArmor + 3:
         enemy = mon->CreateComponent<HeavyKnight>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::heavyArmor)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
@@ -113,7 +125,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         fsm->CreateState<EnemyDead>("Dead");
         fsm->SetState("Move");
         break;
-    case 4:
+    case (int)EnemyID::musketeer:
+    case (int)EnemyID::musketeer + 1:
+    case (int)EnemyID::musketeer + 2:
+    case (int)EnemyID::musketeer + 3:
         enemy = mon->CreateComponent<MusKetShooter>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::musketeer)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
@@ -160,11 +175,11 @@ Enemy* EnemyFactory::CreateRandomEnemy()
     return CreateEnemy(enemyType); // 0-4 ������ �� ����
 }
 
-Enemy* EnemyFactory::GetEnemyFromPool()
+Enemy* EnemyFactory::GetEnemyFromPool(int type)
 {
     if (m_EnemyPool.empty())
     {
-        auto enemy = CreateRandomEnemy(); // Ǯ�� ���� ������ ���� �� ����
+        auto enemy = CreateEnemy(type);//CreateRandomEnemy(); // Ǯ�� ���� ������ ���� �� ����
         m_EnemyPool.push_back(enemy);
     }
 

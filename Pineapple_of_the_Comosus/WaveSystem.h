@@ -3,6 +3,7 @@
 #include "../D2DEngine/Vector.h"
 #include "../D2DEngine/Movement.h"
 #include "DayNightCycle.h"
+#include "DataManager.h"
 #include <vector>
 
 class Scene;
@@ -14,16 +15,13 @@ class MainPineApple;
 class WaveSystem : public Component
 {
 private:
-    float waveTimer = 3.0f;   // Wave 타이머
-    int currentWave = 1;       // 현재 진행 중인 wave
+    const float maxWaveTimer = 3.f;
+    float waveTimer = 3.f;   // Wave 타이머
+    int currentWave = 0;       // 현재 진행 중인 wave
     static const int maxWave = 56; // 최대 wave 수
 
-    std::vector<Enemy*> m_EnemyPool; 
-    std::vector<Enemy*> m_Enemies;   
-
-    // 몬스터 풀의 초기 크기
-    static const int initialPoolSize = 10;
-    
+    std::vector<WaveEnemyData> leftEnemyDatas;
+    std::vector<WaveEnemyData> rightEnemyDatas;
     
 public:
     EnemyFactory* enemyFactory;  
@@ -42,7 +40,12 @@ public:
     virtual void Init();
     virtual void Update(float deltaTime); // 매 프레임 호출, wave 타이머 업데이트
     void SpawnWave();              // 새로운 wave 스폰
-    bool IsMapEmpty();             // 맵에 몬스터가 하나도 없는지 확인 (추후 필요할 경우 사용)
+
+    void LoadWaveData();
+    void Generator();
+    bool IsFly(int id);
+    //bool IsMapEmpty();             // 맵에 몬스터가 하나도 없는지 확인 (추후 필요할 경우 사용)
+
     WaveSystem();
     virtual ~WaveSystem(); // 소멸자 선언
 private:

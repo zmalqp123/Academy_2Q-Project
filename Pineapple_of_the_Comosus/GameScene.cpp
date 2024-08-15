@@ -29,6 +29,8 @@
 #include "FSMHarvest.h"
 //Hpbar* hpBarUi;
 //Mpbar* mpBarUi;
+#include <functional>
+#include <algorithm>
 
 MainPineApple* testPineApple = nullptr;
 
