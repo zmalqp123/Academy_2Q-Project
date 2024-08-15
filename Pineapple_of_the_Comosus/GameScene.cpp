@@ -112,7 +112,7 @@ void GameScene::Start() {
 
     // 코모서스 강림
     auto comoObj = CreateGameObject<GameObject>();
-    comoObj->transform->pos.worldPosition = { 0.f,340.f };
+    comoObj->transform->pos.worldPosition = { 0.f,250.f };
     auto comosus = comoObj->CreateComponent<Comosus>();
     comoObj->transform->SetSortingLayer(100);
     auto comsusSpr = comoObj->CreateComponent<SpriteAnimation>();
