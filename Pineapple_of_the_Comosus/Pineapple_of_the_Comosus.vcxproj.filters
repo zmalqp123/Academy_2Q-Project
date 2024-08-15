@@ -52,6 +52,7 @@
     <ClCompile Include="Comosus.cpp" />
     <ClCompile Include="EnemyColliderNotify.cpp" />
     <ClCompile Include="FSMHarvest.cpp" />
+    <ClCompile Include="HarvestPopup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -106,6 +107,7 @@
     <ClInclude Include="Comosus.h" />
     <ClInclude Include="EnemyColliderNotify.h" />
     <ClInclude Include="FSMHarvest.h" />
+    <ClInclude Include="HarvestPopup.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />

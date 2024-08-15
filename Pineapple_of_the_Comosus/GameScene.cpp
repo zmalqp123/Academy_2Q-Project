@@ -795,9 +795,70 @@ void GameScene::Start() {
     
     pineApple->harvestbtn = HarvestbtnImage;
 
+    // 검은색 배경과 버튼 그룹 생성
+    auto uiGroup = CreateGameObject<GameObject>();
+    uiGroup->transform->type = Type::Ui;
+    uiGroup->SetActive(false); // 초기에는 비활성화
+
+    // 반투명 검은색 배경 추가
+    auto blackObj = CreateGameObject<GameObject>();
+    blackObj->transform->SetParent(uiGroup->transform);
+    blackObj->transform->SetSortingLayer(-10); // 다른 UI나 오브젝트보다 뒤에 있도록 설정
+    SpriteRenderer* blackSpr = blackObj->CreateComponent<SpriteRenderer>();
+    //bgSpr->SetColor(D2D1::ColorF(0, 0, 0, 0.5f)); // 검은색 배경 (반투명)
+    //bgSpr->transform->pos.rectposition = { {0.f, 0.f} ,{1920.f, 1080.f} };
+
+    // 버튼 5개 생성 및 초기 비활성화
+    std::vector<Button*> buttons;
+
+    // 버튼의 위치와 크기를 수동으로 지정
+    D2D1_RECT_F buttonPositions[] = {
+        {500.f, 600.f, 800.f, 700.f},  // 첫 번째 버튼의 위치 (x1, y1, x2, y2)
+        {900.f, 600.f, 1200.f, 700.f}, // 두 번째 버튼의 위치
+        {500.f, 800.f, 800.f, 900.f},  // 세 번째 버튼의 위치
+        {900.f, 800.f, 1200.f, 900.f}, // 네 번째 버튼의 위치
+        {700.f, 400.f, 1000.f, 500.f}  // 다섯 번째 버튼의 위치 (중앙 하단)
+    };
+
+    for (size_t i = 0; i < 5; i++) {
+        auto buttonObj = CreateGameObject<GameObject>();
+        float startX = i * (spacing + width);
+        buttonObj->transform->SetParent(uiGroup->transform);
+        buttonObj->transform->type = Type::Ui;
+
+        // rectposition 값을 개별적으로 설정
+        buttonObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left, buttonPositions[i].bottom };
+        buttonObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
+
+        auto buttonImage = buttonObj->CreateComponent<Button>();
+        buttonImage->ignoreEventSystem = false;  // 버튼 클릭 가능하도록 설정
+        buttonImage->LoadTexture(L"../Resource/button.png"); // 버튼 이미지 설정
+
+        pineApple->Popup =  buttonImage;
+      /*  auto button = buttonObj->CreateComponent<Button>();
+        button->LoadTexture(L"../Resource/button.png");*/
+
+        // 각 버튼에 클릭 리스너 추가
+        buttonImage->AddListener([i,uiGroup]() {
+            std::wcout << L"Button " << i + 1 << L" clicked!" << std::endl;
+            uiGroup->SetActive(false); // 초기에는 비활성화
+            });
+
+        buttons.push_back(buttonImage);
+    }
+
+    // 수확 버튼 클릭 시 -> harvest 안에서 sectactive 
+    pineApple->Harvest();
+    // 그룹 전체 활성화
+    HarvestbtnImage->AddListener([uiGroup]() {
+        uiGroup->SetActive(true); // 수확 버튼을 눌렀을 때 그룹 전체를 활성화
+
+    });
+
+
     // 수확 버튼 클릭시
 
-    HarvestbtnImage->AddListener([pineApple]() {pineApple->Harvest(); });//[지역변수](매개변수){기능}
+    //HarvestbtnImage->AddListener([pineApple]() {pineApple->Harvest(); });//[지역변수](매개변수){기능}
 
     // 수확이 버튼 눌렀을 때 코모서스 애니메이션 A재생
     //
