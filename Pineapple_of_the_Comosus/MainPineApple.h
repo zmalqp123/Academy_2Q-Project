@@ -3,6 +3,7 @@
 #include <vector>
 #include "HarvestButton.h"
 
+class HarvestPopup;
 class BulletFactory;
 class Mpbar;
 class Hpbar;
@@ -38,6 +39,7 @@ class MainPineApple : public Component
 public:
 	Mpbar* expbar;
 	Hpbar* hpbar;
+	Button* Popup;
 	Button* harvestbtn;
 	HarvestButton* harvest;
 	DynamicData* rewardData;

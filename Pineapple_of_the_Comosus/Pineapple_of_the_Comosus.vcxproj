@@ -162,6 +162,7 @@
     <ClCompile Include="GriffinAttack.cpp" />
     <ClCompile Include="GriffinMove.cpp" />
     <ClCompile Include="HarvestButton.cpp" />
+    <ClCompile Include="HarvestPopup.cpp" />
     <ClCompile Include="HarvestReward.cpp" />
     <ClCompile Include="HeavyAttack.cpp" />
     <ClCompile Include="HeavyKnight.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="GriffinAttack.h" />
     <ClInclude Include="GriffinMove.h" />
     <ClInclude Include="HarvestButton.h" />
+    <ClInclude Include="HarvestPopup.h" />
     <ClInclude Include="HarvestReward.h" />
     <ClInclude Include="HeavyAttack.h" />
     <ClInclude Include="HeavyKnight.h" />
