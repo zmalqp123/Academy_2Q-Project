@@ -1,443 +1,46 @@
-﻿  BombCart.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'BombCart.cpp'을(를) 컴파일하는 중)
-  
-  BomberMove.cpp
-  Bullet.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.cpp(125,28): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.cpp(167,23): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  BulletFactory.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'BulletFactory.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'BulletFactory.cpp'을(를) 컴파일하는 중)
-  
-  BomberAttack.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'BomberAttack.cpp'을(를) 컴파일하는 중)
-  
-  Comosus.cpp
-  DataManager.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DataManager.cpp'을(를) 컴파일하는 중)
-  
-  DayNightCycle.cpp
-  DynamicData.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'DynamicData.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
-  Enemy.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
-  
-  EnemyColliderNotify.cpp
-  EnemyDead.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyDead.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\EnemyDead.cpp(12,54): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  EnemyFactory.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\EnemyFactory.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyFactory.cpp'을(를) 컴파일하는 중)
-  
-  EnemyMove.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'EnemyMove.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\EnemyMove.cpp(9,41): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  FSMHarvest.cpp
-  GamePlayManager.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'GamePlayManager.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\GamePlayManager.cpp(146,15): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  GameScene.cpp
+﻿  GameScene.cpp
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\GameScene.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(209,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(276,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(280,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(287,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(289,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(291,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(336,21): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(340,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(355,22): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(359,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
+  
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
   (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
   C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
   'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
   
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
   
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
   (소스 파일 'GameScene.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
+  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(96,8):
   'TurretData' 선언을 참조하십시오.
   
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
@@ -448,548 +51,68 @@ C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\CircleCollide
   C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
   'Collider::Update' 선언을 참조하십시오.
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\GameScene.cpp(644,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\GameScene.cpp(715,38): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Griffin.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Griffin.cpp'을(를) 컴파일하는 중)
-  
-  GriffinAttack.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'GriffinAttack.cpp'을(를) 컴파일하는 중)
-  
-  GriffinMove.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  HarvestButton.cpp
-  HarvestPopup.cpp
-  HarvestReward.cpp
-  HeavyAttack.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyAttack.cpp'을(를) 컴파일하는 중)
-  
-  HeavyKnight.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'HeavyKnight.cpp'을(를) 컴파일하는 중)
-  
-  HeavyMove.cpp
-  Hpbar.cpp
-  MainPineApple.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'MainPineApple.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.cpp(97,35): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  MouseDownTest.cpp
-  Mpbar.cpp
-  MusKetAttack.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetAttack.cpp'을(를) 컴파일하는 중)
-  
-  MusKetMove.cpp
-  MusKetShooter.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'MusKetShooter.cpp'을(를) 컴파일하는 중)
-  
-  Pineapple.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Pineapple.h(34,26): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Pineapple.cpp'을(를) 컴파일하는 중)
-  
-  PineAppleTile.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'PineAppleTile.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\GameScene.cpp(584,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\GameScene.cpp(744,38): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Pineapple_of_the_Comosus.cpp
-  SelectTurretContainer.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(209,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(276,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(280,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(287,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(289,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(291,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(336,21): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(340,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(355,22): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(359,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Pineapple_of_the_Comosus.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'SelectTurretContainer.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
-  StartScene.cpp
-  SwordMan.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'SwordMan.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-  SwordManAttack.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'SwordManAttack.cpp'을(를) 컴파일하는 중)
-  
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  SwordMove.cpp
-  testChar.cpp
-  TestDropDown.cpp
-  TurretManager.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8): warning C4099: 'TurretData': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretManager.cpp'을(를) 컴파일하는 중)
-  
-  TurretUI.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'TurretUI.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
-  UpgradeItem.cpp
   WaveSystem.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(209,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(276,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(280,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(287,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(289,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(291,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(336,21): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(340,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(355,22): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(359,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'WaveSystem.cpp'을(를) 컴파일하는 중)
   
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
@@ -1001,179 +124,74 @@ C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h
   'Collider::Update' 선언을 참조하십시오.
   
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\WaveSystem.cpp(89,53): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Turret.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'Turret.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.cpp(61,28): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.cpp(58,26): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  WinApp.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\CircleCollider.h(29,1): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp.cpp'을(를) 컴파일하는 중)
-  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\WaveSystem.cpp(131,55): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\WaveSystem.cpp(153,55): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   WinApp2.cpp
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(209,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(276,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(280,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(287,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(289,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(291,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(336,21): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(340,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(355,22): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(359,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
+  
 C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
   (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
   C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
   'Collider::Update' 선언을 참조하십시오.
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp2.cpp'을(를) 컴파일하는 중)
   
   WinApp3.cpp
-  WinApp4.cpp
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\BoxCollider.h(36,1): warning C4250: 'BoxCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(209,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\CircleCollider.h(29,1): warning C4250: 'CircleCollider': 우위에 따라 'Collider::Collider::Update'을(를) 상속합니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\D2DEngine\Collider.h(61,15):
-  'Collider::Update' 선언을 참조하십시오.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(276,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(199,22): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(280,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(266,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(287,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(270,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(289,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(277,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(291,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(279,29): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(336,21): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(281,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(340,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(326,31): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(355,22): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(328,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(343,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(345,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\MainPineApple.h(63,31): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Bullet.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\Turret.h(7,7): warning C4099: 'TurretData': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-  (소스 파일 'WinApp4.cpp'을(를) 컴파일하는 중)
-  C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(87,8):
-  'TurretData' 선언을 참조하십시오.
+C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\Pineapple_of_the_Comosus\DataManager.h(359,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'WinApp3.cpp'을(를) 컴파일하는 중)
   
   코드를 생성하고 있습니다...
   Pineapple_of_the_Comosus.vcxproj -> C:\Users\hohyu\source\D2D파인애플\Academy_2Q-Project\x64\Debug\Pineapple_of_the_Comosus.exe

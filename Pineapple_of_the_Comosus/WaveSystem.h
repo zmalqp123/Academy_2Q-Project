@@ -15,8 +15,8 @@ class MainPineApple;
 class WaveSystem : public Component
 {
 private:
-    const float maxWaveTimer = 3.f;
-    float waveTimer = 3.f;   // Wave 타이머
+    const float maxWaveTimer = 15.f;
+    float waveTimer = 15.f;   // Wave 타이머
     int currentWave = 0;       // 현재 진행 중인 wave
     static const int maxWave = 56; // 최대 wave 수
 
