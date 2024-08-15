@@ -82,6 +82,7 @@ void GameScene::Start() {
 
     // 코모서스 파인애플 (겁나 큼)
     auto paObj = CreateGameObject<GameObject>();
+    paObj->transform->SetSortingLayer(-1);
     paObj->transform->pos.worldPosition = { 0.f, 0.f };
     auto pineApple = paObj->CreateComponent<MainPineApple>();
 
