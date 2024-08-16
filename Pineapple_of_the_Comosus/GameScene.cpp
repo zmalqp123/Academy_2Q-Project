@@ -801,15 +801,6 @@ void GameScene::Start() {
     mpBar->ImageRender = mpBarImage;
     mpBarImage->LoadTexture(L"../Resource/30402_02.png");
 
-
-    /*auto turretUI = CreateGameObject<GameObject>();
-    auto turretImage = turretUI->CreateComponent<Button>();
-    startX = i * (spacing + width);
-    turretUI->transform->SetParent(uiObj->transform);
-    turretUI->transform->type = Type::Ui;
-    turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
-    turretImage->LoadTexture(L"../Resource/turret.png");*/
-
     // 골드 Ui
     auto GoldObj = CreateGameObject<GameObject>();
     auto GoldImage = GoldObj->CreateComponent<Button>();
@@ -828,16 +819,28 @@ void GameScene::Start() {
     UpgradeObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,0.f} ,{20.f + 820.f + spacing + 270.f, 98.f} };
     UpgradeImage->LoadTexture(L"../Resource/30406.png");
 
+
+    // 업그레이드 버튼 -> 이거 완성 500 * 500
+    auto Upgradeobj = CreateGameObject<GameObject>();
+    auto UpgradebtnImage = Upgradeobj->CreateComponent<Button>();
+    Upgradeobj->transform->SetParent(uiObj->transform);
+    Upgradeobj->transform->type = Type::Ui;
+    Upgradeobj->transform->pos.rectposition = { {20.f + 820.f + spacing + 270.f + spacing,10.f} ,{20.f + 820.f + spacing + 270.f + spacing + 180.f, 200.f - spacing} };
+
+    UpgradebtnImage->LoadTexture(L"../Resource/harvest.png");
+
+    pineApple->harvestbtn = UpgradebtnImage;
+
     // 수확 버튼 -> 이거 완성 500 * 500
     auto Harvestobj = CreateGameObject<GameObject>();
     auto HarvestbtnImage = Harvestobj->CreateComponent<Button>();
     Harvestobj->transform->SetParent(uiObj->transform);
     Harvestobj->transform->type = Type::Ui;
-    Harvestobj->transform->pos.rectposition = { {20.f + 820.f + spacing + 270.f + spacing,10.f} ,{20.f + 820.f + spacing + 270.f + spacing + 180.f, 200.f - spacing} };
+    Harvestobj->transform->pos.rectposition = { {20.f + 820.f + spacing + 270.f + spacing + 180.f + spacing,10.f} ,{20.f + 820.f + spacing + 270.f + spacing + 180.f + spacing + 180.f, 200.f - spacing} };
     /*harvestUi = Harvestobj->CreateComponent<HarvestButton>();
     harvestUi->ImageRender = HarvestbtnImage;*/
 
-    HarvestbtnImage->LoadTexture(L"../Resource/harvest.png");
+    HarvestbtnImage->LoadTexture(L"../Resource/30208_Harvest1btn.png");
     
     pineApple->harvestbtn = HarvestbtnImage;
 
