@@ -128,6 +128,7 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
             gameObject->isActive = false;
             if (bulletType == BulletType::burst) {
                 OnBurst(bombRange);
+                if (slowPower > 0.f) e->enemy->OnSlow(slowPower, slowTime);
             }
             bulletFactory->ReturnBulletToPool(this);
         }

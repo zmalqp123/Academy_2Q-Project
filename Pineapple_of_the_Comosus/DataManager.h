@@ -84,7 +84,7 @@ struct EnemyData {
 	int resistComosus;
 
 	float hp;
-	int moveSpeed;
+	float moveSpeed;
 	int attack;
 	float attackRate;
 	int range;
@@ -208,7 +208,7 @@ public:
 				getline(wss, token, L',');  // wss의 내용을 ,를 기준으로 문자열을 분리 Stat
 				Enemy->hp = _wtoi(token.c_str());
 				getline(wss, token, L',');
-				Enemy->moveSpeed = _wtoi(token.c_str());
+				Enemy->moveSpeed = _wtof(token.c_str());
 				getline(wss, token, L',');
 				Enemy->attack = _wtoi(token.c_str());
 				getline(wss, token, L',');
