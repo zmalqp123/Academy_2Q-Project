@@ -103,5 +103,14 @@ void TextUIRenderer::SetTextColor(D2D1::ColorF _color)
 
 void TextUIRenderer::SetFontSize(float size)
 {
-	//pTextFormat
+	auto hr = D2DRenderer::getIncetance().g_pDWriteFactory->CreateTextFormat(
+		L"Gabriola",                // 폰트 이름
+		NULL,                       // 폰트 컬렉션(NULL: 기본 시스템 폰트)
+		DWRITE_FONT_WEIGHT_REGULAR, // 폰트 두께
+		DWRITE_FONT_STYLE_NORMAL,   // 폰트 스타일
+		DWRITE_FONT_STRETCH_NORMAL, // 폰트 너비
+		size,                      // 폰트 크기
+		L"en-us",                   // 로캘
+		&pTextFormat
+	);
 }
