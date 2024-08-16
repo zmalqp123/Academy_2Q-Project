@@ -164,8 +164,8 @@ void Bullet::OnBurst(float _bombRange) {
         if (thisEnemy == nullptr) continue;
         else {
             BoxCollider* thisBox = thisEnemy->gameObject->GetComponent<BoxCollider>();
-            std::cout << "bound: " << thisBox->GetBound().GetMaxX() << ", " << thisBox->GetBound().GetMinX() << std::endl;
-            std::cout << "bombrange: " << gameObject->transform->m_WorldTransform.dx + _bombRange << ", " << gameObject->transform->m_WorldTransform.dx - _bombRange << std::endl;
+            /*std::cout << "bound: " << thisBox->GetBound().GetMaxX() << ", " << thisBox->GetBound().GetMinX() << std::endl;
+            std::cout << "bombrange: " << gameObject->transform->m_WorldTransform.dx + _bombRange << ", " << gameObject->transform->m_WorldTransform.dx - _bombRange << std::endl;*/
             if (thisBox->GetBound().GetMaxX() > gameObject->transform->m_WorldTransform.dx - _bombRange &&
                 thisBox->GetBound().GetMinX() < gameObject->transform->m_WorldTransform.dx + _bombRange &&
                 thisBox->GetBound().GetMaxY() > gameObject->transform->m_WorldTransform.dy - _bombRange &&
