@@ -29,6 +29,7 @@
 #include "FSMHarvest.h"
 #include <functional>
 #include <algorithm>
+#include "ramdomReward.h"
 #include <random> // 랜덤시드
 
 MainPineApple* testPineApple = nullptr;
@@ -866,8 +867,8 @@ void GameScene::Start() {
     //bgSpr->transform->pos.rectposition = { {0.f, 0.f} ,{1920.f, 1080.f} };
 
     // 버튼 5개 생성 및 초기 비활성화
-    std::vector<Button*> buttons;
-    std::vector<GameObject*> rewardbtn;
+    ramdomReward* rand = new ramdomReward();
+    pineApple->randomReward = rand;
 
     // 버튼의 위치와 크기를 수동으로 지정
     D2D1_RECT_F buttonPositions[] = {
@@ -879,9 +880,9 @@ void GameScene::Start() {
     };
 
     // 1. 랜덤하게 데이터를 섞습니다.
-    std::random_device rd;
+ /*   std::random_device rd;
     std::mt19937 g(rd());
-    std::shuffle(DataManager.harvestPopupStruct.begin(), DataManager.harvestPopupStruct.end(), g);
+    std::shuffle(DataManager.harvestPopupStruct.begin(), DataManager.harvestPopupStruct.end(), g);*/
 
     for (size_t i = 0; i < 5; i++) {
         auto buttonObj = CreateGameObject<GameObject>(); 
@@ -896,7 +897,7 @@ void GameScene::Start() {
         auto buttonImage = buttonObj->CreateComponent<Button>();
         buttonImage->ignoreEventSystem = false;
         buttonImage->LoadTexture(L"../Resource/button.png"); // 버튼의 기본 배경 이미지
-        rewardbtn.push_back(buttonObj);
+        rand->btns.push_back(buttonImage);
 
         // 이미지 오브젝트 추가 (자식 오브젝트)
         auto imageObj = CreateGameObject<GameObject>();
@@ -908,7 +909,7 @@ void GameScene::Start() {
         auto spriteRenderer = imageObj->CreateComponent<ImageUIRenderer>();
         spriteRenderer->LoadTexture(DataManager.harvestPopupStruct[i].Imagepath.c_str()); // 이미지 설정
      
-        rewardbtn.push_back(imageObj);
+        rand->Uis.push_back(spriteRenderer);
         // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
         auto nameTextObj = CreateGameObject<GameObject>();
         nameTextObj->transform->SetParent(buttonObj->transform);
@@ -923,7 +924,7 @@ void GameScene::Start() {
         nameTextObj->transform->pos.rectposition.leftBottom = { 100, 50};
         nameTextObj->transform->pos.rectposition.rightTop  = { 300, 100 };
 
-        rewardbtn.push_back(nameTextObj);
+        rand->TextNameUis.push_back(nameText);
         // 내용 텍스트 오브젝트 추가 (자식 오브젝트)
         auto descTextObj = CreateGameObject<GameObject>();
         descTextObj->transform->SetParent(buttonObj->transform);
@@ -938,20 +939,11 @@ void GameScene::Start() {
         descTextObj->transform->pos.rectposition.leftBottom = { 100, 0};
         descTextObj->transform->pos.rectposition.rightTop = { 300, 50 };
 
-        rewardbtn.push_back(descTextObj);
+        rand->TextStatUis.push_back(descText);
 
         pineApple->Popup = buttonImage;
-        buttons.push_back(buttonImage);
     }
 
-    // for 문으로 벡터 순회
-    for (auto& element : rewardbtn) {
-        element->isActive = false;
-    }
-
-    pineApple->rewardbtn.assign(rewardbtn.begin(),rewardbtn.end());
-
-    pineApple->rewardbtn = rewardbtn;
 
     // 2. 버튼에 랜덤하게 할당된 데이터를 설정합니다.
     //for (size_t i = 0; i < 5; i++) {
@@ -967,9 +959,9 @@ void GameScene::Start() {
     //}
 
     // 수확 버튼 클릭 시 -> harvest 안에서 sectactive 
-    
+    rand->UIoff();
     // 그룹 전체 활성화
-    HarvestbtnImage->AddListener([pineApple,uiGroup]() {
+    HarvestbtnImage->AddListener([pineApple]() {
         //uiGroup->SetActive(true); // 수확 버튼을 눌렀을 때 그룹 전체를 활성화
         pineApple->Harvest();
     });
