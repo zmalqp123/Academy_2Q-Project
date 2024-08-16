@@ -91,7 +91,7 @@ void ImageUIRenderer::Render(D2D1_MATRIX_3X2_F cameraMat)
 	auto dstTmp = m_DstRect;
 	dstTmp.right = dstmp;
 
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, dstTmp, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, srcTmp);
+	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, dstTmp, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, srcTmp);
 }
 
 AABB ImageUIRenderer::GetBound()

@@ -741,11 +741,11 @@ void GameScene::Start() {
         turretUI->transform->type = Type::Ui;
         turretUI->transform->pos.rectposition = { {startX + spacing, 60.f} ,{120.f + startX + spacing, 180.f} };
 
-        auto backImage = turretUI->CreateComponent<ImageUIRenderer>();
-        backImage->ignoreEventSystem = true;
+        //auto backImage = turretUI->CreateComponent<ImageUIRenderer>();
+        //backImage->ignoreEventSystem = true; 
 
         // 각 터렛 UI에 대해 다른 이미지 로드
-        backImage->LoadTexture(turretImages[i]);
+        //backImage->LoadTexture(turretImages[i]);
 
         // 변경사항 터렛UI
         auto turretUIChild = CreateGameObject<GameObject>();
@@ -762,6 +762,13 @@ void GameScene::Start() {
         btn.push_back(turretButton);
         // 터렛 버튼 클릭 시 동작 정의
         //turretButton->AddListener([GameManager, turretUIComp]() {GameManager->StartBatch(turretUIComp->GetIndex()); });
+
+        
+
+        auto blackGround = turretUI->CreateComponent<ImageUIRenderer>();
+        blackGround->ignoreEventSystem = true;
+        blackGround->LoadTexture(L"../Resource/blackGround.png");
+        blackGround->alpha = 0.5f;
     }
     auto t1 = btn[0]->gameObject->GetComponent<TurretUI>();
     btn[0]->AddListener([GameManager, t1]() {GameManager->StartBatch(t1->GetIndex()); });
@@ -880,8 +887,8 @@ void GameScene::Start() {
         buttonObj->transform->type = Type::Ui;
 
         // 버튼의 위치와 크기를 설정
-        buttonObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left, buttonPositions[i].bottom };
-        buttonObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
+        buttonObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left, buttonPositions[i].top };
+        buttonObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].bottom };
 
         // 버튼 이미지 설정
         auto buttonImage = buttonObj->CreateComponent<Button>();
@@ -894,11 +901,10 @@ void GameScene::Start() {
         imageObj->transform->SetParent(buttonObj->transform);
         imageObj->transform->type = Type::Ui;
         imageObj->transform->pos.rectposition = {/* 이미지 위치와 크기 설정 */ };
-        auto spriteRenderer = imageObj->CreateComponent<SpriteRenderer>();
-        spriteRenderer->LoadTexture(DataManager.harvestPopupStruct[i].Imagepath.c_str()); // 이미지 설정
-
         imageObj->transform->pos.rectposition.leftBottom = { 0,0 };
-        imageObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
+        imageObj->transform->pos.rectposition.rightTop = { 100, 100 };
+        auto spriteRenderer = imageObj->CreateComponent<ImageUIRenderer>();
+        spriteRenderer->LoadTexture(DataManager.harvestPopupStruct[i].Imagepath.c_str()); // 이미지 설정
      
         rewardbtn.push_back(imageObj);
         // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
@@ -907,12 +913,13 @@ void GameScene::Start() {
         nameTextObj->transform->type = Type::Ui;
         nameTextObj->transform->pos.rectposition = {/* 이름 텍스트 위치와 크기 설정 */ };
         auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
+        nameText->SetFontSize(25.f);
         nameText->text = DataManager.harvestPopupStruct[i].reward;
         //nameText->SetText(L"이름"); // 이름 텍스트 설정
         //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
 
-        nameTextObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left = 30.f, buttonPositions[i].top / 2};
-        nameTextObj->transform->pos.rectposition.rightTop  = { buttonPositions[i].right, buttonPositions[i].top };
+        nameTextObj->transform->pos.rectposition.leftBottom = { 100, 50};
+        nameTextObj->transform->pos.rectposition.rightTop  = { 300, 100 };
 
         rewardbtn.push_back(nameTextObj);
         // 내용 텍스트 오브젝트 추가 (자식 오브젝트)
@@ -921,12 +928,13 @@ void GameScene::Start() {
         descTextObj->transform->type = Type::Ui;
         descTextObj->transform->pos.rectposition = {/* 내용 텍스트 위치와 크기 설정 */ };
         auto descText = descTextObj->CreateComponent<TextUIRenderer>();
+        descText->SetFontSize(25.f);
         descText->text = DataManager.harvestPopupStruct[i].rewarOption;
         //descText->SetText(L"내용"); // 내용 텍스트 설정   
         //descText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
 
-        descTextObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left = 30.f, 0};
-        descTextObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top/2 };
+        descTextObj->transform->pos.rectposition.leftBottom = { 100, 0};
+        descTextObj->transform->pos.rectposition.rightTop = { 300, 50 };
 
         rewardbtn.push_back(descTextObj);
 
