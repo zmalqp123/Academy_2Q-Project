@@ -17,6 +17,16 @@ void EnemyMove::Update(float deltaTime)
 	{
 		fsm->SetState("Attack");
 	}
+	if (enemy->isSlowed) {
+		enemy->slowTimer -= deltaTime;
+		if (enemy->slowTimer <= 0.0f)
+		{
+			enemy->move->m_speed = enemy->defaultSpeed;
+			enemy->isSlowed = false;
+			enemy->slowedRate = 0.0f;
+			enemy->slowTimer = 0.0f;
+		}
+	}
 }
 
 void EnemyMove::Exit()

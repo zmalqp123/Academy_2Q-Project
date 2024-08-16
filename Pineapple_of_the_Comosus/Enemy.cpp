@@ -12,6 +12,7 @@ void Enemy::Init()
     
     // move 컴포넌트 생성 및 설정
     //move = gameObject->GetComponent<Movement>();
+	defaultSpeed = enemyData.moveSpeed;
 }
 
 
@@ -45,16 +46,7 @@ void Enemy::Update(float delta)
   //  // gameObject->transform->pos.worldPosition = position;  
 
     //WaveMove(delta);
-    if (isSlowed) {
-        slowTimer -= delta;
-        if (slowTimer <= 0.0f)
-        {
-            enemyData.moveSpeed = defaultSpeed;
-            isSlowed = false;
-			slowedRate = 0.0f;
-			slowTimer = 0.0f;
-        }
-    }
+    
 }
 
 void Enemy::Render(D2D1_MATRIX_3X2_F cameraMat)
@@ -122,14 +114,14 @@ void Enemy::OnSlow(float _slowRate, float _slowTime)
 	
 	if (!isSlowed)
 	{   
-		defaultSpeed = enemyData.moveSpeed;
-		enemyData.moveSpeed = enemyData.moveSpeed * (1 - _slowRate);
+		
+		move->m_speed = defaultSpeed * (100 - _slowRate) * 0.01f;
         slowedRate = _slowRate;
 		isSlowed = true;
 		slowTimer = _slowTime;
     }
     else if (isSlowed && slowedRate >= _slowRate) {
-		enemyData.moveSpeed = defaultSpeed * (1 - _slowRate);
+        move->m_speed = defaultSpeed * (100 - _slowRate) * 0.01f;
 		slowedRate = _slowRate;
 		isSlowed = true;
         slowTimer = _slowTime;

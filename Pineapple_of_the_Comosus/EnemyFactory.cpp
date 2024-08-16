@@ -156,6 +156,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         // �⺻ �� �Ǵ� ���� ó��
         return nullptr;
     }
+    enemy->Init();
     enemy->mainPineApple = mainPineApple;
     enemy->move = movement;
     notify->enemy = enemy;

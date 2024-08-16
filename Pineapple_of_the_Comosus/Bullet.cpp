@@ -128,7 +128,6 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
             gameObject->isActive = false;
             if (bulletType == BulletType::burst) {
                 OnBurst(bombRange);
-                if (slowPower > 0.f) e->enemy->OnSlow(slowPower, slowTime);
             }
             bulletFactory->ReturnBulletToPool(this);
         }
@@ -149,6 +148,7 @@ void Bullet::OnGround()
         gameObject->isActive = false;
         if (bulletType == BulletType::burst) {
             OnBurst(bombRange);
+            
         }
         bulletFactory->ReturnBulletToPool(this);
 			
@@ -158,15 +158,24 @@ void Bullet::OnGround()
 
 void Bullet::OnBurst(float _bombRange) {
     auto iter = gameObject->ownerScene->m_GameObjects.begin();
-    for(iter; iter != gameObject->ownerScene->m_GameObjects.end(); iter++) {
-		auto e = (*iter)->GetComponent<EnemyColliderNotify>();
-        if(e == nullptr || e->enemy == nullptr) continue;
-        else if(e->enemy->gameObject->transform->pos.worldPosition.x > gameObject->transform->pos.worldPosition.x - _bombRange &&
-			e->enemy->gameObject->transform->pos.worldPosition.x < gameObject->transform->pos.worldPosition.x + _bombRange &&
-			e->enemy->gameObject->transform->pos.worldPosition.y > gameObject->transform->pos.worldPosition.y - _bombRange &&
-			e->enemy->gameObject->transform->pos.worldPosition.y < gameObject->transform->pos.worldPosition.y + _bombRange) {
-			e->enemy->Ondamage(attackPower, bulletType);
-		}
-	}
+    for (; iter != gameObject->ownerScene->m_GameObjects.end(); iter++) {
+        EnemyColliderNotify* thisEnemy = (*iter)->GetComponent<EnemyColliderNotify>();
+        
+        if (thisEnemy == nullptr) continue;
+        else {
+            BoxCollider* thisBox = thisEnemy->gameObject->GetComponent<BoxCollider>();
+            std::cout << "bound: " << thisBox->GetBound().GetMaxX() << ", " << thisBox->GetBound().GetMinX() << std::endl;
+            std::cout << "bombrange: " << gameObject->transform->m_WorldTransform.dx + _bombRange << ", " << gameObject->transform->m_WorldTransform.dx - _bombRange << std::endl;
+            if (thisBox->GetBound().GetMaxX() > gameObject->transform->m_WorldTransform.dx - _bombRange &&
+                thisBox->GetBound().GetMinX() < gameObject->transform->m_WorldTransform.dx + _bombRange &&
+                thisBox->GetBound().GetMaxY() > gameObject->transform->m_WorldTransform.dy - _bombRange &&
+                thisBox->GetBound().GetMinY() < gameObject->transform->m_WorldTransform.dy + _bombRange)
+            {
+                thisEnemy->enemy->Ondamage(attackPower, bulletType);
+                if (slowPower > 0.f) thisEnemy->enemy->OnSlow(slowPower, slowTime);
+            }
 
+
+        }
+    }
 }
