@@ -4,13 +4,13 @@
 #include "MainPineApple.h"
 void GriffinAttack::Enter()
 {	
-	enemy = dynamic_cast<Enemy*>(fsm->gameObject->GetComponent<Enemy>());
+	__super::Enter();
 }
 
 void GriffinAttack::Update(float deltaTime)
 {
-	enemy->mainPineApple->pineAppleDamageHP(enemy->enemyData.attack);
-	//std::cout << "그리핀 데미지 : " << enemy->enemyData.attack << std::endl;
+
+	__super::Update(deltaTime);
 }
 
 void GriffinAttack::Exit()

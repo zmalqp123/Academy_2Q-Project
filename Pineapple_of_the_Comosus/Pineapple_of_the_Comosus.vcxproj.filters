@@ -53,6 +53,7 @@
     <ClCompile Include="EnemyColliderNotify.cpp" />
     <ClCompile Include="FSMHarvest.cpp" />
     <ClCompile Include="HarvestPopup.cpp" />
+    <ClCompile Include="EnemyAttack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -108,6 +109,7 @@
     <ClInclude Include="EnemyColliderNotify.h" />
     <ClInclude Include="FSMHarvest.h" />
     <ClInclude Include="HarvestPopup.h" />
+    <ClInclude Include="EnemyAttack.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />

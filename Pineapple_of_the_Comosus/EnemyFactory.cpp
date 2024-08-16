@@ -58,6 +58,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto notify = child->CreateComponent<EnemyColliderNotify>();
     auto notifyColl = child->CreateComponent<BoxCollider>();
     notifyColl->SetCollisionType(CollisionType::Overlap);
+    
 
     //auto colliderPhysics = mon->CreateComponent<BoxCollider>();
     //colliderPhysics->SetExtent({ 1.f, 1.f });
@@ -77,6 +78,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         monBar->LoadTexture(L"../Resource/30631.png");
         monBar->SetCenter(Vector2(0.5f, 0.f));
         loadMon->LoadTexture(L"../Resource/swordsman.png");
+        enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
+		enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         fsm->CreateState<SwordManAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -92,6 +95,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         monBar->LoadTexture(L"../Resource/30631.png");
         loadMon->LoadTexture(L"../Resource/tile.png");
         monBar->SetCenter(Vector2(0.5f, 0.f));
+        enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
+        enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         fsm->CreateState<BomberAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -106,6 +111,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         monBar->LoadTexture(L"../Resource/30632.png");
         loadMon->LoadTexture(L"../Resource/griffin.png");
         monBar->SetCenter(Vector2(0.5f, 1.f));
+        enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
+        enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         fsm->CreateState<GriffinAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -120,6 +127,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         monBar->LoadTexture(L"../Resource/30631.png");
         loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
         monBar->SetCenter(Vector2(0.5f, 0.f));
+        enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
+        enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         fsm->CreateState<HeavyAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -136,6 +145,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         //b->bulletFactory = bulletFactory;
         //enemy = b;
         loadMon->LoadTexture(L"../Resource/MusKetShooter.png");
+        enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
+        enemy->AttackSprite->LoadTexture(L"../Resource/30702.png");
         fsm->CreateState<MusKetAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");

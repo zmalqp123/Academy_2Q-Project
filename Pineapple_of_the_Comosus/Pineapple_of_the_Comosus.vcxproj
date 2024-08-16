@@ -152,6 +152,7 @@
     <ClCompile Include="DayNightCycle.cpp" />
     <ClCompile Include="DynamicData.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyAttack.cpp" />
     <ClCompile Include="EnemyColliderNotify.cpp" />
     <ClCompile Include="EnemyDead.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="DayNightCycle.h" />
     <ClInclude Include="DynamicData.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyAttack.h" />
     <ClInclude Include="EnemyColliderNotify.h" />
     <ClInclude Include="EnemyDead.h" />
     <ClInclude Include="EnemyFactory.h" />

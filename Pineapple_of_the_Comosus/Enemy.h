@@ -40,6 +40,7 @@ public:
 	Movement* move;
 	MainPineApple* mainPineApple;
 	GameObject* notify;
+	SpriteRenderer* AttackSprite;
 
 	virtual void Init() override;
 	virtual void Update(float delta) override;
