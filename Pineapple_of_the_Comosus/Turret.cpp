@@ -64,3 +64,21 @@ void Turret::Shoot()
         bullet->gameObject->GetComponent<SpriteRenderer>()->LoadTexture(data->bulletImagePath);
     }
 }
+
+void Turret::Refund()
+{
+    if (gameObject->isActive == false) return;
+
+    int refund = DataManager::GetInstance().GetTurretData((int)turretType)->refund;
+    parentPineApple->acquireGold(refund);
+    std::cout << "refund : " << refund << std::endl;
+    ResetTurret();
+}
+
+void Turret::ResetTurret()
+{
+    prevAngle = 0.f;
+    currAngle = 0.f;
+    gameObject->transform->m_RelativeRotation = 0.f;
+    gameObject->isActive = false;
+}

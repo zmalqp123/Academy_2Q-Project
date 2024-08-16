@@ -45,6 +45,16 @@ void Enemy::Update(float delta)
   //  // gameObject->transform->pos.worldPosition = position;  
 
     //WaveMove(delta);
+    if (isSlowed) {
+        slowTimer -= delta;
+        if (slowTimer <= 0.0f)
+        {
+            enemyData.moveSpeed = defaultSpeed;
+            isSlowed = false;
+			slowedRate = 0.0f;
+			slowTimer = 0.0f;
+        }
+    }
 }
 
 void Enemy::Render(D2D1_MATRIX_3X2_F cameraMat)
@@ -104,6 +114,27 @@ void Enemy::Ondamage(int damage, BulletType bulletType)
         //mainPineApple->monAcquireEXP(enemyData.expReward);
 	    gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
 	}
+}
+
+void Enemy::OnSlow(float _slowRate, float _slowTime)
+{   
+
+	
+	if (!isSlowed)
+	{   
+		defaultSpeed = enemyData.moveSpeed;
+		enemyData.moveSpeed = enemyData.moveSpeed * (1 - _slowRate);
+        slowedRate = _slowRate;
+		isSlowed = true;
+		slowTimer = _slowTime;
+    }
+    else if (isSlowed && slowedRate >= _slowRate) {
+		enemyData.moveSpeed = defaultSpeed * (1 - _slowRate);
+		slowedRate = _slowRate;
+		isSlowed = true;
+        slowTimer = _slowTime;
+    }
+
 }
 
 

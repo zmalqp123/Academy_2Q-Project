@@ -12,6 +12,8 @@ public:
 	void SetIndex(int _index) { index = _index; }
 	void SetTurret(TurretType _type) { type = _type; }
 
+
+
 	int GetIndex() { return index; }
 	TurretType GetTurretType() { return type; }
 };

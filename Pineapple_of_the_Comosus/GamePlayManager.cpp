@@ -153,12 +153,60 @@ void GamePlayManager::Update(float deltaTime)
 					}
 				}
 			}
+			else if (InputManager::GetInstance().GetPrevMouseState().right && !InputManager::GetInstance().GetMouseState().right) {
+				if ((startPos - mousePos).LengthSquared() < 100.f) { // 조건추가 : 클릭시작 지점에서 현재 마우스 위치를 빼도록.? 무슨버그
+					// 바로 눌렀다 뗄정도의 거리라면
+					auto curWorldObject = EventSystem::GetInstance().GetCurrWorldObject();
+					if (curWorldObject != nullptr) {
+						if (auto oneTurret = curWorldObject->GetComponent<Turret>()) {
+							turrets.insert(oneTurret);
+							//oneTurret->prevAngle = oneTurret->gameObject->transform->m_RelativeRotation;
+						}
+						else if (auto oneTurret = curWorldObject->GetComponent<PineAppleTile>()) {
+							if (auto tur = oneTurret->turret->GetComponent<Turret>()) {
+								turrets.insert(tur);
+								//tur->prevAngle = tur->gameObject->transform->m_RelativeRotation;
+								oneTurret->Refund();
+							}
+						}
+					}
+					selectBoxObj->SetActive(false);
+					isSelect = false;
+					//isAngle = true;
+				}
+				else {
+					// todo?
+					isSelect = false;
+					selectBoxObj->SetActive(false);
+					turrets = selectTurrets->GetContainer();
+					int size = turrets.size();
+					if (size > 0) {
+						//isAngle = true;
+
+						for (auto& t : turrets) {
+							//t->prevAngle = t->gameObject->transform->m_RelativeRotation;
+							t->Refund();
+						}
+					}
+				}
+			}
 		}
 		else if (!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left) {
 			Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
 
 			startPos = camera->ScreenToWorldPosition(mousePos);
 			isSelect = true;
+			selectBoxObj->SetActive(true);
+			multiSelectBox->SetCenter(mousePos);
+			multiSelectBox->SetExtent({ 0.f, 0.f });
+			selectTurrets->ClearContainer();
+		}
+		else if (!InputManager::GetInstance().GetPrevMouseState().right && InputManager::GetInstance().GetMouseState().right) {
+			Vector2 mousePos = InputManager::GetInstance().GetMousePosition();
+
+			startPos = camera->ScreenToWorldPosition(mousePos);
+			isSelect = true;
+
 			selectBoxObj->SetActive(true);
 			multiSelectBox->SetCenter(mousePos);
 			multiSelectBox->SetExtent({ 0.f, 0.f });

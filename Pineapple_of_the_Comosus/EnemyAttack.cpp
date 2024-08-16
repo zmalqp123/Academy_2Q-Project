@@ -15,12 +15,10 @@ void EnemyAttack::Update(float deltaTime)
 {	
 	elapsedTime += deltaTime;
 	
-	if (elapsedTime > 1.0f && isAttack == true) {
-		elapsedTime = 0.f;
-		isAttack == false;
-	} else if (elapsedTime > (1.0f / enemy->enemyData.attackRate)) {
+	if (elapsedTime > (1.0f / enemy->enemyData.attackRate)) {
 		Attack();
 		isAttack = true;
+		elapsedTime = 0.f;
 	}
 
 	AttackMotion(deltaTime);

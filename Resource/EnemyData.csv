@@ -1,10 +1,10 @@
 ID,name,size,Elite_Type,ArrowRes(%),BulletRes(%),BurstRes(%),ComosusRes(%),HP,moveSpeed,damage,firingSpeed,range,gold,exp,spawnPosition(min),spawnPosition(max)
 22,,Pixel,int,int,int,int,int,int,float,int,float,pixel,int,int,coordinate(y),coordinate(y)
-30601,swordMan,120x180,0,0,0,0,0,12,1000,5,1,5,10,10,200,300
+30601,swordMan,120x180,0,0,0,0,0,12,10,5,1,5,10,10,200,300
 30602,swordMan_solid,120x120,1,20,20,20,0,21,10,3,1,5,20,10,200,300
 30603,swordMan_fast,120x120,2,0,0,0,0,8,30,8,1,5,10,10,200,300
 30604,swordMan_hero,120x120,3,20,0,0,0,18,10,8,1,5,30,20,200,300
-30605,musketeer,120x180,0,0,10,0,0,16,5,20,3,2400,20,20,200,300
+30605,musketeer,120x180,0,0,10,0,0,16,5,20,1,240,20,20,200,300
 30606,musketeer_solid,120x180,1,20,20,20,0,27,5,20,3,240,40,20,200,300
 30607,musketeer_fast,120x180,2,0,0,0,0,12,20,40,3,240,30,20,200,300
 30608,musketeer_hero,120x180,3,0,40,0,0,21,10,40,3,240,70,40,200,300

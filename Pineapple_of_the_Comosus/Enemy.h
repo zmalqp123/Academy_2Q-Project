@@ -26,6 +26,7 @@ public:
 	virtual ~Enemy() = default;
 	EnemyData enemyData;
 
+
 	//Vector2 position; // 몬스터의 위치
 	//float speed; // 몬스터의 이동 속도
 	Vector2 minBounds; // 이동 범위 최소값
@@ -33,7 +34,10 @@ public:
 
 	//SpriteRenderer* spriteRenderer;  // 추가: SpriteRenderer 포인터
 
-	
+	bool isSlowed = false;
+	float defaultSpeed = 0.0f;
+	float slowTimer = 0.0f;
+	float slowedRate = 0.0f;
 	float elapsedTime = 0.0f;
 	float tmpY = 0.0f;
 
@@ -51,6 +55,7 @@ public:
 	void WaveMove(float delta);
 
 	void Ondamage(int damage, BulletType bulletType);
+	void OnSlow(float slowRate, float slowTime);
 
 };
 
