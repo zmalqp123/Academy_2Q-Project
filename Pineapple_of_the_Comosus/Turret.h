@@ -38,7 +38,7 @@ public:
 
 	void Shoot();  // 총알 발사 함수
 
-
-
+	void Refund();
+	void ResetTurret();
 };
 

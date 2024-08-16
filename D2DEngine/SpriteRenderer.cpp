@@ -100,6 +100,8 @@ void SpriteRenderer::SetFilp(bool x, bool y)
 {
 	m_flipX = x;
 	m_flipY = y;
+
+	if (m_pTexture == nullptr) return;
 	auto size = m_pTexture->m_pD2DBitmap->GetSize();
 	m_DstRect.left = 0.f;
 	m_DstRect.top = 0.f;

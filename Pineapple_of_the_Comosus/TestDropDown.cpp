@@ -120,5 +120,5 @@ void TestDropDown::IPointerExit()
 
 void TestDropDown::TestlamdaFunc()
 {
-	std::cout << " 이게 진짜 될리 없어~" << std::endl;
+	//std::cout << " 이게 진짜 될리 없어~" << std::endl;
 }

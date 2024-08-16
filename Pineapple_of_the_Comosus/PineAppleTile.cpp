@@ -3,6 +3,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "DataManager.h"
+#include "DynamicData.h"
 #include "Turret.h"
 #include <string>
 void PineAppleTile::Update(float deltaTime)
@@ -42,5 +43,15 @@ void PineAppleTile::SetActivateTurret(int typeID)
 
 	//auto spr = turret->GetComponent<SpriteRenderer>();
 	//spr->LoadTexture(path.c_str());
+}
+
+void PineAppleTile::Refund()
+{
+	turret->GetComponent<Turret>()->Refund();
+}
+
+void PineAppleTile::ResetTurret()
+{
+	turret->GetComponent<Turret>()->ResetTurret();
 }
 

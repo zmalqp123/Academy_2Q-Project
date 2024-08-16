@@ -26,5 +26,8 @@ public:
 	bool isSelected = false;
 
 	void SetActivateTurret(int typeID);
+
+	void Refund();
+	void ResetTurret();
 };
 
