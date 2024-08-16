@@ -21,7 +21,7 @@ void MusKetAttack::AttackMotion(float deltaTime)
 {
 	if (isAttack)
 	{	
-		enemy->AttackSprite->alpha = (1.0f - elapsedTimeforMotion * 4);
+		enemy->AttackSprite->alpha = (1.0f - elapsedTimeforMotion);
 		elapsedTimeforMotion += deltaTime;
 		
 		

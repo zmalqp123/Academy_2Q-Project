@@ -86,7 +86,7 @@ struct EnemyData {
 	float hp;
 	int moveSpeed;
 	int attack;
-	int attackRate;
+	float attackRate;
 	int range;
 
 	int reward;
@@ -212,7 +212,7 @@ public:
 				getline(wss, token, L',');
 				Enemy->attack = _wtoi(token.c_str());
 				getline(wss, token, L',');
-				Enemy->attackRate = _wtoi(token.c_str());
+				Enemy->attackRate = _wtof(token.c_str());
 				getline(wss, token, L',');
 				Enemy->range = _wtoi(token.c_str());
 
