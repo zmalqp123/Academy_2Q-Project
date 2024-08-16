@@ -27,10 +27,9 @@
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "FSMHarvest.h"
-//Hpbar* hpBarUi;
-//Mpbar* mpBarUi;
 #include <functional>
 #include <algorithm>
+#include <random> // 랜덤시드
 
 MainPineApple* testPineApple = nullptr;
 
@@ -65,7 +64,7 @@ void GameScene::Start() {
 
     // pineapple random reward
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"단단한 껍질",L"최대체력 +50",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; }});
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"광기어린 광합성",L"광합성 + 1",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"광기어린 광합성",L"광합성 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 햇빛",L"햇빛 +1", [dynamicData]() {dynamicData->rewardPineAppleStat.morningValue += 1; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",L"달빛 +2",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",L"경험치량 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.killMultiply += 0.1f; } });
@@ -869,32 +868,83 @@ void GameScene::Start() {
         {700.f, 400.f, 1000.f, 500.f}  // 다섯 번째 버튼의 위치 (중앙 하단)
     };
 
+    // 1. 랜덤하게 데이터를 섞습니다.
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(DataManager.harvestPopupStruct.begin(), DataManager.harvestPopupStruct.end(), g);
+
     for (size_t i = 0; i < 5; i++) {
-        auto buttonObj = CreateGameObject<GameObject>();
-        float startX = i * (spacing + width);
+        auto buttonObj = CreateGameObject<GameObject>(); 
         buttonObj->transform->SetParent(uiGroup->transform);
         buttonObj->transform->type = Type::Ui;
 
-        // rectposition 값을 개별적으로 설정
+        // 버튼의 위치와 크기를 설정
         buttonObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left, buttonPositions[i].bottom };
         buttonObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
 
+        // 버튼 이미지 설정
         auto buttonImage = buttonObj->CreateComponent<Button>();
-        buttonImage->ignoreEventSystem = false;  // 버튼 클릭 가능하도록 설정
-        buttonImage->LoadTexture(L"../Resource/button.png"); // 버튼 이미지 설정
+        buttonImage->ignoreEventSystem = false;
+        buttonImage->LoadTexture(L"../Resource/button.png"); // 버튼의 기본 배경 이미지
 
-        pineApple->Popup =  buttonImage;
-      /*  auto button = buttonObj->CreateComponent<Button>();
-        button->LoadTexture(L"../Resource/button.png");*/
+        // 이미지 오브젝트 추가 (자식 오브젝트)
+        auto imageObj = CreateGameObject<GameObject>();
+        imageObj->transform->SetParent(buttonObj->transform);
+        imageObj->transform->type = Type::Ui;
+        imageObj->transform->pos.rectposition = {/* 이미지 위치와 크기 설정 */ };
+        auto spriteRenderer = imageObj->CreateComponent<SpriteRenderer>();
+        spriteRenderer->LoadTexture(DataManager.harvestPopupStruct[i].Imagepath.c_str()); // 이미지 설정
 
-        // 각 버튼에 클릭 리스너 추가
-        buttonImage->AddListener([i,uiGroup]() {
-            std::wcout << L"Button " << i + 1 << L" clicked!" << std::endl;
-            uiGroup->SetActive(false); // 초기에는 비활성화
-            });
+        imageObj->transform->pos.rectposition.leftBottom = { 0,0 };
+        imageObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
+        
+        imageObj->isActive = false;
 
+        // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
+        auto nameTextObj = CreateGameObject<GameObject>();
+        nameTextObj->transform->SetParent(buttonObj->transform);
+        nameTextObj->transform->type = Type::Ui;
+        nameTextObj->transform->pos.rectposition = {/* 이름 텍스트 위치와 크기 설정 */ };
+        auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
+        nameText->text = DataManager.harvestPopupStruct[i].reward;
+        //nameText->SetText(L"이름"); // 이름 텍스트 설정
+        //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
+
+        nameTextObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left = 30.f, buttonPositions[i].top / 2};
+        nameTextObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
+
+        nameTextObj->isActive = false;
+
+        // 내용 텍스트 오브젝트 추가 (자식 오브젝트)
+        auto descTextObj = CreateGameObject<GameObject>();
+        descTextObj->transform->SetParent(buttonObj->transform);
+        descTextObj->transform->type = Type::Ui;
+        descTextObj->transform->pos.rectposition = {/* 내용 텍스트 위치와 크기 설정 */ };
+        auto descText = descTextObj->CreateComponent<TextUIRenderer>();
+        descText->text = DataManager.harvestPopupStruct[i].rewarOption;
+        //descText->SetText(L"내용"); // 내용 텍스트 설정   
+        //descText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
+
+        descTextObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left = 30.f, 0};
+        descTextObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top/2 };
+
+        descTextObj->isActive = false;
+
+        pineApple->Popup = buttonImage;
         buttons.push_back(buttonImage);
     }
+    // 2. 버튼에 랜덤하게 할당된 데이터를 설정합니다.
+    //for (size_t i = 0; i < 5; i++) {
+    //    auto& popupStruct = DataManager.harvestPopupStruct[i];
+    //    buttons[i]->SetText(popupStruct.text);  // 버튼의 텍스트 설정
+    //    buttons[i]->SetImage(popupStruct.imagePath);  // 버튼의 이미지 설정
+
+    //    // 3. 버튼 클릭 시 실행할 함수 할당
+    //    buttons[i]->AddListener([popupStruct]() {
+    //        std::wcout << L"Button clicked: " << popupStruct.description << std::endl;
+    //        popupStruct.action();  // 선택된 보상 적용
+    //        });
+    //}
 
     // 수확 버튼 클릭 시 -> harvest 안에서 sectactive 
     pineApple->Harvest();
