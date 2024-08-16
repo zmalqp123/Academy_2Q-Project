@@ -16,7 +16,7 @@ class WaveSystem : public Component
 {
 private:
     const float maxWaveTimer = 15.f;
-    float waveTimer = 15.f;   // Wave 타이머
+    float waveTimer = 3.f;   // Wave 타이머
     int currentWave = 0;       // 현재 진행 중인 wave
     static const int maxWave = 56; // 최대 wave 수
 
@@ -39,7 +39,7 @@ public:
     int getCurrentWave() { return currentWave; }
     virtual void Init();
     virtual void Update(float deltaTime); // 매 프레임 호출, wave 타이머 업데이트
-    void SpawnWave();              // 새로운 wave 스폰
+    //void SpawnWave();              // 새로운 wave 스폰
 
     void LoadWaveData();
     void Generator();

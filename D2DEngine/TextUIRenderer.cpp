@@ -100,3 +100,8 @@ void TextUIRenderer::SetTextColor(D2D1::ColorF _color)
 {
 	color_brush->SetColor(_color);
 }
+
+void TextUIRenderer::SetFontSize(float size)
+{
+	//pTextFormat
+}

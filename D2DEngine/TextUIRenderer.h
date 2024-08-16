@@ -33,5 +33,6 @@ public:
 	bool isCollide(const Vector2& point) override;
 
 	void SetTextColor(D2D1::ColorF _color);
+	void SetFontSize(float size);
 };
 

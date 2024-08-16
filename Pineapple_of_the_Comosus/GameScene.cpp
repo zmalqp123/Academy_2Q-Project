@@ -63,48 +63,48 @@ void GameScene::Start() {
     auto dynamicData = gmObj->CreateComponent<DynamicData>();
     dynamicData->Init();
 
-    //// pineapple random reward
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"단단한 껍질",L"최대체력 +50",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; }});
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"광기어린 광합성",L"광합성 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 햇빛",L"햇빛 +1", [dynamicData]() {dynamicData->rewardPineAppleStat.morningValue += 1; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",L"달빛 +2",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",L"경험치량 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.killMultiply += 0.1f; } });
+    // pineapple random reward
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"단단한 껍질",L"최대체력 +50",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; }});
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"광기어린 광합성",L"광합성 + 1",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 햇빛",L"햇빛 +1", [dynamicData]() {dynamicData->rewardPineAppleStat.morningValue += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",L"달빛 +2",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",L"경험치량 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.killMultiply += 0.1f; } });
 
-    //// comosus light reward
-    //// DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
-    //// DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.1f; } });
+    // comosus light reward
+    // DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
+    // DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.1f; } });
 
-    //// Crossbow tower reward
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁피해량",L"공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 2.f; }});
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 공격속도+",L"공격속도 +0.2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].bulletSpeed += 0.2f; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 관통력+",L"관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].penetration += 1; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"무거운 화살촉",L"공격력 +5, 투사체 속도 -3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 5.f; dynamicData->rewardTurretStat[TurretType::Crossbow].damage -= 3.f; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].slowRate += 8.f; dynamicData->rewardTurretStat[TurretType::Crossbow].slowDuration += 3.f; } });
+    // Crossbow tower reward
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁피해량",L"공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 2.f; }});
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 공격속도+",L"공격속도 +0.2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].bulletSpeed += 0.2f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 관통력+",L"관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].penetration += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"무거운 화살촉",L"공격력 +5, 투사체 속도 -3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 5.f; dynamicData->rewardTurretStat[TurretType::Crossbow].damage -= 3.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].slowRate += 8.f; dynamicData->rewardTurretStat[TurretType::Crossbow].slowDuration += 3.f; } });
 
-    //// musket tower reward
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"머스킷 피해량+",L"머스킷타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].damage += 2.f; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"머스킷 공격속도+",L"머스킷타워 공격속도 +0.15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].bulletSpeed += 0.15f; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"머스킷 관통력+",L"머스킷타워 관통력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].penetration += 2.f; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"대구경 탄환",L"머스킷타워 공격속도 -0.3, 머스킷타워 관통력 +5",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].bulletSpeed -= 0.3f; dynamicData->rewardTurretStat[TurretType::Musket].penetration += 5; } });
+    // musket tower reward
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"머스킷 피해량+",L"머스킷타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].damage += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"머스킷 공격속도+",L"머스킷타워 공격속도 +0.15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].bulletSpeed += 0.15f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"머스킷 관통력+",L"머스킷타워 관통력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].penetration += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"대구경 탄환",L"머스킷타워 공격속도 -0.3, 머스킷타워 관통력 +5",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].bulletSpeed -= 0.3f; dynamicData->rewardTurretStat[TurretType::Musket].penetration += 5; } });
 
-    //// Cannon tower reward
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"박격포 피해량+",L"박격포타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].damage += 2; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"박격포 공격속도+",L"박격포타워 공격속도 +0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 0.1f; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"박격포 관통력+",L"박격포타워 관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].penetration += 1; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"더많은 작약",L"폭밤범위 +15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 15; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"포탄 경량화",L"폭발범위 -10, 투사체속도",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange -= 10;  } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"포탄 중량화",L"폭발범위 +35, 공격속도 -0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 35; dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed -= 10; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"제압탄",L"이동속도 감소 +15%, 이동속도 지속시간 +2.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].slowRate += 15.f; dynamicData->rewardTurretStat[TurretType::Cannon].slowDuration += 2.f; } });
+    // Cannon tower reward
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"박격포 피해량+",L"박격포타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].damage += 2; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"박격포 공격속도+",L"박격포타워 공격속도 +0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 0.1f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"박격포 관통력+",L"박격포타워 관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].penetration += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"더많은 작약",L"폭밤범위 +15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 15; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"포탄 경량화",L"폭발범위 -10, 투사체속도",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange -= 10;  } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"포탄 중량화",L"폭발범위 +35, 공격속도 -0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 35; dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed -= 10; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"제압탄",L"이동속도 감소 +15%, 이동속도 지속시간 +2.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].slowRate += 15.f; dynamicData->rewardTurretStat[TurretType::Cannon].slowDuration += 2.f; } });
 
-    //// superarrow tower reward
-    ////DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].slowRate += 15.f; dynamicData->rewardTurretStat[TurretType::Cannon].slowDuration += 2.f; });
+    // superarrow tower reward
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].slowRate += 15.f; dynamicData->rewardTurretStat[TurretType::Cannon].slowDuration += 2.f; });
 
-    ////slow wand
-    ////DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
-    ////DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
+    //slow wand
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
 
-    //////
-    ////DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
+    ////
+    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
 
 
     GameManager->camera = pCam;
