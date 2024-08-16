@@ -179,6 +179,7 @@
     <ClCompile Include="Pineapple.cpp" />
     <ClCompile Include="PineAppleTile.cpp" />
     <ClCompile Include="Pineapple_of_the_Comosus.cpp" />
+    <ClCompile Include="ramdomReward.cpp" />
     <ClCompile Include="SelectTurretContainer.cpp" />
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="SwordMan.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="MusKetMove.h" />
     <ClInclude Include="MusKetShooter.h" />
     <ClInclude Include="PineAppleTile.h" />
+    <ClInclude Include="ramdomReward.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SelectTurretContainer.h" />
     <ClInclude Include="StartScene.h" />

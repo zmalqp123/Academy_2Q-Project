@@ -11,6 +11,7 @@ class Button;
 class DynamicData;
 class SpriteAnimation;
 class FiniteStateMachine;
+class ramdomReward;
 class MainPineApple : public Component
 {
 	int gold = 300;
@@ -46,6 +47,7 @@ public:
 	SpriteAnimation* comosus;
 	FiniteStateMachine* fsm;
 	std::vector<GameObject*> rewardbtn;
+	ramdomReward* randomReward;
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 

@@ -22,7 +22,7 @@ void GameObject::Init()
 }
 
 void GameObject::Update(float delta)
-{
+{  
 	for (auto c : components) {
 		c->Update(delta);
 	}

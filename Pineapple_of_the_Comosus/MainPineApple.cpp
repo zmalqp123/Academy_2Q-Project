@@ -11,6 +11,8 @@
 #include "DynamicData.h"
 #include "Comosus.h"
 #include <iostream>
+#include <random>
+#include "ramdomReward.h"
 
 void MainPineApple::PrintIndex(int index)
 {
@@ -28,7 +30,7 @@ void MainPineApple::spendGold(int cost)
     {
         gold -= cost;
         std::cout << "현재 남은 파인애플 골드 : " << gold << std::endl;
-    }
+    } 
 }
 
 // 몬스터에서 호출 
@@ -106,6 +108,7 @@ void MainPineApple::Harvest()
     // HP 회복
     HP = maxHP;
 
+    
     // 경험치가 최대치인 경우
     if (currentEXP == maxEXP)
     {
@@ -128,20 +131,9 @@ void MainPineApple::Harvest()
         comosus->SetAnimation(0, false);
 
         // 터렛 비활성화
-        //DisableAllTurrets();
-
+        
         // 보상 버튼 활성화
-        for (auto& element : rewardbtn)
-        {
-            auto btn = element->GetComponent<Button>();
-            element->isActive = true;
-            if (btn == nullptr) continue;
-
-            btn->AddListener([this]() {
-                // 보상 선택 후 버튼 비활성화
-                this->DisableRewardButtons();
-                });
-        }
+        randomReward->UIon();
 
         // 보상 선택 완료 후 모든 터렛 재활성화 (추후 구현)
     }
@@ -172,17 +164,7 @@ void MainPineApple::Harvest()
             //DisableAllTurrets();
 
             // 보상 버튼 활성화
-            for (auto& element : rewardbtn)
-            {
-                auto btn = element->GetComponent<Button>();
-                element->isActive = true;
-                if (btn == nullptr) continue;
-
-                btn->AddListener([this]() {
-                    // 보상 선택 후 버튼 비활성화
-                    this->DisableRewardButtons();
-                    });
-            }
+            randomReward->UIon();
 
             // 보상 선택 완료 후 모든 터렛 재활성화 (추후 구현)
         }
