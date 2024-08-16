@@ -14,13 +14,13 @@ void EnemyAttack::Enter()
 void EnemyAttack::Update(float deltaTime)
 {	
 	elapsedTime += deltaTime;
-	if (elapsedTime > (1.0f / enemy->enemyData.attackRate)) {
-		Attack();
-		isAttack = true;
-	}
-	else if (elapsedTime > 1.0f && isAttack == true) {
+	
+	if (elapsedTime > 1.0f && isAttack == true) {
 		elapsedTime = 0.f;
 		isAttack == false;
+	} else if (elapsedTime > (1.0f / enemy->enemyData.attackRate)) {
+		Attack();
+		isAttack = true;
 	}
 
 	AttackMotion(deltaTime);
