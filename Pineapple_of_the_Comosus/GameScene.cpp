@@ -997,7 +997,9 @@ void GameScene::Update(float deltaTime) {
         std::cout << mpBarUi->ImageRender->m_DstRect.right << std::endl;
         std::cout << mpBarUi->getBarWidth() << std::endl;
     }*/
-
+    if (InputManager::GetInstance().IsKeyDown('4')) {
+        testPineApple->acquireGold(100);
+    }
     // 메인 씬 전환 테스트
     if (InputManager::GetInstance().IsKeyDown('3')) {
         SceneManager::GetInstance().ChangeScene("StartScene");
