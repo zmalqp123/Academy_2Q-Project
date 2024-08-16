@@ -45,9 +45,11 @@ public:
 	DynamicData* rewardData;
 	SpriteAnimation* comosus;
 	FiniteStateMachine* fsm;
+	std::vector<GameObject*> rewardbtn;
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 
+	void DisableRewardButtons();
 	void PrintIndex(int index);
 	void acquireGold(int cost);		// ¸ó½ºÅÍ »ç¸Á½Ã È¹µæÇÑ °ñµå
 	void spendGold(int cost);		// ÅÍ·¿ ¼³Ä¡½Ã »ç¿ëÇÑ °ñµå
