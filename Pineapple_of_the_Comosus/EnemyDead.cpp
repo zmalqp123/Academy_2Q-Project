@@ -3,6 +3,7 @@
 #include "MainPineApple.h"
 #include "GamePlayManager.h"
 #include "EnemyColliderNotify.h"
+#include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 
 void EnemyDead::Enter()
@@ -17,6 +18,7 @@ void EnemyDead::Enter()
 
 void EnemyDead::Update(float deltaTime)
 {	
+	fsm->gameObject->transform->pos.worldPosition.y -= deltaTime * 300.f;
 	bool isDeadAnimationEnd = false;
 	//죽는 애니메이션 넣을 것
 

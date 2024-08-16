@@ -98,7 +98,7 @@ void Enemy::Ondamage(int damage, BulletType bulletType)
     enemyData.hp -= damage * (1 - resist * hundred);
 	if (enemyData.hp <= 0)
 	{
-        gameObject->isActive = false;
+        //gameObject->isActive = false;
         notify->isActive = false;
         //mainPineApple->acquireGold(enemyData.reward);
         //mainPineApple->monAcquireEXP(enemyData.expReward);
