@@ -133,10 +133,10 @@ void GamePlayManager::Update(float deltaTime)
 								tur->prevAngle = tur->gameObject->transform->m_RelativeRotation;
 							}
 						}
+						isAngle = true;
 					}
-					selectBoxObj->SetActive(false);
 					isSelect = false;
-					isAngle = true;
+					selectBoxObj->SetActive(false);
 				}
 				else {
 					// todo?

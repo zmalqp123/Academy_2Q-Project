@@ -19,6 +19,7 @@ public:
 	bool m_flipX;
 	bool m_flipY;
 
+	float alpha = 1.0f;
 	float slideBar = 1.0f;
 
 	D2D1_MATRIX_3X2_F	m_ImageTransform;	// 반대 방향으로 뒤집기 위한 행렬 Scale.x = -1.0f 
