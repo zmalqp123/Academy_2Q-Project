@@ -4,12 +4,12 @@
 #include "MainPineApple.h"
 void HeavyAttack::Enter()
 {
-	enemy = dynamic_cast<Enemy*>(fsm->gameObject->GetComponent<Enemy>());
+	__super::Enter();
 }
 
 void HeavyAttack::Update(float deltaTime)
 {
-	enemy->mainPineApple->pineAppleDamageHP(enemy->enemyData.attack);
+	__super::Update(deltaTime);
 }
 
 void HeavyAttack::Exit()

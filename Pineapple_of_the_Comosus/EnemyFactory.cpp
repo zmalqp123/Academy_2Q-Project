@@ -74,9 +74,11 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     case (int)EnemyID::swordMan + 3:
         enemy = mon->CreateComponent<SwordMan>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::swordMan)); //복사가 되야하는 부분!
+		enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
         monBar->LoadTexture(L"../Resource/30631.png");
         monBar->SetCenter(Vector2(0.5f, 0.f));
         loadMon->LoadTexture(L"../Resource/swordsman.png");
+		enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         fsm->CreateState<SwordManAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");

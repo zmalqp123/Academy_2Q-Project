@@ -4,15 +4,21 @@
 #include "MainPineApple.h"
 void SwordManAttack::Enter()
 {
-	enemy = dynamic_cast<Enemy*>(fsm->gameObject->GetComponent<Enemy>());
+	__super::Enter();
 }
 
 void SwordManAttack::Update(float deltaTime)
-{
-	enemy->mainPineApple->pineAppleDamageHP(enemy->enemyData.attack);
+{	
+	__super::Update(deltaTime);
 }
 
 void SwordManAttack::Exit()
 {
 
+}
+
+void SwordManAttack::Attack()
+{
+	__super::Attack();
+	 
 }

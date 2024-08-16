@@ -132,6 +132,9 @@ void WaveSystem::Generator()
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+
+                    enemy->AttackSprite->SetCenter(Vector2(0.f, 0.5f));
+                    enemy->AttackSprite->alpha = 0.f;
                 }
             }
         }
@@ -157,6 +160,10 @@ void WaveSystem::Generator()
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+
+                    enemy->AttackSprite->SetCenter(Vector2(0.f, 0.5f));
+					enemy->AttackSprite->SetFilp(true, false);
+                    enemy->AttackSprite->alpha = 0.f;
                 }
             }
         }

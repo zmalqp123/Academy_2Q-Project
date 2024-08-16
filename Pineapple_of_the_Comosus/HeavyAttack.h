@@ -1,15 +1,13 @@
 #pragma once
 #include "../D2DEngine/FiniteStateMachine.h"
+#include "EnemyAttack.h"
 class MainPineApple;
 class Enemy;
-class HeavyAttack : public FSMState
+class HeavyAttack : public EnemyAttack
 {
 public:
-	HeavyAttack(FiniteStateMachine* _fsm,std::string _name) : FSMState(_fsm, _name) {}
+	HeavyAttack(FiniteStateMachine* _fsm,std::string _name) : EnemyAttack(_fsm, _name) {}
 	virtual ~HeavyAttack() {}
-
-	Enemy* enemy;
-	MainPineApple* mainPineApple;
 
 	void Enter() override;
 	void Update(float deltaTime) override;

@@ -13,7 +13,7 @@ public:
     void Update(float delta) override;
     void Render(D2D1_MATRIX_3X2_F cameraMat) override;
 
-    void Attack();
+    //void Attack();
     // 데이터 멤버
     Movement* move;
     BoxCollider* pBoxcollider;
