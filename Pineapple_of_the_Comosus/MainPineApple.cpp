@@ -177,12 +177,12 @@ void MainPineApple::Update(float deltaTime)
 	// 수확이 가능하다면 수확 버튼 활성화
 	if (HarvestAble())
 	{
-		harvestbtn->LoadTexture(L"../Resource/harvestable.png");
+		harvestbtn->LoadTexture(L"../Resource/30208_Harvest1btn.png");
 
 	}
 	else
 	{
-		harvestbtn->LoadTexture(L"../Resource/harvest.png");
+		harvestbtn->LoadTexture(L"../Resource/30208_Harvest2btn.png");
 	}
 
 	//elapsedTime += deltaTime;
