@@ -753,19 +753,21 @@ void GameScene::Start() {
         turretUIChild->transform->type = Type::Ui;
         turretUIChild->transform->pos.rectposition = { {0.f, 0.f} ,{120.f, 120.f} };
 
+
         auto turretButton = turretUIChild->CreateComponent<Button>();
         turretButton->LoadTexture(turretImages[i]);
         //turretButton->LoadTexture(L"../Resource/turret.png");  // 버튼의 이미지는 고정
         auto turretUIComp = turretUIChild->CreateComponent<TurretUI>();
         turretUIComp->SetIndex(30501 + (10*i));
+        turretUIComp->pApple = pineApple;
+        turretUIComp->SetTurret((TurretType)(30501 + (10 * i)));
 
         btn.push_back(turretButton);
         // 터렛 버튼 클릭 시 동작 정의
         //turretButton->AddListener([GameManager, turretUIComp]() {GameManager->StartBatch(turretUIComp->GetIndex()); });
 
-        
-
-        auto blackGround = turretUI->CreateComponent<ImageUIRenderer>();
+        auto blackGround = turretUIChild->CreateComponent<ImageUIRenderer>();
+        turretUIComp->blockImage = blackGround;
         blackGround->ignoreEventSystem = true;
         blackGround->LoadTexture(L"../Resource/blackGround.png");
         blackGround->alpha = 0.5f;
