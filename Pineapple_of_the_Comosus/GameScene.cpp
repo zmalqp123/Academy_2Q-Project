@@ -858,6 +858,7 @@ void GameScene::Start() {
 
     // 버튼 5개 생성 및 초기 비활성화
     std::vector<Button*> buttons;
+    std::vector<GameObject*> rewardbtn;
 
     // 버튼의 위치와 크기를 수동으로 지정
     D2D1_RECT_F buttonPositions[] = {
@@ -886,6 +887,7 @@ void GameScene::Start() {
         auto buttonImage = buttonObj->CreateComponent<Button>();
         buttonImage->ignoreEventSystem = false;
         buttonImage->LoadTexture(L"../Resource/button.png"); // 버튼의 기본 배경 이미지
+        rewardbtn.push_back(buttonObj);
 
         // 이미지 오브젝트 추가 (자식 오브젝트)
         auto imageObj = CreateGameObject<GameObject>();
@@ -897,9 +899,8 @@ void GameScene::Start() {
 
         imageObj->transform->pos.rectposition.leftBottom = { 0,0 };
         imageObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
-        
-        imageObj->isActive = false;
-
+     
+        rewardbtn.push_back(imageObj);
         // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
         auto nameTextObj = CreateGameObject<GameObject>();
         nameTextObj->transform->SetParent(buttonObj->transform);
@@ -911,10 +912,9 @@ void GameScene::Start() {
         //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
 
         nameTextObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left = 30.f, buttonPositions[i].top / 2};
-        nameTextObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top };
+        nameTextObj->transform->pos.rectposition.rightTop  = { buttonPositions[i].right, buttonPositions[i].top };
 
-        nameTextObj->isActive = false;
-
+        rewardbtn.push_back(nameTextObj);
         // 내용 텍스트 오브젝트 추가 (자식 오브젝트)
         auto descTextObj = CreateGameObject<GameObject>();
         descTextObj->transform->SetParent(buttonObj->transform);
@@ -928,11 +928,21 @@ void GameScene::Start() {
         descTextObj->transform->pos.rectposition.leftBottom = { buttonPositions[i].left = 30.f, 0};
         descTextObj->transform->pos.rectposition.rightTop = { buttonPositions[i].right, buttonPositions[i].top/2 };
 
-        descTextObj->isActive = false;
+        rewardbtn.push_back(descTextObj);
 
         pineApple->Popup = buttonImage;
         buttons.push_back(buttonImage);
     }
+
+    // for 문으로 벡터 순회
+    for (auto& element : rewardbtn) {
+        element->isActive = false;
+    }
+
+    pineApple->rewardbtn.assign(rewardbtn.begin(),rewardbtn.end());
+
+    pineApple->rewardbtn = rewardbtn;
+
     // 2. 버튼에 랜덤하게 할당된 데이터를 설정합니다.
     //for (size_t i = 0; i < 5; i++) {
     //    auto& popupStruct = DataManager.harvestPopupStruct[i];
@@ -947,14 +957,14 @@ void GameScene::Start() {
     //}
 
     // 수확 버튼 클릭 시 -> harvest 안에서 sectactive 
-    pineApple->Harvest();
+    
     // 그룹 전체 활성화
-    HarvestbtnImage->AddListener([uiGroup]() {
-        uiGroup->SetActive(true); // 수확 버튼을 눌렀을 때 그룹 전체를 활성화
-
+    HarvestbtnImage->AddListener([pineApple,uiGroup]() {
+        //uiGroup->SetActive(true); // 수확 버튼을 눌렀을 때 그룹 전체를 활성화
+        pineApple->Harvest();
     });
 
-
+       
     // 수확 버튼 클릭시
 
     //HarvestbtnImage->AddListener([pineApple]() {pineApple->Harvest(); });//[지역변수](매개변수){기능}
