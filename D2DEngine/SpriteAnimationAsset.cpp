@@ -35,7 +35,8 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	}
 	if (FilePath == std::wstring(L"Comosus"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/kraken.txt");
+		LoadAnimationFromCSV(0, L"../Resource/KrakenDefault.txt");
+		LoadAnimationFromCSV(1, L"../Resource/kraken.txt");
 	}
 	return true;
 }

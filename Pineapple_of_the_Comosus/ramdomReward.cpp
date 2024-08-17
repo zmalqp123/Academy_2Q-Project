@@ -4,6 +4,7 @@
 #include "../D2DEngine/Button.h"
 #include "../D2DEngine/ImageUIRenderer.h"
 #include "../D2DEngine/TextUIRenderer.h"
+#include "../D2DEngine/GameTime.h"
 #include "random"
 
 
@@ -25,6 +26,7 @@ void ramdomReward::setValue()
             DataManager::GetInstance().harvestPopupStruct[a].fn(); 
             std::wcout << L"ddd: " << a << std::endl;
             UIoff();  
+            GameTime::GetInstance().SetTimeScale(1.f);
             });
         Uis[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());
         TextNameUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].reward;

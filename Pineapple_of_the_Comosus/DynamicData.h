@@ -44,6 +44,8 @@ public:
 	std::unordered_map<TurretType, RewardTurretStat> rewardTurretStat;
 	RewardPineAppleStat rewardPineAppleStat;
 
+	bool isHarvest = false;
+
 	DynamicData() {};
 	virtual ~DynamicData() {};
 

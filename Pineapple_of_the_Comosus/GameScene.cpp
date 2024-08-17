@@ -26,10 +26,14 @@
 #include "../D2DEngine/ResourceManager.h"
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/FiniteStateMachine.h"
+#include "../D2DEngine/GameTime.h"
 #include "FSMHarvest.h"
 #include <functional>
 #include <algorithm>
 #include "ramdomReward.h"
+#include "CameraShake.h"
+#include "ComosusFSM.h"
+#include "ComosusLightSelector.h"
 #include <random> // 랜덤시드
 
 MainPineApple* testPineApple = nullptr;
@@ -49,6 +53,24 @@ void GameScene::Start() {
     auto pCam = camera->CreateComponent<Camera>();
     SetMainCamera(pCam);
 
+    auto shake = camera->CreateComponent<CameraShake>();
+    shake->ShakeOnCamera(false);
+
+    auto comosusSystem = CreateGameObject<GameObject>();
+    comosusSystem->transform->SetSortingLayer(19);
+    auto comosusFsm = comosusSystem->CreateComponent<FiniteStateMachine>();
+    auto comosusDefault = comosusFsm->CreateState<ComosusPhaseDefault>("Default");
+    auto comosusPhase1 = comosusFsm->CreateState<ComosusPhase1>("Phase1");
+    auto comosusPhase2 = comosusFsm->CreateState<ComosusPhase2>("Phase2");
+    comosusFsm->SetState("Default");
+    auto comosusLight = comosusSystem->CreateComponent<ComosusLightSelector>();
+    auto comosusColl = comosusSystem->CreateComponent<BoxCollider>();
+    comosusColl->SetExtent({ 400.f, 540.f });
+    comosusColl->ignoreEventSystem = true;
+    comosusColl->SetCollisionType(CollisionType::Overlap);
+    comosusPhase1->lightSeletor = comosusLight;
+    comosusPhase1->cameraShaker = shake;
+
     auto bulletFactory = new BulletFactory(this);
 
     //데이터 매니저 초기화
@@ -61,6 +83,8 @@ void GameScene::Start() {
     auto gmObj = CreateGameObject<GameObject>();
     auto GameManager = gmObj->CreateComponent<GamePlayManager>();
     auto dynamicData = gmObj->CreateComponent<DynamicData>();
+    comosusPhase1->dynamicData = dynamicData;
+    comosusPhase2->dynamicData = dynamicData;
     dynamicData->Init();
 
     // pineapple random reward
@@ -132,7 +156,9 @@ void GameScene::Start() {
     paObj->transform->SetSortingLayer(-1);
     paObj->transform->pos.worldPosition = { 0.f, 0.f };
     auto pineApple = paObj->CreateComponent<MainPineApple>();
-
+    comosusPhase1->pineApple = pineApple;
+    comosusPhase2->pineApple = pineApple;
+    pineApple->comosusFsm = comosusFsm;
     // 상태 생성
     /*auto pineFSM = paObj->CreateComponent<FiniteStateMachine>();
     pineApple->fsm = pineFSM;
@@ -146,17 +172,17 @@ void GameScene::Start() {
     pineApple->bulletFactory = bulletFactory;
     auto pineappleSpr = paObj->CreateComponent<SpriteRenderer>();
     pineappleSpr->SetCenter({ 0.5f, 0.67f });
-    pineappleSpr->LoadTexture(L"../Resource/pineApple_Actual.png");
+    pineappleSpr->LoadTexture(L"../Resource/30301_01.png");
     auto pineColl = paObj->CreateComponent<BoxCollider>();
     pineColl->ignoreEventSystem = true;
     pineColl->isKinemetic = true;
     pineColl->SetCenter({ 300.f, 100.f });
-    pineColl->SetExtent({ 0.f, 400.f });
+    pineColl->SetExtent({ 0.f, 1000.f });
     pineColl = paObj->CreateComponent<BoxCollider>();
     pineColl->ignoreEventSystem = true;
     pineColl->isKinemetic = true;
     pineColl->SetCenter({ -300.f, 100.f });
-    pineColl->SetExtent({ 0.f, 400.f });
+    pineColl->SetExtent({ 0.f, 1000.f });
 
     // 코모서스 강림
     auto comoObj = CreateGameObject<GameObject>();
@@ -164,6 +190,7 @@ void GameScene::Start() {
     auto comosus = comoObj->CreateComponent<Comosus>();
     comoObj->transform->SetSortingLayer(100);
     auto comsusSpr = comoObj->CreateComponent<SpriteAnimation>();
+    comosusPhase1->comosusSpriteAnim = comsusSpr;
     Texture* t = nullptr;
     ResourceManager::GetInstance().CreateTextureFromFile(L"../Resource/30722_tentacle_animation.png", &t);
     comsusSpr->m_pTexture = t;
@@ -1004,7 +1031,12 @@ void GameScene::Update(float deltaTime) {
     }
     // 메인 씬 전환 테스트
     if (InputManager::GetInstance().IsKeyDown('3')) {
-        SceneManager::GetInstance().ChangeScene("StartScene");
+        //SceneManager::GetInstance().ChangeScene("StartScene");
+        GameTime::GetInstance().SetTimeScale(1.f);
+    }
+    if (InputManager::GetInstance().IsKeyDown('2')) {
+        //SceneManager::GetInstance().ChangeScene("StartScene");
+        GameTime::GetInstance().SetTimeScale(5.f);
     }
 
     // 동시 사운드 테스트 
@@ -1017,18 +1049,6 @@ void GameScene::Update(float deltaTime) {
 
         // 로드된 사운드를 재생
         SoundManager::GetInstance().PlaySoundW(soundName, true);
-    }
-    //마우스 스크롤 기능
-    if (InputManager::GetInstance().GetMousePosition().x>0.f && InputManager::GetInstance().GetMousePosition().x < 100.f && camera->gameObject->transform->pos.worldPosition.x>-1560.f) {
-		camera->gameObject->transform->pos.worldPosition.x -= 1000.f * deltaTime;
-    }
-
-    if (InputManager::GetInstance().GetMousePosition().x < 1920.f && InputManager::GetInstance().GetMousePosition().x > 1820.f && camera->gameObject->transform->pos.worldPosition.x < 1560.f) {
-        camera->gameObject->transform->pos.worldPosition.x += 1000.f * deltaTime;
-    }
-
-    if (InputManager::GetInstance().IsKeyUp(VK_SPACE)) {
-        camera->gameObject->transform->pos.worldPosition.x = 0.f;
     }
 
     SoundManager::GetInstance().Update();

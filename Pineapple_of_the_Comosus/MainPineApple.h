@@ -12,8 +12,10 @@ class DynamicData;
 class SpriteAnimation;
 class FiniteStateMachine;
 class ramdomReward;
+class FiniteStateMachine;
 class MainPineApple : public Component
 {
+	friend class ComosusPhase1;
 	int gold = 300;
 	int LV = 1;
 	int maxHP = 100;			// 파인애플 최대체력 
@@ -48,6 +50,7 @@ public:
 	FiniteStateMachine* fsm;
 	std::vector<GameObject*> rewardbtn;
 	ramdomReward* randomReward;
+	FiniteStateMachine* comosusFsm;
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 
@@ -70,6 +73,7 @@ public:
 	float GetOfferingValue(); // float offeringValue;
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);
+	const float GetMaxExp() const { return maxEXP; }
 
 	BulletFactory* bulletFactory;
 };

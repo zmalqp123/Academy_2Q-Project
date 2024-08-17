@@ -147,7 +147,10 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletFactory.cpp" />
     <ClCompile Include="BomberAttack.cpp" />
+    <ClCompile Include="CameraShake.cpp" />
     <ClCompile Include="Comosus.cpp" />
+    <ClCompile Include="ComosusFSM.cpp" />
+    <ClCompile Include="ComosusLightSelector.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
     <ClCompile Include="DynamicData.cpp" />
@@ -208,7 +211,10 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletFactory.h" />
     <ClInclude Include="BomberAttack.h" />
+    <ClInclude Include="CameraShake.h" />
     <ClInclude Include="Comosus.h" />
+    <ClInclude Include="ComosusFSM.h" />
+    <ClInclude Include="ComosusLightSelector.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
     <ClInclude Include="DynamicData.h" />

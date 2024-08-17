@@ -13,6 +13,7 @@
 #include <iostream>
 #include <random>
 #include "ramdomReward.h"
+#include "ComosusFSM.h"
 
 void MainPineApple::PrintIndex(int index)
 {
@@ -112,10 +113,9 @@ void MainPineApple::Harvest()
     // 경험치가 최대치인 경우
     if (currentEXP == maxEXP)
     {
-        LV++;
-        UpdateMaxEXP(); // 새로운 최대 경험치 설정
+        //UpdateMaxEXP(); // 새로운 최대 경험치 설정
         std::cout << "레벨 업! 현재 레벨: " << LV << std::endl;
-        currentEXP = 0;
+        //currentEXP = 0;
 
         // 4. 새로운 파인애플 생성
         if (LV >= 5 && LV < 11)
@@ -128,12 +128,13 @@ void MainPineApple::Harvest()
         }
 
         // 코모서스 애니메이션 재생
-        comosus->SetAnimation(0, false);
+        //comosus->SetAnimation(1, false);
+        comosusFsm->SetState("Phase1");
 
         // 터렛 비활성화
         
         // 보상 버튼 활성화
-        randomReward->UIon();
+        //randomReward->UIon();
 
         // 보상 선택 완료 후 모든 터렛 재활성화 (추후 구현)
     }
@@ -142,10 +143,9 @@ void MainPineApple::Harvest()
         // 수확 가능 조건 확인 (예: 현재 경험치가 특정 비율 이상일 때)
         if (HarvestAble())
         {
-            LV++;
             std::cout << "최대경험치 이하 수확: " << maxEXP << std::endl;
-            UpdateMaxEXP(); // 새로운 최대 경험치 설정
-            currentEXP = 0;
+            //UpdateMaxEXP(); // 새로운 최대 경험치 설정
+            //currentEXP = 0;
 
             // 4. 새로운 파인애플 생성
             if (LV >= 5 && LV < 11)
@@ -158,13 +158,14 @@ void MainPineApple::Harvest()
             }
 
             // 코모서스 애니메이션 재생
-            comosus->SetAnimation(0, false);
+            //comosus->SetAnimation(1, false);
+            comosusFsm->SetState("Phase1");
 
             // 터렛 비활성화
             //DisableAllTurrets();
 
             // 보상 버튼 활성화
-            randomReward->UIon();
+            //randomReward->UIon();
 
             // 보상 선택 완료 후 모든 터렛 재활성화 (추후 구현)
         }
@@ -196,17 +197,19 @@ float MainPineApple::GetOfferingValue()
 
 void MainPineApple::Update(float deltaTime)
 {
-    // 초당 수확량
-    solarAcquireEXP(deltaTime);
+    if (rewardData->isHarvest == false) {
+        // 초당 수확량
+        solarAcquireEXP(deltaTime);
 
-    // UI HP바 업데이트  
-    throwUiHP(GetPineAppleHP());
+        // UI HP바 업데이트  
+        throwUiHP(GetPineAppleHP());
 
-    // UI MP바 업데이트 
-    throwUiEXP(GetCurrentExp());
+        // UI MP바 업데이트 
+        throwUiEXP(GetCurrentExp());
+    }
 
     // 수확 버튼 활성화
-    if (HarvestAble())
+    if (HarvestAble() && rewardData->isHarvest == false)
     {
         harvestbtn->LoadTexture(L"../Resource/30208_Harvest1btn.png");
     }
