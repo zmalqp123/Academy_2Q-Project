@@ -3,6 +3,7 @@
 #include "Turret.h"
 class MainPineApple;
 class ImageUIRenderer;
+class TextUIRenderer;
 class TurretUI : public Component
 {
 	TurretType type = TurretType::Crossbow;
@@ -16,6 +17,7 @@ public:
 
 	ImageUIRenderer* blockImage = nullptr;
 	MainPineApple* pApple = nullptr;
+	TextUIRenderer* textUI = nullptr;
 
 	int GetIndex() { return index; }
 	TurretType GetTurretType() { return type; }

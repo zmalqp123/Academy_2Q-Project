@@ -107,14 +107,17 @@ void ComosusPhase2::Enter()
 	std::wcout << "comosus is off" << std::endl;
 	fallDuration = 0.f;
 	startY = pineApple->gameObject->transform->pos.worldPosition.y;
-	dynamicData->isHarvest = false;
+	//dynamicData->isHarvest = false;
 }
 
 void ComosusPhase2::Update(float deltaTime)
 {
 	fallDuration += deltaTime;
 	float time = fallDuration * 2.f;
-	if (time > 1.f) time = 1.f;
+	if (time > 1.f) { 
+		time = 1.f;
+		fsm->SetState("Default");
+	}
 	float value = pow(time, 3);
 
 	pineApple->gameObject->transform->pos.worldPosition.y = startY + (0.f - startY) * (0.2f + 0.8f * value);

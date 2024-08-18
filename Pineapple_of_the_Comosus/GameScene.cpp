@@ -956,9 +956,12 @@ void GameScene::Start() {
     auto uiGroup = CreateGameObject<GameObject>();
     uiGroup->transform->type = Type::Ui;
     uiGroup->SetActive(false); // 초기에는 비활성화
+    uiGroup->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
+    uiGroup->transform->pos.rectposition.rightTop = { 1920.f, 1080.f };
 
     // 반투명 검은색 배경 추가
     auto blackObj = CreateGameObject<GameObject>();
+    blackObj->transform->type = Type::Ui;
     blackObj->transform->SetParent(uiGroup->transform);
     blackObj->transform->SetSortingLayer(-10); // 다른 UI나 오브젝트보다 뒤에 있도록 설정
     SpriteRenderer* blackSpr = blackObj->CreateComponent<SpriteRenderer>();

@@ -11,6 +11,7 @@
 #include "DataManager.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "SelectTurretContainer.h"
+#include "DynamicData.h"
 
 //std::wstring hmm;
 int Turret_Type = 0; // 터렛 타입 가지는 변수
@@ -218,7 +219,7 @@ void GamePlayManager::StartBatch(int type)
 {
 	auto data = DataManager::GetInstance().GetTurretData(type);
 
-	if (data->cost > pineApple->GetPineAppleGold()) return;
+	if (data->cost > pineApple->GetPineAppleGold() || pineApple->rewardData->isHarvest == true) return;
 	
 	isDrag = true;
 	dragObj->SetActive(true);

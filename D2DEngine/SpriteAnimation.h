@@ -19,6 +19,8 @@ public:
 	// 인스턴스마다 다른 애니메이션 정보
 	ANIMATION_INFO* m_pAnimationInfo = nullptr;	// 현재 애니메이션 프레임 정보
 	std::wstring m_strAnimationAssetFilePath;    // 애니메이션 정보 파일 이름
+	std::wstring m_strTextureFilePath;
+
 	float m_FrameTime = 0.0f;	// 프레임 진행시간
 	int m_FrameIndexCurr = -1;	// 현재 프레임 인덱스
 	int m_FrameIndexPrev = -1;	// 이전 프레임 인덱스
@@ -31,6 +33,7 @@ public:
 	Texture* m_pTexture;
 
 	void LoadAnimationAsset(const std::wstring strFilePath);
+	void LoadTexture(const std::wstring strFilePath);
 	void Update(float fTimeElapsed);
 	void Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat);
 	void Render(D2D1_MATRIX_3X2_F cameraMat);
