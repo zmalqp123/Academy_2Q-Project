@@ -6,6 +6,7 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "DynamicData.h"
+#include "../D2DEngine/SoundManager.h"
 void Turret::Init()
 {
     auto data = dynamicData->GetStaticTurretData(turretType);
@@ -62,6 +63,19 @@ void Turret::Shoot()
             data->slowDuration + rewardData.slowDuration,
             static_cast<BulletType>(data->bulletType));
         bullet->gameObject->GetComponent<SpriteRenderer>()->LoadTexture(data->bulletImagePath);
+
+        switch (turretType)
+        {
+        case TurretType::Crossbow:
+            SoundManager::GetInstance().PlaySoundW(L"CrossbowFire_Se", false);
+            break;
+        case TurretType::Musket:
+            SoundManager::GetInstance().PlaySoundW(L"MusketFire_Se", false);
+            break;
+        case TurretType::Cannon:
+            SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+            break;
+        }
     }
 }
 

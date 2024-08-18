@@ -1,12 +1,14 @@
 #pragma once
 #include "../D2DEngine/Component.h"
-
+#include <iostream>
 class Scene;
 class GameObject;
 class DayNightCycle : public Component {
 private:
     bool isNight;          // 밤/낮 상태를 나타내는 변수
-
+    bool isMorningBgmLoaded = false;   // 아침 사운드가 로드되었는지 추적
+    bool isNightBgmLoaded = false;  // 밤 사운드가 로드되었는지 추적
+    std::wstring currentPlayingBgm = L""; // 현재 재생 중인 BGM을 추적
 public:
     float sunLocation[4] = {750.0f,400.0f,50.f,-300.f};
     float moonLocation[4] = { 750.0f,400.0f,-750.f,-750.0f };
