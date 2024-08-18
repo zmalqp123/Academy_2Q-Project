@@ -219,15 +219,20 @@ void GamePlayManager::StartBatch(int type)
 {
 	auto data = DataManager::GetInstance().GetTurretData(type);
 
-	if (data->cost > pineApple->GetPineAppleGold() || pineApple->rewardData->isHarvest == true) return;
-	
-	isDrag = true;
-	dragObj->SetActive(true);
-	auto spr = dragObj->GetComponent<SpriteRenderer>();
-	//hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
-	Turret_Type = type;
+	if (pineApple->rewardData->isUpgrade == false) {
+		if (data->cost > pineApple->GetPineAppleGold() || pineApple->rewardData->isHarvest == true) return;
 
-	spr->LoadTexture(data->imagePath);
-	
-	std::cout << "Turret Type ID : " << type << std::endl;
+		isDrag = true;
+		dragObj->SetActive(true);
+		auto spr = dragObj->GetComponent<SpriteRenderer>();
+		//hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
+		Turret_Type = type;
+
+		spr->LoadTexture(data->imagePath);
+
+		std::cout << "Turret Type ID : " << type << std::endl;
+	}
+	else {
+		pineApple->rewardData->UpgradeTurret((TurretType)type);
+	}
 }

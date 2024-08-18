@@ -45,6 +45,7 @@ public:
 	RewardPineAppleStat rewardPineAppleStat;
 
 	bool isHarvest = false;
+	bool isUpgrade = false;
 
 	DynamicData() {};
 	virtual ~DynamicData() {};
@@ -54,6 +55,7 @@ public:
 	void UpgradeTurret(TurretType turretType);
 
 	const TurretData* GetStaticTurretData(TurretType turretType);
+	const TurretData* GetNextStaticTurretData(TurretType turretType);
 	const RewardTurretStat GetRewardTurretData(TurretType turretType);
 	const RewardPineAppleStat GetRewardPineAppleStat();
 };
