@@ -209,7 +209,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -220,6 +220,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -236,7 +237,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -247,6 +248,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -263,7 +265,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -274,6 +276,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -290,7 +293,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -301,6 +304,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -317,7 +321,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -328,6 +332,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -344,7 +349,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -355,6 +360,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -371,7 +377,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -382,6 +388,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -398,7 +405,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -409,6 +416,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -425,7 +433,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -436,6 +444,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -452,7 +461,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 1;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -463,6 +472,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -479,7 +489,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 2;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -490,6 +500,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -506,7 +517,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 2;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -517,6 +528,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -533,7 +545,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 2;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -544,6 +556,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -560,7 +573,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 2;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -571,6 +584,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -587,7 +601,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 3;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -598,6 +612,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -614,7 +629,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 3;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -625,6 +640,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -641,7 +657,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 3;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -652,6 +668,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();
@@ -668,7 +685,7 @@ void GameScene::Start() {
 
             auto pineTile = paTileObj->CreateComponent<PineAppleTile>();
             pineTile->pApple = pineApple;
-            pineTile->index = 0;
+            pineTile->index = 3;
 
             auto coll = paTileObj->CreateComponent<CircleCollider>();
             coll->SetCollisionType(CollisionType::Overlap);
@@ -679,6 +696,7 @@ void GameScene::Start() {
             childObj->transform->SetSortingLayer(1);
             childObj->isActive = false;
             auto tur = childObj->CreateComponent<Turret>();
+            pineApple->turrets.push_back(tur);
             tur->dynamicData = dynamicData;
             tur->parentPineApple = pineApple;
             auto circleColl = childObj->CreateComponent<CircleCollider>();

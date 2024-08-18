@@ -13,6 +13,7 @@ class SpriteAnimation;
 class FiniteStateMachine;
 class ramdomReward;
 class FiniteStateMachine;
+class Turret;
 class MainPineApple : public Component
 {
 	friend class ComosusPhase1;
@@ -51,6 +52,9 @@ public:
 	std::vector<GameObject*> rewardbtn;
 	ramdomReward* randomReward;
 	FiniteStateMachine* comosusFsm;
+	int pineAppleLv = 1;
+	std::vector<Turret*> turrets;
+
 	MainPineApple() { };
 	virtual ~MainPineApple() { };
 
@@ -74,6 +78,7 @@ public:
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);
 	const float GetMaxExp() const { return maxEXP; }
+	void RefundAll();
 
 	BulletFactory* bulletFactory;
 };

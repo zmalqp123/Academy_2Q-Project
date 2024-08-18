@@ -29,7 +29,8 @@ void PineAppleTile::IPointerExit()
 bool PineAppleTile::IsPlaceable()
 {
 	// 터렛이 활성화되어있지 않다면 설치가능한 타일.
-	return turret->isActive == false;
+	bool result = turret->isActive == false && pApple->pineAppleLv >= index;
+	return result;
 }
 
 void PineAppleTile::SetActivateTurret(int typeID)

@@ -218,3 +218,10 @@ void MainPineApple::Update(float deltaTime)
         harvestbtn->LoadTexture(L"../Resource/30208_Harvest2btn.png");
     }
 }
+
+void MainPineApple::RefundAll()
+{
+    for (auto turret : turrets) {
+        turret->Refund();
+    }
+}

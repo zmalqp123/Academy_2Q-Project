@@ -81,6 +81,7 @@ void ComosusPhase1::Exit()
 	pineApple->LV++;
 	pineApple->UpdateMaxEXP();
 	pineApple->randomReward->UIon();
+	pineApple->RefundAll();
 	GameTime::GetInstance().SetTimeScale(0.f);
 	cameraShaker->ShakeOnCamera(false);
 
@@ -88,12 +89,14 @@ void ComosusPhase1::Exit()
 	{
 		//SpawnNewPineapple();
 		auto spr = pineApple->gameObject->GetComponent<SpriteRenderer>();
+		pineApple->pineAppleLv = 2;
 		spr->LoadTexture(L"../Resource/30302_02.png");
 	}
 	else if (pineApple->LV == 11)
 	{
 		//SpawnSuperPineapple();
 		auto spr = pineApple->gameObject->GetComponent<SpriteRenderer>();
+		pineApple->pineAppleLv = 3;
 		spr->LoadTexture(L"../Resource/30303_03.png");
 	}
 }
