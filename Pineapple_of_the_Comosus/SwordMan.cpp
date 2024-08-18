@@ -15,7 +15,7 @@
 void SwordMan::Init()
 {
     __super::Init();
-    SoundManager::GetInstance().LoadSound(L"SwordAttack", L"../Media/Dead.wav");
+    //SoundManager::GetInstance().LoadSound(L"SwordAttack", L"../Media/Dead.wav");
     //DataManager& d = DataManager::GetInstance();
     //std::cout << d.enemyDataList[0]->hp << std::endl;
     //SetResist(d.enemyDataList[0]->resistArrow, d.enemyDataList[0]->resistBullet, d.enemyDataList[0]->resistBurst, d.enemyDataList[0]->resistComosus);

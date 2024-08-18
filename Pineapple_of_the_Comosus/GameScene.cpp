@@ -728,8 +728,8 @@ void GameScene::Start() {
     SoundManager::GetInstance().SetVolume(L"HeavySoldierDeath_Se", 0.5f);
 
     // Bombcart 
-    SoundManager::GetInstance().LoadSound(L"HeavySoldierAttack_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierAttack_Se.wav");
-    SoundManager::GetInstance().SetVolume(L"HeavySoldierAttack_Se", 0.5f);
+    SoundManager::GetInstance().LoadSound(L"BombCartMovement_Se", L"../Media/6_Sound/scene3/Se/BombCartMovement_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"BombCartMovement_Se", 0.5f);
     SoundManager::GetInstance().LoadSound(L"BombCartExplosion_Se", L"../Media/6_Sound/scene3/Se/BombCartExplosion_Se.wav");
     SoundManager::GetInstance().SetVolume(L"BombCartExplosion_Se", 0.5f);
 
@@ -998,7 +998,7 @@ void GameScene::Start() {
         // 버튼 이미지 설정
         auto buttonImage = buttonObj->CreateComponent<Button>();
         buttonImage->ignoreEventSystem = false;
-        buttonImage->LoadTexture(L"../Resource/button.png"); // 버튼의 기본 배경 이미지
+        buttonImage->LoadTexture(L"../Resource/30405_harvestpopup_item.png"); // 버튼의 기본 배경 이미지
         rand->btns.push_back(buttonImage);
 
         // 이미지 오브젝트 추가 (자식 오브젝트)

@@ -7,7 +7,12 @@ void BomberMove::Enter()
 
 void BomberMove::Update(float deltaTime)
 {
-	SoundManager::GetInstance().PlaySoundW(L"KnightAttack_Se", false);
+	moveTime += deltaTime;
+	if (moveTime > 2.f)
+	{
+		SoundManager::GetInstance().PlaySoundW(L"BombCartMovement_Se", false);
+		moveTime = 0;
+	}
 }
 
 void BomberMove::Exit()

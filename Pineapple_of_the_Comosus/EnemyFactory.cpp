@@ -3,6 +3,7 @@
 #include "SwordManAttack.h"
 #include "MusKetAttack.h"
 #include "BomberAttack.h"
+#include "BomberMove.h"
 #include "GriffinAttack.h"
 #include "HeavyAttack.h"
 #include "EnemyMove.h"
@@ -14,6 +15,7 @@
 
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/Transform.h"
@@ -45,7 +47,7 @@ void EnemyFactory::InitializePool()
 Enemy* EnemyFactory::CreateEnemy(int type)
 {
     auto mon = scene->CreateGameObject<GameObject>();
-    auto loadMon = mon->CreateComponent<SpriteRenderer>();
+    auto loadMon = mon->CreateComponent<SpriteAnimation>();
    
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
@@ -78,6 +80,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         monBar->LoadTexture(L"../Resource/30631.png");
         monBar->SetCenter(Vector2(0.5f, 0.f));
         loadMon->LoadTexture(L"../Resource/swordsman.png");
+        loadMon->LoadAnimationAsset(L"swordmanMove");
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
 		enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         fsm->CreateState<SwordManAttack>("Attack");
@@ -93,12 +96,13 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy = mon->CreateComponent<BombCart>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::bombCarrier)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
-        loadMon->LoadTexture(L"../Resource/tile.png");
+        loadMon->LoadTexture(L"../Resource/bombcart.png");
+        loadMon->LoadAnimationAsset(L"BombcartMove");
         monBar->SetCenter(Vector2(0.5f, 0.f));
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
         enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         fsm->CreateState<BomberAttack>("Attack");
-        fsm->CreateState<EnemyMove>("Move");
+        fsm->CreateState<BomberMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
         fsm->SetState("Move");
         break;
@@ -110,9 +114,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::griffin)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30632.png");
         loadMon->LoadTexture(L"../Resource/griffin.png");
+        loadMon->LoadAnimationAsset(L"griffinMove");
         monBar->SetCenter(Vector2(0.5f, 1.f));
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
-        enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
+        enemy->AttackSprite->LoadTexture(L"../Resource/30704.png");
         fsm->CreateState<GriffinAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -126,9 +131,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::heavyArmor)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
         loadMon->LoadTexture(L"../Resource/HeavyKnight.png");
+        loadMon->LoadAnimationAsset(L"heavyknightMove");
         monBar->SetCenter(Vector2(0.5f, 0.f));
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
-        enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
+        enemy->AttackSprite->LoadTexture(L"../Resource/30703.png");
         fsm->CreateState<HeavyAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
@@ -141,6 +147,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy = mon->CreateComponent<MusKetShooter>();
         enemy->enemyData = *(d.GetEnemyData((int)EnemyID::musketeer)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
+        loadMon->LoadAnimationAsset(L"musketshooterMove");
         monBar->SetCenter(Vector2(0.5f, 0.f));
         //b->bulletFactory = bulletFactory;
         //enemy = b;
