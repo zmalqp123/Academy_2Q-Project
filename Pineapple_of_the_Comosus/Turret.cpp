@@ -5,6 +5,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include "../D2DEngine/SpriteAnimation.h"
 #include "DynamicData.h"
 #include "../D2DEngine/SoundManager.h"
 void Turret::Init()
@@ -62,20 +63,47 @@ void Turret::Shoot()
             data->slowRate + rewardData.slowRate,
             data->slowDuration + rewardData.slowDuration,
             static_cast<BulletType>(data->bulletType));
-        bullet->gameObject->GetComponent<SpriteRenderer>()->LoadTexture(data->bulletImagePath);
-
+        bullet->gameObject->GetComponent<SpriteAnimation>()->LoadTexture(data->bulletImagePath);
+        auto spr = bullet->gameObject->GetComponent<SpriteAnimation>();
         switch (turretType)
         {
         case TurretType::Crossbow:
             SoundManager::GetInstance().PlaySoundW(L"CrossbowFire_Se", false);
+            
+            spr->LoadAnimationAsset(L"30306");
+            spr->SetAnimation(0, false);
             break;
         case TurretType::Musket:
             SoundManager::GetInstance().PlaySoundW(L"MusketFire_Se", false);
+        
+            spr->LoadAnimationAsset(L"30307");
+            spr->SetAnimation(0, false);
             break;
         case TurretType::Cannon:
             SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+
+            spr->LoadAnimationAsset(L"30308");
+            spr->SetAnimation(0, false);
             break;
-        }
+        case TurretType::SuperCrossbow:
+            //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+         
+            spr->LoadAnimationAsset(L"30306");
+            spr->SetAnimation(0, false);
+            break;
+        case TurretType::SlowWand :
+            //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+    
+            spr->LoadAnimationAsset(L"30309");
+            spr->SetAnimation(0, false);
+            break;
+        case TurretType::GrowthPromoter:
+            //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+         
+            spr->LoadAnimationAsset(L"30308");
+            spr->SetAnimation(0, false);
+            break;
+         }
     }
 }
 

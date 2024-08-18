@@ -38,7 +38,49 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(0, L"../Resource/KrakenDefault.txt");
 		LoadAnimationFromCSV(1, L"../Resource/kraken.txt");
 	}
-	return true;
+	if (FilePath == std::wstring(L"BombcartMove"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/bomcart.txt");
+	}
+	if (FilePath == std::wstring(L"swordmanMove"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/swordman.txt");
+	}
+	if (FilePath == std::wstring(L"musketshooterMove"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/musketshooter.txt");
+	}
+	if (FilePath == std::wstring(L"heavyknightMove"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/heavyknight.txt");
+	}
+	if (FilePath == std::wstring(L"griffinMove"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/griffin.txt");
+	}
+	// turret bullet
+	if (FilePath == std::wstring(L"30306"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30306.txt");
+	}
+	if (FilePath == std::wstring(L"30307"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30307.txt");
+	}
+	if (FilePath == std::wstring(L"30308"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30308.txt");
+	}
+	if (FilePath == std::wstring(L"30309"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30309.txt");
+	}
+
+	if (FilePath == std::wstring(L"griffinMove"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/griffin.txt");
+	}
+	return true; 
 }
 
 bool SpriteAnimationAsset::LoadAnimationFromCSV(int index, const wchar_t* fileName)

@@ -1,5 +1,6 @@
 #include "BulletFactory.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/Movement.h"
 #include "../D2DEngine/SideMovement.h"
 #include "../D2DEngine/BoxCollider.h"
@@ -34,7 +35,7 @@ Bullet* BulletFactory::CreateBullet()
     auto bulletObj = scene->CreateGameObject<GameObject>();
     bulletObj->transform->SetSortingLayer(INT_MAX);
     bulletObj->SetActive(false);
-    auto spriteRenderer = bulletObj->CreateComponent<SpriteRenderer>();
+    auto spriteRenderer = bulletObj->CreateComponent<SpriteAnimation>();
     auto movement = bulletObj->CreateComponent<SideMovement>();  // SideMovement 사용
     movement->freezeRotate = false;
     auto collider = bulletObj->CreateComponent<BoxCollider>();
@@ -42,7 +43,7 @@ Bullet* BulletFactory::CreateBullet()
     collider->SetCollisionType(CollisionType::Overlap);
 
     spriteRenderer->LoadTexture(L"../Resource/arrow.png");  // 총알 텍스처 로드
-
+ 
     Bullet* bullet = bulletObj->CreateComponent<Bullet>();
     bullet->move = movement;
     bullet->pBoxcollider = collider;

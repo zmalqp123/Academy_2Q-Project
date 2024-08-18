@@ -12,7 +12,7 @@
 #include <random>
 #include "EnemyFactory.h"
 #include "BulletFactory.h"
-
+#include "../D2DEngine/SpriteAnimation.h"
 WaveSystem::WaveSystem()
 {
     
@@ -126,7 +126,7 @@ void WaveSystem::Generator()
                     float spawnY = IsFly(left.id) ? flyDistY(gen) : distY(gen);
                     Vector2 spawnPosition = Vector2(-1500.0f, spawnY);
                     Vector2 moveDirection = Vector2(1.0f, 0.0f);
-
+                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(0, false);
                     enemy->gameObject->transform->pos.worldPosition = spawnPosition;
                     enemy->move->SetDirection(moveDirection);
                     enemy->tmpY = spawnPosition.y;
@@ -153,7 +153,7 @@ void WaveSystem::Generator()
                     float spawnY = IsFly(right.id) ? flyDistY(gen) : distY(gen);
                     Vector2 spawnPosition = Vector2(1500.0f, spawnY);
                     Vector2 moveDirection = Vector2(-1.0f, 0.0f);
-                    enemy->gameObject->GetComponent<SpriteRenderer>()->SetFilp(true, false);
+                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(0, true);
 
                     enemy->gameObject->transform->pos.worldPosition = spawnPosition;
                     enemy->move->SetDirection(moveDirection);
