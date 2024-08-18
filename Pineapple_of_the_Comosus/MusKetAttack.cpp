@@ -3,6 +3,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "MainPineApple.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include"../D2DEngine/SoundManager.h"
 void MusKetAttack::Enter()
 {
 	__super::Enter();
@@ -15,6 +16,13 @@ void MusKetAttack::Update(float deltaTime)
 
 void MusKetAttack::Exit()
 {
+}
+
+void MusKetAttack::Attack()
+{
+	__super::Attack();
+	// 사운드 초기화 및 로드
+	SoundManager::GetInstance().PlaySoundW(L"MusketAttack_Se", false);
 }
 
 void MusKetAttack::AttackMotion(float deltaTime)

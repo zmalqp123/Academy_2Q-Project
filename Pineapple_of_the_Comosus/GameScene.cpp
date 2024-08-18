@@ -709,9 +709,63 @@ void GameScene::Start() {
 
 
     // 사운드 초기화 및 로드
-    SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3");
+    /*SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3");
     SoundManager::GetInstance().SetVolume(L"backgroundMusic", 0.5f);
-    SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true);
+    SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true);*/
+
+    // 사운드 초기화 및 로드
+    
+    // swordman 
+    SoundManager::GetInstance().LoadSound(L"KnightAttack_Se", L"../Media/6_Sound/scene3/Se/KnightAttack_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"KnightAttack_Se", 0.5f);
+    SoundManager::GetInstance().LoadSound(L"KnightDeath_Se", L"../Media/6_Sound/scene3/Se/KnightDeath_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"KnightDeath_Se", 0.5f);
+
+    // heaykingight 
+    SoundManager::GetInstance().LoadSound(L"HeavySoldierAttack_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierAttack_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"HeavySoldierAttack_Se", 0.5f); 
+    SoundManager::GetInstance().LoadSound(L"HeavySoldierDeath_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierDeath_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"HeavySoldierDeath_Se", 0.5f);
+
+    // Bombcart 
+    SoundManager::GetInstance().LoadSound(L"HeavySoldierAttack_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierAttack_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"HeavySoldierAttack_Se", 0.5f);
+    SoundManager::GetInstance().LoadSound(L"BombCartExplosion_Se", L"../Media/6_Sound/scene3/Se/BombCartExplosion_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"BombCartExplosion_Se", 0.5f);
+
+    // musket 
+    SoundManager::GetInstance().LoadSound(L"MusketAttack_Se", L"../Media/6_Sound/scene3/Se/MusketAttack_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"MusketAttack_Se", 0.5f);
+  /*  SoundManager::GetInstance().LoadSound(L"HeavySoldierDeath_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierDeath_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"HeavySoldierDeath_Se", 0.5f);*/
+    
+    // griffin 
+    SoundManager::GetInstance().LoadSound(L"GriffinAttack_Se", L"../Media/6_Sound/scene3/Se/GriffinAttack_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"GriffinAttack_Se", 0.5f);
+    SoundManager::GetInstance().LoadSound(L"GriffinDeath_Se", L"../Media/6_Sound/scene3/Se/GriffinDeath_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"GriffinDeath_Se", 0.5f);
+
+    // morning
+    SoundManager::GetInstance().LoadSound(L"Morning_Bgm", L"../Media/6_Sound/scene3/Bgm/Morning_Bgm.wav");
+    SoundManager::GetInstance().SetVolume(L"Morning_Bgm", 0.5f);
+
+    // night
+    SoundManager::GetInstance().LoadSound(L"Night_Bgm", L"../Media/6_Sound/scene3/Bgm/Night_Bgm.wav");
+    SoundManager::GetInstance().SetVolume(L"Night_Bgm", 0.5f);
+
+
+    // CrossbowFire_Se
+    SoundManager::GetInstance().LoadSound(L"CrossbowFire_Se", L"../Media/6_Sound/scene3/Se/CrossbowFire_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"CrossbowFire_Se", 0.2f);
+
+    // MusketFire_Se
+    SoundManager::GetInstance().LoadSound(L"MusketFire_Se", L"../Media/6_Sound/scene3/Se/MusketFire_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"MusketFire_Se", 0.2f);
+
+    // MortarFire_Se
+    SoundManager::GetInstance().LoadSound(L"MortarFire_Se", L"../Media/6_Sound/scene3/Se/MortarFire_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"MortarFire_Se", 0.2f);
+
 
     // 배경 이미지
     auto bgObj = CreateGameObject<GameObject>();

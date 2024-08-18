@@ -12,7 +12,7 @@ public:
 	void Enter() override;
 	void Update(float deltaTime) override;
 	void Exit() override;
-
+	void Attack() override;
 };
 
 

@@ -3,7 +3,7 @@
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/Transform.h"
 #include "iostream"
-
+#include "../D2DEngine/SoundManager.h"
 //DayNightCycle::DayNightCycle(WaveSystem* waveSystem)
 //    : isNight(false), waveSystem(waveSystem) {}
 
@@ -34,8 +34,9 @@ void DayNightCycle::ApplyNightEffects(int wave) {
     // 추가하기
     /*waveSystem->IncreaseEnemyAttackPower(0.25f);
     waveSystem->SetHarvestExperience(0.0f);*/
-    if(wave % 4 == 0){
+    if (wave % 4 == 0) {
         //std::cout << "밤" << std::endl;
+        //SoundManager::GetInstance().PlaySoundW(L"Night_Bgm", false);
     }
 }
 
@@ -43,13 +44,14 @@ void DayNightCycle::RemoveNightEffects(int wave) {
     // 추가하기
     //waveSystem->IncreaseEnemyAttackPower(-0.25f);
     //waveSystem->SetHarvestExperience(1.0f); // 기본 수확 경험치를 원래대로 되돌리기
-    if (wave % 4 != 0){
+    if (wave % 4 != 0) {
         //std::cout << "낮" << std::endl;
+        //SoundManager::GetInstance().PlaySoundW(L"Morning_Bgm", false);
     }
 }
 
-void DayNightCycle::SunMove(float deltaTime,int period)
-{   
+void DayNightCycle::SunMove(float deltaTime, int period)
+{
     static float elapsedTime = 0.0f;
     static int prevPeriod = 1;
     int curPeriod = period;
@@ -57,10 +59,10 @@ void DayNightCycle::SunMove(float deltaTime,int period)
     if (period == 3) SunReset();
     else {
         if (elapsedTime < 1.0f) {
-            if(m_Sun != nullptr)
-                m_Sun->transform->pos.worldPosition.y = (1-elapsedTime) * sunLocation[period] + elapsedTime * sunLocation[period + 1];
+            if (m_Sun != nullptr)
+                m_Sun->transform->pos.worldPosition.y = (1 - elapsedTime) * sunLocation[period] + elapsedTime * sunLocation[period + 1];
         }
-        else if(elapsedTime >= 1.0f && prevPeriod != curPeriod) {
+        else if (elapsedTime >= 1.0f && prevPeriod != curPeriod) {
             elapsedTime = 0.0f;
         }
     }
@@ -69,13 +71,13 @@ void DayNightCycle::SunMove(float deltaTime,int period)
 
 
 void DayNightCycle::SunReset()
-{   
+{
     if (m_Sun != nullptr)
-	    m_Sun->transform->pos.worldPosition.y = sunLocation[0];
+        m_Sun->transform->pos.worldPosition.y = sunLocation[0];
 }
 
 void DayNightCycle::MoonMove(float deltaTime, int period)
-{   
+{
     static float elapsedTime = 0.0f;
     static int prevPeriod = 1;
     int curPeriod = period;
@@ -87,8 +89,8 @@ void DayNightCycle::MoonMove(float deltaTime, int period)
                 m_Moon->transform->pos.worldPosition.y = (1 - elapsedTime) * moonLocation[period] + elapsedTime * moonLocation[period + 1];
                 if (m_Moon->transform->pos.worldPosition.y < -300.f) MoonReset();
             }
-                
-            
+
+
         }
         else if (elapsedTime >= 1.0f && prevPeriod != curPeriod) {
             elapsedTime = 0.0f;
@@ -99,7 +101,7 @@ void DayNightCycle::MoonMove(float deltaTime, int period)
 
 void DayNightCycle::MoonReset()
 {
-	m_Moon->transform->pos.worldPosition.y = moonLocation[0];
+    m_Moon->transform->pos.worldPosition.y = moonLocation[0];
 
 }
 
