@@ -19,12 +19,22 @@ void DynamicData::Init()
 
 void DynamicData::UpgradeTurret(TurretType turretType)
 {
-	turretLevel[turretType] += 1;
+	if(turretLevel[turretType] < 4)
+		turretLevel[turretType] += 1;
 }
 
 const TurretData* DynamicData::GetStaticTurretData(TurretType turretType)
 {
 	int number = turretLevel[turretType] + (int)turretType;
+	return DataManager::GetInstance().GetTurretData(number);
+}
+
+const TurretData* DynamicData::GetNextStaticTurretData(TurretType turretType)
+{
+	int number = turretLevel[turretType] + (int)turretType + 1;
+	if (turretLevel[turretType] == 4) {
+		return nullptr;
+	}
 	return DataManager::GetInstance().GetTurretData(number);
 }
 

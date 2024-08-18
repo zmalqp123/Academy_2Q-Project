@@ -20,6 +20,7 @@ TextUIRenderer::TextUIRenderer()
         L"en-us",                   // ·ÎÄ¶
         &pTextFormat
     );
+	pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
 }
 
 TextUIRenderer::~TextUIRenderer()

@@ -871,6 +871,13 @@ void GameScene::Start() {
         blackGround->ignoreEventSystem = true;
         blackGround->LoadTexture(L"../Resource/blackGround.png");
         blackGround->alpha = 0.5f;
+
+        auto costText = CreateGameObject<GameObject>();
+        costText->transform->SetParent(turretUIChild->transform);
+        costText->transform->type = Type::Ui;
+        costText->transform->pos.rectposition = { {0.f, 60.f}, {120.f, 100.f} };
+        auto textUI = costText->CreateComponent<TextUIRenderer>();
+        turretUIComp->textUI = textUI;
     }
     auto t1 = btn[0]->gameObject->GetComponent<TurretUI>();
     btn[0]->AddListener([GameManager, t1]() {GameManager->StartBatch(t1->GetIndex()); });
@@ -934,7 +941,15 @@ void GameScene::Start() {
     Upgradeobj->transform->SetParent(uiObj->transform);
     Upgradeobj->transform->type = Type::Ui;
     Upgradeobj->transform->pos.rectposition = { {20.f + 820.f + spacing + 270.f + spacing,10.f} ,{20.f + 820.f + spacing + 270.f + spacing + 180.f, 200.f - spacing} };
-
+    UpgradebtnImage->AddListener([=]() {
+        dynamicData->isUpgrade = !dynamicData->isUpgrade; 
+        if (dynamicData->isUpgrade == true) {
+            UpgradebtnImage->LoadTexture(L"../Resource/30208_Harvest1btn.png");
+        }
+        else {
+            UpgradebtnImage->LoadTexture(L"../Resource/harvest.png");
+        }
+    });
     UpgradebtnImage->LoadTexture(L"../Resource/harvest.png");
 
     pineApple->harvestbtn = UpgradebtnImage;
