@@ -2,6 +2,7 @@
 #include "WinApp3.h"
 #include "StartScene.h"
 #include "GameScene.h"
+#include "EndScene.h"
 #include"../D2DEngine/SceneManager.h"
 
 void WinApp3::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y) {
@@ -12,9 +13,11 @@ void WinApp3::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y) {
 
     auto startScene = new StartScene();
     auto gameScene = new GameScene();
+    auto endScene = new EndScene();
 
     sceneManager.RegisterScene("StartScene", startScene);
     sceneManager.RegisterScene("GameScene", gameScene);
+    sceneManager.RegisterScene("EndScene", endScene);
 
     // 시작 씬으로 전환
     sceneManager.ChangeScene("StartScene");

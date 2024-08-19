@@ -843,6 +843,11 @@ void GameScene::Clear() {
 void GameScene::Update(float deltaTime) {
     __super::Update(deltaTime);
 
+    if (testPineApple->GetPineAppleHP() == 0)
+    {
+        SceneManager::GetInstance().ChangeScene("EndScene");
+    }
+
     if (InputManager::GetInstance().IsKeyDown('1')) {
         hpBarUi->takeDamage(10.f);
         hpBarUi->ImageRender->slideBar = hpBarUi->getBarWidth();
