@@ -77,10 +77,13 @@ void GamePlayManager::Update(float deltaTime)
 			auto spr = object->gameObject->GetComponent<SpriteRenderer>();
 			if (object->turretType != TurretType::GrowthPromoter) {
 				if (spr) {
-					if (dir.x > 0)
+					if (dir.x > 0) {
 						spr->SetFilp(false, false);
+						object->selectOutline->SetFilp(false, false);
+					}
 					else {
 						spr->SetFilp(false, true);
+						object->selectOutline->SetFilp(false, true);
 					}
 				}
 				object->gameObject->transform->m_RelativeRotation = e;
@@ -96,11 +99,15 @@ void GamePlayManager::Update(float deltaTime)
 				isAngle = false;
 				turrets.clear();
 				if (object->turretType != TurretType::GrowthPromoter) {
-				object->gameObject->transform->m_RelativeRotation = object->prevAngle;
-					if (object->prevAngle > 90 || object->prevAngle < -90)
+					object->gameObject->transform->m_RelativeRotation = object->prevAngle;
+					if (object->prevAngle > 90 || object->prevAngle < -90){
 						spr->SetFilp(false, true);
-					else
+						object->selectOutline->SetFilp(false, true);
+					}
+					else {
 						spr->SetFilp(false, false);
+						object->selectOutline->SetFilp(false, false);
+					}
 				}
 			}
 		}

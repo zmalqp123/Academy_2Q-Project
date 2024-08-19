@@ -108,6 +108,20 @@ void Turret::Shoot()
     }
 }
 
+void Turret::SelectTurret()
+{
+    selectOutline->gameObject->isActive = true;
+    auto data = dynamicData->GetStaticTurretData(turretType);
+    selectOutline->LoadTexture(data->highlightPath.c_str());
+}
+
+void Turret::DeSelectTurret()
+{
+    selectOutline->gameObject->isActive = false;
+    auto data = dynamicData->GetStaticTurretData(turretType);
+    selectOutline->LoadTexture(data->highlightPath.c_str());
+}
+
 void Turret::Refund()
 {
     if (gameObject->isActive == false) return;

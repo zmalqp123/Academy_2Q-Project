@@ -27,8 +27,10 @@ void SelectTurretContainer::OnBlock(Collider* pOwnedComponent, Collider* pOtherC
 void SelectTurretContainer::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
 	auto turret = pOtherComponent->gameObject->GetComponent<Turret>();
-	if(turret != nullptr)
+	if (turret != nullptr) {
+		turret->SelectTurret();
 		container.insert(turret);
+	}
 }
 
 void SelectTurretContainer::OnStayOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
@@ -38,6 +40,8 @@ void SelectTurretContainer::OnStayOverlap(Collider* pOwnedComponent, Collider* p
 void SelectTurretContainer::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 {
 	auto turret = pOtherComponent->gameObject->GetComponent<Turret>();
-	if (turret != nullptr)
+	if (turret != nullptr) {
+		turret->DeSelectTurret();
 		container.erase(turret);
+	}
 }
