@@ -10,8 +10,6 @@
 void EnemyDead::Enter()
 {
 	enemy = dynamic_cast<Enemy*>(fsm->gameObject->GetComponent<Enemy>());
-	enemy->mainPineApple->acquireGold(enemy->enemyData.reward);
-	enemy->mainPineApple->monAcquireEXP(enemy->enemyData.expReward);
 	isSpined = false;
 	switch (enemy->enemyData.id)
 	{
@@ -80,7 +78,7 @@ void EnemyDead::Exit()
 
 void EnemyDead::Spin(float deltaTime)
 {
-	//fsm->gameObject->transform->m_RelativeRotation += 5.f; ÀÌ°Ç ±×³É ºù±×¸£¸£
+	//fsm->gameObject->transform->m_RelativeRotation += 5.f; ï¿½Ì°ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½×¸ï¿½ï¿½ï¿½
 	if (fsm->gameObject->transform->m_RelativeRotation<30.f) {
 		fsm->gameObject->transform->m_RelativeRotation += 250.f * deltaTime;
 	}

@@ -33,7 +33,7 @@ void ComosusPhase1::OnComosusDamage()
 {
 	auto container = lightSeletor->GetContainer();
 	for (auto enemy : container) {
-		enemy->enemy->Ondamage(40.f, BulletType::Comosus);
+		enemy->enemy->Ondamage(40.f, BulletType::Comosus, true);
 	}
 }
 // phase1
