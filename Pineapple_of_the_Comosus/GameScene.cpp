@@ -919,22 +919,36 @@ void GameScene::Start() {
 
     // 골드 Ui
     auto GoldObj = CreateGameObject<GameObject>();
-    auto GoldImage = GoldObj->CreateComponent<Button>();
+    auto GoldImage = GoldObj->CreateComponent<ImageUIRenderer>();
     GoldObj->transform->SetParent(uiObj->transform);
     GoldObj->transform->type = Type::Ui;
-    GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,113.f} ,{20.f + 820.f + spacing + 270.f, 196.f} };
+    GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,98.f} ,{20.f + 820.f + spacing + 270.f, 196.f} };
     GoldImage->LoadTexture(L"../Resource/30404.png");
+
+    auto Goldchild = CreateGameObject<GameObject>();
+    auto GoldUi = Goldchild->CreateComponent<TextUIRenderer>();
+    Goldchild->transform->SetParent(GoldObj->transform);
+    Goldchild->transform->type = Type::Ui;
+    Goldchild->transform->pos.rectposition = { {20.f,98.f},{280.f,110.f} };
+    pineApple->goldbar = GoldUi;
+
     // wstring str;
 
 
     // 레벨 버튼 
-    auto UpgradeObj = CreateGameObject<GameObject>();
-    auto UpgradeImage = UpgradeObj->CreateComponent<Button>();
-    UpgradeObj->transform->SetParent(uiObj->transform);
-    UpgradeObj->transform->type = Type::Ui;
-    UpgradeObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,0.f} ,{20.f + 820.f + spacing + 270.f, 98.f} };
-    UpgradeImage->LoadTexture(L"../Resource/30406.png");
+    auto LVObj = CreateGameObject<GameObject>();
+    auto LVImage = LVObj->CreateComponent<ImageUIRenderer>();
+    LVObj->transform->SetParent(uiObj->transform);
+    LVObj->transform->type = Type::Ui;
+    LVObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,0.f} ,{20.f + 820.f + spacing + 270.f, 98.f} };
+    LVImage->LoadTexture(L"../Resource/30406.png");
 
+    auto LVchild = CreateGameObject<GameObject>();
+    auto LVUi = LVchild->CreateComponent<TextUIRenderer>();
+    LVchild->transform->SetParent(LVObj->transform);
+    LVchild->transform->type = Type::Ui;
+    LVchild->transform->pos.rectposition = { {20.f,0.f},{280.f,110.f} };
+    pineApple->LVbar = LVUi;
 
     // 업그레이드 버튼 -> 이거 완성 500 * 500
     auto Upgradeobj = CreateGameObject<GameObject>();
@@ -1148,11 +1162,11 @@ void GameScene::Update(float deltaTime) {
 void GameScene::Render(D2DRenderer* _render) {
     __super::Render(_render);
 
-    auto pd = testPineApple;
-    int gold = pd->GetPineAppleGold();
-    //std::cout << gold << std::endl;
-    std::wstring pineAppleGold = std::to_wstring(gold);
-    D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
+    //auto pd = testPineApple;
+    //int gold = pd->GetPineAppleGold();
+    ////std::cout << gold << std::endl;
+    //std::wstring pineAppleGold = std::to_wstring(gold);
+    //D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
     //std::cout << cam->transform->m_WorldTransform.dx << std::endl;
     //std::cout << cam->transform->m_WorldTransform.dy << std::endl;
 
