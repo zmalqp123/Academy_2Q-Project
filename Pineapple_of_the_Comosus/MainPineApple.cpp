@@ -91,10 +91,10 @@ void MainPineApple::throwUiHP(int HP)
 {
     if (HP < 0)
         HP = 0;
-    else if (HP > maxHP)
-        HP = maxHP;
+    else if (HP > maxHP + rewardData->GetRewardPineAppleStat().maxHp)
+        HP = maxHP + rewardData->GetRewardPineAppleStat().maxHp;
 
-    hpbar->ImageRender->slideBar = HP / maxHP;
+    hpbar->ImageRender->slideBar = HP / (maxHP + rewardData->GetRewardPineAppleStat().maxHp);
 }
 
 void MainPineApple::UpdateMaxEXP()
@@ -105,7 +105,7 @@ void MainPineApple::UpdateMaxEXP()
 void MainPineApple::Harvest()
 {
     // HP recover
-    HP = maxHP;
+    HP = maxHP + rewardData->GetRewardPineAppleStat().maxHp;
 
     
     // maxexp
@@ -217,4 +217,10 @@ void MainPineApple::RefundAll()
     for (auto turret : turrets) {
         turret->Refund();
     }
+}
+
+void MainPineApple::SetMaxHP(float increaseHp)
+{
+    maxHP += increaseHp;
+    HP = +rewardData->GetRewardPineAppleStat().maxHp + maxHP;
 }

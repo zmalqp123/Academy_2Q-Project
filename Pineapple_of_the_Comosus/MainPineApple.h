@@ -84,6 +84,7 @@ public:
 	virtual void Update(float deltaTime);
 	const float GetMaxExp() const { return maxEXP; }
 	void RefundAll();
+	void SetMaxHP(float increaseHp);
 
 	BulletFactory* bulletFactory;
 };

@@ -53,27 +53,10 @@ void ComosusPhase1::Update(float deltaTime)
 	phase1Duration += deltaTime;
 	if (phase1Duration < 1.f) {
 		cameraShaker->SetAmplitude(phase1Duration * 20.f);
-
-		if (IsTiming(prevTime, phase1Duration, 0.1f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.2f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.3f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.4f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.5f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.6f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.7f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.8f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 0.9f))
-			OnComosusDamage();
-		if (IsTiming(prevTime, phase1Duration, 1.f))
-			OnComosusDamage();
+		for (int i = 0; i < 40; i++) {
+			if (IsTiming(prevTime, phase1Duration, i / 10.f))
+				OnComosusDamage();
+		}
 	}
 	if (prevTime < 1.f && phase1Duration >= 1.f) {
 		comosusSpriteAnim->SetAnimation(1, false);
@@ -89,23 +72,27 @@ void ComosusPhase1::Update(float deltaTime)
 
 	if (phase1Duration <= 2.f) {
 		float value = pineApple->GetCurrentExp() * ((2.f - phase1Duration) / 2.f);
-		std::cout << "EXP: " << value << std::endl;
 		pineApple->throwUiEXP(value);
 	}
 
-	if (phase1Duration > 5.f) {
-		if (prevTime < 5.3f && phase1Duration >= 5.3f) {
+	if (phase1Duration > 2.f) {
+		if (prevTime < 3.2f && phase1Duration >= 3.2f) {
+			pineApple->gameObject->transform->pos.worldPosition.y += 100.f;
+		}
+		if (prevTime < 3.2f && phase1Duration >= 3.2f) {
+			pineApple->gameObject->transform->pos.worldPosition.y += 100.f;
+		}
+		if (prevTime < 3.4f && phase1Duration >= 3.4f) {
 			pineApple->gameObject->transform->pos.worldPosition.y += 200.f;
 		}
-		if (prevTime < 5.6f && phase1Duration >= 5.6f) {
+		if (prevTime < 3.6f && phase1Duration >= 3.6f) {
 			pineApple->gameObject->transform->pos.worldPosition.y += 200.f;
 		}
-		if (prevTime < 5.9f && phase1Duration >= 5.9f) {
-			pineApple->gameObject->transform->pos.worldPosition.y += 400.f;
+		if (prevTime < 3.8f && phase1Duration >= 3.8f) {
+			pineApple->gameObject->transform->pos.worldPosition.y += 200.f;
 		}
-		if (prevTime < 6.2f && phase1Duration >= 6.2f) {
+		if (prevTime < 4.0f && phase1Duration >= 4.0f) {
 			pineApple->gameObject->transform->pos.worldPosition.y += 650.f;
-
 			fsm->SetState("Phase2");
 		}
 	}
@@ -120,6 +107,7 @@ void ComosusPhase1::Exit()
 	pineApple->RefundAll();
 	GameTime::GetInstance().SetTimeScale(0.f);
 	cameraShaker->ShakeOnCamera(false);
+	pineApple->SetMaxHP(50.f);
 
 	if (pineApple->LV == 5)
 	{
