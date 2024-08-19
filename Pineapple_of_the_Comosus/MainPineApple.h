@@ -14,6 +14,7 @@ class FiniteStateMachine;
 class ramdomReward;
 class FiniteStateMachine;
 class Turret;
+class WaveSystem;
 class MainPineApple : public Component
 {
 	friend class ComosusPhase1;
@@ -49,6 +50,7 @@ public:
 	DynamicData* rewardData;
 	SpriteAnimation* comosus;
 	FiniteStateMachine* fsm;
+	WaveSystem* waveSystem;
 	std::vector<GameObject*> rewardbtn;
 	ramdomReward* randomReward;
 	FiniteStateMachine* comosusFsm;

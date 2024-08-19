@@ -5,15 +5,16 @@
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/GameTime.h"
+#include "../D2DEngine/Button.h"
 #include "Mpbar.h"
 #include "Hpbar.h"
-#include "../D2DEngine/Button.h"
 #include "DynamicData.h"
 #include "Comosus.h"
 #include <iostream>
 #include <random>
 #include "ramdomReward.h"
 #include "ComosusFSM.h"
+#include "WaveSystem.h"
 
 void MainPineApple::PrintIndex(int index)
 {
@@ -199,7 +200,9 @@ void MainPineApple::Update(float deltaTime)
 {
     if (rewardData->isHarvest == false) {
         // 초당 수확량
-        solarAcquireEXP(deltaTime);
+        if (waveSystem->getCurrentWave() % 4 != 0) {
+            solarAcquireEXP(deltaTime);
+        }
 
         // UI HP바 업데이트  
         throwUiHP(GetPineAppleHP());
