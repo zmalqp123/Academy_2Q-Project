@@ -36,28 +36,28 @@ void StartScene::Start() {
     auto bgObj = CreateGameObject<GameObject>();
     auto bgSpr = bgObj->CreateComponent<SpriteRenderer>();
     bgObj->transform->type = Type::Ui;
-    bgSpr->LoadTexture(L"../Resource/mainPage.png");
+    bgSpr->LoadTexture(L"../Resource/main/titleBg.png");
 
     auto startButton = CreateGameObject<GameObject>();
     auto strtSpr = startButton->CreateComponent<Button>();
     startButton->transform->type = Type::Ui;
-    startButton->transform->pos.rectposition = { {1490,800} ,{1890,900} };
-    strtSpr->LoadTexture(L"../Resource/gameStart.png");
+    startButton->transform->pos.rectposition = { {1100,180} ,{1440,470} };
+    strtSpr->LoadTexture(L"../Resource/main/StartButton.png");
     //auto& curS = SceneManager::GetInstance();
     strtSpr->AddListener([&]() {SceneManager::GetInstance().SetChangeSceneFlag("GameScene"); });
 
     auto ruleButton = CreateGameObject<GameObject>();
     auto ruleSpr = ruleButton->CreateComponent<Button>();
     ruleButton->transform->type = Type::Ui;
-    ruleButton->transform->pos.rectposition = { {1490,650} ,{1890,750} };
-    ruleSpr->LoadTexture(L"../Resource/ruleButton.png");
+    ruleButton->transform->pos.rectposition = { {1320,100} ,{1690,330} };
+    ruleSpr->LoadTexture(L"../Resource/main/HowToPlay.png");
     //auto& curS = SceneManager::GetInstance();
     
-    auto exitButton = CreateGameObject<GameObject>();
-    auto exitSpr = exitButton->CreateComponent<Button>();
-    exitButton->transform->type = Type::Ui;
-    exitButton->transform->pos.rectposition = { {1490,500} ,{1890,600} };
-    exitSpr->LoadTexture(L"../Resource/exit.png");
+    auto wireButton = CreateGameObject<GameObject>();
+    auto wireSpr = wireButton->CreateComponent<Button>();
+    wireButton->transform->type = Type::Ui;
+    wireButton->transform->pos.rectposition = { {1040,500} ,{1780,1080} };
+    wireSpr->LoadTexture(L"../Resource//main/Titilewire.png");
     //auto& curS = SceneManager::GetInstance();
     //strtSpr->AddListener([]() {SceneManager::GetInstance().ChangeScene("GameScene"); });
 
