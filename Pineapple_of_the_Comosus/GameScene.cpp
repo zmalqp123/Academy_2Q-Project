@@ -264,6 +264,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -292,6 +297,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -320,6 +330,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -348,6 +363,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -376,6 +396,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -404,6 +429,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -432,6 +462,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -460,6 +495,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -488,6 +528,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -516,6 +561,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -544,6 +594,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -572,6 +627,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -600,6 +660,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -628,6 +693,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -656,6 +726,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -684,6 +759,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -712,6 +792,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
         {
             // 파인애플 타일들
@@ -740,6 +825,11 @@ void GameScene::Start() {
             childObj->transform->SetParent(paTileObj->transform);
             auto spr = childObj->CreateComponent<SpriteRenderer>();
             pineTile->turret = childObj;
+
+            auto fireTr = CreateGameObject<GameObject>();
+            fireTr->transform->SetParent(childObj->transform);
+            fireTr->transform->pos.worldPosition = { 50.f, 0.f };
+            tur->fireTr = fireTr;
         }
     }
 

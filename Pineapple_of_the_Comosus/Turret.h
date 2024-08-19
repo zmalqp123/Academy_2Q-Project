@@ -27,6 +27,7 @@ public:
 	MainPineApple* parentPineApple;
 	TurretData* turretData;
 	DynamicData* dynamicData;
+	GameObject* fireTr;
 
 	float prevAngle;
 	float currAngle;

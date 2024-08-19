@@ -13,5 +13,7 @@ class EnemyDead : public FSMState
 	void Enter() override;
 	void Update(float deltaTime) override;
 	void Exit() override;
+	void Spin(float deltaTime);
+	bool isSpined = false;
 };
 

@@ -42,7 +42,7 @@ void Turret::Shoot()
         // BulletFactory에서 Bullet을 가져온다
         Bullet* bullet = parentPineApple->bulletFactory->GetBulletFromPool();
         // 총알의 위치를 MusKetShooter의 위치로 설정
-        bullet->gameObject->transform->pos.worldPosition = {gameObject->transform->m_WorldTransform.dx, gameObject->transform->m_WorldTransform.dy };
+        bullet->gameObject->transform->pos.worldPosition = {fireTr->transform->m_WorldTransform.dx, fireTr->transform->m_WorldTransform.dy };
 
         // 총알 초기화 (속도와 방향 설정)
         Vector2 shootDirection = { 1.0f, 0.0f };  // 예를 들어 오른쪽으로 발사
