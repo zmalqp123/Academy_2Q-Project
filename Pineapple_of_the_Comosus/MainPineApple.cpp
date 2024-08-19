@@ -6,15 +6,16 @@
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/GameTime.h"
 #include "../D2DEngine/TextUIRenderer.h"
+#include "../D2DEngine/Button.h"
 #include "Mpbar.h"
 #include "Hpbar.h"
-#include "../D2DEngine/Button.h"
 #include "DynamicData.h"
 #include "Comosus.h"
 #include <iostream>
 #include <random>
 #include "ramdomReward.h"
 #include "ComosusFSM.h"
+#include "WaveSystem.h"
 
 void MainPineApple::PrintIndex(int index)
 {
@@ -31,32 +32,32 @@ void MainPineApple::spendGold(int cost)
     if (gold >= cost)
     {
         gold -= cost;
-        std::cout << "ÇöÀç ³²Àº ÆÄÀÎ¾ÖÇÃ °ñµå : " << gold << std::endl;
+        std::cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : " << gold << std::endl;
     } 
 }
 
-// ¸ó½ºÅÍ¿¡¼­ È£Ãâ 
+// ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ È£ï¿½ï¿½ 
 void MainPineApple::monAcquireEXP(float exp)
 {
     float dyKillMultiply = rewardData->GetRewardPineAppleStat().killMultiply;
-    // ¸ó½ºÅÍ·ÎºÎÅÍ °æÇèÄ¡¸¦ È¹µæ
+    // ï¿½ï¿½ï¿½Í·Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ È¹ï¿½ï¿½
     currentEXP += exp * (killMultiply + dyKillMultiply);
 
-    // currentEXP°¡ maxEXPÀ» ÃÊ°úÇÏ¸é maxEXPÀ¸·Î ¼³Á¤
+    // currentEXPï¿½ï¿½ maxEXPï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ï¸ï¿½ maxEXPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     if (currentEXP > maxEXP)
     {
         currentEXP = maxEXP;
     }
 }
 
-// ¸ó½ºÅÍ atk ¿¡¼­ È£Ãâ 
+// ï¿½ï¿½ï¿½ï¿½ atk ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ 
 void MainPineApple::pineAppleDamageHP(int damage)
 {
     if (HP > 0)
     {
-        std::cout << "ÃÊ±â HP : " << HP << std::endl;
+        std::cout << "ï¿½Ê±ï¿½ HP : " << HP << std::endl;
         HP -= damage;
-        std::cout << "µ¥¹ÌÁö ÈÄ HP : " << HP << std::endl;
+        std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ HP : " << HP << std::endl;
     }
     else
     {
@@ -66,12 +67,12 @@ void MainPineApple::pineAppleDamageHP(int damage)
 
 void MainPineApple::solarAcquireEXP(float deltaTime)
 {
-    // ÇöÀç °æÇèÄ¡¸¦ Áõ°¡½ÃÅ°Áö¸¸, ÃÖ´ë maxEXP±îÁö¸¸ Çã¿ë
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½, ï¿½Ö´ï¿½ maxEXPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     if (currentEXP <= maxEXP)
     {
         currentEXP += solarGain * deltaTime;
 
-        // currentEXP°¡ maxEXPÀ» ÃÊ°úÇÏ¸é maxEXPÀ¸·Î ¼³Á¤
+        // currentEXPï¿½ï¿½ maxEXPï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ï¸ï¿½ maxEXPï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (currentEXP >= maxEXP)
         {
             currentEXP = maxEXP;
@@ -81,7 +82,7 @@ void MainPineApple::solarAcquireEXP(float deltaTime)
 
 void MainPineApple::throwUiEXP(int currentEXP)
 {
-    // maxEXP°¡ 100ÀÌ°í currentEXP°¡ 0¿¡¼­ 100 »çÀÌÀÏ °æ¿ì¿¡¸¸ µ¿ÀÛ
+    // maxEXPï¿½ï¿½ 100ï¿½Ì°ï¿½ currentEXPï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ 100 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     if ( currentEXP >= 0 && currentEXP <= maxEXP)
     {
         expbar->ImageRender->slideBar = currentEXP / maxEXP;
@@ -90,13 +91,13 @@ void MainPineApple::throwUiEXP(int currentEXP)
 
 void MainPineApple::throwUiHP(int HP)
 {
-    // HP°¡ maxHP¸¦ ÃÊ°úÇÏ°Å³ª 0 ¹Ì¸¸À¸·Î ³»·Á°¡Áö ¾Êµµ·Ï Á¦ÇÑ
+    // HPï¿½ï¿½ maxHPï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ï°Å³ï¿½ 0 ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     if (HP < 0)
         HP = 0;
     else if (HP > maxHP)
         HP = maxHP;
 
-    // UI ¹Ù¸¦ ¾÷µ¥ÀÌÆ® (ºñÀ²À» °è»êÇÏ¿© Àü´Þ)
+    // UI ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½)
     hpbar->ImageRender->slideBar = HP / maxHP;
 }
 
@@ -107,18 +108,18 @@ void MainPineApple::UpdateMaxEXP()
 
 void MainPineApple::Harvest()
 {
-    // HP È¸º¹
+    // HP È¸ï¿½ï¿½
     HP = maxHP;
 
     
-    // °æÇèÄ¡°¡ ÃÖ´ëÄ¡ÀÎ °æ¿ì
+    // ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö´ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½
     if (currentEXP == maxEXP)
     {
-        //UpdateMaxEXP(); // »õ·Î¿î ÃÖ´ë °æÇèÄ¡ ¼³Á¤
-        std::cout << "·¹º§ ¾÷! ÇöÀç ·¹º§: " << LV << std::endl;
+        //UpdateMaxEXP(); // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+        std::cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½! ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " << LV << std::endl;
         //currentEXP = 0;
 
-        // 4. »õ·Î¿î ÆÄÀÎ¾ÖÇÃ »ý¼º
+        // 4. ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (LV >= 5 && LV < 11)
         {
             //SpawnNewPineapple();
@@ -128,27 +129,27 @@ void MainPineApple::Harvest()
             //SpawnSuperPineapple();
         }
 
-        // ÄÚ¸ð¼­½º ¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý
+        // ï¿½Ú¸ð¼­½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
         //comosus->SetAnimation(1, false);
         comosusFsm->SetState("Phase1");
 
-        // ÅÍ·¿ ºñÈ°¼ºÈ­
+        // ï¿½Í·ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         
-        // º¸»ó ¹öÆ° È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° È°ï¿½ï¿½È­
         //randomReward->UIon();
 
-        // º¸»ó ¼±ÅÃ ¿Ï·á ÈÄ ¸ðµç ÅÍ·¿ ÀçÈ°¼ºÈ­ (ÃßÈÄ ±¸Çö)
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Í·ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     }
     else
     {
-        // ¼öÈ® °¡´É Á¶°Ç È®ÀÎ (¿¹: ÇöÀç °æÇèÄ¡°¡ Æ¯Á¤ ºñÀ² ÀÌ»óÀÏ ¶§)
+        // ï¿½ï¿½È® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ (ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½)
         if (HarvestAble())
         {
-            std::cout << "ÃÖ´ë°æÇèÄ¡ ÀÌÇÏ ¼öÈ®: " << maxEXP << std::endl;
-            //UpdateMaxEXP(); // »õ·Î¿î ÃÖ´ë °æÇèÄ¡ ¼³Á¤
+            std::cout << "ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®: " << maxEXP << std::endl;
+            //UpdateMaxEXP(); // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
             //currentEXP = 0;
 
-            // 4. »õ·Î¿î ÆÄÀÎ¾ÖÇÃ »ý¼º
+            // 4. ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (LV >= 5 && LV < 11)
             {
                 //SpawnNewPineapple();
@@ -158,28 +159,28 @@ void MainPineApple::Harvest()
                 //SpawnSuperPineapple();
             }
 
-            // ÄÚ¸ð¼­½º ¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý
+            // ï¿½Ú¸ð¼­½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
             //comosus->SetAnimation(1, false);
             comosusFsm->SetState("Phase1");
 
-            // ÅÍ·¿ ºñÈ°¼ºÈ­
+            // ï¿½Í·ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
             //DisableAllTurrets();
 
-            // º¸»ó ¹öÆ° È°¼ºÈ­
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° È°ï¿½ï¿½È­
             //randomReward->UIon();
 
-            // º¸»ó ¼±ÅÃ ¿Ï·á ÈÄ ¸ðµç ÅÍ·¿ ÀçÈ°¼ºÈ­ (ÃßÈÄ ±¸Çö)
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Í·ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         }
         else
         {
-            std::cout << "¼öÈ® ºÒ°¡: " << maxEXP << std::endl;
+            std::cout << "ï¿½ï¿½È® ï¿½Ò°ï¿½: " << maxEXP << std::endl;
         }
     }
 }
 
 void MainPineApple::DisableRewardButtons()
 {
-    // º¸»ó ¹öÆ°µéÀ» ºñÈ°¼ºÈ­ÇÏ´Â ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     for (auto& element : rewardbtn)
     {
         element->isActive = false;
@@ -199,13 +200,15 @@ float MainPineApple::GetOfferingValue()
 void MainPineApple::Update(float deltaTime)
 {
     if (rewardData->isHarvest == false) {
-        // ÃÊ´ç ¼öÈ®·®
-        solarAcquireEXP(deltaTime);
+        // ï¿½Ê´ï¿½ ï¿½ï¿½È®ï¿½ï¿½
+        if (waveSystem->getCurrentWave() % 4 != 0) {
+            solarAcquireEXP(deltaTime);
+        }
 
-        // UI HP¹Ù ¾÷µ¥ÀÌÆ®  
+        // UI HPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®  
         throwUiHP(GetPineAppleHP());
     
-        // UI MP¹Ù ¾÷µ¥ÀÌÆ® 
+        // UI MPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 
         throwUiEXP(GetCurrentExp());
 
         goldbar->text = std::to_wstring( GetPineAppleGold()).c_str();
@@ -216,7 +219,7 @@ void MainPineApple::Update(float deltaTime)
 
     }
 
-    // ¼öÈ® ¹öÆ° È°¼ºÈ­
+    // ï¿½ï¿½È® ï¿½ï¿½Æ° È°ï¿½ï¿½È­
     if (HarvestAble() && rewardData->isHarvest == false)
     {
         harvestbtn->LoadTexture(L"../Resource/30208_Harvest1btn.png");

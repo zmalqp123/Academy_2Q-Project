@@ -6,17 +6,53 @@
 #include "../D2DEngine/TextUIRenderer.h"
 void TurretUI::Update(float deltaTime)
 {
-	if (DataManager::GetInstance().GetTurretData((int)type)->cost <= pApple->GetPineAppleGold()&&
-		pApple->rewardData->isHarvest == false)
-		blockImage->alpha = 0.f;
-	else
-		blockImage->alpha = 0.5f;
+	auto data = DataManager::GetInstance().GetTurretData((int)type);
+	auto upgradeData = pApple->rewardData->GetNextStaticTurretData(type);
 
-	if (pApple->rewardData->isUpgrade == false) {
-		textUI->text = std::to_wstring(DataManager::GetInstance().GetTurretData((int)type)->cost).c_str();
+	if (pApple->rewardData->isHarvest == false) {
+		if (pApple->rewardData->isUpgrade == false) {
+			if(data->cost <= pApple->GetPineAppleGold())
+				blockImage->alpha = 0.f;
+			else 
+				blockImage->alpha = 0.5f;
+		}
+		else {
+			if (upgradeData != nullptr) {
+				if (upgradeData->cost <= pApple->GetPineAppleGold())
+					blockImage->alpha = 0.f;
+				else
+					blockImage->alpha = 0.5f;
+			}
+			else
+				blockImage->alpha = 0.5f;
+		}
 	}
 	else {
-		auto cost = pApple->rewardData->GetNextStaticTurretData(type);
+		blockImage->alpha = 0.5f;
+	}
+
+
+
+	/*if (data->cost <= pApple->GetPineAppleGold() && pApple->rewardData->isHarvest == false)
+		blockImage->alpha = 0.f;
+	else if (upgradeData != nullptr) {
+		if (upgradeData->cost <= pApple->GetPineAppleGold() && pApple->rewardData->isUpgrade == false)
+		{
+			std::cout << "upgrade cost: " << upgradeData->cost << std::endl;
+			blockImage->alpha = 0.f;
+		}
+		else {
+			blockImage->alpha = 0.5f;
+		}
+	}
+	else
+		blockImage->alpha = 0.5f;*/
+
+	if (pApple->rewardData->isUpgrade == false) {
+		textUI->text = std::to_wstring(data->cost).c_str();
+	}
+	else {
+		auto cost = upgradeData;
 		if (cost == nullptr) {
 			textUI->text = L"X";
 		}

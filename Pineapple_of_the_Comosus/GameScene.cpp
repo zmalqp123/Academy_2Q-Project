@@ -787,6 +787,7 @@ void GameScene::Start() {
     waveSystem->bulletFactory = bulletFactory;
     waveSystem->mainPineApple = GameManager->pineApple;
     waveSystem->Init();
+	pineApple->waveSystem = waveSystem; // 낮 밤에 따라 광합성 경험치 습득 때문에 넣음.
 
 
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가

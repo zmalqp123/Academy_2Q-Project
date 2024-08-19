@@ -15,30 +15,31 @@ class ramdomReward;
 class FiniteStateMachine;
 class Turret;
 class TextUIRenderer;
+class WaveSystem;
 class MainPineApple : public Component
 {
 	friend class ComosusPhase1;
 	int gold = 300;
 	int LV = 1;
-	float maxHP = 100;			// ÆÄÀÎ¾ÖÇÃ ÃÖ´ëÃ¼·Â 
-	float HP = maxHP;				// ÇöÀç ÆÄÀÎ¾ÖÇÃ Ã¼·Â. HP°¡ 0ÀÌµÇ¸é °ÔÀÓ¿À¹ö
-	float currentEXP = 0;		// ÇöÀç ÆÄÀÎ¾ÖÇÃÀÇ °æÇèÄ¡
-	float maxEXP = 100;			// ÆÄÀÎ¾ÖÇÃ ÃÖ´ë °æÇèÄ¡ °ª
-	float solarGain = 50;		// ÇöÀç ÆÄÀÎ¾ÖÇÃÀÇ ÃÊ´ç ¼öÈ®°æÇèÄ¡·®
-	int morningValue = 1;		// ³· ½Ã°£´ë Àû¿ë °ª
-	int nightValue = 0;			// ¹ã ½Ã°£´ë Àû¿ë °ª
-	float killMultiply = 1.0;	// ¸ó½ºÅÍ Ã³Ä¡½Ã °æÇèÄ¡ ¹èÀ². currentExp = currentExp + ¸ó½ºÅÍ Ã³Ä¡ exp * killMultiply°ª
-	float offeringMultiply = 0.75; // ±âº» 0.75 ¼³Á¤,  75ÆÛ Ã¤¿üÀ» ¶§ »ç¿ë°¡´É 
+	float maxHP = 100;			// ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½Ã¼ï¿½ï¿½ 
+	float HP = maxHP;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½. HPï¿½ï¿½ 0ï¿½ÌµÇ¸ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½
+	float currentEXP = 0;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
+	float maxEXP = 100;			// ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½
+	float solarGain = 50;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½È®ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½
+	int morningValue = 1;		// ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	int nightValue = 0;			// ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	float killMultiply = 1.0;	// ï¿½ï¿½ï¿½ï¿½ Ã³Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½. currentExp = currentExp + ï¿½ï¿½ï¿½ï¿½ Ã³Ä¡ exp * killMultiplyï¿½ï¿½
+	float offeringMultiply = 0.75; // ï¿½âº» 0.75 ï¿½ï¿½ï¿½ï¿½,  75ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ 
 	// float offeringValue;
 
-	// ·¹º§º° ÃÖ´ë °æÇèÄ¡ Å×ÀÌºí
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ìºï¿½
 	std::vector<float> EXP_TABLE = {
 		100, 200, 300, 400, 500,
 		700, 900, 1100, 1300, 1500,
 		1900, 2100, 2300, 2500, 2700,
 		3100, 3500, 3900, 4300, 4700,
 		5200, 5700, 6200, 6700, 7200,
-		7200 // ·¹º§ 26 ÀÌ»óÀÇ °æ¿ì ÃÖ´ë °æÇèÄ¡
+		7200 // ï¿½ï¿½ï¿½ï¿½ 26 ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 	};
 
 public:
@@ -52,6 +53,7 @@ public:
 	FiniteStateMachine* fsm;
 	TextUIRenderer* goldbar;
 	TextUIRenderer* LVbar;
+	WaveSystem* waveSystem;
 	std::vector<GameObject*> rewardbtn;
 	ramdomReward* randomReward;
 	FiniteStateMachine* comosusFsm;
@@ -63,20 +65,20 @@ public:
 
 	void DisableRewardButtons();
 	void PrintIndex(int index);
-	void acquireGold(int cost);		// ¸ó½ºÅÍ »ç¸Á½Ã È¹µæÇÑ °ñµå
-	void spendGold(int cost);		// ÅÍ·¿ ¼³Ä¡½Ã »ç¿ëÇÑ °ñµå
-	void monAcquireEXP(float exp);	// ¸ó½ºÅÍ »ç¸Á½Ã È¹µæÇÑ °æÇèÄ¡
-	void pineAppleDamageHP(int damage);	// ¸ó½ºÅÍ¿¡¼­ atk ¶§ ÆÄÀÎ¾ÖÇÃ µ¥¹ÌÁö
+	void acquireGold(int cost);		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	void spendGold(int cost);		// ï¿½Í·ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	void monAcquireEXP(float exp);	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
+	void pineAppleDamageHP(int damage);	// ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ atk ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void solarAcquireEXP(float deltaTime);
 	void throwUiEXP(int currentEXP);
 	void throwUiHP(int HP);
 	void UpdateMaxEXP();
-	void Harvest();					// °æÇèÄ¡¸¦ ¼ÒºñÇØ¼­ ÆÄÀÎ¾ÖÇÃ ¼öÈ®, ÆÄÀÎ¾ÖÇÃ ÃÖ´ë °æÇèÄ¡ Âü°í
+	void Harvest();					// ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Òºï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½È®, ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	bool HarvestAble();
-	int GetPineAppleGold() { return gold; }	// ÇöÀç ÆÄÀÎ¾ÖÇÃ °ñµå·®
-	int GetCurrentExp() { return currentEXP; }			// ÇöÀç ÆÄÀÎ¾ÖÇÃ °æÇèÄ¡ -> ÆÄÀÎ¾ÖÇÃ ¼öÈ® È½¼ö									
+	int GetPineAppleGold() { return gold; }	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½å·®
+	int GetCurrentExp() { return currentEXP; }			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ -> ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ ï¿½ï¿½È® È½ï¿½ï¿½									
 	int GetPineAppleLV() { return LV; }
-	int GetPineAppleHP() { return HP; }				// ÇöÀç ÆÄÀÎ¾ÖÇÃ hp °¡Á®¿À±â 
+	int GetPineAppleHP() { return HP; }				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ hp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	float GetOfferingValue(); // float offeringValue;
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);
