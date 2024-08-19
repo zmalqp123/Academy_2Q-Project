@@ -60,7 +60,7 @@ void Bullet::Update(float deltaTime)
         bulletFactory->ReturnBulletToPool(this);
     }
     OnGround();
-    if (isBursted()) {
+    if (bulletType == BulletType::burst && isBursted()) {
         gameObject->isActive = false;
         bulletFactory->ReturnBulletToPool(this);
     }
@@ -75,6 +75,7 @@ void Bullet::Reset()
     {
         move->SetSpeed(0.0f);
         move->SetDirection(Vector2{ 0.0f, 0.0f });
+        move->isGravity = true;
     }
 
     // 박스 콜라이더 초기화 (필요시)
@@ -97,8 +98,7 @@ void Bullet::Reset()
 	isBurst = false; 
     explode->SetAnimation(1, false);
     explode->m_AnimationIndex = 1;
-    isBurst = false;
-    move->isGravity = true;
+    
 }
 
 void Bullet::SetAttackValue(const Vector2& direction,int _id, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime, BulletType _bulletType)
@@ -141,6 +141,10 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
             
             if (bulletType == BulletType::burst) {
                 OnBurst(bombRange);
+            }
+            else {
+                gameObject->isActive = false;
+                bulletFactory->ReturnBulletToPool(this);
             }
             
             

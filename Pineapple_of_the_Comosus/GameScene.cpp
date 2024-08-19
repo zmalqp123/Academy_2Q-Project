@@ -768,10 +768,38 @@ void GameScene::Start() {
 
 
     // 배경 이미지
-    auto bgObj = CreateGameObject<GameObject>();
-    bgObj->transform->SetSortingLayer(-10);
-    auto bgSpr = bgObj->CreateComponent<SpriteRenderer>();
-    bgSpr->LoadTexture(L"../Resource/morningBG.png");
+    auto bg30102Obj = CreateGameObject<GameObject>();
+    bg30102Obj->transform->SetSortingLayer(-17);
+    auto bg30102Spr = bg30102Obj->CreateComponent<SpriteRenderer>();
+    bg30102Spr->LoadTexture(L"../Resource/30102.png");
+
+    // 배경 땅
+    auto bg30101Obj = CreateGameObject<GameObject>();
+    bg30101Obj->transform->SetSortingLayer(-11);
+    auto bg30101Spr = bg30101Obj->CreateComponent<SpriteRenderer>();
+    bg30101Spr->LoadTexture(L"../Resource/30101.png");
+
+    // 배경 산1
+    auto bg30321Obj = CreateGameObject<GameObject>();
+    bg30321Obj->transform->SetSortingLayer(-12);
+    auto bg30321Spr = bg30321Obj->CreateComponent<SpriteRenderer>();
+    bg30321Spr->LoadTexture(L"../Resource/30321.png");
+
+    // 배경 산2
+    auto bg30322Obj = CreateGameObject<GameObject>();
+    bg30322Obj->transform->SetSortingLayer(-13);
+    auto bg30322Spr = bg30322Obj->CreateComponent<SpriteRenderer>();
+    bg30322Spr->LoadTexture(L"../Resource/30322.png");
+
+    //Sun and Moon will sorted in layer -14
+
+    // 배경 산3
+    auto bg30323Obj = CreateGameObject<GameObject>();
+    bg30323Obj->transform->SetSortingLayer(-14);
+    auto bg30323Spr = bg30323Obj->CreateComponent<SpriteRenderer>();
+    bg30323Spr->LoadTexture(L"../Resource/30323.png");
+
+
 
     // 메뉴바
     auto uiObj = CreateGameObject<GameObject>();
@@ -797,19 +825,29 @@ void GameScene::Start() {
 
     // 해 이미지
     auto sunObj = CreateGameObject<GameObject>();
-    sunObj->transform->SetSortingLayer(-9);
+    sunObj->transform->SetSortingLayer(-15);
     auto sunSpr = sunObj->CreateComponent<SpriteRenderer>();
     sunSpr->LoadTexture(L"../Resource/BGSun.png");
     sunObj->transform->pos.worldPosition = { 800.f, 400.f };
     nightSystem->m_Sun = sunObj;
 
+    
+
+
     // 달 이미지
     auto moonObj = CreateGameObject<GameObject>();
-    moonObj->transform->SetSortingLayer(-9);
+    moonObj->transform->SetSortingLayer(-15);
     auto moonSpr = moonObj->CreateComponent<SpriteRenderer>();
     moonSpr->LoadTexture(L"../Resource/BGMoon.png");
     moonObj->transform->pos.worldPosition = { 800.f, -300.f };
     nightSystem->m_Moon = moonObj;
+
+    // 해/달 막대기 이미지
+    auto sunStickObj = CreateGameObject<GameObject>();
+    sunStickObj->transform->SetSortingLayer(-16);
+    auto sunStickSpr = sunStickObj->CreateComponent<SpriteRenderer>();
+    sunStickSpr->LoadTexture(L"../Resource/홈.png");
+    sunStickObj->transform->pos.worldPosition = { 800.f, 50.f};
 
 
     // 내부 컴포넌트 포인터 주소 연결
