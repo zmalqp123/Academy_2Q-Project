@@ -178,6 +178,7 @@
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="SpriteAnimationAsset.h" />
     <ClInclude Include="SpriteRenderer.h" />
+    <ClInclude Include="SpriteUIAnimation.h" />
     <ClInclude Include="TestObject.h" />
     <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="TextUIRenderer.h" />
@@ -223,6 +224,7 @@
     <ClCompile Include="SpriteAnimation.cpp" />
     <ClCompile Include="SpriteAnimationAsset.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
+    <ClCompile Include="SpriteUIAnimation.cpp" />
     <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="TextUIRenderer.cpp" />

@@ -12,6 +12,7 @@ enum class BulletType {
     arrow,
     bullet,
     burst,
+    Comosus
 };
 
 class Bullet : public Component, public IColliderNotify
