@@ -149,6 +149,8 @@ private:
 		}
 		turretDataMap.clear();
 	};
+
+	int maxWaveCount = 0;
 public:
 	
 
@@ -164,6 +166,7 @@ public:
 	std::map<int, EnemyData*> enemyDataMap; // int = id
 	std::map<int, TurretData*> turretDataMap; // int = id
 	std::map<int, WaveData*> waveDataMap;
+	int GetMaxWaveCount() { return maxWaveCount; }
 
 	bool LoadEnemySheetFromCSV(const wchar_t* fileName)
 	{
@@ -314,6 +317,7 @@ public:
 			if (!file.is_open()) {
 				std::cout << "파일을 열 수 없습니다." << std::endl;
 				std::wcout << newPath << std::endl;
+				maxWaveCount = count - 1;
 				break;
 			}
 			std::wstring line;			// 한줄의 문자열	

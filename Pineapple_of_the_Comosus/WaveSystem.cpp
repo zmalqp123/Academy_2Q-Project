@@ -95,6 +95,7 @@ WaveSystem::~WaveSystem()
 
 void WaveSystem::LoadWaveData()
 {
+    if (currentWave > DataManager::GetInstance().GetMaxWaveCount()) return;
     leftEnemyDatas.clear();
     leftEnemyDatas.assign(DataManager::GetInstance().GetWaveData(currentWave)->leftWaveData.begin(), 
             DataManager::GetInstance().GetWaveData(currentWave)->leftWaveData.end());
@@ -182,6 +183,7 @@ void WaveSystem::StartNextWave()
     if (currentWave < maxWave)
     {
         currentWave++;
+        std::cout << "current wave: " << currentWave << std::endl;
         LoadWaveData();
         waveTimer = maxWaveTimer;  // 타이머 초기화 //현재 15초
         //SpawnWave();        // 새로운 wave 스폰
