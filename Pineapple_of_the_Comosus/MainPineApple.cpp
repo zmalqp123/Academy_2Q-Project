@@ -5,6 +5,7 @@
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/GameTime.h"
+#include "../D2DEngine/TextUIRenderer.h"
 #include "Mpbar.h"
 #include "Hpbar.h"
 #include "../D2DEngine/Button.h"
@@ -81,7 +82,7 @@ void MainPineApple::solarAcquireEXP(float deltaTime)
 void MainPineApple::throwUiEXP(int currentEXP)
 {
     // maxEXP가 100이고 currentEXP가 0에서 100 사이일 경우에만 동작
-    if (maxEXP <= maxEXP && currentEXP >= 0 && currentEXP <= maxEXP)
+    if ( currentEXP >= 0 && currentEXP <= maxEXP)
     {
         expbar->ImageRender->slideBar = currentEXP / maxEXP;
     }
@@ -203,9 +204,16 @@ void MainPineApple::Update(float deltaTime)
 
         // UI HP바 업데이트  
         throwUiHP(GetPineAppleHP());
-
+    
         // UI MP바 업데이트 
         throwUiEXP(GetCurrentExp());
+
+        goldbar->text = std::to_wstring( GetPineAppleGold()).c_str();
+
+
+
+        LVbar->text = std::to_wstring(GetPineAppleLV()).c_str();
+
     }
 
     // 수확 버튼 활성화

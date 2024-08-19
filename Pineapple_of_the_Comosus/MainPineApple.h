@@ -14,13 +14,14 @@ class FiniteStateMachine;
 class ramdomReward;
 class FiniteStateMachine;
 class Turret;
+class TextUIRenderer;
 class MainPineApple : public Component
 {
 	friend class ComosusPhase1;
 	int gold = 300;
 	int LV = 1;
-	int maxHP = 100;			// 파인애플 최대체력 
-	int HP = maxHP;				// 현재 파인애플 체력. HP가 0이되면 게임오버
+	float maxHP = 100;			// 파인애플 최대체력 
+	float HP = maxHP;				// 현재 파인애플 체력. HP가 0이되면 게임오버
 	float currentEXP = 0;		// 현재 파인애플의 경험치
 	float maxEXP = 100;			// 파인애플 최대 경험치 값
 	float solarGain = 50;		// 현재 파인애플의 초당 수확경험치량
@@ -49,6 +50,8 @@ public:
 	DynamicData* rewardData;
 	SpriteAnimation* comosus;
 	FiniteStateMachine* fsm;
+	TextUIRenderer* goldbar;
+	TextUIRenderer* LVbar;
 	std::vector<GameObject*> rewardbtn;
 	ramdomReward* randomReward;
 	FiniteStateMachine* comosusFsm;
