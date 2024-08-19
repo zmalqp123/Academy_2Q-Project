@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "WinApp3.h"
 #include "StartScene.h"
 #include "GameScene.h"
@@ -7,7 +7,7 @@
 void WinApp3::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y) {
     __super::Initialize(hInstance, nCmdShow, x, y);
 
-    // ¾À ¸Å´ÏÀú¸¦ »ç¿ëÇÏ¿© ¾À µî·Ï
+    // ì”¬ ë§¤ë‹ˆì €ë¥¼ ì‚¬ìš©í•˜ì—¬ ì”¬ ë“±ë¡
     SceneManager& sceneManager = SceneManager::GetInstance();
 
     auto startScene = new StartScene();
@@ -16,7 +16,7 @@ void WinApp3::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y) {
     sceneManager.RegisterScene("StartScene", startScene);
     sceneManager.RegisterScene("GameScene", gameScene);
 
-    // ½ÃÀÛ ¾ÀÀ¸·Î ÀüÈ¯
+    // ì‹œì‘ ì”¬ìœ¼ë¡œ ì „í™˜
     sceneManager.ChangeScene("StartScene");
 }
 
@@ -24,7 +24,7 @@ void WinApp3::Update(float deltaTime) {
     __super::Update(deltaTime);
 
     auto& sManager = SceneManager::GetInstance();
-    // ¾À ¾÷µ¥ÀÌÆ® È£Ãâ (¾À ¸Å´ÏÀú »ç¿ë)
+    // ì”¬ ì—…ë°ì´íŠ¸ í˜¸ì¶œ (ì”¬ ë§¤ë‹ˆì € ì‚¬ìš©)
     sManager.GetCurrentScene()->Update(deltaTime);
 
     if (sManager.shouldChangeSceneFlag == true) {
@@ -36,7 +36,7 @@ void WinApp3::Update(float deltaTime) {
 void WinApp3::Render(D2DRenderer* _render) {
     __super::Render(_render);
 
-    // ¾À ·»´õ¸µ È£Ãâ (¾À ¸Å´ÏÀú »ç¿ë)
+    // ì”¬ ë Œë”ë§ í˜¸ì¶œ (ì”¬ ë§¤ë‹ˆì € ì‚¬ìš©)
     SceneManager::GetInstance().GetCurrentScene()->Render(_render);
 }
 

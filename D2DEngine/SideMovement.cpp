@@ -5,6 +5,7 @@
 
 void SideMovement::Update(float delta)
 {
+    if (!isGravity) return;
     prevPosition = gameObject->transform->pos.worldPosition;
 
     // 현재 위치 가져오기

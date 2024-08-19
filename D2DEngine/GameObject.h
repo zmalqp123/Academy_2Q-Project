@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Object.h"
 #include <iostream>
 #include <string>
@@ -8,9 +8,9 @@ class Component;
 class Transform;
 class SpriteAnimation;
 class Scene;
-// °ÔÀÓ ¿ÀºêÁ§Æ®°¡ °ÔÀÓ¿ÀºêÁ§Æ®¸¦ ÀÚ½ÄÀ¸·Î °¡Áö´Â 1¹ø
-// ¸ðµç °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ ¾À¿¡ Á¾¼Ó½ÃÅ°°í °ÔÀÓ¿ÀºêÁ§Æ®°¡ 
-// ºñÈ°¼ºÈ­ ½Ã »óÀ§ ¿ÀºêÁ§Æ®ÀÇ active¸¦ ÃßÀûÇÏ¿© ½ÇÇà¿©ºÎ¸¦ °áÁ¤ÇÏ´Â 2¹ø
+// ê²Œìž„ ì˜¤ë¸Œì íŠ¸ê°€ ê²Œìž„ì˜¤ë¸Œì íŠ¸ë¥¼ ìžì‹ìœ¼ë¡œ ê°€ì§€ëŠ” 1ë²ˆ
+// ëª¨ë“  ê²Œìž„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì”¬ì— ì¢…ì†ì‹œí‚¤ê³  ê²Œìž„ì˜¤ë¸Œì íŠ¸ê°€ 
+// ë¹„í™œì„±í™” ì‹œ ìƒìœ„ ì˜¤ë¸Œì íŠ¸ì˜ activeë¥¼ ì¶”ì í•˜ì—¬ ì‹¤í–‰ì—¬ë¶€ë¥¼ ê²°ì •í•˜ëŠ” 2ë²ˆ
 
 class GameObject : public Object
 {
@@ -55,7 +55,7 @@ public:
 		}
 		return nullptr;
 
-		//// »ó¼Ó°ü°èÀÎ ÄÄÆ÷³ÍÆ®¸¦ Ã£À» ¼ö ¾øÀ½.
+		//// ìƒì†ê´€ê³„ì¸ ì»´í¬ë„ŒíŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŒ.
 		//for (auto c : components) {
 		//	auto cP = dynamic_cast<T*>(c);
 		//	if (cP != nullptr) {

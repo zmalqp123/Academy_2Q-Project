@@ -75,7 +75,11 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	{
 		LoadAnimationFromCSV(0, L"../Resource/30309.txt");
 	}
-
+	if (FilePath == std::wstring(L"30318")) 
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30318.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30318-1.txt");
+	}
 	if (FilePath == std::wstring(L"griffinMove"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/griffin.txt");
