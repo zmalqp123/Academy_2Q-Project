@@ -5,6 +5,8 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/Scene.h"
+#include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/SpriteAnimationAsset.h"
 #include "BulletFactory.h"
 #include "Enemy.h"
 #include "EnemyColliderNotify.h"
@@ -58,6 +60,11 @@ void Bullet::Update(float deltaTime)
         bulletFactory->ReturnBulletToPool(this);
     }
     OnGround();
+    if (isBursted()) {
+        gameObject->isActive = false;
+        bulletFactory->ReturnBulletToPool(this);
+    }
+    
 }
 
 void Bullet::Reset()
@@ -80,17 +87,23 @@ void Bullet::Reset()
     // 기타 필요한 초기화 코드들
     //speed = 0.0f;
     //direction = Vector2(0.0f, 0.0f);
-
+    id = 0;
     bombRange = 0.f;
     attackPower = 0.f;
     penetratingPower = 0;
     moveSpeed = 0.f;
     slowPower = 0.f;
     slowTime = 0.f;
+	isBurst = false; 
+    explode->SetAnimation(1, false);
+    explode->m_AnimationIndex = 1;
+    isBurst = false;
+    move->isGravity = true;
 }
 
-void Bullet::SetAttackValue(const Vector2& direction, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime, BulletType _bulletType)
-{
+void Bullet::SetAttackValue(const Vector2& direction,int _id, float _bombRange, float _attackPower, int _penetratingPower, float _moveSpeed, float _slowPower, float _slowTime, BulletType _bulletType)
+{   
+	id = _id;
     bombRange = _bombRange;
     attackPower = _attackPower;
     penetratingPower = _penetratingPower;
@@ -125,12 +138,14 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
         e->enemy->Ondamage(attackPower,bulletType);
         std::cout << "bulletID: " <<gameObject->GetInstanceID() << "instanceid: " << e->GetInstanceID() << std::endl;
         if (penetratingPower <= 0) {
-            gameObject->isActive = false;
+            
             if (bulletType == BulletType::burst) {
                 OnBurst(bombRange);
             }
-            bulletFactory->ReturnBulletToPool(this);
+            
+            
         }
+        
     }
 }
 
@@ -145,37 +160,64 @@ void Bullet::OnEndOverlap(Collider* pOwnedComponent, Collider* pOtherComponent)
 void Bullet::OnGround()
 {
     if (gameObject->transform->pos.worldPosition.y < -300) {
-        gameObject->isActive = false;
+        
         if (bulletType == BulletType::burst) {
             OnBurst(bombRange);
             
         }
-        bulletFactory->ReturnBulletToPool(this);
-			
+
     }
+    
 	
 }
 
 void Bullet::OnBurst(float _bombRange) {
     auto iter = gameObject->ownerScene->m_GameObjects.begin();
-    for (; iter != gameObject->ownerScene->m_GameObjects.end(); iter++) {
-        EnemyColliderNotify* thisEnemy = (*iter)->GetComponent<EnemyColliderNotify>();
-        
-        if (thisEnemy == nullptr) continue;
-        else {
-            BoxCollider* thisBox = thisEnemy->gameObject->GetComponent<BoxCollider>();
-            /*std::cout << "bound: " << thisBox->GetBound().GetMaxX() << ", " << thisBox->GetBound().GetMinX() << std::endl;
-            std::cout << "bombrange: " << gameObject->transform->m_WorldTransform.dx + _bombRange << ", " << gameObject->transform->m_WorldTransform.dx - _bombRange << std::endl;*/
-            if (thisBox->GetBound().GetMaxX() > gameObject->transform->m_WorldTransform.dx - _bombRange &&
-                thisBox->GetBound().GetMinX() < gameObject->transform->m_WorldTransform.dx + _bombRange &&
-                thisBox->GetBound().GetMaxY() > gameObject->transform->m_WorldTransform.dy - _bombRange &&
-                thisBox->GetBound().GetMinY() < gameObject->transform->m_WorldTransform.dy + _bombRange)
-            {
-                thisEnemy->enemy->Ondamage(attackPower, bulletType);
-                if (slowPower > 0.f) thisEnemy->enemy->OnSlow(slowPower, slowTime);
+    
+    if(!isBurst){
+        explode->SetAnimation(0, false);
+		explode->m_AnimationIndex = 0;
+		isBurst = true;
+    }
+    
+    this->move->isGravity = false;
+    if (isBurst = true) {
+        for (; iter != gameObject->ownerScene->m_GameObjects.end(); iter++) {
+            EnemyColliderNotify* thisEnemy = (*iter)->GetComponent<EnemyColliderNotify>();
+
+            if (thisEnemy == nullptr) continue;
+            else {
+                BoxCollider* thisBox = thisEnemy->gameObject->GetComponent<BoxCollider>();
+                /*std::cout << "bound: " << thisBox->GetBound().GetMaxX() << ", " << thisBox->GetBound().GetMinX() << std::endl;
+                std::cout << "bombrange: " << gameObject->transform->m_WorldTransform.dx + _bombRange << ", " << gameObject->transform->m_WorldTransform.dx - _bombRange << std::endl;*/
+
+                if (thisBox->GetBound().GetMaxX() > gameObject->transform->m_WorldTransform.dx - _bombRange &&
+                    thisBox->GetBound().GetMinX() < gameObject->transform->m_WorldTransform.dx + _bombRange &&
+                    thisBox->GetBound().GetMaxY() > gameObject->transform->m_WorldTransform.dy - _bombRange &&
+                    thisBox->GetBound().GetMinY() < gameObject->transform->m_WorldTransform.dy + _bombRange)
+                {
+
+                    thisEnemy->enemy->Ondamage(attackPower, bulletType);
+                    if (slowPower > 0.f) thisEnemy->enemy->OnSlow(slowPower, slowTime);
+                }
+
+
             }
-
-
         }
     }
+    
+    
+}
+
+bool Bullet::isBursted()
+{   
+    if (explode != nullptr
+        && explode->m_AnimationIndex == 0
+        && explode->IsLastFrame()) {
+        return true;
+    }
+    else {
+        return false;
+    }
+
 }

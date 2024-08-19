@@ -9,6 +9,7 @@ private:
 public:
     bool freezeRotate = true;
     Vector2 prevPosition;
+	bool isGravity = true;
 
     void Update(float delta) override;
     void AddForce(Vector2 velocity);

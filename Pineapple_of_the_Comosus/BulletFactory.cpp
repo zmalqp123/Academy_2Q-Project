@@ -49,6 +49,15 @@ Bullet* BulletFactory::CreateBullet()
     bullet->pBoxcollider = collider;
     bullet->bulletFactory = this;
 
+    SpriteAnimation* explode = bullet->gameObject->CreateComponent<SpriteAnimation>();
+    bullet->explode = explode;
+    bullet->bulletSprite = spriteRenderer;
+    
+    explode->LoadTexture(L"../Resource/30318.png");
+    explode->LoadAnimationAsset(L"30318");
+    explode->SetAnimation(1, false);
+
+
     return bullet;
 }
 
@@ -63,6 +72,18 @@ Bullet* BulletFactory::GetBulletFromPool()
     Bullet* bullet = m_BulletPool.back();
     bullet->gameObject->isActive = true;
     bullet->gameObject->transform->SetSortingLayer(INT_MAX);
+    
+	SpriteAnimation* bulletSprite = bullet->gameObject->GetComponent<SpriteAnimation>();
+	SpriteAnimation* explode = bullet->explode;
+    if (bullet->id >= 30521 && bullet->id <= 30525) { //터렛 아이디가 박격포일때
+        explode->LoadTexture(L"../Resource/30318.png");
+        explode->LoadAnimationAsset(L"30318");
+
+    }
+    else if (bullet->id >= 30541 && bullet->id <= 30545) { //터렛 아이디가 슬로우타워일때
+        explode->LoadTexture(L"../Resource/30318.png");
+        explode->LoadAnimationAsset(L"30318");
+    }
     m_BulletPool.pop_back();
     return bullet;
 }

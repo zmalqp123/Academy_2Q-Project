@@ -55,7 +55,8 @@ void Turret::Shoot()
         auto rewardData = dynamicData->GetRewardTurretData(turretType);
         //float bulletSpeed = 1000.0f;
         //bullet->Init(bulletSpeed, shootDirection);
-        bullet->SetAttackValue(shootDirection, 
+        bullet->SetAttackValue(shootDirection,
+			data->id,
             data->burstRange + rewardData.burstRange,
             data->damage + rewardData.damage,
             data->penetration + rewardData.penetration,
@@ -63,8 +64,8 @@ void Turret::Shoot()
             data->slowRate + rewardData.slowRate,
             data->slowDuration + rewardData.slowDuration,
             static_cast<BulletType>(data->bulletType));
-        bullet->gameObject->GetComponent<SpriteAnimation>()->LoadTexture(data->bulletImagePath);
-        auto spr = bullet->gameObject->GetComponent<SpriteAnimation>();
+        bullet->bulletSprite->LoadTexture(data->bulletImagePath);
+        auto spr = bullet->bulletSprite;
         switch (turretType)
         {
         case TurretType::Crossbow:
