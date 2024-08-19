@@ -25,6 +25,7 @@
 #include "Comosus.h"
 #include "../D2DEngine/ResourceManager.h"
 #include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/SpriteUIAnimation.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/GameTime.h"
 #include "FSMHarvest.h"
@@ -34,6 +35,7 @@
 #include "CameraShake.h"
 #include "ComosusFSM.h"
 #include "ComosusLightSelector.h"
+#include "Cutton.h"
 #include <random> // 랜덤시드
 
 MainPineApple* testPineApple = nullptr;
@@ -48,6 +50,33 @@ GameScene::~GameScene() {
 
 void GameScene::Start() {
     std::cout << "Entering GameScene" << std::endl;
+
+    // 커튼 애니메이션 
+    auto cutttonObj = CreateGameObject<GameObject>();
+    auto cutton = cutttonObj->CreateComponent<Cutton>();
+    cuttons = cutton;
+    cutttonObj->transform->type = Type::Ui;
+    cutttonObj->transform->pos.rectposition = { {960,0},{1920,1080} };
+    auto cuttonSpr = cutttonObj->CreateComponent<SpriteUIAnimation>();
+    cuttonSpr->LoadTexture(L"../Resource/10301.png");
+    cuttonSpr->LoadAnimationAsset(L"cutton_10301");
+    cuttonSpr->SetAnimation(0, false);
+    cutton->UiCutton = cuttonSpr;
+    cutton->check = false;
+
+    auto cutttonObj2 = CreateGameObject<GameObject>();
+    auto cutton2 = cutttonObj2->CreateComponent<Cutton>();
+    cuttons = cutton2;
+    cutttonObj2->transform->type = Type::Ui;
+    cutttonObj2->transform->pos.rectposition = { {0,0},{960,1080} };
+    auto cuttonSpr2 = cutttonObj2->CreateComponent<SpriteUIAnimation>();
+    cuttonSpr2->LoadTexture(L"../Resource/10302.png");
+    cuttonSpr2->LoadAnimationAsset(L"cutton_10302");
+    cuttonSpr2->SetAnimation(0, false);
+    cutton2->UiCutton = cuttonSpr2;
+    cutton2->check = false;
+
+    //[](){}
 
     auto camera = CreateGameObject<GameObject>();
     auto pCam = camera->CreateComponent<Camera>();
@@ -1271,8 +1300,8 @@ void GameScene::Update(float deltaTime) {
     }
     // 메인 씬 전환 테스트
     if (InputManager::GetInstance().IsKeyDown('3')) {
-        //SceneManager::GetInstance().ChangeScene("StartScene");
-        GameTime::GetInstance().SetTimeScale(1.f);
+        cuttons->check = true;
+        cuttons->ctfn = [=]() { SceneManager::GetInstance().SetChangeSceneFlag("StartScene"); };
     }
     if (InputManager::GetInstance().IsKeyDown('2')) {
         //SceneManager::GetInstance().ChangeScene("StartScene");

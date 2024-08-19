@@ -5,11 +5,13 @@
 #include "WaveSystem.h"
 #include "DayNightCycle.h"
 
+class Cutton;
 class GameScene : public Scene {
 private:
     WaveSystem* waveSystem; // WaveSystem 포인터
     DayNightCycle* nightSystem; // DayNightCycle 포인터
     //Mpbar* mpBarUi; // 선언
+    Cutton* cuttons;
     Hpbar* hpBarUi;
 public:
     GameScene();
