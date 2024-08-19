@@ -233,6 +233,11 @@ void GamePlayManager::StartBatch(int type)
 		std::cout << "Turret Type ID : " << type << std::endl;
 	}
 	else {
+		auto upgradeData = pineApple->rewardData->GetNextStaticTurretData((TurretType)type);
+		if (upgradeData == nullptr) return;
+		if (upgradeData->cost > pineApple->GetPineAppleGold() || pineApple->rewardData->isHarvest == true) return;
+
 		pineApple->rewardData->UpgradeTurret((TurretType)type);
+		pineApple->spendGold(upgradeData->cost);
 	}
 }
