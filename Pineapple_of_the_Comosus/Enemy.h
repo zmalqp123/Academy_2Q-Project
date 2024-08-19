@@ -54,7 +54,7 @@ public:
 
 	void WaveMove(float delta);
 
-	void Ondamage(int damage, BulletType bulletType);
+	void Ondamage(int damage, BulletType bulletType, bool notReward = false);
 	void OnSlow(float slowRate, float slowTime);
 
 };

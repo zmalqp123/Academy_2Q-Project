@@ -90,6 +90,26 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(1, L"../Resource/ComosusLight.txt");
 		LoadAnimationFromCSV(2, L"../Resource/ComosusLightRe.txt");
 	}
+	if (FilePath == std::wstring(L"cutton_10301"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/10301.txt");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
+	}
+	if (FilePath == std::wstring(L"cutton_10302"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/10302.txt");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
+	}
+	if (FilePath == std::wstring(L"cutton_10301close"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/10301close.txt");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
+	}
+	if (FilePath == std::wstring(L"cutton_10302close"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/10302close.txt");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
+	}
 	return true; 
 }
 

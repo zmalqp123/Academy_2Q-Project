@@ -6,6 +6,7 @@
 class MainPineApple;
 class TurretData;
 class DynamicData;
+class SpriteRenderer;
 enum class TurretType {
 
 	Crossbow = 30501,
@@ -27,6 +28,8 @@ public:
 	MainPineApple* parentPineApple;
 	TurretData* turretData;
 	DynamicData* dynamicData;
+	GameObject* fireTr;
+	SpriteRenderer* selectOutline;
 
 	float prevAngle;
 	float currAngle;
@@ -37,6 +40,9 @@ public:
 	void virtual Update(float delta) override;
 
 	void Shoot();  // 총알 발사 함수
+
+	void SelectTurret();
+	void DeSelectTurret();
 
 	void Refund();
 	void ResetTurret();

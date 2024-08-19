@@ -81,7 +81,7 @@ void Enemy::WaveMove(float delta)
     // gameObject->transform->pos.worldPosition = position;  
 }
 
-void Enemy::Ondamage(int damage, BulletType bulletType)
+void Enemy::Ondamage(int damage, BulletType bulletType, bool notReward)
 {   
     int resist = 0;
     switch (bulletType)
@@ -106,6 +106,11 @@ void Enemy::Ondamage(int damage, BulletType bulletType)
         notify->isActive = false;
         //mainPineApple->acquireGold(enemyData.reward);
         //mainPineApple->monAcquireEXP(enemyData.expReward);
+
+        if (notReward == false) {
+            mainPineApple->acquireGold(enemyData.reward);
+            mainPineApple->monAcquireEXP(enemyData.expReward);
+        }
 	    gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
 	}
 }

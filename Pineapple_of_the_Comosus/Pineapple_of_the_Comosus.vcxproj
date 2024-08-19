@@ -115,7 +115,6 @@
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -153,6 +152,7 @@
     <ClCompile Include="Comosus.cpp" />
     <ClCompile Include="ComosusFSM.cpp" />
     <ClCompile Include="ComosusLightSelector.cpp" />
+    <ClCompile Include="Cutton.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DayNightCycle.cpp" />
     <ClCompile Include="DynamicData.cpp" />
@@ -217,6 +217,7 @@
     <ClInclude Include="Comosus.h" />
     <ClInclude Include="ComosusFSM.h" />
     <ClInclude Include="ComosusLightSelector.h" />
+    <ClInclude Include="Cutton.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DayNightCycle.h" />
     <ClInclude Include="DynamicData.h" />
