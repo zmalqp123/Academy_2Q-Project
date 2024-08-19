@@ -58,6 +58,7 @@
     <ClCompile Include="CameraShake.cpp" />
     <ClCompile Include="ComosusFSM.cpp" />
     <ClCompile Include="ComosusLightSelector.cpp" />
+    <ClCompile Include="Cutton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -118,6 +119,7 @@
     <ClInclude Include="CameraShake.h" />
     <ClInclude Include="ComosusFSM.h" />
     <ClInclude Include="ComosusLightSelector.h" />
+    <ClInclude Include="Cutton.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />

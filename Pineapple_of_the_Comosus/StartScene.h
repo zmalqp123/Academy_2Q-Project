@@ -1,7 +1,9 @@
 #pragma once
 #include "../D2DEngine/Scene.h"
 
+class Cutton;
 class StartScene : public Scene {
+    Cutton* cuttons;
 public:
     StartScene();
     ~StartScene() override;
