@@ -2,6 +2,9 @@
 #include "CameraShake.h"
 #include "DynamicData.h"
 #include "MainPineApple.h"
+#include "ComosusLightSelector.h"
+#include "EnemyColliderNotify.h"
+#include "Enemy.h"
 #include <iostream>
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
@@ -22,6 +25,17 @@ void ComosusPhaseDefault::Update(float deltaTime)
 void ComosusPhaseDefault::Exit()
 {
 }
+bool ComosusPhase1::IsTiming(float prev, float curr, float timing)
+{
+	return prev < timing && curr >= timing;
+}
+void ComosusPhase1::OnComosusDamage()
+{
+	auto container = lightSeletor->GetContainer();
+	for (auto enemy : container) {
+		enemy->enemy->Ondamage(40.f, BulletType::Comosus);
+	}
+}
 // phase1
 void ComosusPhase1::Enter()
 {
@@ -30,6 +44,7 @@ void ComosusPhase1::Enter()
 	std::wcout << "comosus is on" << std::endl;
 	cameraShaker->ShakeOnCamera(true);
 	dynamicData->isHarvest = true;
+	comosusLightAnim->SetAnimation(1, false);
 }
 
 void ComosusPhase1::Update(float deltaTime)
@@ -38,6 +53,27 @@ void ComosusPhase1::Update(float deltaTime)
 	phase1Duration += deltaTime;
 	if (phase1Duration < 1.f) {
 		cameraShaker->SetAmplitude(phase1Duration * 20.f);
+
+		if (IsTiming(prevTime, phase1Duration, 0.1f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.2f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.3f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.4f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.5f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.6f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.7f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.8f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 0.9f))
+			OnComosusDamage();
+		if (IsTiming(prevTime, phase1Duration, 1.f))
+			OnComosusDamage();
 	}
 	if (prevTime < 1.f && phase1Duration >= 1.f) {
 		comosusSpriteAnim->SetAnimation(1, false);
@@ -108,6 +144,7 @@ void ComosusPhase2::Enter()
 	fallDuration = 0.f;
 	startY = pineApple->gameObject->transform->pos.worldPosition.y;
 	//dynamicData->isHarvest = false;
+	comosusLightAnim->SetAnimation(2, false);
 }
 
 void ComosusPhase2::Update(float deltaTime)
@@ -125,5 +162,6 @@ void ComosusPhase2::Update(float deltaTime)
 
 void ComosusPhase2::Exit()
 {
+	comosusLightAnim->SetAnimation(0, false);
 	dynamicData->isHarvest = false;
 }

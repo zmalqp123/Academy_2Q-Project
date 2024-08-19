@@ -95,6 +95,8 @@ void Enemy::Ondamage(int damage, BulletType bulletType)
     case BulletType::burst:
         resist = enemyData.resistBurst;
         break;
+    case BulletType::Comosus:
+        resist = enemyData.resistComosus;
     }
     float hundred = 0.01f;
     enemyData.hp -= damage * (1 - resist * hundred);

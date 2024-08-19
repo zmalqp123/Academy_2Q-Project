@@ -23,6 +23,9 @@ public:
 
 class ComosusPhase1 : public FSMState
 {
+private:
+	bool IsTiming(float prev, float curr, float timing);
+	void OnComosusDamage();
 public:
 	ComosusPhase1(FiniteStateMachine* _fsm, std::string _name) : FSMState(_fsm, _name) {}
 	virtual ~ComosusPhase1() {}
@@ -32,6 +35,7 @@ public:
 	ComosusLightSelector* lightSeletor = nullptr;
 	CameraShake* cameraShaker = nullptr;
 	DynamicData* dynamicData = nullptr;
+	SpriteAnimation* comosusLightAnim = nullptr;
 
 	float phase1Duration = 4.f;
 	float fadeOutDutation = 0.f;
@@ -52,6 +56,7 @@ public:
 
 	MainPineApple* pineApple = nullptr;
 	DynamicData* dynamicData = nullptr;
+	SpriteAnimation* comosusLightAnim = nullptr;
 
 	float fallDuration = 0.f;
 	float startY = 0.f;

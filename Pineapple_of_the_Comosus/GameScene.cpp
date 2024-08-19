@@ -57,7 +57,7 @@ void GameScene::Start() {
     shake->ShakeOnCamera(false);
 
     auto comosusSystem = CreateGameObject<GameObject>();
-    comosusSystem->transform->SetSortingLayer(19);
+    comosusSystem->transform->SetSortingLayer(120);
     auto comosusFsm = comosusSystem->CreateComponent<FiniteStateMachine>();
     auto comosusDefault = comosusFsm->CreateState<ComosusPhaseDefault>("Default");
     auto comosusPhase1 = comosusFsm->CreateState<ComosusPhase1>("Phase1");
@@ -70,6 +70,13 @@ void GameScene::Start() {
     comosusColl->SetCollisionType(CollisionType::Overlap);
     comosusPhase1->lightSeletor = comosusLight;
     comosusPhase1->cameraShaker = shake;
+    auto comosusLightAnimation = comosusSystem->CreateComponent<SpriteAnimation>();
+    comosusLightAnimation->LoadTexture(L"../Resource/ComosusLight.png");
+    comosusLightAnimation->LoadAnimationAsset(L"ComosusLight");
+    comosusLightAnimation->SetAnimation(0, false);
+    comosusPhase1->comosusLightAnim = comosusLightAnimation;
+    comosusPhase2->comosusLightAnim = comosusLightAnimation;
+
 
     auto bulletFactory = new BulletFactory(this);
 
