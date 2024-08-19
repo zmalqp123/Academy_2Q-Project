@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Object.h"
 
 static unsigned int instance = 0;

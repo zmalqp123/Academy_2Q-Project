@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "../D2DEngine/WinGameApp.h"
 #include "../D2DEngine/Scene.h"
@@ -6,25 +6,25 @@
 
 class WinApp3 : public WinGameApp {
 public:
-    // »ı¼ºÀÚ
+    // ìƒì„±ì
     WinApp3() {};
 
-    // ¼Ò¸êÀÚ
+    // ì†Œë©¸ì
     virtual ~WinApp3() {};
 
-    // ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ÃÊ±âÈ­
+    // ì• í”Œë¦¬ì¼€ì´ì…˜ ì´ˆê¸°í™”
     void Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y) override;
 
-    // ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ¾÷µ¥ÀÌÆ®
+    // ì• í”Œë¦¬ì¼€ì´ì…˜ ì—…ë°ì´íŠ¸
     void Update(float deltaTime) override;
 
-    // ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ·»´õ¸µ
+    // ì• í”Œë¦¬ì¼€ì´ì…˜ ë Œë”ë§
     void Render(D2DRenderer* _render) override;
 
-    // ¾ÖÇÃ¸®ÄÉÀÌ¼Ç Á¾·á Ã³¸®
+    // ì• í”Œë¦¬ì¼€ì´ì…˜ ì¢…ë£Œ ì²˜ë¦¬
     void Uninitialize() override;
 
 private:
-    // ÇöÀç ¾ÀÀ» °¡¸®Å°´Â Æ÷ÀÎÅÍ
+    // í˜„ì¬ ì”¬ì„ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°
     Scene* currentScene;
 };
