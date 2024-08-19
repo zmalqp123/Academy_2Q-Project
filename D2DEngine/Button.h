@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Renderer.h"
 #include "EventSystem.h"
 #include <functional>
@@ -11,12 +11,12 @@ public:
 	Button() {};
 	virtual ~Button();
 
-	// RendererÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// Rendererì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	AABB GetBound() override;
 	void Render(D2D1_MATRIX_3X2_F cameraMat) override;
 	void Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat) override;
 
-	// IPointerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// IPointerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	void IPointerEnter() override;
 	void IPointerStay() override;
 	void IPointerExit() override;
@@ -24,10 +24,10 @@ public:
 	Texture* m_pTexture = nullptr;
 
 	std::wstring m_strTextureFilePath;
-	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1BitmapÀÇ Source ¿µ¿ª
-	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetÀÇ Destination ¿µ¿ª
+	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1Bitmapì˜ Source ì˜ì—­
+	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetì˜ Destination ì˜ì—­
 
-	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ¹İ´ë ¹æÇâÀ¸·Î µÚÁı±â À§ÇÑ Çà·Ä Scale.x = -1.0f 
+	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë’¤ì§‘ê¸° ìœ„í•œ í–‰ë ¬ Scale.x = -1.0f 
 
 	void LoadTexture(const std::wstring strFilePath);
 	void Update(float deltaTime);
@@ -42,7 +42,7 @@ public:
 	void OffClick();
 	void AddListener(std::function<void()> func);
 
-	// ColliderÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// Colliderì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	bool isCollide(Collider* collider, Vector2& resolution) override;
 	bool isCollide(const Vector2& point) override;
 };

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Renderer.h"
 
 
@@ -13,23 +13,23 @@ public:
 	SpriteAnimation();
 	virtual ~SpriteAnimation();
 
-	// °øÀ¯ÇÏ´Â ¾Ö´Ï¸ŞÀÌ¼Ç Á¤º¸	
-	SpriteAnimationAsset* m_pAnimationAsset = nullptr;  // °øÀ¯ÇÏ´Â ¾Ö´Ï¸ŞÀÌ¼Ç Á¤º¸
+	// ê³µìœ í•˜ëŠ” ì• ë‹ˆë©”ì´ì…˜ ì •ë³´	
+	SpriteAnimationAsset* m_pAnimationAsset = nullptr;  // ê³µìœ í•˜ëŠ” ì• ë‹ˆë©”ì´ì…˜ ì •ë³´
 
-	// ÀÎ½ºÅÏ½º¸¶´Ù ´Ù¸¥ ¾Ö´Ï¸ŞÀÌ¼Ç Á¤º¸
-	ANIMATION_INFO* m_pAnimationInfo = nullptr;	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ Á¤º¸
-	std::wstring m_strAnimationAssetFilePath;    // ¾Ö´Ï¸ŞÀÌ¼Ç Á¤º¸ ÆÄÀÏ ÀÌ¸§
+	// ì¸ìŠ¤í„´ìŠ¤ë§ˆë‹¤ ë‹¤ë¥¸ ì• ë‹ˆë©”ì´ì…˜ ì •ë³´
+	ANIMATION_INFO* m_pAnimationInfo = nullptr;	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„ ì •ë³´
+	std::wstring m_strAnimationAssetFilePath;    // ì• ë‹ˆë©”ì´ì…˜ ì •ë³´ íŒŒì¼ ì´ë¦„
 	std::wstring m_strTextureFilePath;
 
-	float m_FrameTime = 0.0f;	// ÇÁ·¹ÀÓ ÁøÇà½Ã°£
-	int m_FrameIndexCurr = -1;	// ÇöÀç ÇÁ·¹ÀÓ ÀÎµ¦½º
-	int m_FrameIndexPrev = -1;	// ÀÌÀü ÇÁ·¹ÀÓ ÀÎµ¦½º
-	int m_AnimationIndex = -1;	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼Ç ÀÎµ¦½º
-	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1BitmapÀÇ Source ¿µ¿ª
-	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetÀÇ Destination ¿µ¿ª		
+	float m_FrameTime = 0.0f;	// í”„ë ˆì„ ì§„í–‰ì‹œê°„
+	int m_FrameIndexCurr = -1;	// í˜„ì¬ í”„ë ˆì„ ì¸ë±ìŠ¤
+	int m_FrameIndexPrev = -1;	// ì´ì „ í”„ë ˆì„ ì¸ë±ìŠ¤
+	int m_AnimationIndex = -1;	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ ì¸ë±ìŠ¤
+	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1Bitmapì˜ Source ì˜ì—­
+	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetì˜ Destination ì˜ì—­		
 
-	bool m_bMirror;				// ÁÂ¿ì ¹İÀü ¿©ºÎ
-	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ¹İ´ë ¹æÇâÀ¸·Î µÚÁı±â À§ÇÑ Çà·Ä Scale.x = -1.0f 
+	bool m_bMirror;				// ì¢Œìš° ë°˜ì „ ì—¬ë¶€
+	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë’¤ì§‘ê¸° ìœ„í•œ í–‰ë ¬ Scale.x = -1.0f 
 	Texture* m_pTexture;
 
 	void LoadAnimationAsset(const std::wstring strFilePath);

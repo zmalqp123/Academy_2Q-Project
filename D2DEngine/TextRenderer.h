@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Renderer.h"
 
 class Transform;
@@ -10,8 +10,8 @@ public:
 	TextRenderer();
 	virtual ~TextRenderer();
 
-	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1BitmapÀÇ Source ¿µ¿ª
-	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetÀÇ Destination ¿µ¿ª
+	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1Bitmapì˜ Source ì˜ì—­
+	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetì˜ Destination ì˜ì—­
 
 	bool m_flipX;
 	bool m_flipY;
@@ -20,7 +20,7 @@ public:
 
 	D2D1::ColorF color = D2D1::ColorF::LimeGreen;
 
-	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ¹İ´ë ¹æÇâÀ¸·Î µÚÁı±â À§ÇÑ Çà·Ä Scale.x = -1.0f 
+	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë’¤ì§‘ê¸° ìœ„í•œ í–‰ë ¬ Scale.x = -1.0f 
 
 	void Update(float deltaTime);
 	void Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat);

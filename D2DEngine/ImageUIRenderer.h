@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Renderer.h"
 #include "Collider.h"
 class Transform;
@@ -13,8 +13,8 @@ public:
 	Texture* m_pTexture = nullptr;
 
 	std::wstring m_strTextureFilePath;
-	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1BitmapÀÇ Source ¿µ¿ª
-	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetÀÇ Destination ¿µ¿ª
+	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1Bitmapì˜ Source ì˜ì—­
+	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTargetì˜ Destination ì˜ì—­
 
 	bool m_flipX;
 	bool m_flipY;
@@ -22,7 +22,7 @@ public:
 	float alpha = 1.0f;
 	float slideBar = 1.0f;
 
-	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ¹İ´ë ¹æÇâÀ¸·Î µÚÁı±â À§ÇÑ Çà·Ä Scale.x = -1.0f 
+	D2D1_MATRIX_3X2_F	m_ImageTransform;	// ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë’¤ì§‘ê¸° ìœ„í•œ í–‰ë ¬ Scale.x = -1.0f 
 
 	void LoadTexture(const std::wstring strFilePath);
 	void Update(float deltaTime);
@@ -31,7 +31,7 @@ public:
 
 	AABB GetBound();
 
-	// ColliderÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// Colliderì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	bool isCollide(Collider* collider, Vector2& resolution) override;
 	bool isCollide(const Vector2& point) override;
 };

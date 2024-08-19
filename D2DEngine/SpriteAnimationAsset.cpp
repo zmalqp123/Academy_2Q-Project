@@ -1,10 +1,10 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "SpriteAnimationAsset.h"
 
 bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 {
-	//ÅØ½ºÆ® ÆÄÀÏÀ» ¿­¾î¼­ csvÆÄÀÏ ¸ñ·ÏÀ» ÀĞ¾î¿Â´Ù.
-	// ¾Æ·¡ ÇÔ¼ö·Î csvÆÄÀÏÀ» Ã³¸®ÇÑ´Ù.
+	//í…ìŠ¤íŠ¸ íŒŒì¼ì„ ì—´ì–´ì„œ csvíŒŒì¼ ëª©ë¡ì„ ì½ì–´ì˜¨ë‹¤.
+	// ì•„ë˜ í•¨ìˆ˜ë¡œ csvíŒŒì¼ì„ ì²˜ë¦¬í•œë‹¤.
 	if (FilePath == std::wstring(L"../Resource/background.txt"))
 	{
 		return LoadAnimationFromCSV(0, FilePath.c_str());
@@ -87,25 +87,25 @@ bool SpriteAnimationAsset::LoadAnimationFromCSV(int index, const wchar_t* fileNa
 {
 	std::wifstream file(fileName);
 	if (!file.is_open()) {
-		std::cout << "ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù." << std::endl;
+		std::cout << "íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << std::endl;
 		std::wcout << fileName << std::endl;
 		return false;
 	}
-	std::wstring line;			// ÇÑÁÙÀÇ ¹®ÀÚ¿­	
-	int FrameCount = 0;			// ÇÁ·¹ÀÓÀÇ °³¼ö
+	std::wstring line;			// í•œì¤„ì˜ ë¬¸ìì—´	
+	int FrameCount = 0;			// í”„ë ˆì„ì˜ ê°œìˆ˜
 	{
-		std::getline(file, line);		// Ã¹¹øÂ° ÁÙ ÀĞ±â
+		std::getline(file, line);		// ì²«ë²ˆì§¸ ì¤„ ì½ê¸°
 		std::wstringstream wss(line);
 		wss >> FrameCount;
 	}
 	m_Animations[index].Frames.resize(FrameCount);
 	for (int j = 0; j < FrameCount; j++)
 	{
-		getline(file, line);		// ÇÑÁÙ ÀĞ±â
-		std::wstringstream wss(line);    // ÇÑÁÙÀ» ÀĞ¾î¼­ wstringstream¿¡ ÀúÀå
+		getline(file, line);		// í•œì¤„ ì½ê¸°
+		std::wstringstream wss(line);    // í•œì¤„ì„ ì½ì–´ì„œ wstringstreamì— ì €ì¥
 		std::wstring token;
 		{
-			getline(wss, token, L',');	// wssÀÇ ³»¿ëÀ» ,¸¦ ±âÁØÀ¸·Î ¹®ÀÚ¿­À» ºĞ¸®
+			getline(wss, token, L',');	// wssì˜ ë‚´ìš©ì„ ,ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë¬¸ìì—´ì„ ë¶„ë¦¬
 			m_Animations[index].Frames[j].Source.left = (float)_wtoi(token.c_str());
 			getline(wss, token, L',');
 			m_Animations[index].Frames[j].Source.top = (float)_wtoi(token.c_str());

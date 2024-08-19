@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "ResourceManager.h"
 #include "SpriteAnimationAsset.h"
 #include "Texture.h"
@@ -23,7 +23,7 @@ ResourceManager::~ResourceManager()
 	m_AnimationAssetMap.clear();
 
 	assert(m_BitmapMap.empty());
-	assert(m_TextureMap.empty());	// map¾È¿¡ °ªµé release¾ÈÇØ¼­ ±×·¯´Ï ³ªÁß¿¡ ÇØ°áÇØ¾ßÇÔ.
+	assert(m_TextureMap.empty());	// mapì•ˆì— ê°’ë“¤ releaseì•ˆí•´ì„œ ê·¸ëŸ¬ë‹ˆ ë‚˜ì¤‘ì— í•´ê²°í•´ì•¼í•¨.
 	assert(m_SpriteMap.empty());
 	assert(m_AnimationAssetMap.empty());
 }
@@ -38,21 +38,21 @@ bool ResourceManager::CreateD2DBitmapFromFile(std::wstring strFilePath, ID2D1Bit
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-	// ±âÁ¸°ú °°Àº »ı¼º·ÎÁ÷. D2D1Bitmap »ı¼ºÇÏ¿© ÀÎÅÍÆäÀÌ½º Æ÷ÀÎÅÍ ¹Ş´Â´Ù.
-	// ¿©±â¼­´Â »ı·«ÇÑ´Ù.
+	// ê¸°ì¡´ê³¼ ê°™ì€ ìƒì„±ë¡œì§. D2D1Bitmap ìƒì„±í•˜ì—¬ ì¸í„°í˜ì´ìŠ¤ í¬ì¸í„° ë°›ëŠ”ë‹¤.
+	// ì—¬ê¸°ì„œëŠ” ìƒëµí•œë‹¤.
 
 	D2DRenderer::getIncetance().CreateD2DBitmapFromFile(strFilePath.c_str(), bitmap);
 
-	// »ı¼ºÇÑ ºñÆ®¸ÊÀ» ¸Ê¿¡ ÀúÀåÇÑ´Ù.
+	// ìƒì„±í•œ ë¹„íŠ¸ë§µì„ ë§µì— ì €ì¥í•œë‹¤.
 	m_BitmapMap[strFilePath] = *bitmap;
 	return true;
 }
 
 void ResourceManager::ReleaseD2DBitmap(std::wstring strFilePath)
 {
-	// ¸Ê¿¡ ÇØ´ç Å°°¡ Á¸ÀçÇÏ¸é ºñÆ®¸ÊÀ» ÇØÁ¦ÇÑ´Ù.
+	// ë§µì— í•´ë‹¹ í‚¤ê°€ ì¡´ì¬í•˜ë©´ ë¹„íŠ¸ë§µì„ í•´ì œí•œë‹¤.
 	std::map<std::wstring, ID2D1Bitmap*>::iterator iter = m_BitmapMap.find(strFilePath);
-	assert(iter != m_BitmapMap.end()); // ÄÁÅ×ÀÌ³Ê¿¡ ¾øÀ¸¸é Create/Release Â¦ÀÌ Àß¸øµÆ´Ù.
+	assert(iter != m_BitmapMap.end()); // ì»¨í…Œì´ë„ˆì— ì—†ìœ¼ë©´ Create/Release ì§ì´ ì˜ëª»ëë‹¤.
 
 	if (iter != m_BitmapMap.end())
 	{
@@ -87,7 +87,7 @@ bool ResourceManager::CreateTextureFromFile(std::wstring strFilePath, Texture** 
 void ResourceManager::ReleaseTexture(std::wstring strFilePath)
 {
 	std::map<std::wstring, Texture*>::iterator iter = m_TextureMap.find(strFilePath);
-	assert(iter != m_TextureMap.end()); // ÄÁÅ×ÀÌ³Ê¿¡ ¾øÀ¸¸é Create/Release Â¦ÀÌ Àß¸øµÆ´Ù.
+	assert(iter != m_TextureMap.end()); // ì»¨í…Œì´ë„ˆì— ì—†ìœ¼ë©´ Create/Release ì§ì´ ì˜ëª»ëë‹¤.
 
 	if (iter != m_TextureMap.end())
 	{
@@ -114,11 +114,11 @@ bool ResourceManager::CreateAnimationAsset(std::wstring strFilePath, SpriteAnima
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-	// ±âÁ¸°ú °°Àº »ı¼º·ÎÁ÷. AnimationAsset »ı¼ºÇÏ¿© ÀÎÅÍÆäÀÌ½º Æ÷ÀÎÅÍ ¹Ş´Â´Ù.
-	// ¿©±â¼­´Â »ı·«ÇÑ´Ù.
+	// ê¸°ì¡´ê³¼ ê°™ì€ ìƒì„±ë¡œì§. AnimationAsset ìƒì„±í•˜ì—¬ ì¸í„°í˜ì´ìŠ¤ í¬ì¸í„° ë°›ëŠ”ë‹¤.
+	// ì—¬ê¸°ì„œëŠ” ìƒëµí•œë‹¤.
 
 	SpriteAnimationAsset* pTemp = new SpriteAnimationAsset;
-	// »ı¼ºÇÑ ¾Ö´Ï¸ŞÀÌ¼Ç ¿¡¼Â¿¡ ¾Ö´Ï¸ŞÀÌ¼Ç µ¥ÀÌÅÍ¸¦ ·ÎµåÇÑ´Ù.
+	// ìƒì„±í•œ ì• ë‹ˆë©”ì´ì…˜ ì—ì…‹ì— ì• ë‹ˆë©”ì´ì…˜ ë°ì´í„°ë¥¼ ë¡œë“œí•œë‹¤.
 	if (pTemp->LoadAnimation(strFilePath) == false)
 	{
 		delete pTemp;
@@ -128,16 +128,16 @@ bool ResourceManager::CreateAnimationAsset(std::wstring strFilePath, SpriteAnima
 	{
 		*asset = pTemp;
 	}
-	// »ı¼ºÇÑ ¾Ö´Ï¸ŞÀÌ¼Ç ¿¡¼ÂÀ» ¸Ê¿¡ ÀúÀåÇÑ´Ù.
+	// ìƒì„±í•œ ì• ë‹ˆë©”ì´ì…˜ ì—ì…‹ì„ ë§µì— ì €ì¥í•œë‹¤.
 	m_AnimationAssetMap[strFilePath] = *asset;
 	return true;
 }
 
 void ResourceManager::ReleaseAnimationAsset(std::wstring strFilePath)
 {
-	// ¸Ê¿¡ ÇØ´ç Å°°¡ Á¸ÀçÇÏ¸é ¾Ö´Ï¸ŞÀÌ¼Ç ¿¡¼ÂÀ» ÇØÁ¦ÇÑ´Ù.
+	// ë§µì— í•´ë‹¹ í‚¤ê°€ ì¡´ì¬í•˜ë©´ ì• ë‹ˆë©”ì´ì…˜ ì—ì…‹ì„ í•´ì œí•œë‹¤.
 	std::map<std::wstring, SpriteAnimationAsset*>::iterator iter = m_AnimationAssetMap.find(strFilePath);
-	assert(iter != m_AnimationAssetMap.end()); // ÄÁÅ×ÀÌ³Ê¿¡ ¾øÀ¸¸é Create/Release Â¦ÀÌ Àß¸øµÆ´Ù.
+	assert(iter != m_AnimationAssetMap.end()); // ì»¨í…Œì´ë„ˆì— ì—†ìœ¼ë©´ Create/Release ì§ì´ ì˜ëª»ëë‹¤.
 
 	if (iter != m_AnimationAssetMap.end())
 	{

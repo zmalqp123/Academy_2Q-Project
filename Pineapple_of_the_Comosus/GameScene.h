@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "../D2DEngine/Scene.h"
 #include "Hpbar.h"
 #include "Mpbar.h"
@@ -7,23 +7,23 @@
 
 class GameScene : public Scene {
 private:
-    WaveSystem* waveSystem; // WaveSystem Æ÷ÀÎÅÍ
-    DayNightCycle* nightSystem; // DayNightCycle Æ÷ÀÎÅÍ
-    //Mpbar* mpBarUi; // ¼±¾ğ
+    WaveSystem* waveSystem; // WaveSystem í¬ì¸í„°
+    DayNightCycle* nightSystem; // DayNightCycle í¬ì¸í„°
+    //Mpbar* mpBarUi; // ì„ ì–¸
     Hpbar* hpBarUi;
 public:
     GameScene();
     ~GameScene() override;
 
-    // ¾ÀÀÌ È°¼ºÈ­µÉ ¶§ È£Ãâ
+    // ì”¬ì´ í™œì„±í™”ë  ë•Œ í˜¸ì¶œ
     void Start() override;
 
-    // ¾ÀÀÌ ºñÈ°¼ºÈ­µÉ ¶§ È£Ãâ
+    // ì”¬ì´ ë¹„í™œì„±í™”ë  ë•Œ í˜¸ì¶œ
     void Clear() override;
 
-    // ¾ÀÀÇ ¾÷µ¥ÀÌÆ® ·ÎÁ÷
+    // ì”¬ì˜ ì—…ë°ì´íŠ¸ ë¡œì§
     void Update(float deltaTime) override;
 
-    // ¾ÀÀÇ ·»´õ¸µ ·ÎÁ÷
+    // ì”¬ì˜ ë Œë”ë§ ë¡œì§
     void Render(D2DRenderer* _render) override;
 };

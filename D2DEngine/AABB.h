@@ -1,7 +1,7 @@
-#pragma once
+ï»¿#pragma once
 #include "Vector.h"
 /*
-	AABB (Axis-Aligned Bounding Box) Ãà Á¤·ÄµÈ °æ°è »óÀÚ
+	AABB (Axis-Aligned Bounding Box) ì¶• ì •ë ¬ëœ ê²½ê³„ ìƒì
 
 	  +y
 	  ^
@@ -20,8 +20,8 @@ class AABB
 public:
 	AABB() : m_Center{ 0.f, 0.f }, m_Extent{ 0.f, 0.f } { }
 public:
-	Vector2 m_Center; // Áß¾Ó
-	Vector2 m_Extent; // x,yÃà È®Àå°ª	
+	Vector2 m_Center; // ì¤‘ì•™
+	Vector2 m_Extent; // x,yì¶• í™•ì¥ê°’	
 	// minX = m_Center.x - m_Extent.x
 	// maxX = m_Center.x + m_Extent.x
 	// minY = m_Center.y - m_Extent.y
@@ -55,10 +55,10 @@ public:
 		float BoxB_ymax = other.m_Center.y + other.m_Extent.y;
 
 		// Check for no overlap conditions
-		if (BoxA_xmax < BoxB_xmin ||  // ¿À¸¥ÂÊ¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
-			BoxA_xmin > BoxB_xmax ||  // ¿ŞÂÊ¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
-			BoxA_ymax < BoxB_ymin ||  // ¾Æ·¡¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
-			BoxA_ymin > BoxB_ymax)	  // À§¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
+		if (BoxA_xmax < BoxB_xmin ||  // ì˜¤ë¥¸ìª½ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
+			BoxA_xmin > BoxB_xmax ||  // ì™¼ìª½ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
+			BoxA_ymax < BoxB_ymin ||  // ì•„ë˜ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
+			BoxA_ymin > BoxB_ymax)	  // ìœ„ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
 		{
 			return false;
 		}
@@ -97,10 +97,10 @@ public:
         }
 
 		// Check for no overlap conditions
-		if (BoxA_xmax < BoxB_xmin ||  // ¿À¸¥ÂÊ¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
-			BoxA_xmin > BoxB_xmax ||  // ¿ŞÂÊ¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
-			BoxA_ymax < BoxB_ymin ||  // ¾Æ·¡¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
-			BoxA_ymin > BoxB_ymax)	  // À§¿¡ ÀÖÀ¸¸é °ãÄ¥¼ö°¡ ¾øÀ½
+		if (BoxA_xmax < BoxB_xmin ||  // ì˜¤ë¥¸ìª½ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
+			BoxA_xmin > BoxB_xmax ||  // ì™¼ìª½ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
+			BoxA_ymax < BoxB_ymin ||  // ì•„ë˜ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
+			BoxA_ymin > BoxB_ymax)	  // ìœ„ì— ìˆìœ¼ë©´ ê²¹ì¹ ìˆ˜ê°€ ì—†ìŒ
 		{
 			return false;
 		}

@@ -1,16 +1,16 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "SoundManager.h"
 
 bool SoundManager::LoadSound(const std::wstring& baseName, const std::wstring& filePath) {
-    // °íÀ¯ÇÑ ÀÌ¸§À» »ı¼ºÇÏ¿© µ¿ÀÏÇÑ »ç¿îµå¶óµµ ¿©·¯ ¹ø ·ÎµåÇÒ ¼ö ÀÖµµ·Ï ÇÔ
+    // ê³ ìœ í•œ ì´ë¦„ì„ ìƒì„±í•˜ì—¬ ë™ì¼í•œ ì‚¬ìš´ë“œë¼ë„ ì—¬ëŸ¬ ë²ˆ ë¡œë“œí•  ìˆ˜ ìˆë„ë¡ í•¨
     static int soundCounter = 0;
     std::wstring uniqueName = baseName + std::to_wstring(soundCounter++);
 
-    // »ç¿îµå ·Îµå
+    // ì‚¬ìš´ë“œ ë¡œë“œ
     FMOD::Sound* sound = nullptr;
     FMOD_RESULT result = m_System->createSound(std::string(filePath.begin(), filePath.end()).c_str(), FMOD_DEFAULT, 0, &sound);
     if (result != FMOD_OK) {
-        return false; // »ç¿îµå ·Îµå ½ÇÆĞ
+        return false; // ì‚¬ìš´ë“œ ë¡œë“œ ì‹¤íŒ¨
     }
 
     m_SoundMap[uniqueName] = sound;
@@ -18,12 +18,12 @@ bool SoundManager::LoadSound(const std::wstring& baseName, const std::wstring& f
 }
 
 void SoundManager::PlaySoundW(const std::wstring& baseName, bool loop) {
-    // baseNameÀ¸·Î ½ÃÀÛÇÏ´Â »ç¿îµå¸¦ Ã£À½
+    // baseNameìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ì‚¬ìš´ë“œë¥¼ ì°¾ìŒ
     for (const auto& pair : m_SoundMap) {
         const std::wstring& name = pair.first;
         FMOD::Sound* sound = pair.second;
 
-        // baseNameÀ¸·Î ½ÃÀÛÇÏ´Â »ç¿îµå¸¦ Ã£±â
+        // baseNameìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ì‚¬ìš´ë“œë¥¼ ì°¾ê¸°
         if (name.find(baseName) == 0) {
             FMOD::Channel* channel = nullptr;
             m_System->playSound(sound, nullptr, false, &channel);
@@ -32,7 +32,7 @@ void SoundManager::PlaySoundW(const std::wstring& baseName, bool loop) {
             }
             m_ChannelMap[name] = channel;
 
-            // °°Àº baseName¿¡ ´ëÇÑ Ã¹ ¹øÂ° ÀÏÄ¡ Ç×¸ñ¸¸ Àç»ıÇÏµµ·Ï Á¾·á
+            // ê°™ì€ baseNameì— ëŒ€í•œ ì²« ë²ˆì§¸ ì¼ì¹˜ í•­ëª©ë§Œ ì¬ìƒí•˜ë„ë¡ ì¢…ë£Œ
             break;
         }
     }

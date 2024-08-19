@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Component.h"
 #include "Vector.h"
 enum Type
@@ -28,17 +28,17 @@ public:
 	virtual ~Transform() {};
 
 public:
-	Transform*			m_pParentScene = nullptr;	// ºÎ¸ğ Scene ÄÄÆ÷³ÍÆ®	
-	Vector2		m_RelativeScale = { 1,1 };	// »ó´ë Å©±â
-	float				m_RelativeRotation = 0;		// »ó´ë È¸Àü
-	//Vector2 		m_RelativeLocation = { 0,0 }; // »ó´ë À§Ä¡
-	D2D1_MATRIX_3X2_F	m_RelativeTransform;		// »ó´ë º¹ÇÕ º¯È¯
-	D2D1_MATRIX_3X2_F	m_WorldTransform;			// ºÎ¸ğ±îÁö ¹İ¿µµÈ ÃÖÁ¾ º¯È¯
+	Transform*			m_pParentScene = nullptr;	// ë¶€ëª¨ Scene ì»´í¬ë„ŒíŠ¸	
+	Vector2		m_RelativeScale = { 1,1 };	// ìƒëŒ€ í¬ê¸°
+	float				m_RelativeRotation = 0;		// ìƒëŒ€ íšŒì „
+	//Vector2 		m_RelativeLocation = { 0,0 }; // ìƒëŒ€ ìœ„ì¹˜
+	D2D1_MATRIX_3X2_F	m_RelativeTransform;		// ìƒëŒ€ ë³µí•© ë³€í™˜
+	D2D1_MATRIX_3X2_F	m_WorldTransform;			// ë¶€ëª¨ê¹Œì§€ ë°˜ì˜ëœ ìµœì¢… ë³€í™˜
 	Type type = Type::World;
 	Position pos;
 	//Vector2		m_CenterTransform;
 
-	// RelativeTransform°ú m_WorldTransformÀ» °è»êÇÑ´Ù.
+	// RelativeTransformê³¼ m_WorldTransformì„ ê³„ì‚°í•œë‹¤.
 	void UpdateTrasnform();
 	void SetParent(Transform* pParentScene) { m_pParentScene = pParentScene; }
 

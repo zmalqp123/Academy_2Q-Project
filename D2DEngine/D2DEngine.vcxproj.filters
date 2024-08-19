@@ -54,9 +54,6 @@
     <ClCompile Include="ReferenceCounter.cpp">
       <Filter>Object\ReferenceCounter</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Component\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="Rigidbody2D.cpp">
       <Filter>Component\Collider\Rigidbody</Filter>
     </ClCompile>
@@ -107,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="TextUIRenderer.cpp">
       <Filter>Component\Renderer\UI\TextUIRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Component\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

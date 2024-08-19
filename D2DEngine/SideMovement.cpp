@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "SideMovement.h"
 #include "GameObject.h"
 #include "Transform.h"
@@ -7,19 +7,19 @@ void SideMovement::Update(float delta)
 {
     prevPosition = gameObject->transform->pos.worldPosition;
 
-    // ÇöÀç À§Ä¡ °¡Á®¿À±â
+    // í˜„ì¬ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
     float x = gameObject->transform->pos.worldPosition.x;
     float y = gameObject->transform->pos.worldPosition.y;
 
-    // ¼öÆò ÀÌµ¿ °è»ê
+    // ìˆ˜í‰ ì´ë™ ê³„ì‚°
     float speedX = m_direction.x * m_speed * delta;
 
-    // ¼öÁ÷ ¼Óµµ ¾÷µ¥ÀÌÆ® (Áß·Â Àû¿ë)
+    // ìˆ˜ì§ ì†ë„ ì—…ë°ì´íŠ¸ (ì¤‘ë ¥ ì ìš©)
     m_verticalVelocity -= m_gravity * delta;
     y += m_verticalVelocity * delta;
 
     //std::cout << "m_verticalVelocity : " << m_verticalVelocity << std::endl;
-    // »õ À§Ä¡ Àû¿ë
+    // ìƒˆ ìœ„ì¹˜ ì ìš©
     gameObject->transform->pos.worldPosition = { x + speedX, y };
 
     if (freezeRotate == false) {

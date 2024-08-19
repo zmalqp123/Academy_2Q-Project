@@ -1,7 +1,7 @@
-#pragma once
+ï»¿#pragma once
 #include <vector>
 #include "Vector.h"
-// ignore layer³ª tag¸¦ ¸¸µé¾î eventSystem¿¡ °ËÃâµÇÁö ¾Ê°Ô ¸¸µé¾î¾ß ÇÒÁöµµ
+// ignore layerë‚˜ tagë¥¼ ë§Œë“¤ì–´ eventSystemì— ê²€ì¶œë˜ì§€ ì•Šê²Œ ë§Œë“¤ì–´ì•¼ í• ì§€ë„
 class GameObject;
 class Scene;
 
@@ -20,11 +20,11 @@ struct IClick {
 
 struct PointerEventData {
 	bool isLeftClick;
-	Vector2 delta; // ÀÌÀü ÇÁ·¹ÀÓ°ú ÇöÀç ÇÁ·¹ÀÓÀÇ ¸¶¿ì½º À§Ä¡ Â÷ÀÌ
-	Vector2 position; // ¸¶¿ì½º ÇöÀç À§Ä¡
-	Vector2 pressPosition; // ´©¸¥ ¸¶¿ì½º ÇöÀç À§Ä¡
+	Vector2 delta; // ì´ì „ í”„ë ˆì„ê³¼ í˜„ì¬ í”„ë ˆì„ì˜ ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ì°¨ì´
+	Vector2 position; // ë§ˆìš°ìŠ¤ í˜„ì¬ ìœ„ì¹˜
+	Vector2 pressPosition; // ëˆ„ë¥¸ ë§ˆìš°ìŠ¤ í˜„ì¬ ìœ„ì¹˜
 
-	GameObject* pointerDrag; // µå·¡±×ÁßÀÎ ¿ÀºêÁ§Æ®
+	GameObject* pointerDrag; // ë“œë˜ê·¸ì¤‘ì¸ ì˜¤ë¸Œì íŠ¸
 	GameObject* pointerEnter;
 	GameObject* pointerPress;
 };
@@ -55,8 +55,8 @@ public:
 	void Update(Scene* scene, float delta);
 	void ResetUpdate();
 
-	GameObject* GetCurrWorldObject(); // °¡Àå ¾Õ¿¡ÀÖ´Â ¿ùµåÀÇ ¿ÀºêÁ§Æ®¸¦ °¡Á®¿È.
-	GameObject* GetCurrUIObject();	// °¡Àå ¾Õ¿¡ÀÖ´Â UIÀÇ ¿ÀºêÁ§Æ®¸¦ °¡Á®¿È.
-	GameObject* GetCurrObject();	// °¡Àå ¾Õ¿¡ÀÖ´Â UIÀÇ ¿ÀºêÁ§Æ®¸¦ °¡Á®¿È.
+	GameObject* GetCurrWorldObject(); // ê°€ì¥ ì•ì—ìˆëŠ” ì›”ë“œì˜ ì˜¤ë¸Œì íŠ¸ë¥¼ ê°€ì ¸ì˜´.
+	GameObject* GetCurrUIObject();	// ê°€ì¥ ì•ì—ìˆëŠ” UIì˜ ì˜¤ë¸Œì íŠ¸ë¥¼ ê°€ì ¸ì˜´.
+	GameObject* GetCurrObject();	// ê°€ì¥ ì•ì—ìˆëŠ” UIì˜ ì˜¤ë¸Œì íŠ¸ë¥¼ ê°€ì ¸ì˜´.
 };
 

@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "BoxCollider.h"
 #include "GameObject.h"
 #include "Transform.h"
@@ -59,7 +59,7 @@ bool BoxCollider::isCollide(Collider* collider, Vector2& resolution)
 			circleY >= rectY + rectMinY &&
 			circleY <= rectY + rectMaxY) return true;
 
-		// ¿øÀÇ Áß½ÉÀÌ »ç°¢ÇüÀÇ °¡ÀåÀÚ¸®¿¡ ÀÖ´ÂÁö È®ÀÎ
+		// ì›ì˜ ì¤‘ì‹¬ì´ ì‚¬ê°í˜•ì˜ ê°€ìž¥ìžë¦¬ì— ìžˆëŠ”ì§€ í™•ì¸
 		float dx = circleX - std::fmaxf(rectX + rectMinX,
 			std::fminf(circleX, rectX + rectMaxX));
 		float dy = circleY - std::fmaxf(rectY + rectMinY,
@@ -126,7 +126,7 @@ void BoxCollider::SetExtent(const Vector2& _extent)
 }
 
 
-//collider¿¡ renderºÙÀÌ´Â°Å Å×½ºÆ® Áß.
+//colliderì— renderë¶™ì´ëŠ”ê±° í…ŒìŠ¤íŠ¸ ì¤‘.
 AABB BoxCollider::GetBound()
 {
 	AABB ab;

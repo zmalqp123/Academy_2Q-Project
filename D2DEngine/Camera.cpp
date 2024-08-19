@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Camera.h"
 #include "Transform.h"
 #include "GameObject.h"
@@ -7,7 +7,7 @@
 
 Vector2 Camera::ScreenToWorldPosition(Vector2 position)
 {
-	// ½ºÅ©¸°ÁÂÇ¥¸¦ È­¸é Áß½ÉÀ» ±âÁØÀ¸·Î º¯°æ
+	// ìŠ¤í¬ë¦°ì¢Œí‘œë¥¼ í™”ë©´ ì¤‘ì‹¬ì„ ê¸°ì¤€ìœ¼ë¡œ ë³€ê²½
 	Vector2 screenSize = PublicData::GetInstance().GetScreenSize();
 	position.x -= screenSize.x / 2.f;
 	position.y -= screenSize.y / 2.f;

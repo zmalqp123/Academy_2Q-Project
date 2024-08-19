@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "CircleCollider.h"
 #include "AABB.h"
 #include "BoxCollider.h"
@@ -29,7 +29,7 @@ bool CircleCollider::isCollide(Collider* collider, Vector2& resolution)
 			circleY >= rectY + rectMinY &&
 			circleY <= rectY + rectMaxY) return true;
 
-		// ¿øÀÇ Áß½ÉÀÌ »ç°¢ÇüÀÇ °¡ÀåÀÚ¸®¿¡ ÀÖ´ÂÁö È®ÀÎ
+		// ì›ì˜ ì¤‘ì‹¬ì´ ì‚¬ê°í˜•ì˜ ê°€ìž¥ìžë¦¬ì— ìžˆëŠ”ì§€ í™•ì¸
 		float dx = circleX - std::fmaxf(rectX + rectMinX,
 			std::fminf(circleX, rectX + rectMaxX));
 		float dy = circleY - std::fmaxf(rectY + rectMinY,

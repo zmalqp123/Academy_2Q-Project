@@ -1,4 +1,4 @@
-// SceneManager.h
+ï»¿// SceneManager.h
 #pragma once
 #include <unordered_map>
 #include <string>
@@ -6,30 +6,30 @@
 
 class SceneManager {
 public:
-    // ½Ì±ÛÅÏ ÀÎ½ºÅÏ½º¸¦ °¡Á®¿À´Â ÇÔ¼ö
+    // ì‹±ê¸€í„´ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
     static SceneManager& GetInstance();
 
-    // ¾ÀÀ» µî·ÏÇÏ´Â ÇÔ¼ö
+    // ì”¬ì„ ë“±ë¡í•˜ëŠ” í•¨ìˆ˜
     void RegisterScene(const std::string& name, Scene* scene);
 
     void SetChangeSceneFlag(const std::string& name);
 
-    // Æ¯Á¤ ¾ÀÀ¸·Î ÀüÈ¯ÇÏ´Â ÇÔ¼ö
+    // íŠ¹ì • ì”¬ìœ¼ë¡œ ì „í™˜í•˜ëŠ” í•¨ìˆ˜
     void ChangeScene(const std::string& name);
 
     void Release();
 
-    // ÇöÀç È°¼ºÈ­µÈ ¾ÀÀ» °¡Á®¿À´Â ÇÔ¼ö
+    // í˜„ì¬ í™œì„±í™”ëœ ì”¬ì„ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
     Scene* GetCurrentScene();
 
     bool shouldChangeSceneFlag = false;
     std::string nextSceneName;
 private:
-    // »ı¼ºÀÚ ¹× ¼Ò¸êÀÚ
+    // ìƒì„±ì ë° ì†Œë©¸ì
     SceneManager();
     ~SceneManager();
 
-    // º¹»ç »ı¼ºÀÚ¿Í ´ëÀÔ ¿¬»êÀÚ »èÁ¦
+    // ë³µì‚¬ ìƒì„±ìì™€ ëŒ€ì… ì—°ì‚°ì ì‚­ì œ
     SceneManager(const SceneManager&) = delete;
     SceneManager& operator=(const SceneManager&) = delete;
 

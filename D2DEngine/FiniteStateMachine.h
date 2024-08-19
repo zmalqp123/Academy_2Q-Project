@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Component.h"
 #include "Action.h"
 #include <string>
@@ -14,8 +14,8 @@ public:
 	virtual ~FiniteStateMachine();
 
 public:
-	FSMState* m_pCurrState = nullptr;  // ÇöÀç »óÅÂ	
-	FSMState* m_pNextState = nullptr;	// ´ÙÀ½ »óÅÂ
+	FSMState* m_pCurrState = nullptr;  // í˜„ì¬ ìƒíƒœ	
+	FSMState* m_pNextState = nullptr;	// ë‹¤ìŒ ìƒíƒœ
 
 	std::map<std::string, FSMState*> m_pStates;
 	std::map<std::string, FSMParameter*> m_pParams;

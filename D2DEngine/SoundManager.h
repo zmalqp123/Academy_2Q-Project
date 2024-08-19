@@ -1,6 +1,6 @@
-#pragma once
+ï»¿#pragma once
 
-// FMOD Çì´õ ÆÄÀÏ Æ÷ÇÔ
+// FMOD í—¤ë” íŒŒì¼ í¬í•¨
 #pragma comment(lib, "fmod_vc.lib")
 #include "fmod.hpp"
 #include <map>
@@ -11,53 +11,53 @@ class SoundManager
 private:
     FMOD::System* m_System = nullptr;
 
-    std::map<std::wstring, FMOD::Sound*> m_SoundMap;   // »ç¿îµå ÀÌ¸§°ú FMOD::Sound °´Ã¼¸¦ ¸ÅÇÎÇÏ´Â ¸Ê
-    std::map<std::wstring, FMOD::Channel*> m_ChannelMap; // »ç¿îµå ÀÌ¸§°ú FMOD::Channel °´Ã¼¸¦ ¸ÅÇÎÇÏ´Â ¸Ê
+    std::map<std::wstring, FMOD::Sound*> m_SoundMap;   // ì‚¬ìš´ë“œ ì´ë¦„ê³¼ FMOD::Sound ê°ì²´ë¥¼ ë§¤í•‘í•˜ëŠ” ë§µ
+    std::map<std::wstring, FMOD::Channel*> m_ChannelMap; // ì‚¬ìš´ë“œ ì´ë¦„ê³¼ FMOD::Channel ê°ì²´ë¥¼ ë§¤í•‘í•˜ëŠ” ë§µ
 
     SoundManager() {
-        // FMOD ½Ã½ºÅÛ °´Ã¼ »ı¼º
+        // FMOD ì‹œìŠ¤í…œ ê°ì²´ ìƒì„±
         FMOD::System_Create(&m_System);
         m_System->init(512, FMOD_INIT_NORMAL, nullptr);
     }
 
     ~SoundManager() {
-        // »ç¿îµå °´Ã¼ ÇØÁ¦
+        // ì‚¬ìš´ë“œ ê°ì²´ í•´ì œ
         for (auto& sound : m_SoundMap) {
             sound.second->release();
         }
-        // FMOD ½Ã½ºÅÛ ÇØÁ¦
+        // FMOD ì‹œìŠ¤í…œ í•´ì œ
         m_System->close();
         m_System->release();
     }
 
 public:
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º °¡Á®¿À±â
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ê°€ì ¸ì˜¤ê¸°
     static SoundManager& GetInstance() {
         static SoundManager instance;
         return instance;
     }
 
-    // º¹»ç ¹× ÀÌµ¿ ±İÁö
+    // ë³µì‚¬ ë° ì´ë™ ê¸ˆì§€
     SoundManager(const SoundManager&) = delete;
     SoundManager& operator=(const SoundManager&) = delete;
     SoundManager(SoundManager&&) = delete;
     SoundManager& operator=(SoundManager&&) = delete;
 
-    // »ç¿îµå ·Îµå
+    // ì‚¬ìš´ë“œ ë¡œë“œ
     bool LoadSound(const std::wstring& baseName, const std::wstring& filePath);
 
-    // »ç¿îµå Àç»ı
+    // ì‚¬ìš´ë“œ ì¬ìƒ
     void PlaySoundW(const std::wstring& baseName, bool loop = false);
 
-    // »ç¿îµå Á¤Áö
+    // ì‚¬ìš´ë“œ ì •ì§€
     void StopSound(const std::wstring& name);
 
-    // º¼·ı ¼³Á¤
+    // ë³¼ë¥¨ ì„¤ì •
     void SetVolume(const std::wstring& name, float volume);
 
-    // ½Ã½ºÅÛ ¾÷µ¥ÀÌÆ®
+    // ì‹œìŠ¤í…œ ì—…ë°ì´íŠ¸
     void Update();
 
-    // »ç¿îµå ÇØÁ¦
+    // ì‚¬ìš´ë“œ í•´ì œ
     void ReleaseSound(const std::wstring& name);
 };

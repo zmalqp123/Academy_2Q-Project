@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "TextUIRenderer.h"
 #include "D2DRenderer.h"
 #include "Transform.h"
@@ -11,13 +11,13 @@ TextUIRenderer::TextUIRenderer()
 	D2DRenderer::getRenderTarget().CreateSolidColorBrush(color, &color_brush);
 
 	auto hr = D2DRenderer::getIncetance().g_pDWriteFactory->CreateTextFormat(
-        L"Gabriola",                // ��Ʈ �̸�
-        NULL,                       // ��Ʈ �÷���(NULL: �⺻ �ý��� ��Ʈ)
-        DWRITE_FONT_WEIGHT_REGULAR, // ��Ʈ �β�
-        DWRITE_FONT_STYLE_NORMAL,   // ��Ʈ ��Ÿ��
-        DWRITE_FONT_STRETCH_NORMAL, // ��Ʈ �ʺ�
-        50.0f,                      // ��Ʈ ũ��
-        L"en-us",                   // ��Ķ
+        L"Gabriola",                // 폰트 이름
+        NULL,                       // 폰트 컬렉션(NULL: 기본 시스템 폰트)
+        DWRITE_FONT_WEIGHT_REGULAR, // 폰트 두께
+        DWRITE_FONT_STYLE_NORMAL,   // 폰트 스타일
+        DWRITE_FONT_STRETCH_NORMAL, // 폰트 너비
+        50.0f,                      // 폰트 크기
+        L"en-us",                   // 로캘
         &pTextFormat
     );
 	pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
@@ -105,13 +105,13 @@ void TextUIRenderer::SetTextColor(D2D1::ColorF _color)
 void TextUIRenderer::SetFontSize(float size)
 {
 	auto hr = D2DRenderer::getIncetance().g_pDWriteFactory->CreateTextFormat(
-		L"Gabriola",                // ��Ʈ �̸�
-		NULL,                       // ��Ʈ �÷���(NULL: �⺻ �ý��� ��Ʈ)
-		DWRITE_FONT_WEIGHT_REGULAR, // ��Ʈ �β�
-		DWRITE_FONT_STYLE_NORMAL,   // ��Ʈ ��Ÿ��
-		DWRITE_FONT_STRETCH_NORMAL, // ��Ʈ �ʺ�
-		size,                      // ��Ʈ ũ��
-		L"en-us",                   // ��Ķ
+		L"Gabriola",                // 폰트 이름
+		NULL,                       // 폰트 컬렉션(NULL: 기본 시스템 폰트)
+		DWRITE_FONT_WEIGHT_REGULAR, // 폰트 두께
+		DWRITE_FONT_STYLE_NORMAL,   // 폰트 스타일
+		DWRITE_FONT_STRETCH_NORMAL, // 폰트 너비
+		size,                      // 폰트 크기
+		L"en-us",                   // 로캘
 		&pTextFormat
 	);
 }

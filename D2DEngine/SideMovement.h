@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "Movement.h"
 
 class SideMovement : public Movement
 {
 private:
-    float m_gravity = 500.f;  // Áß·ÂÀÇ ¼¼±â
-    float m_verticalVelocity = 0.0f; // ¼öÁ÷ ¼Óµµ
+    float m_gravity = 500.f;  // ì¤‘ë ¥ì˜ ì„¸ê¸°
+    float m_verticalVelocity = 0.0f; // ìˆ˜ì§ ì†ë„
 public:
     bool freezeRotate = true;
     Vector2 prevPosition;

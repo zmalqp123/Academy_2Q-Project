@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "EventSystem.h"
 #include "Scene.h"
 #include "D2DRenderer.h"
@@ -15,8 +15,8 @@ EventSystem& EventSystem::GetInstance()
 	return instance;
 }
 
-// Ãæµ¹Ã¼°¡ ÀÖ´Â ¿ÀºêÁ§Æ®µéÀ» ¹Þ¾Æ¿Í¼­
-// ÇØ´ç ¿ÀºêÁ§Æ®µé Áß ipointer°¡ ÀÖ´Ù¸é °ü·ÃÇÔ¼ö È£Ãâ
+// ì¶©ëŒì²´ê°€ ìžˆëŠ” ì˜¤ë¸Œì íŠ¸ë“¤ì„ ë°›ì•„ì™€ì„œ
+// í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ë“¤ ì¤‘ ipointerê°€ ìžˆë‹¤ë©´ ê´€ë ¨í•¨ìˆ˜ í˜¸ì¶œ
 void EventSystem::Update(Scene* scene, float delta)
 {
 	prevWorldObject = currentWorldObject;
@@ -41,7 +41,7 @@ void EventSystem::Update(Scene* scene, float delta)
 
 	//for (auto& g : m_GameObjects) {
 	//	if (g->isActive == false) continue;
-	//	bool pushed = false; // °ÔÀÓ¿ÀºêÁ§Æ® ÇÏ³ª´ç Çª½¬µÇ¸é ignore
+	//	bool pushed = false; // ê²Œìž„ì˜¤ë¸Œì íŠ¸ í•˜ë‚˜ë‹¹ í‘¸ì‰¬ë˜ë©´ ignore
 	//	auto coll = g->GetComponent<Collider>();
 	//	for (auto& comp : g->components) {
 	//		if (Renderer* c = dynamic_cast<Renderer*>(comp)) {
@@ -75,7 +75,7 @@ void EventSystem::Update(Scene* scene, float delta)
 	//	}
 	//}
 
-	// ¸¶¿ì½º À§Ä¡ÀÇ ¿ÀºêÁ§Æ®µéÀ» ¸ðµÎ objs¿¡ ¹Þ¾Æ¿È.
+	// ë§ˆìš°ìŠ¤ ìœ„ì¹˜ì˜ ì˜¤ë¸Œì íŠ¸ë“¤ì„ ëª¨ë‘ objsì— ë°›ì•„ì˜´.
 	for (auto& object : m_GameObjects) {
 		if (object->isActive == false) continue;
 

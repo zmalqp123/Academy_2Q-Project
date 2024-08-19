@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "D2DRenderer.h"
 #pragma comment(lib, "Dxgi.lib")
 
@@ -40,7 +40,7 @@ bool D2DRenderer::InitDirect2D(HWND hWnd)
         hr = CreateD2DBitmapFromFile(L"../Resource/atk_1.png", &g_pD2DBitmap);
     }
 
-    // DirectWrite ÆÑÅÍ¸®¸¦ ¸¸µì´Ï´Ù.
+    // DirectWrite íŒ©í„°ë¦¬ë¥¼ ë§Œë“­ë‹ˆë‹¤.
     hr = DWriteCreateFactory(
         DWRITE_FACTORY_TYPE_SHARED,
         __uuidof(g_pDWriteFactory),
@@ -49,9 +49,9 @@ bool D2DRenderer::InitDirect2D(HWND hWnd)
     if (FAILED(hr))
         return FALSE;
 
-    // DirectWrite ÅØ½ºÆ® Çü½Ä °³Ã¼¸¦ ¸¸µì´Ï´Ù.
+    // DirectWrite í…ìŠ¤íŠ¸ í˜•ì‹ ê°œì²´ë¥¼ ë§Œë“­ë‹ˆë‹¤.
     hr = g_pDWriteFactory->CreateTextFormat(
-        L"Bodoni", // FontName    Á¦¾îÆÇ-¸ðµçÁ¦¾îÆÇ-Ç×¸ñ-±Û²Ã-Å¬¸¯ À¸·Î ±Û²ÃÀÌ¸§ È®ÀÎ°¡´É
+        L"Bodoni", // FontName    ì œì–´íŒ-ëª¨ë“ ì œì–´íŒ-í•­ëª©-ê¸€ê¼´-í´ë¦­ ìœ¼ë¡œ ê¸€ê¼´ì´ë¦„ í™•ì¸ê°€ëŠ¥
         NULL,
         DWRITE_FONT_WEIGHT_NORMAL,
         DWRITE_FONT_STYLE_NORMAL,
@@ -62,7 +62,7 @@ bool D2DRenderer::InitDirect2D(HWND hWnd)
     );
     if (FAILED(hr))
         return FALSE;
-    // ÅØ½ºÆ®¸¦ ¼öÆò ¹× ¼öÁ÷À¸·Î Áß¾Ó¿¡ ¸ÂÃä´Ï´Ù.
+    // í…ìŠ¤íŠ¸ë¥¼ ìˆ˜í‰ ë° ìˆ˜ì§ìœ¼ë¡œ ì¤‘ì•™ì— ë§žì¶¥ë‹ˆë‹¤.
     g_pDWriteTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_LEADING);
     g_pDWriteTextFormat->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_NEAR);
 
@@ -82,7 +82,7 @@ bool D2DRenderer::InitDirect2D(HWND hWnd)
         );
     }
 
-    // VRAM Á¤º¸¾ò±â À§ÇÑ °³Ã¼ »ý¼º
+    // VRAM ì •ë³´ì–»ê¸° ìœ„í•œ ê°œì²´ ìƒì„±
     if (SUCCEEDED(hr))
     {
         // Create DXGI factory
@@ -220,7 +220,7 @@ HRESULT D2DRenderer::CreateD2DBitmapFromFile(const WCHAR* szFilePath, ID2D1Bitma
     }
 
 
-    // ÆÄÀÏÀ» »ç¿ëÇÒ¶§¸¶´Ù ´Ù½Ã ¸¸µç´Ù.
+    // íŒŒì¼ì„ ì‚¬ìš©í• ë•Œë§ˆë‹¤ ë‹¤ì‹œ ë§Œë“ ë‹¤.
     if (pConverter)
         pConverter->Release();
 
@@ -256,7 +256,7 @@ void D2DRenderer::DrawStringText(const WCHAR* _text)
     D2D1_SIZE_F size = _RenderTarget->GetSize();
 
     std::wstring text = _text;
-    //WCHAR sc_helloWorld[] = L"¾È³ç!, ¼¼°è! Abg\n ¾î¾Ï¤¸¾ÏÀå\n ¤·hagth";
+    //WCHAR sc_helloWorld[] = L"ì•ˆë…•!, ì„¸ê³„! Abg\n ì–´ì•”ã…ˆì•”ìž¥\n ã…‡hagth";
     _RenderTarget->DrawText(
         text.c_str(),
         text.size(), //ARRAYSIZE(sc_helloWorld) - 1,
@@ -277,7 +277,7 @@ void D2DRenderer::DrawStringTextw(const WCHAR* _text, D2D1_MATRIX_3X2_F transfor
     D2D1_SIZE_F size = _RenderTarget->GetSize();
 
     std::wstring text = _text;
-    //WCHAR sc_helloWorld[] = L"¾È³ç!, ¼¼°è! Abg\n ¾î¾Ï¤¸¾ÏÀå\n ¤·hagth";
+    //WCHAR sc_helloWorld[] = L"ì•ˆë…•!, ì„¸ê³„! Abg\n ì–´ì•”ã…ˆì•”ìž¥\n ã…‡hagth";
     _RenderTarget->DrawText(
         text.c_str(),
         text.size(), //ARRAYSIZE(sc_helloWorld) - 1,

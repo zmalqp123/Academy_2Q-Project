@@ -1,4 +1,4 @@
-#include "GameScene.h"
+﻿#include "GameScene.h"
 #include "../D2DEngine/D2DRenderer.h"
 #include "../D2DEngine/Camera.h"
 #include "../D2DEngine/SoundManager.h"

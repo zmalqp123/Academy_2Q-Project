@@ -1,23 +1,23 @@
-// SceneManager.cpp
+ï»¿// SceneManager.cpp
 #include "pch.h"
 #include "SceneManager.h"
 #include <iostream>
 
-// ½Ì±ÛÅÏ ÀÎ½ºÅÏ½º¸¦ °¡Á®¿À´Â ÇÔ¼ö
+// ì‹±ê¸€í„´ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
 SceneManager& SceneManager::GetInstance() {
     static SceneManager instance;
     return instance;
 }
 
-// »ı¼ºÀÚ
+// ìƒì„±ì
 SceneManager::SceneManager() : currentScene(nullptr) {}
 
-// ¼Ò¸êÀÚ
+// ì†Œë©¸ì
 SceneManager::~SceneManager() {
     Release();
 }
 
-// ¾ÀÀ» µî·ÏÇÏ´Â ÇÔ¼ö
+// ì”¬ì„ ë“±ë¡í•˜ëŠ” í•¨ìˆ˜
 void SceneManager::RegisterScene(const std::string& name, Scene* scene) {
     scenes[name] = scene;
 }
@@ -28,17 +28,17 @@ void SceneManager::SetChangeSceneFlag(const std::string& name)
     shouldChangeSceneFlag = true;
 }
 
-// Æ¯Á¤ ¾ÀÀ¸·Î ÀüÈ¯ÇÏ´Â ÇÔ¼ö
+// íŠ¹ì • ì”¬ìœ¼ë¡œ ì „í™˜í•˜ëŠ” í•¨ìˆ˜
 void SceneManager::ChangeScene(const std::string& name) {
     if (currentScene) {
-        currentScene->Clear(); // ÇöÀç ¾À¿¡¼­ ÀÚ¿ø Á¤¸®
+        currentScene->Clear(); // í˜„ì¬ ì”¬ì—ì„œ ìì› ì •ë¦¬
     }
 
     auto it = scenes.find(name);
     if (it != scenes.end()) {
         currentScene = it->second;
-        // Ãß°¡ÀûÀÎ ÃÊ±âÈ­°¡ ÇÊ¿äÇÏ¸é ¿©±â¼­ Ã³¸®
-        currentScene->Start(); // »õ·Î¿î ¾ÀÀÇ ÃÊ±âÈ­
+        // ì¶”ê°€ì ì¸ ì´ˆê¸°í™”ê°€ í•„ìš”í•˜ë©´ ì—¬ê¸°ì„œ ì²˜ë¦¬
+        currentScene->Start(); // ìƒˆë¡œìš´ ì”¬ì˜ ì´ˆê¸°í™”
     }
     else {
         std::cerr << "Scene " << name << " not found!" << std::endl;
@@ -51,10 +51,10 @@ void SceneManager::Release()
     {
       delete scene.second;
     }
-    scenes.clear(); // ÄÁÅ×ÀÌ³Ê ºñ¿ì±â
+    scenes.clear(); // ì»¨í…Œì´ë„ˆ ë¹„ìš°ê¸°
 }
 
-// ÇöÀç È°¼ºÈ­µÈ ¾ÀÀ» °¡Á®¿À´Â ÇÔ¼ö
+// í˜„ì¬ í™œì„±í™”ëœ ì”¬ì„ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
 Scene* SceneManager::GetCurrentScene() {
     return currentScene;
 }

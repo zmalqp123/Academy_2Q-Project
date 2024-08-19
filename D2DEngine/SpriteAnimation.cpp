@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Texture.h"
 #include "SpriteAnimation.h"
 #include "SpriteAnimationAsset.h"
@@ -18,7 +18,7 @@ SpriteAnimation::SpriteAnimation()
 
 SpriteAnimation::~SpriteAnimation()
 {
-	// ¸®¼Ò½º¸Å´ÏÀú¸¦ ÅëÇÏ¿© ¿¡¼ÂÀÌ¸§À¸·Î ÇØÁ¦ÇÑ´Ù.
+	// ë¦¬ì†ŒìŠ¤ë§¤ë‹ˆì €ë¥¼ í†µí•˜ì—¬ ì—ì…‹ì´ë¦„ìœ¼ë¡œ í•´ì œí•œë‹¤.
 	if (m_pAnimationAsset)
 	{
 		ResourceManager::GetInstance().ReleaseAnimationAsset(m_strAnimationAssetFilePath);
@@ -28,7 +28,7 @@ SpriteAnimation::~SpriteAnimation()
 
 void SpriteAnimation::LoadAnimationAsset(const std::wstring strFilePath)
 {
-	// ¸®¼Ò½º ¸Å´ÏÀú¸¦ ÅëÇØ AnimationAssetÀ» ·ÎµåÇÑ´Ù.
+	// ë¦¬ì†ŒìŠ¤ ë§¤ë‹ˆì €ë¥¼ í†µí•´ AnimationAssetì„ ë¡œë“œí•œë‹¤.
 	m_strAnimationAssetFilePath = strFilePath;
 
 	ResourceManager::GetInstance().CreateAnimationAsset(m_strAnimationAssetFilePath, &m_pAnimationAsset);
@@ -47,7 +47,7 @@ void SpriteAnimation::LoadTexture(const std::wstring strFilePath)
 void SpriteAnimation::Update(float fTimeElapsed)
 {
 	__super::Update(fTimeElapsed);
-	assert(m_pAnimationAsset != nullptr);  // assetÀÌ ¾øÀ¸¸é debug¸ğµå¿¡¼­ ¸ØÃã
+	assert(m_pAnimationAsset != nullptr);  // assetì´ ì—†ìœ¼ë©´ debugëª¨ë“œì—ì„œ ë©ˆì¶¤
 	if (m_pAnimationInfo == nullptr)
 		return;
 
@@ -60,16 +60,16 @@ void SpriteAnimation::Update(float fTimeElapsed)
 	}
 
 	///////////////     
-	// m_FrameTime¿¡ fTimeElapsedÀ» ´©Àû½ÃÄÑ  Frame.Durationº¸´Ù Å©¸é 
-	// m_FrameIndexCurr¸¦ Áõ°¡½ÃÅ°°í m_FrameTimeÀ» 0À¸·Î ÃÊ±âÈ­ÇÑ´Ù.
-	// ÀÏ´Ü ·çÇÁ¸¸ °¡Á¤ÇÏ°í Ã³¸®ÇÑ´Ù.
+	// m_FrameTimeì— fTimeElapsedì„ ëˆ„ì ì‹œì¼œ  Frame.Durationë³´ë‹¤ í¬ë©´ 
+	// m_FrameIndexCurrë¥¼ ì¦ê°€ì‹œí‚¤ê³  m_FrameTimeì„ 0ìœ¼ë¡œ ì´ˆê¸°í™”í•œë‹¤.
+	// ì¼ë‹¨ ë£¨í”„ë§Œ ê°€ì •í•˜ê³  ì²˜ë¦¬í•œë‹¤.
 	////////////////
 
 
 	m_SrcRect = Frame.Source;
 	m_DstRect = { 0,0,m_SrcRect.right - m_SrcRect.left,m_SrcRect.bottom - m_SrcRect.top };
 
-	if (m_bMirror) //x Ãà ½ºÄÉÀÏÀº ÁÂ¿ì ¹İÀü , Translation Àº Ãâ·ÂÇÒ ÀÌ¹ÌÁöÀÇ ¿øÁ¡ Á¤º¸
+	if (m_bMirror) //x ì¶• ìŠ¤ì¼€ì¼ì€ ì¢Œìš° ë°˜ì „ , Translation ì€ ì¶œë ¥í•  ì´ë¯¸ì§€ì˜ ì›ì  ì •ë³´
 	{
 		m_ImageTransform = D2D1::Matrix3x2F::Scale(-1.0f, 1.0f, D2D1::Point2F(0, 0)) *
 			D2D1::Matrix3x2F::Translation(Frame.Center.x, Frame.Center.y);

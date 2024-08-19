@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "WinGameApp.h"
 #include <cmath>
 #include "InputManager.h"
@@ -9,9 +9,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 {
-	// °øÅëÀ¸·Î »ç¿ëÇÏ´Â À©µµ¿ì ¼³Á¤,»ı¼ººÎºĞÀ» ÀÛ¼ºÇÑ´Ù.
+	// ê³µí†µìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” ìœˆë„ìš° ì„¤ì •,ìƒì„±ë¶€ë¶„ì„ ì‘ì„±í•œë‹¤.
 
-	// Direct2DÃÊ±âÈ­¸¦ ÀÛ¼ºÇÑ´Ù.
+	// Direct2Dì´ˆê¸°í™”ë¥¼ ì‘ì„±í•œë‹¤.
     
     WNDCLASSEX wcex = { sizeof(WNDCLASSEX) };
     wcex.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
@@ -47,7 +47,7 @@ void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
         float sizeY = static_cast<int>(ceil(y * dpi / 96.f));
         RECT rect = { 0, 0, sizeX, sizeY};
 
-        AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, NULL); // ½Ã¿ì´ÔÀÌ µµ¿ÍÁÖ½Å ÄÚµå Å¬¶óÀÌ¾ğÆ® ÁÂÇ¥·Î º¯°æ
+        AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, NULL); // ì‹œìš°ë‹˜ì´ ë„ì™€ì£¼ì‹  ì½”ë“œ í´ë¼ì´ì–¸íŠ¸ ì¢Œí‘œë¡œ ë³€ê²½
         SetWindowPos(
             hwnd,
             NULL,
@@ -73,7 +73,7 @@ void WinGameApp::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 
 void WinGameApp::Run()
 {
-	// °øÅëÀ¸·Î »ç¿ëÇÏ´Â À©µµ¿ì °ÔÀÓ ·çÇÁ¸¦ ÀÛ¼ºÇÑ´Ù.
+	// ê³µí†µìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” ìœˆë„ìš° ê²Œì„ ë£¨í”„ë¥¼ ì‘ì„±í•œë‹¤.
     ShowWindow(hwnd, SW_SHOWNORMAL);
 
     MSG msg = { };
@@ -109,7 +109,7 @@ void WinGameApp::Run()
         InputManager::GetInstance().UpdateMouse(wheelMoved, doubleClicked);
         GameTime::GetInstance().UpdateTime();
         
-        // ÀÌ°É »ç¿ëÇÏ¸é È­¸é Å©±â¸¦ ¸¶À½´ë·Î º¯°æ °¡´É.
+        // ì´ê±¸ ì‚¬ìš©í•˜ë©´ í™”ë©´ í¬ê¸°ë¥¼ ë§ˆìŒëŒ€ë¡œ ë³€ê²½ ê°€ëŠ¥.
        /* if (GetKeyState(0x44) < 0) {
             float dpi = GetDpiForWindow(hwnd);
             SetWindowPos(
@@ -126,7 +126,7 @@ void WinGameApp::Run()
 
         elapsedTime += GameTime::GetInstance().GetDeltaTime();
 
-        while (elapsedTime >= 20) //0.02ÃÊ
+        while (elapsedTime >= 20) //0.02ì´ˆ
         {
             //++m_FixedUpdateCount;
 
@@ -164,7 +164,7 @@ void WinGameApp::Render(D2DRenderer* _render)
 
 void WinGameApp::Uninitialize()
 {
-	// Direct2D ÇØÁ¦¸¦ È£ÃâÇÑ´Ù.
+	// Direct2D í•´ì œë¥¼ í˜¸ì¶œí•œë‹¤.
     D2DRenderer::getIncetance().UnInitDirect2D();
 
     CoUninitialize();
@@ -184,7 +184,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
-// Á¤º¸ ´ëÈ­ »óÀÚÀÇ ¸Ş½ÃÁö Ã³¸®±âÀÔ´Ï´Ù.
+// ì •ë³´ ëŒ€í™” ìƒìì˜ ë©”ì‹œì§€ ì²˜ë¦¬ê¸°ì…ë‹ˆë‹¤.
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
     UNREFERENCED_PARAMETER(lParam);

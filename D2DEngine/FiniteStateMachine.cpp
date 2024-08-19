@@ -1,11 +1,11 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "FiniteStateMachine.h"
 
 FiniteStateMachine::~FiniteStateMachine()
 {
 	for (auto& state : m_pStates)
 	{
-		//statd.second¾È¿¡ Transitionµéµµ »èÁ¦ÇØ¾ßÇÔ. class¸¸µé°í »èÁ¦.
+		//statd.secondì•ˆì— Transitionë“¤ë„ ì‚­ì œí•´ì•¼í•¨. classë§Œë“¤ê³  ì‚­ì œ.
 		delete state.second;
 	}
 	m_pStates.clear();

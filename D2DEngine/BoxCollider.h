@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Collider.h"
 #include "AABB.h"
 #include "Renderer.h"
@@ -18,7 +18,7 @@ public:
 
 		offset = { 0.f, 0.f };
 	}
-	// ColliderÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// Colliderì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	bool isCollide(Collider* collider, Vector2& resolution) override;
 
 	virtual void Render(D2D1_MATRIX_3X2_F cameraMat);
@@ -27,11 +27,11 @@ public:
 	void SetCenter(const Vector2& _center);
 	void SetExtent(const Vector2& _extent);
 
-	// RendererÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// Rendererì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	AABB GetBound() override;
 	void Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat) override;
 
-	// ColliderÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// Colliderì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	bool isCollide(const Vector2& point) override;
 };
 

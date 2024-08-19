@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Transform.h"
 
 
@@ -8,7 +8,7 @@ void Transform::UpdateTrasnform()
 	if (type == Type::World)
 	{
 		m_RelativeTransform =
-			//D2D1::Matrix3x2F::Translation(m_CenterTransform.x, m_CenterTransform.y) *     // ¾ê´Â ·»´õ´Ü°è¿¡¼­ µû·Î °è»êÇØ¾ß ¸ÂÀ½. ½ºÇÁ¶óÀÌÆ® ÇÇ¹þ
+			//D2D1::Matrix3x2F::Translation(m_CenterTransform.x, m_CenterTransform.y) *     // ì–˜ëŠ” ë Œë”ë‹¨ê³„ì—ì„œ ë”°ë¡œ ê³„ì‚°í•´ì•¼ ë§žìŒ. ìŠ¤í”„ë¼ì´íŠ¸ í”¼ë²—
 			D2D1::Matrix3x2F::Scale(D2D1::SizeF(m_RelativeScale.x, m_RelativeScale.y)) *
 			D2D1::Matrix3x2F::Rotation(m_RelativeRotation) *
 			D2D1::Matrix3x2F::Translation(pos.worldPosition.x, pos.worldPosition.y);
@@ -16,7 +16,7 @@ void Transform::UpdateTrasnform()
 	else
 	{
 		m_RelativeTransform =
-			//D2D1::Matrix3x2F::Translation(m_CenterTransform.x, m_CenterTransform.y) *     // ¾ê´Â ·»´õ´Ü°è¿¡¼­ µû·Î °è»êÇØ¾ß ¸ÂÀ½. ½ºÇÁ¶óÀÌÆ® ÇÇ¹þ
+			//D2D1::Matrix3x2F::Translation(m_CenterTransform.x, m_CenterTransform.y) *     // ì–˜ëŠ” ë Œë”ë‹¨ê³„ì—ì„œ ë”°ë¡œ ê³„ì‚°í•´ì•¼ ë§žìŒ. ìŠ¤í”„ë¼ì´íŠ¸ í”¼ë²—
 			D2D1::Matrix3x2F::Scale(D2D1::SizeF(m_RelativeScale.x, m_RelativeScale.y)) *
 			D2D1::Matrix3x2F::Rotation(m_RelativeRotation) *
 			D2D1::Matrix3x2F::Translation({ (pos.rectposition.leftBottom.x),
@@ -24,7 +24,7 @@ void Transform::UpdateTrasnform()
 			);
 	}
 
-	// À§¿Í °°Àº ¿ø¸®¶ó¸é ·»´õ·¯µµ ¸ÅÆ®¸¯½º¸¦ °¡Áö°í ÀÖ°í (pivot, scale, rotation) ÀÌ °ª¿¡ transformÀÇ matrix¸¦ °öÇÏ¿© Ç¥ÇöÇØ¾ß ÇÒ°Å°°´Ù.
+	// ìœ„ì™€ ê°™ì€ ì›ë¦¬ë¼ë©´ ë Œë”ëŸ¬ë„ ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ê°€ì§€ê³  ìžˆê³  (pivot, scale, rotation) ì´ ê°’ì— transformì˜ matrixë¥¼ ê³±í•˜ì—¬ í‘œí˜„í•´ì•¼ í• ê±°ê°™ë‹¤.
 
 	if (m_pParentScene != nullptr)
 		m_WorldTransform = m_RelativeTransform * m_pParentScene->m_WorldTransform;

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Windows.h"
 //#include "DeltaTime.h"
 #include "D2DRenderer.h"
@@ -8,7 +8,7 @@
 #include <dwrite.h>
 #include <wincodec.h>
 
-#pragma comment(lib, "d2d1.lib") // Direct2D ¶óÀÌºê·¯¸® ¸µÅ©
+#pragma comment(lib, "d2d1.lib") // Direct2D ë¼ì´ë¸ŒëŸ¬ë¦¬ ë§í¬
 
 class WinGameApp
 {
@@ -20,7 +20,7 @@ private:
 	//DeltaTime deltaTime;
 public:
 
-	// ÀÚ½Ä Å¬·¡½º°¡ ÀçÁ¤ÀÇ °¡´ÉÇÏµµ·Ï virtual keyword ¸¦ ºÙÀÎ´Ù.
+	// ìì‹ í´ë˜ìŠ¤ê°€ ì¬ì •ì˜ ê°€ëŠ¥í•˜ë„ë¡ virtual keyword ë¥¼ ë¶™ì¸ë‹¤.
 	virtual void Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y);
 	void Run();
 	virtual void FixedUpdate();

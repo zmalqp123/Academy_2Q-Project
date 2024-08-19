@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Button.h"
 #include "Transform.h"
 #include "GameObject.h"
@@ -64,7 +64,7 @@ void Button::OnClick()
 void Button::OffClick()
 {
     std::cout << "ClickUp!" << std::endl;
-    // ¿µ¿ª³»¿¡¼­ Å¬¸¯¾÷Çß´ÂÁö Ã¼Å©ÇØ¾ßÇÔ
+    // ì˜ì—­ë‚´ì—ì„œ í´ë¦­ì—…í–ˆëŠ”ì§€ ì²´í¬í•´ì•¼í•¨
 }
 
 void Button::AddListener(std::function<void()> func)

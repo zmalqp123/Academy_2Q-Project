@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Renderer.h"
 #include "Vector.h"
 class Transform;
@@ -32,7 +32,7 @@ public:
 
 	void SetFilp(bool x, bool y);
 
-	//loadTexture¸¦ ÇÏ±â Àü¿¡ »ç¿ëÇÒ °Í
+	//loadTextureë¥¼ í•˜ê¸° ì „ì— ì‚¬ìš©í•  ê²ƒ
 	void SetCenter(Vector2 normalize);
 };
 

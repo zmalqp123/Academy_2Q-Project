@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Vector.h"
 class InputManager
 {
@@ -47,7 +47,7 @@ public:
 
 	const MouseState& GetMouseState();
 	const MouseState& GetPrevMouseState();
-	const Vector2& GetMousePosition(); // ½ºÅ©¸° ÁÂÇ¥¸¦ ¸®ÅÏ Left - Bottom = (0,0)
+	const Vector2& GetMousePosition(); // ìŠ¤í¬ë¦° ì¢Œí‘œë¥¼ ë¦¬í„´ Left - Bottom = (0,0)
 private:
 	HWND hWnd;
 

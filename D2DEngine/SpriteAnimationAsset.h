@@ -1,13 +1,13 @@
-#pragma once
+ï»¿#pragma once
 #include "Object.h"
 #include <string>
 #include <vector>
 
-struct FRAME_INFO // ¾Ö´Ï¸ŞÀÌ¼Ç ±âº» ÇÁ·¹ÀÓÀÇ ±âº» Á¤º¸ => sprite°¡ µÉ ¿¹Á¤
+struct FRAME_INFO // ì• ë‹ˆë©”ì´ì…˜ ê¸°ë³¸ í”„ë ˆì„ì˜ ê¸°ë³¸ ì •ë³´ => spriteê°€ ë  ì˜ˆì •
 {
-	D2D1_RECT_F		Source;			// ÀÌ¹ÌÁö¿¡¼­ ÇÏ³ªÀÇ Àå¸éÀÌ ¾î´À ¿µ¿ª¿¡ ÀÖ´ÂÁö
-	D2D1_VECTOR_2F	Center;			// ÇÏ³ªÀÇ FRAME¿¡¼­ ÁÂÃø»ó´Ü 0,0 ±âÁØ  ÁßÁ¡ÀÇ ÁÂÇ¥
-	FLOAT			Duration;		// ÇÏ³ªÀÇ Àå¸éÀ» ±×¸± ½Ã°£
+	D2D1_RECT_F		Source;			// ì´ë¯¸ì§€ì—ì„œ í•˜ë‚˜ì˜ ì¥ë©´ì´ ì–´ëŠ ì˜ì—­ì— ìˆëŠ”ì§€
+	D2D1_VECTOR_2F	Center;			// í•˜ë‚˜ì˜ FRAMEì—ì„œ ì¢Œì¸¡ìƒë‹¨ 0,0 ê¸°ì¤€  ì¤‘ì ì˜ ì¢Œí‘œ
+	FLOAT			Duration;		// í•˜ë‚˜ì˜ ì¥ë©´ì„ ê·¸ë¦´ ì‹œê°„
 
 	FRAME_INFO()
 	{
@@ -39,11 +39,11 @@ struct FRAME_INFO // ¾Ö´Ï¸ŞÀÌ¼Ç ±âº» ÇÁ·¹ÀÓÀÇ ±âº» Á¤º¸ => sprite°¡ µÉ ¿¹Á¤
 	}
 };
 
-struct ANIMATION_INFO // ÇÏ³ªÀÇ µ¿ÀÛ¿¡ ´ëÇÑ Á¤º¸
+struct ANIMATION_INFO // í•˜ë‚˜ì˜ ë™ì‘ì— ëŒ€í•œ ì •ë³´
 {
-	std::wstring Name; // ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ ÀÌ¸§	
-	std::vector<FRAME_INFO> Frames; // ÇÁ·¹ÀÓÀÇ ¸ğÀ½
-	bool Loop; // ¹İº¹ ¿©ºÎ
+	std::wstring Name; // ì• ë‹ˆë©”ì´ì…˜ì˜ ì´ë¦„	
+	std::vector<FRAME_INFO> Frames; // í”„ë ˆì„ì˜ ëª¨ìŒ
+	bool Loop; // ë°˜ë³µ ì—¬ë¶€
 	ANIMATION_INFO()// : Name(L"Default")
 	{
 		Loop = false;
@@ -51,14 +51,14 @@ struct ANIMATION_INFO // ÇÏ³ªÀÇ µ¿ÀÛ¿¡ ´ëÇÑ Á¤º¸
 	}
 };
 
-//  ¾Ö´Ï¸ŞÀÌ¼Ç Á¤º¸¸¦ °¡Áö°í ÀÖ´Â Å¬·¡½º
+//  ì• ë‹ˆë©”ì´ì…˜ ì •ë³´ë¥¼ ê°€ì§€ê³  ìˆëŠ” í´ë˜ìŠ¤
 class SpriteAnimationAsset : public Object
 {
 public:
 	SpriteAnimationAsset() { m_Animations.resize(12); };
 	virtual ~SpriteAnimationAsset() {};
 public:
-	std::vector<ANIMATION_INFO> m_Animations;  // ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ ¸ğÀ½
+	std::vector<ANIMATION_INFO> m_Animations;  // ì• ë‹ˆë©”ì´ì…˜ì˜ ëª¨ìŒ
 
 	ANIMATION_INFO* GetAnimationInfo(int index)
 	{

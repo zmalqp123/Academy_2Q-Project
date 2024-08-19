@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <windows.h>
 #include <d2d1.h>
 #include <wincodec.h>
@@ -20,10 +20,10 @@ class D2DRenderer
 	~D2DRenderer() {}
 
 public:
-	//  D2D °³Ã¼ ÀÎÅÍÆäÀÌ½º Æ÷ÀÎÅÍ º¯¼ö
+	//  D2D ê°œì²´ ì¸í„°í˜ì´ìŠ¤ í¬ì¸í„° ë³€ìˆ˜
 	ID2D1Factory* _D2DFactory = nullptr;
 
-	// Ä«¸Ş¶ó´ç ÇÏ³ª µé¾î°£´Ù Á¤µµ¸¸ ¾Ë°íÀÖ±â matrix¸¦ »ç¿ëÇØ¼­ transformÀ» º¯È¯ÇÏ¸é ·»´õÅ¸°ÙÀ» ÅëÇØ Ãâ·ÂµÇ´Â ÀÌ¹ÌÁö µîÀÇ À§Ä¡¸¦ º¯°æ °¡´É.
+	// ì¹´ë©”ë¼ë‹¹ í•˜ë‚˜ ë“¤ì–´ê°„ë‹¤ ì •ë„ë§Œ ì•Œê³ ìˆê¸° matrixë¥¼ ì‚¬ìš©í•´ì„œ transformì„ ë³€í™˜í•˜ë©´ ë Œë”íƒ€ê²Ÿì„ í†µí•´ ì¶œë ¥ë˜ëŠ” ì´ë¯¸ì§€ ë“±ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½ ê°€ëŠ¥.
 	ID2D1HwndRenderTarget* _RenderTarget = nullptr;
 
 	
@@ -35,8 +35,8 @@ public:
 	IDWriteFactory* g_pDWriteFactory = nullptr;
 	IDWriteTextFormat* g_pDWriteTextFormat = nullptr;
 
-	IDXGIFactory4* m_pDXGIFactory = nullptr;		// DXGIÆÑÅä¸®
-	IDXGIAdapter3* m_pDXGIAdapter = nullptr;		// ºñµğ¿ÀÄ«µå Á¤º¸¿¡ Á¢±Ù °¡´ÉÇÑ ÀÎÅÍÆäÀÌ½º
+	IDXGIFactory4* m_pDXGIFactory = nullptr;		// DXGIíŒ©í† ë¦¬
+	IDXGIAdapter3* m_pDXGIAdapter = nullptr;		// ë¹„ë””ì˜¤ì¹´ë“œ ì •ë³´ì— ì ‘ê·¼ ê°€ëŠ¥í•œ ì¸í„°í˜ì´ìŠ¤
 
 public:
 	ID2D1SolidColorBrush* g_brush = nullptr;
