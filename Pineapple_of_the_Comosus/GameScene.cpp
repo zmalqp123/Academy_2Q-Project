@@ -95,7 +95,7 @@ void GameScene::Start() {
     dynamicData->Init();
 
     // pineapple random reward
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"단단한 껍질",L"최대체력 +50",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; }});
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"단단한 껍질",L"최대체력 +50",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"광기어린 광합성",L"광합성 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"성장의 햇빛",L"햇빛 +1", [dynamicData]() {dynamicData->rewardPineAppleStat.morningValue += 1; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"성장의 달빛",L"달빛 +2",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
@@ -106,7 +106,7 @@ void GameScene::Start() {
     // DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.1f; } });
 
     // Crossbow tower reward
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁피해량",L"공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 2.f; }});
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁피해량",L"공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 2.f; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 공격속도+",L"공격속도 +0.2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].bulletSpeed += 0.2f; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 관통력+",L"관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].penetration += 1; } });
     DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"무거운 화살촉",L"공격력 +5, 투사체 속도 -3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 5.f; dynamicData->rewardTurretStat[TurretType::Crossbow].damage -= 3.f; } });
@@ -721,7 +721,7 @@ void GameScene::Start() {
     SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true);*/
 
     // 사운드 초기화 및 로드
-    
+
     // swordman 
     SoundManager::GetInstance().LoadSound(L"KnightAttack_Se", L"../Media/6_Sound/scene3/Se/KnightAttack_Se.wav");
     SoundManager::GetInstance().SetVolume(L"KnightAttack_Se", 0.5f);
@@ -730,7 +730,7 @@ void GameScene::Start() {
 
     // heaykingight 
     SoundManager::GetInstance().LoadSound(L"HeavySoldierAttack_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierAttack_Se.wav");
-    SoundManager::GetInstance().SetVolume(L"HeavySoldierAttack_Se", 0.5f); 
+    SoundManager::GetInstance().SetVolume(L"HeavySoldierAttack_Se", 0.5f);
     SoundManager::GetInstance().LoadSound(L"HeavySoldierDeath_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierDeath_Se.wav");
     SoundManager::GetInstance().SetVolume(L"HeavySoldierDeath_Se", 0.5f);
 
@@ -743,10 +743,10 @@ void GameScene::Start() {
     // musket 
     SoundManager::GetInstance().LoadSound(L"MusketAttack_Se", L"../Media/6_Sound/scene3/Se/MusketAttack_Se.wav");
     SoundManager::GetInstance().SetVolume(L"MusketAttack_Se", 0.5f);
-  /*  SoundManager::GetInstance().LoadSound(L"HeavySoldierDeath_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierDeath_Se.wav");
-    SoundManager::GetInstance().SetVolume(L"HeavySoldierDeath_Se", 0.5f);*/
-    
-    // griffin 
+    /*  SoundManager::GetInstance().LoadSound(L"HeavySoldierDeath_Se", L"../Media/6_Sound/scene3/Se/HeavySoldierDeath_Se.wav");
+      SoundManager::GetInstance().SetVolume(L"HeavySoldierDeath_Se", 0.5f);*/
+
+      // griffin 
     SoundManager::GetInstance().LoadSound(L"GriffinAttack_Se", L"../Media/6_Sound/scene3/Se/GriffinAttack_Se.wav");
     SoundManager::GetInstance().SetVolume(L"GriffinAttack_Se", 0.5f);
     SoundManager::GetInstance().LoadSound(L"GriffinDeath_Se", L"../Media/6_Sound/scene3/Se/GriffinDeath_Se.wav");
@@ -773,38 +773,7 @@ void GameScene::Start() {
     SoundManager::GetInstance().LoadSound(L"MortarFire_Se", L"../Media/6_Sound/scene3/Se/MortarFire_Se.wav");
     SoundManager::GetInstance().SetVolume(L"MortarFire_Se", 0.2f);
 
-
-    // 배경 이미지
-    auto bg30102Obj = CreateGameObject<GameObject>();
-    bg30102Obj->transform->SetSortingLayer(-17);
-    auto bg30102Spr = bg30102Obj->CreateComponent<SpriteRenderer>();
-    bg30102Spr->LoadTexture(L"../Resource/30102.png");
-
-    // 배경 땅
-    auto bg30101Obj = CreateGameObject<GameObject>();
-    bg30101Obj->transform->SetSortingLayer(-11);
-    auto bg30101Spr = bg30101Obj->CreateComponent<SpriteRenderer>();
-    bg30101Spr->LoadTexture(L"../Resource/30101.png");
-
-    // 배경 산1
-    auto bg30321Obj = CreateGameObject<GameObject>();
-    bg30321Obj->transform->SetSortingLayer(-12);
-    auto bg30321Spr = bg30321Obj->CreateComponent<SpriteRenderer>();
-    bg30321Spr->LoadTexture(L"../Resource/30321.png");
-
-    // 배경 산2
-    auto bg30322Obj = CreateGameObject<GameObject>();
-    bg30322Obj->transform->SetSortingLayer(-13);
-    auto bg30322Spr = bg30322Obj->CreateComponent<SpriteRenderer>();
-    bg30322Spr->LoadTexture(L"../Resource/30322.png");
-
-    //Sun and Moon will sorted in layer -14
-
-    // 배경 산3
-    auto bg30323Obj = CreateGameObject<GameObject>();
-    bg30323Obj->transform->SetSortingLayer(-14);
-    auto bg30323Spr = bg30323Obj->CreateComponent<SpriteRenderer>();
-    bg30323Spr->LoadTexture(L"../Resource/30323.png");
+   
 
 
 
@@ -829,6 +798,122 @@ void GameScene::Start() {
     auto nightObj = CreateGameObject<GameObject>();
     nightSystem = nightObj->CreateComponent<DayNightCycle>();
     waveSystem->dayNightCycle = nightSystem;
+
+    {
+        // 배경 이미지
+        auto bg30102Obj = CreateGameObject<GameObject>();
+        bg30102Obj->transform->SetSortingLayer(-17);
+        bg30102Obj->transform->pos.worldPosition = { 0.f, -540.f };
+        auto bg30102Spr = bg30102Obj->CreateComponent<SpriteRenderer>();
+        bg30102Spr->LoadTexture(L"../Resource/30102.png");
+        nightSystem->backGroundDay = bg30102Obj;
+		bg30102Spr->SetCenter({ 0.5f, 1.0f });
+
+        // 배경 땅
+        auto bg30101Obj = CreateGameObject<GameObject>();
+        bg30101Obj->transform->SetSortingLayer(-11);
+		bg30101Obj->transform->pos.worldPosition = { 0.f, -540.f };
+        auto bg30101Spr = bg30101Obj->CreateComponent<SpriteRenderer>();
+        bg30101Spr->LoadTexture(L"../Resource/30101.png");
+		nightSystem->Earth = bg30101Obj;
+		bg30101Spr->SetCenter({ 0.5f, 1.0f });
+
+
+        // 배경 산1
+        auto bg30321Obj = CreateGameObject<GameObject>();
+        bg30321Obj->transform->SetSortingLayer(-12);
+		bg30321Obj->transform->pos.worldPosition = { 0.f, -540.f };
+        auto bg30321Spr = bg30321Obj->CreateComponent<SpriteRenderer>();
+        bg30321Spr->LoadTexture(L"../Resource/30321.png");
+		nightSystem->Mountain1Day = bg30321Obj;
+		bg30321Spr->SetCenter({ 0.5f, 1.0f });
+
+        // 배경 산2
+        auto bg30322Obj = CreateGameObject<GameObject>();
+        bg30322Obj->transform->SetSortingLayer(-13);
+		bg30322Obj->transform->pos.worldPosition = { 0.f, -540.f };
+        auto bg30322Spr = bg30322Obj->CreateComponent<SpriteRenderer>();
+        bg30322Spr->LoadTexture(L"../Resource/30322.png");
+		nightSystem->Mountain2Day = bg30322Obj;
+		bg30322Spr->SetCenter({ 0.5f, 1.0f });
+
+        // 구름 아침
+        auto bgCloudObj = CreateGameObject<GameObject>();
+        bgCloudObj->transform->SetSortingLayer(-12);
+		bgCloudObj->transform->pos.worldPosition = { 0.f, -540.f };
+        auto bgCloudSpr = bgCloudObj->CreateComponent<SpriteRenderer>();
+        bgCloudSpr->LoadTexture(L"../Resource/30324.png");
+		nightSystem->cloudDay = bgCloudObj;
+		bgCloudSpr->SetCenter({ 0.5f, 1.0f });
+
+        //Sun and Moon will sorted in layer -14
+
+        // 배경 산3
+        auto bg30323Obj = CreateGameObject<GameObject>();
+        bg30323Obj->transform->SetSortingLayer(-14);
+		bg30323Obj->transform->pos.worldPosition = { 0.f, -540.f };
+        auto bg30323Spr = bg30323Obj->CreateComponent<SpriteRenderer>();
+        bg30323Spr->LoadTexture(L"../Resource/30323.png");
+		nightSystem->Mountain3Day = bg30323Obj;
+		bg30323Spr->SetCenter({ 0.5f, 1.0f });
+    }
+
+    {
+        // 배경 밤이미지
+        auto bg30103Obj = CreateGameObject<GameObject>();
+        bg30103Obj->transform->SetSortingLayer(-17);
+        auto bg30103Spr = bg30103Obj->CreateComponent<SpriteRenderer>();
+        bg30103Spr->LoadTexture(L"../Resource/30103.png");
+        nightSystem->backGroundNight = bg30103Obj;
+        bg30103Obj->transform->pos.worldPosition.y -= 540.f;
+		bg30103Obj->transform->m_RelativeRotation = 180.f;
+		bg30103Spr->SetCenter({ 0.5f, 1.f });
+
+        // 배경 밤산1
+        auto bg30321_1Obj = CreateGameObject<GameObject>();
+        bg30321_1Obj->transform->SetSortingLayer(-12);
+        auto bg30321_1Spr = bg30321_1Obj->CreateComponent<SpriteRenderer>();
+        bg30321_1Spr->LoadTexture(L"../Resource/30321_1.png");
+        nightSystem->Mountain1Night = bg30321_1Obj;
+		bg30321_1Obj->transform->pos.worldPosition.y -= 540.f;
+		bg30321_1Obj->transform->m_RelativeRotation = 180.f;
+        bg30321_1Spr->SetCenter({ 0.5f, 1.f });
+        
+
+        // 배경 밤산2
+        auto bg30322_1Obj = CreateGameObject<GameObject>();
+        bg30322_1Obj->transform->SetSortingLayer(-13);
+        auto bg30322_1Spr = bg30322_1Obj->CreateComponent<SpriteRenderer>();
+        bg30322_1Spr->LoadTexture(L"../Resource/30322_1.png");
+        nightSystem->Mountain2Night = bg30322_1Obj;
+		bg30322_1Obj->transform->pos.worldPosition.y -= 540.f;
+		bg30322_1Obj->transform->m_RelativeRotation = 180.f;
+		bg30322_1Spr->SetCenter({ 0.5f, 1.f });
+
+        // 구름 밤
+        auto bgCloudNightObj = CreateGameObject<GameObject>();
+        bgCloudNightObj->transform->SetSortingLayer(-12);
+        auto bgCloudNightSpr = bgCloudNightObj->CreateComponent<SpriteRenderer>();
+        bgCloudNightSpr->LoadTexture(L"../Resource/30324_1.png");
+        nightSystem->cloudNight = bgCloudNightObj;
+		bgCloudNightObj->transform->pos.worldPosition.y -= 540.f;
+		bgCloudNightObj->transform->m_RelativeRotation = 180.f;
+		bgCloudNightSpr->SetCenter({ 0.5f, 1.f });
+
+
+        //Sun and Moon will sorted in layer -14
+
+        // 배경 밤산3
+        auto bg30323_1Obj = CreateGameObject<GameObject>();
+        bg30323_1Obj->transform->SetSortingLayer(-14);
+        auto bg30323_1Spr = bg30323_1Obj->CreateComponent<SpriteRenderer>();
+        bg30323_1Spr->LoadTexture(L"../Resource/30323_1.png");
+        nightSystem->Mountain3Night = bg30323_1Obj;
+		bg30323_1Obj->transform->pos.worldPosition.y -= 540.f;
+		bg30323_1Obj->transform->m_RelativeRotation = 180.f;
+		bg30323_1Spr->SetCenter({ 0.5f, 1.f });
+    }
+
 
     // 해 이미지
     auto sunObj = CreateGameObject<GameObject>();

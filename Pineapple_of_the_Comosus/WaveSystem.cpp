@@ -199,7 +199,7 @@ void WaveSystem::Init()
 }
 
 void WaveSystem::Update(float deltaTime)
-{
+{   
     // 웨이브 타이머 감소
     waveTimer -= deltaTime;
 
@@ -214,8 +214,11 @@ void WaveSystem::Update(float deltaTime)
 
     // 태양 이동
     
-    dayNightCycle->SunMove(GameTime::GetInstance().GetDeltaTime(), (currentWave + 4) % 4); //하드코딩 하긴했는데 +2는 시작할때 태양이 중간에 있으면 안되서 그런거임!
-    dayNightCycle->MoonMove(GameTime::GetInstance().GetDeltaTime(), (currentWave + 1) % 4); 
+    dayNightCycle->SunMove(GameTime::GetInstance().GetDeltaTime(), (currentWave - 1) % 4); //하드코딩 하긴했는데 +2는 시작할때 태양이 중간에 있으면 안되서 그런거임!
+    dayNightCycle->MoonMove(GameTime::GetInstance().GetDeltaTime(), (currentWave) % 4); 
     dayNightCycle->ApplyNightEffects(currentWave); // 밤이 되었을 때 적용할 효과
     dayNightCycle->RemoveNightEffects(currentWave); // 낮이 되었을 때 제거할 효과
+    dayNightCycle->SwitchBackGround(GameTime::GetInstance().GetDeltaTime(), (currentWave) % 4);
+    
+	
 }

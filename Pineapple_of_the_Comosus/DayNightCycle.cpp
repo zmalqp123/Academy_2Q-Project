@@ -105,4 +105,55 @@ void DayNightCycle::MoonReset()
 
 }
 
+void DayNightCycle::SwitchBackGround(float deltaTime, int period)
+{
+	//static float elapsedTime = 0.0f;
+	elapsedTime += deltaTime;
+	//static int prevPeriod = 0;
+	int curPeriod = period;
+	bool isTurned = false;
+    
+    if (prevPeriod != curPeriod) elapsedTime = 0.f;
+
+    if (period % 4 == 0) {
+        // night
+        if (elapsedTime > 1.f) elapsedTime = 1.f;
+
+        float dayTonight = elapsedTime * 180.f;
+        backGroundDay->transform->m_RelativeRotation = dayTonight;
+        cloudDay->transform->m_RelativeRotation = dayTonight;
+        Mountain1Day->transform->m_RelativeRotation = dayTonight;
+        Mountain2Day->transform->m_RelativeRotation = dayTonight;
+        Mountain3Day->transform->m_RelativeRotation = dayTonight;
+        float nightToday = elapsedTime * 180.f + 180.f;
+		backGroundNight->transform->m_RelativeRotation = nightToday;
+		cloudNight->transform->m_RelativeRotation = nightToday;
+		Mountain1Night->transform->m_RelativeRotation = nightToday;
+		Mountain2Night->transform->m_RelativeRotation = nightToday;
+		Mountain3Night->transform->m_RelativeRotation = nightToday;
+    }
+
+    else if(period % 4 == 1) {
+		// morning if (elapsedTime > 1.f) elapsedTime = 1.f;
+        if (elapsedTime > 1.f) elapsedTime = 1.f;
+        float dayTonight = elapsedTime * 180.f + 180.f;
+        backGroundDay->transform->m_RelativeRotation = dayTonight;
+        cloudDay->transform->m_RelativeRotation = dayTonight;
+        Mountain1Day->transform->m_RelativeRotation = dayTonight;
+        Mountain2Day->transform->m_RelativeRotation = dayTonight;
+        Mountain3Day->transform->m_RelativeRotation = dayTonight;
+		float nightToday = elapsedTime * 180.f + 360.f;
+		backGroundNight->transform->m_RelativeRotation = nightToday;
+        cloudNight->transform->m_RelativeRotation = nightToday;
+        Mountain1Night->transform->m_RelativeRotation = nightToday;
+        Mountain2Night->transform->m_RelativeRotation = nightToday;
+        Mountain3Night->transform->m_RelativeRotation = nightToday;
+    }
+
+	
+    prevPeriod = curPeriod;
+	
+}
+
+
 

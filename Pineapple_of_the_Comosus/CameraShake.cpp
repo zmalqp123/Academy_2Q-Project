@@ -31,11 +31,11 @@ void CameraShake::Update(float deltaTime)
 
 	else {
 		//마우스 스크롤 기능
-		if (InputManager::GetInstance().GetMousePosition().x > 0.f && InputManager::GetInstance().GetMousePosition().x < 100.f && gameObject->transform->pos.worldPosition.x>-1560.f) {
+		if (InputManager::GetInstance().GetMousePosition().x > 0.f && InputManager::GetInstance().GetMousePosition().x < 100.f && gameObject->transform->pos.worldPosition.x > -600.f) {
 			gameObject->transform->pos.worldPosition.x -= 1000.f * deltaTime;
 		}
 
-		if (InputManager::GetInstance().GetMousePosition().x < 1920.f && InputManager::GetInstance().GetMousePosition().x > 1820.f && gameObject->transform->pos.worldPosition.x < 1560.f) {
+		if (InputManager::GetInstance().GetMousePosition().x < 1920.f && InputManager::GetInstance().GetMousePosition().x > 1820.f && gameObject->transform->pos.worldPosition.x < 600.f) {
 			gameObject->transform->pos.worldPosition.x += 1000.f * deltaTime;
 		}
 
