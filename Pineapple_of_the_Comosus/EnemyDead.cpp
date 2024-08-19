@@ -42,12 +42,9 @@ void EnemyDead::Enter()
 void EnemyDead::Update(float deltaTime)
 {	
 	fsm->gameObject->transform->pos.worldPosition.y -= deltaTime * 300.f;
-	bool isDeadAnimationEnd = false;
-	//죽는 애니메이션 넣을 것
 
-	if (isDeadAnimationEnd) {
+	if (fsm->gameObject->transform->m_WorldTransform.dy < -650.f) {
 		fsm->gameObject->isActive = false;
-		fsm->gameObject->GetComponent<Enemy>()->notify->isActive = false;
 	}
 }
 
