@@ -4,6 +4,7 @@
 class Button;
 class ImageUIRenderer;
 class TextUIRenderer;
+class GameObject;
 class ramdomReward 
 {
 public:
@@ -12,6 +13,7 @@ public:
 	std::vector<ImageUIRenderer*>  Uis;
 	std::vector<TextUIRenderer*>  TextNameUis;
 	std::vector<TextUIRenderer*>  TextStatUis;
+	std::vector<GameObject*> bgUi;
 
 	ramdomReward() {};
 	void shuffle();
