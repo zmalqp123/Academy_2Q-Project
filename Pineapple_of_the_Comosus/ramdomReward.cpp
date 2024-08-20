@@ -64,7 +64,7 @@ void ramdomReward::UIon()
     {
         element->isActive = true;
     }
-
+    textHeader->gameObject->isActive = true;
 }
 
 void ramdomReward::UIoff()
@@ -89,4 +89,5 @@ void ramdomReward::UIoff()
     {
         element->isActive = false;
     }
+    textHeader->gameObject->isActive = false;
 }

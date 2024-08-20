@@ -11,6 +11,7 @@
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/GameTime.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include "../D2DEngine/TextUIRenderer.h"
 #include "ramdomReward.h"
 // Phase Defalue
 void ComosusPhaseDefault::Enter()
@@ -112,6 +113,10 @@ void ComosusPhase1::Exit()
 	pineApple->RefundAll();
 	if (isMaxExp) {
 		pineApple->randomReward->UIon();
+		//DataManager::GetInstance().plzmoney.fn();
+		pineApple->randomReward->textHeader->text = pineApple->randomReward->comosusSuggestion[pineApple->LV - 1];
+		auto rewardMoney = DataManager::GetInstance().getMoneyData(pineApple->GetPineAppleLV() - 2);
+		pineApple->randomReward->rewardMoney->text = std::to_wstring(rewardMoney).c_str();
 		GameTime::GetInstance().SetTimeScale(0.f);
 	}
 	cameraShaker->ShakeOnCamera(false);
