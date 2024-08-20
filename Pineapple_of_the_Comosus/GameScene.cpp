@@ -737,10 +737,36 @@ void GameScene::Start() {
     //bgSpr->SetColor(D2D1::ColorF(0, 0, 0, 0.5f)); // 검은색 배경 (반투명)
     //bgSpr->transform->pos.rectposition = { {0.f, 0.f} ,{1920.f, 1080.f} };
 
+    // 코모서스 최상위 헤더
+    auto headTextObj = CreateGameObject<GameObject>();
+    headTextObj->transform->SetParent(blackObj->transform);
+    headTextObj->transform->type = Type::Ui;
+    headTextObj->transform->pos.rectposition.leftBottom = { 630.f, 900.f };
+    headTextObj->transform->pos.rectposition.rightTop = { 1440.f, 1000.f };
+    auto headText = headTextObj->CreateComponent<TextUIRenderer>();
+    headText->text = L"파인애플을 바치자 코모서스가 응답합니다.";
+    headText->SetFontSize(40.f);
+    headText->SetAlignCenter(1);
+    headText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
+
+    // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
+    auto nameTextObj = CreateGameObject<GameObject>();
+    nameTextObj->transform->SetParent(blackObj->transform);
+    nameTextObj->transform->type = Type::Ui;
+    nameTextObj->transform->pos.rectposition.leftBottom = {550.f, 240.f };
+    nameTextObj->transform->pos.rectposition.rightTop = { 1500.f, 900.f };
+    auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
+    nameText->SetFontSize(55.f);
+    nameText->SetAlignCenter(1);
+    nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
+
+    //nameText->text = L"하이로";
+
     // 버튼 5개 생성 및 초기 비활성화
     ramdomReward* rand = new ramdomReward();
     pineApple->randomReward = rand;
     rand->bgUi.push_back(blackObj);
+    rand->textHeader = nameText;
 
     // 버튼의 위치와 크기를 수동으로 지정
     D2D1_RECT_F buttonPositions[] = {
@@ -790,6 +816,7 @@ void GameScene::Start() {
         auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
         nameText->SetFontSize(25.f);
         nameText->text = DataManager.harvestPopupStruct[i].reward;
+        nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
         //nameText->SetText(L"이름"); // 이름 텍스트 설정
         //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
 
@@ -805,10 +832,12 @@ void GameScene::Start() {
         auto descText = descTextObj->CreateComponent<TextUIRenderer>();
         descText->SetFontSize(25.f);
         descText->text = DataManager.harvestPopupStruct[i].rewarOption;
+        descText->SetTextColor(D2D1::ColorF(D2D1::ColorF::Green));
+        descText->SetFontSize(30.f);
         //descText->SetText(L"내용"); // 내용 텍스트 설정   
         //descText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
         descText->SetAlignCenter(-1);
-        descTextObj->transform->pos.rectposition.leftBottom = { 250, 50};
+        descTextObj->transform->pos.rectposition.leftBottom = { 210, 50};
         descTextObj->transform->pos.rectposition.rightTop = { 740, 100 };
 
         rand->TextStatUis.push_back(descText);
@@ -838,18 +867,31 @@ void GameScene::Start() {
         auto nameTextObj = CreateGameObject<GameObject>();
         nameTextObj->transform->SetParent(buttonObj->transform);
         nameTextObj->transform->type = Type::Ui;
-        nameTextObj->transform->pos.rectposition = {/* 이름 텍스트 위치와 크기 설정 */ };
         auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
-        nameText->SetFontSize(25.f);
-        nameText->text = DataManager.plzmoney.rewarOption.c_str();
-        auto rewardMoney = DataManager.getMoneyData(pineApple->GetPineAppleLV()-1);
-        DataManager.plzmoney.fn = [pineApple, rewardMoney]() { pineApple->acquireGold(rewardMoney); };
-        //nameText->SetText(L"이름"); // 이름 텍스트 설정
-        //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
+        
+        // nameText->text = DataManager.plzmoney.rewarOption.c_str();
+        pineApple->randomReward->rewardMoney = nameText;
 
-        nameTextObj->transform->pos.rectposition.leftBottom = { 175, 100 };
-        nameTextObj->transform->pos.rectposition.rightTop = { 700, 170 };
+       
+        
+        nameText->SetFontSize(70.f);
+        DataManager.plzmoney.fn = [pineApple]() {
+            auto rewardMoney = DataManager::GetInstance().getMoneyData(pineApple->GetPineAppleLV() - 2);
+            pineApple->acquireGold(rewardMoney);
+            std::cout << rewardMoney << std::endl;
+            //pineApple->randomReward->rewardMoney->text = std::to_wstring(rewardMoney).c_str();
+            };
+
+        //nameText->SetText(L"이름"); // 이름 텍스트 설정
+        //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정    
+
+        //{ 540.f, 100.f, 1440.f, 240.f }
+        // x 900 
+        // y 140
+        nameTextObj->transform->pos.rectposition.leftBottom = { 600, 0 };
+        nameTextObj->transform->pos.rectposition.rightTop = { 900, 140 };
         nameText->SetAlignCenter(0);
+        
         rand->TextNameUis.push_back(nameText);
 
         pineApple->Popup = buttonImage;
