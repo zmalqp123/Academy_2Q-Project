@@ -41,12 +41,8 @@ void MainPineApple::monAcquireEXP(float exp)
 {
     float dyKillMultiply = rewardData->GetRewardPineAppleStat().killMultiply;
     // from monster acquire
-    currentEXP += exp * (killMultiply + dyKillMultiply);
 
-    if (currentEXP > maxEXP)
-    {
-        currentEXP = maxEXP;
-    }
+    AddExp(exp * (killMultiply + dyKillMultiply));
 }
 
 // monster atk call
@@ -76,13 +72,7 @@ void MainPineApple::solarAcquireEXP(float deltaTime)
     // maxexp ok
     if (currentEXP <= maxEXP)
     {
-        currentEXP += solarGain * deltaTime;
-
-        // maxexp over set maxexp
-        if (currentEXP >= maxEXP)
-        {
-            currentEXP = maxEXP;
-        }
+        AddExp(solarGain * deltaTime);
     }
 }
 
@@ -237,4 +227,16 @@ void MainPineApple::UpdateTurretImage()
     for (auto turret : turrets) {
         turret->UpdateTurretImage();
     }
+}
+
+bool MainPineApple::IsMaxEXP()
+{
+    return currentEXP == maxEXP;
+}
+
+void MainPineApple::AddExp(float exp)
+{
+    currentEXP += exp;
+    if (currentEXP > maxEXP)
+        currentEXP = maxEXP;
 }

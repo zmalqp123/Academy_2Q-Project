@@ -30,6 +30,8 @@ public:
 	ComosusPhase1(FiniteStateMachine* _fsm, std::string _name) : FSMState(_fsm, _name) {}
 	virtual ~ComosusPhase1() {}
 
+	bool isMaxExp = false;
+
 	MainPineApple* pineApple = nullptr;
 	SpriteAnimation* comosusSpriteAnim = nullptr;
 	ComosusLightSelector* lightSeletor = nullptr;
@@ -50,12 +52,14 @@ public:
 
 class ComosusPhase2 : public FSMState
 {
+	bool IsTiming(float prev, float curr, float timing);
 public:
 	ComosusPhase2(FiniteStateMachine* _fsm, std::string _name) : FSMState(_fsm, _name) {}
 	virtual ~ComosusPhase2() {}
 
 	MainPineApple* pineApple = nullptr;
 	DynamicData* dynamicData = nullptr;
+	SpriteAnimation* comosusSpriteAnim = nullptr;
 	SpriteAnimation* comosusLightAnim = nullptr;
 
 	float fallDuration = 0.f;

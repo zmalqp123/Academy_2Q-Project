@@ -60,6 +60,10 @@ void ramdomReward::UIon()
     {
         element->gameObject->isActive = true;
     }
+    for (auto element : bgUi)
+    {
+        element->isActive = true;
+    }
 
 }
 
@@ -80,5 +84,9 @@ void ramdomReward::UIoff()
     for (auto element : TextStatUis)
     {
         element->gameObject->isActive = false;
+    }
+    for (auto element : bgUi)
+    {
+        element->isActive = false;
     }
 }

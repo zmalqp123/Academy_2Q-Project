@@ -109,7 +109,10 @@ void Turret::Shoot()
         }
     }
     else {
-        //parentPineApple->
+        if (parentPineApple->rewardData->isHarvest == true) return;
+        auto data = dynamicData->GetStaticTurretData(turretType);
+        auto rewardData = dynamicData->GetRewardTurretData(turretType);
+        parentPineApple->AddExp(data->damage + rewardData.damage);
     }
 }
 

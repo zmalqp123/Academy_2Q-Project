@@ -37,6 +37,7 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	{
 		LoadAnimationFromCSV(0, L"../Resource/KrakenDefault.txt");
 		LoadAnimationFromCSV(1, L"../Resource/kraken.txt");
+		LoadAnimationFromCSV(2, L"../Resource/krakenRe.txt");
 	}
 	if (FilePath == std::wstring(L"BombcartMove"))
 	{
@@ -119,12 +120,13 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(3, L"../Resource/Turret/30544.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Turret/30545.txt");
 	}
-	if (FilePath == std::wstring(L"30551")) {
+	if (FilePath == std::wstring(L"Grow")) {
 		LoadAnimationFromCSV(0, L"../Resource/Turret/30551.txt");
 		LoadAnimationFromCSV(1, L"../Resource/Turret/30552.txt");
 		LoadAnimationFromCSV(2, L"../Resource/Turret/30553.txt");
 		LoadAnimationFromCSV(3, L"../Resource/Turret/30554.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Turret/30555.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Turret/30556.txt");
 	}
 	if (FilePath == std::wstring(L"griffinMove"))
 	{
@@ -135,6 +137,7 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(0, L"../Resource/ComosusLightDefault.txt");
 		LoadAnimationFromCSV(1, L"../Resource/ComosusLight.txt");
 		LoadAnimationFromCSV(2, L"../Resource/ComosusLightRe.txt");
+		LoadAnimationFromCSV(3, L"../Resource/ComosusLightLoop.txt");
 	}
 	if (FilePath == std::wstring(L"cutton_10301"))
 	{

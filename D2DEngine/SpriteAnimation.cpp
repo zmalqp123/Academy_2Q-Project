@@ -38,10 +38,7 @@ void SpriteAnimation::LoadTexture(const std::wstring strFilePath)
 {
 	m_strTextureFilePath = strFilePath;
 
-	if (ResourceManager::GetInstance().CreateTextureFromFile(m_strTextureFilePath, &m_pTexture))
-	{
-
-	}
+	ResourceManager::GetInstance().CreateTextureFromFile(m_strTextureFilePath, &m_pTexture);
 }
 
 void SpriteAnimation::Update(float fTimeElapsed)

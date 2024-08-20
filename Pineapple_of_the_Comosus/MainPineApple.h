@@ -86,6 +86,8 @@ public:
 	void RefundAll();
 	void SetMaxHP(float increaseHp);
 	void UpdateTurretImage();
+	bool IsMaxEXP();
+	void AddExp(float exp);
 
 	BulletFactory* bulletFactory;
 };
