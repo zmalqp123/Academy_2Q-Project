@@ -13,6 +13,9 @@
 #include "EnemyFactory.h"
 #include "BulletFactory.h"
 #include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/GameObject.h"
+#include "../D2DEngine/ImageUIRenderer.h"
+
 WaveSystem::WaveSystem()
 {
     
@@ -171,6 +174,22 @@ void WaveSystem::Generator()
     }
 }
 
+void WaveSystem::pullingTutorial(float deltaTime)
+{
+	static float elapsedTime = 0.0f;
+	elapsedTime += deltaTime;
+	if (elapsedTime > 1.0f)
+	{
+		elapsedTime = 1.0f;
+	}
+    tutorial->transform->pos.worldPosition.y = (1 - elapsedTime) * 1080.f + elapsedTime * 580.f;
+    if (elapsedTime > 1.0f)
+    {
+        return;
+    }
+    
+}
+
 bool WaveSystem::IsFly(int id)
 {
     if(id >= 30613 && id <= 30616)
@@ -209,7 +228,10 @@ void WaveSystem::Update(float deltaTime)
         waveTimer += maxWaveTimer;
         StartNextWave();
     }
-
+	
+    if (currentWave == 1) {
+        pullingTutorial(deltaTime);
+    }
     Generator();
 
     // 태양 이동

@@ -41,7 +41,6 @@ public:
     GameObject* Mountain3Night;
 
 
-
     void Update(float deltaTime) override; // Update 함수 오버라이드
     bool IsNight() const; // 현재 밤인지 낮인지 여부를 반환
     void ApplyNightEffects(int wave); // 밤이 되었을 때 적용할 효과

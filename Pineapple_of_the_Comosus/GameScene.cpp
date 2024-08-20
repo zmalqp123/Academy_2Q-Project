@@ -381,6 +381,14 @@ void GameScene::Start() {
     uiObj->transform->pos.rectposition = { {180,0} ,{1560 + 180,200} };
     uiImage->LoadTexture(L"../Resource/30401.png");
 
+
+    // Tutorial 튜토리얼
+	auto tutorialObj = CreateGameObject<GameObject>();
+	auto tutorialImage = tutorialObj->CreateComponent<ImageUIRenderer>();
+	tutorialObj->transform->type = Type::Ui;
+	tutorialObj->transform->pos.rectposition = { {100,-580} ,{600,0} };
+	tutorialImage->LoadTexture(L"../Resource/31310_tutorial_1.png");
+
     // 웨이브 시스템
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
@@ -389,7 +397,7 @@ void GameScene::Start() {
     waveSystem->mainPineApple = GameManager->pineApple;
     waveSystem->Init();
 	pineApple->waveSystem = waveSystem; // 낮 밤에 따라 광합성 경험치 습득 때문에 넣음.
-
+	waveSystem->tutorial = tutorialObj;
 
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가
     auto nightObj = CreateGameObject<GameObject>();

@@ -31,6 +31,10 @@ public:
     Vector2 rightPos; 
     Vector2 leftPos;
 
+    GameObject* tutorial;
+	
+
+
     Scene* scene = nullptr;
     // 풀에서 몬스터를 가져오는 메서드
     //Enemy* GetEnemyFromPool(); // SwordMan -> Enemy로 변경
@@ -43,7 +47,10 @@ public:
 
     void LoadWaveData();
     void Generator();
+	void pullingTutorial(float deltaTime);
+
     bool IsFly(int id);
+
     //bool IsMapEmpty();             // 맵에 몬스터가 하나도 없는지 확인 (추후 필요할 경우 사용)
 
     WaveSystem();
