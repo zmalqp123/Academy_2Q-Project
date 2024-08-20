@@ -227,6 +227,7 @@ void GameScene::Start() {
     comoObj->transform->SetSortingLayer(100);
     auto comsusSpr = comoObj->CreateComponent<SpriteAnimation>();
     comosusPhase1->comosusSpriteAnim = comsusSpr;
+    comosusPhase2->comosusSpriteAnim = comsusSpr;
     Texture* t = nullptr;
     ResourceManager::GetInstance().CreateTextureFromFile(L"../Resource/30722_tentacle_animation.png", &t);
     comsusSpr->m_pTexture = t;
