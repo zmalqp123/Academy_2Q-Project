@@ -42,22 +42,42 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	if (FilePath == std::wstring(L"BombcartMove"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/bomcart.txt");
+		LoadAnimationFromCSV(1, L"../Resource/bomcart.txt");
+		LoadAnimationFromCSV(2, L"../Resource/bomcart.txt");
+		LoadAnimationFromCSV(3, L"../Resource/bomcart.txt");
+		LoadAnimationFromCSV(4, L"../Resource/bomcart.txt");
 	}
 	if (FilePath == std::wstring(L"swordmanMove"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/swordman.txt");
+		LoadAnimationFromCSV(0, L"../Resource/Enemy/30601_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/Enemy/30601_2.txt");
+		LoadAnimationFromCSV(2, L"../Resource/Enemy/30601_3.txt");
+		LoadAnimationFromCSV(3, L"../Resource/Enemy/30601_4.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Enemy/30601_5.txt");
 	}
 	if (FilePath == std::wstring(L"musketshooterMove"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/musketshooter.txt");
+		LoadAnimationFromCSV(0, L"../Resource/Enemy/30605_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/Enemy/30605_2.txt");
+		LoadAnimationFromCSV(2, L"../Resource/Enemy/30605_3.txt");
+		LoadAnimationFromCSV(3, L"../Resource/Enemy/30605_4.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Enemy/30605_5.txt");
 	}
 	if (FilePath == std::wstring(L"heavyknightMove"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/heavyknight.txt");
+		LoadAnimationFromCSV(0, L"../Resource/Enemy/30609_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/Enemy/30609_2.txt");
+		LoadAnimationFromCSV(2, L"../Resource/Enemy/30609_3.txt");
+		LoadAnimationFromCSV(3, L"../Resource/Enemy/30609_4.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Enemy/30609_5.txt");
 	}
 	if (FilePath == std::wstring(L"griffinMove"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/griffin.txt");
+		LoadAnimationFromCSV(0, L"../Resource/Enemy/30613_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/Enemy/30613_2.txt");
+		LoadAnimationFromCSV(2, L"../Resource/Enemy/30613_3.txt");
+		LoadAnimationFromCSV(3, L"../Resource/Enemy/30613_4.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Enemy/30613_5.txt");
 	}
 	// turret bullet
 	if (FilePath == std::wstring(L"30306"))

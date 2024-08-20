@@ -3,6 +3,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/Movement.h"
+#include "../D2DEngine/SpriteAnimation.h"
 void EnemyMove::Enter()
 {
 	enemy = dynamic_cast<Enemy*>(fsm->gameObject->GetComponent<Enemy>());
@@ -25,6 +26,7 @@ void EnemyMove::Update(float deltaTime)
 			enemy->isSlowed = false;
 			enemy->slowedRate = 0.0f;
 			enemy->slowTimer = 0.0f;
+			enemy->enemyAnim->alpha = 1.f;
 		}
 	}
 }

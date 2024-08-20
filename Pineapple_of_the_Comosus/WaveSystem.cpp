@@ -13,6 +13,9 @@
 #include "EnemyFactory.h"
 #include "BulletFactory.h"
 #include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/GameObject.h"
+#include "../D2DEngine/ImageUIRenderer.h"
+
 WaveSystem::WaveSystem()
 {
     
@@ -123,16 +126,19 @@ void WaveSystem::Generator()
                     left.interval += left.maxInterval;
                     // 各家券
                     Enemy* enemy = enemyFactory->GetEnemyFromPool(left.id);
-
+                    int eliteType = DataManager::GetInstance().GetEnemyData(left.id)->eliteType;
+                    enemy->defaultAnimationNumber = eliteType;
                     float spawnY = IsFly(left.id) ? flyDistY(gen) : distY(gen);
                     Vector2 spawnPosition = Vector2(-1500.0f, spawnY);
                     Vector2 moveDirection = Vector2(1.0f, 0.0f);
-                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(0, false);
+                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(eliteType, false);
                     enemy->gameObject->transform->pos.worldPosition = spawnPosition;
                     enemy->move->SetDirection(moveDirection);
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+
+                    enemy->defaultSpeed = enemy->enemyData.moveSpeed;
 
                     enemy->AttackSprite->SetCenter(Vector2(0.f, 0.5f));
                     enemy->AttackSprite->alpha = 0.f;
@@ -150,17 +156,20 @@ void WaveSystem::Generator()
                     right.interval += right.maxInterval;
                     // 各家券
                     Enemy* enemy = enemyFactory->GetEnemyFromPool(right.id);
-
+                    int eliteType = DataManager::GetInstance().GetEnemyData(right.id)->eliteType;
+                    enemy->defaultAnimationNumber = eliteType;
                     float spawnY = IsFly(right.id) ? flyDistY(gen) : distY(gen);
                     Vector2 spawnPosition = Vector2(1500.0f, spawnY);
                     Vector2 moveDirection = Vector2(-1.0f, 0.0f);
-                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(0, true);
+                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(eliteType, true);
 
                     enemy->gameObject->transform->pos.worldPosition = spawnPosition;
                     enemy->move->SetDirection(moveDirection);
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+
+                    enemy->defaultSpeed = enemy->enemyData.moveSpeed;
 
                     enemy->AttackSprite->SetCenter(Vector2(0.f, 0.5f));
 					enemy->AttackSprite->SetFilp(true, false);
@@ -169,6 +178,22 @@ void WaveSystem::Generator()
             }
         }
     }
+}
+
+void WaveSystem::pullingTutorial(float deltaTime)
+{
+	static float elapsedTime = 0.0f;
+	elapsedTime += deltaTime;
+	if (elapsedTime > 1.0f)
+	{
+		elapsedTime = 1.0f;
+	}
+    tutorial->transform->pos.worldPosition.y = (1 - elapsedTime) * 1080.f + elapsedTime * 580.f;
+    if (elapsedTime > 1.0f)
+    {
+        return;
+    }
+    
 }
 
 bool WaveSystem::IsFly(int id)
@@ -209,7 +234,10 @@ void WaveSystem::Update(float deltaTime)
         waveTimer += maxWaveTimer;
         StartNextWave();
     }
-
+	
+    if (currentWave == 1) {
+        pullingTutorial(deltaTime);
+    }
     Generator();
 
     // 怕剧 捞悼

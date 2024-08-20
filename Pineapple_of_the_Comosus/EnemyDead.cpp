@@ -78,8 +78,8 @@ void EnemyDead::Exit()
 
 void EnemyDead::Spin(float deltaTime)
 {
-	//fsm->gameObject->transform->m_RelativeRotation += 5.f; �̰� �׳� ���׸���
-	if (fsm->gameObject->transform->m_RelativeRotation<30.f) {
+	//fsm->gameObject->transform->m_RelativeRotation += 5.f;
+	if (fsm->gameObject->transform->m_RelativeRotation < 30.f) {
 		fsm->gameObject->transform->m_RelativeRotation += 250.f * deltaTime;
 	}
 

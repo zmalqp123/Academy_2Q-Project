@@ -23,6 +23,8 @@ public:
 
 	Texture* m_pTexture = nullptr;
 
+	float alpha = 1.f;
+
 	std::wstring m_strTextureFilePath;
 	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1Bitmap의 Source 영역
 	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTarget의 Destination 영역
