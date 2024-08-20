@@ -52,6 +52,7 @@ void GamePlayManager::Update(float deltaTime)
 					auto turret = pTile->turret->GetComponent<Turret>();
 					turret->turretData = (d.GetTurretData(Turret_Type));
 					std::cout << "터렛 설치 : " << turret->turretData->cost << std::endl;
+					//turret->UpdateTurretImage();
 					//auto& pd = MainPineApple::GetInstance();
 					// 터렛을 설치하면, 파인애플의 gold를 소모 시키는 func 을 호출해야한다. 
 					pineApple->spendGold(turret->turretData->cost);

@@ -58,5 +58,6 @@ public:
 	const TurretData* GetNextStaticTurretData(TurretType turretType);
 	const RewardTurretStat GetRewardTurretData(TurretType turretType);
 	const RewardPineAppleStat GetRewardPineAppleStat();
+	const int GetTurretLevel(TurretType turretType) { return turretLevel[turretType]; }
 };
 

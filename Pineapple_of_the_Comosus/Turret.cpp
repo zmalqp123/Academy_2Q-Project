@@ -139,3 +139,10 @@ void Turret::ResetTurret()
     gameObject->transform->m_RelativeRotation = 0.f;
     gameObject->isActive = false;
 }
+
+void Turret::UpdateTurretImage()
+{
+    auto lv = dynamicData->GetTurretLevel(turretType);
+    //anim->LoadAnimationAsset();
+	anim->SetAnimation(lv, false);
+}

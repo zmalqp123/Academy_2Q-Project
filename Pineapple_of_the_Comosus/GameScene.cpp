@@ -265,7 +265,7 @@ void GameScene::Start() {
         auto circleColl = childObj->CreateComponent<CircleCollider>();
         circleColl->SetCollisionType(CollisionType::Overlap);
         childObj->transform->SetParent(paTileObj->transform);
-        auto spr = childObj->CreateComponent<SpriteRenderer>();
+        auto spr = childObj->CreateComponent<SpriteAnimation>();
         pineTile->turret = childObj;
 
         auto highlightObj = CreateGameObject<GameObject>();
