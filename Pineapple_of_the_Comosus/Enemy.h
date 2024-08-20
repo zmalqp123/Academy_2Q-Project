@@ -18,9 +18,12 @@ class MainPineApple;
 class BoxCollider;
 class Movement;
 class SpriteRenderer;
+class SpriteAnimation;
 
 class Enemy : public Component
 {
+private:
+	float hitTime = 0.f;
 public:
 	Enemy() = default;
 	virtual ~Enemy() = default;
@@ -40,11 +43,13 @@ public:
 	float slowedRate = 0.0f;
 	float elapsedTime = 0.0f;
 	float tmpY = 0.0f;
+	int defaultAnimationNumber = -1;
 
 	Movement* move;
 	MainPineApple* mainPineApple;
 	GameObject* notify;
 	SpriteRenderer* AttackSprite;
+	SpriteAnimation* enemyAnim;
 
 	virtual void Init() override;
 	virtual void Update(float delta) override;

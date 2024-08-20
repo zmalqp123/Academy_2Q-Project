@@ -126,16 +126,19 @@ void WaveSystem::Generator()
                     left.interval += left.maxInterval;
                     // 光社発
                     Enemy* enemy = enemyFactory->GetEnemyFromPool(left.id);
-
+                    int eliteType = DataManager::GetInstance().GetEnemyData(left.id)->eliteType;
+                    enemy->defaultAnimationNumber = eliteType;
                     float spawnY = IsFly(left.id) ? flyDistY(gen) : distY(gen);
                     Vector2 spawnPosition = Vector2(-1500.0f, spawnY);
                     Vector2 moveDirection = Vector2(1.0f, 0.0f);
-                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(0, false);
+                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(eliteType, false);
                     enemy->gameObject->transform->pos.worldPosition = spawnPosition;
                     enemy->move->SetDirection(moveDirection);
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+
+                    enemy->defaultSpeed = enemy->enemyData.moveSpeed;
 
                     enemy->AttackSprite->SetCenter(Vector2(0.f, 0.5f));
                     enemy->AttackSprite->alpha = 0.f;
@@ -153,17 +156,20 @@ void WaveSystem::Generator()
                     right.interval += right.maxInterval;
                     // 光社発
                     Enemy* enemy = enemyFactory->GetEnemyFromPool(right.id);
-
+                    int eliteType = DataManager::GetInstance().GetEnemyData(right.id)->eliteType;
+                    enemy->defaultAnimationNumber = eliteType;
                     float spawnY = IsFly(right.id) ? flyDistY(gen) : distY(gen);
                     Vector2 spawnPosition = Vector2(1500.0f, spawnY);
                     Vector2 moveDirection = Vector2(-1.0f, 0.0f);
-                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(0, true);
+                    enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(eliteType, true);
 
                     enemy->gameObject->transform->pos.worldPosition = spawnPosition;
                     enemy->move->SetDirection(moveDirection);
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+
+                    enemy->defaultSpeed = enemy->enemyData.moveSpeed;
 
                     enemy->AttackSprite->SetCenter(Vector2(0.f, 0.5f));
 					enemy->AttackSprite->SetFilp(true, false);
