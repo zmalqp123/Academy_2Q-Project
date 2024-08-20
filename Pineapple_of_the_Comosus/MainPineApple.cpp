@@ -19,7 +19,7 @@
 
 void MainPineApple::PrintIndex(int index)
 {
-    std::cout << index << std::endl;
+    //std::cout << index << std::endl;
 }
 
 void MainPineApple::acquireGold(int cost)
@@ -32,7 +32,7 @@ void MainPineApple::spendGold(int cost)
     if (gold >= cost)
     {
         gold -= cost;
-        std::cout << "alive pineapple : " << gold << std::endl;
+        //std::cout << "alive pineapple : " << gold << std::endl;
     } 
 }
 
@@ -54,9 +54,9 @@ void MainPineApple::pineAppleDamageHP(int damage)
 {
     if (HP > 0)
     {
-        std::cout << "start HP : " << HP << std::endl;
+        //std::cout << "start HP : " << HP << std::endl;
         HP -= damage;
-        std::cout << "later HP : " << HP << std::endl;
+        //std::cout << "later HP : " << HP << std::endl;
     }
     else
     {
@@ -119,7 +119,7 @@ void MainPineApple::Harvest()
     if (currentEXP == maxEXP)
     {
         //UpdateMaxEXP(); // set new harvestexp
-        std::cout << "low harvest : " << LV << std::endl;
+        //std::cout << "low harvest : " << LV << std::endl;
         //currentEXP = 0;
 
         // 4.  new pineapple generation
@@ -142,7 +142,7 @@ void MainPineApple::Harvest()
         // harvestable check
         if (HarvestAble())
         {
-            std::cout << "low harvest : " << maxEXP << std::endl;
+            //std::cout << "low harvest : " << maxEXP << std::endl;
             //UpdateMaxEXP(); // set new harvestexp
             //currentEXP = 0;
 

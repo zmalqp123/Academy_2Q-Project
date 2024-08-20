@@ -76,9 +76,9 @@ public:
 	void Harvest();					// ����ġ�� �Һ��ؼ� ���ξ��� ��Ȯ, ���ξ��� �ִ� ����ġ ����
 	bool HarvestAble();
 	int GetPineAppleGold() { return gold; }	// ���� ���ξ��� ��差
-	int GetCurrentExp() { return currentEXP; }			// ���� ���ξ��� ����ġ -> ���ξ��� ��Ȯ Ƚ��									
+	float GetCurrentExp() { return currentEXP; }			// ���� ���ξ��� ����ġ -> ���ξ��� ��Ȯ Ƚ��									
 	int GetPineAppleLV() { return LV; }
-	int GetPineAppleHP() { return HP; }				// ���� ���ξ��� hp �������� 
+	float GetPineAppleHP() { return HP; }				// ���� ���ξ��� hp �������� 
 	float GetOfferingValue(); // float offeringValue;
 	float elapsedTime = 0.f;
 	virtual void Update(float deltaTime);

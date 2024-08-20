@@ -34,5 +34,6 @@ public:
 
 	void SetTextColor(D2D1::ColorF _color);
 	void SetFontSize(float size);
+	void SetAlignCenter(int type);
 };
 

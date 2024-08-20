@@ -133,7 +133,7 @@ void Turret::Refund()
 
     int refund = DataManager::GetInstance().GetTurretData((int)turretType)->refund;
     parentPineApple->acquireGold(refund);
-    std::cout << "refund : " << refund << std::endl;
+    //std::cout << "refund : " << refund << std::endl;
     ResetTurret();
 }
 
