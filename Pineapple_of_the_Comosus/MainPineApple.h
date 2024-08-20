@@ -16,6 +16,7 @@ class FiniteStateMachine;
 class Turret;
 class TextUIRenderer;
 class WaveSystem;
+class gamePopup;
 class MainPineApple : public Component
 {
 	friend class ComosusPhase1;
@@ -55,6 +56,7 @@ public:
 	TextUIRenderer* LVbar;
 	WaveSystem* waveSystem;
 	std::vector<GameObject*> rewardbtn;
+	gamePopup* endpopup;
 	ramdomReward* randomReward;
 	FiniteStateMachine* comosusFsm;
 	int pineAppleLv = 1;

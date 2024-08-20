@@ -36,6 +36,7 @@
 #include "ComosusFSM.h"
 #include "ComosusLightSelector.h"
 #include "Cutton.h"
+#include "gamePopup.h"
 #include <random> // 랜덤시드
 
 MainPineApple* testPineApple = nullptr;
@@ -775,6 +776,55 @@ void GameScene::Start() {
     headText->SetFontSize(40.f);
     headText->SetAlignCenter(1);
     headText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
+    
+    /*gamePopup* end = new gamePopup();
+    pineApple->endpopup = end;
+    end->Uis.push_back();*/
+
+    // game end popup
+    //{
+    //    auto bgObj = CreateGameObject<GameObject>();
+    //    bgObj->transform->type = Type::Ui;
+    //    auto bgSpr = bgObj->CreateComponent<ImageUIRenderer>();
+    //    bgSpr->alpha = 0.5f;
+    //    bgObj->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
+    //    bgObj->transform->pos.rectposition.rightTop = { 1920.f, 1080.f };
+    //    bgSpr->LoadTexture(L"../Resource/opactiyBg.png");
+
+    //    auto popupObj = CreateGameObject<GameObject>();
+    //    popupObj->transform->SetParent(bgObj->transform);
+    //    popupObj->transform->type = Type::Ui;
+    //    popupObj->transform->pos.rectposition.leftBottom = { 500.f, 200.f };
+    //    popupObj->transform->pos.rectposition.rightTop = { 1420.f, 880.f };
+    //    auto popupImage = popupObj->CreateComponent<ImageUIRenderer>();
+    //    popupImage->LoadTexture(L"../Resource/defeatPopup.png"); // Replace with the actual texture path
+
+    //    auto retryBtnObj = CreateGameObject<GameObject>();
+    //    retryBtnObj->transform->SetParent(popupObj->transform);
+    //    retryBtnObj->transform->type = Type::Ui;
+    //    retryBtnObj->transform->pos.rectposition.leftBottom = { 600.f, 250.f };
+    //    retryBtnObj->transform->pos.rectposition.rightTop = { 900.f, 400.f };
+    //    auto retryButton = retryBtnObj->CreateComponent<Button>();
+    //    retryButton->LoadTexture(L"../Resource/retryButton.png"); // Replace with actual texture path
+    //    retryButton->AddListener([]() {
+  
+    //        SceneManager::GetInstance().SetChangeSceneFlag("GameScene");
+    //        });
+
+  
+    //    auto titleBtnObj = CreateGameObject<GameObject>();
+    //    titleBtnObj->transform->SetParent(popupObj->transform);
+    //    titleBtnObj->transform->type = Type::Ui;
+    //    titleBtnObj->transform->pos.rectposition.leftBottom = { 1020.f, 250.f };
+    //    titleBtnObj->transform->pos.rectposition.rightTop = { 1320.f, 400.f };
+    //    auto titleButton = titleBtnObj->CreateComponent<Button>();
+    //    titleButton->LoadTexture(L"../Resource/titleButton.png"); // Replace with actual texture path
+    //    titleButton->AddListener([]() {
+  
+    //        SceneManager::GetInstance().SetChangeSceneFlag("TitleScene");
+    //        });
+    //}
+    
 
     // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
     auto nameTextObj = CreateGameObject<GameObject>();
@@ -786,8 +836,6 @@ void GameScene::Start() {
     nameText->SetFontSize(55.f);
     nameText->SetAlignCenter(1);
     nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
-
-    //nameText->text = L"하이로";
 
     // 버튼 5개 생성 및 초기 비활성화
     ramdomReward* rand = new ramdomReward();

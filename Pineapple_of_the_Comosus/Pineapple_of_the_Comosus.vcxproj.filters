@@ -60,6 +60,7 @@
     <ClCompile Include="ComosusLightSelector.cpp" />
     <ClCompile Include="Cutton.cpp" />
     <ClCompile Include="EndScene.cpp" />
+    <ClCompile Include="gamePopup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -122,6 +123,7 @@
     <ClInclude Include="ComosusLightSelector.h" />
     <ClInclude Include="Cutton.h" />
     <ClInclude Include="EndScene.h" />
+    <ClInclude Include="gamePopup.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />
