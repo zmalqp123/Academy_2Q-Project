@@ -53,7 +53,7 @@ void ComosusPhase1::Update(float deltaTime)
 {
 	float prevTime = phase1Duration;
 	phase1Duration += deltaTime;
-	if (phase1Duration < 0.75f) {
+	if (phase1Duration < 0.15f) {
 		if (comosusLightAnim->IsLastFrame())
 			comosusLightAnim->SetAnimation(3);
 	}
@@ -70,7 +70,7 @@ void ComosusPhase1::Update(float deltaTime)
 	}
 	if (phase1Duration >= 1.5f && comosusSpriteAnim->IsLastFrame()) {
 		fadeOutDutation += deltaTime;
-		comosusSpriteAnim->SetAnimation(0, false);
+		
 		cameraShaker->SetAmplitude((1.f - fadeOutDutation) * 20.f);
 		if (fadeOutDutation > 1.f) {
 			cameraShaker->ShakeOnCamera(false);
@@ -144,28 +144,31 @@ void ComosusPhase2::Enter()
 	fallDuration = 0.f;
 	startY = pineApple->gameObject->transform->pos.worldPosition.y;
 	//dynamicData->isHarvest = false;
-	comosusLightAnim->SetAnimation(2, false);
-	comosusSpriteAnim->SetAnimation(2, false);
+	//comosusLightAnim->SetAnimation(2, false);
+	
 }
 
 void ComosusPhase2::Update(float deltaTime)
 {
 	float prevTime = fallDuration;
 	fallDuration += deltaTime;
-	if (IsTiming(prevTime, fallDuration, 0.05f)) {
+	if (IsTiming(prevTime, fallDuration, 2.0f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 550.f;
 	}
-	if (IsTiming(prevTime, fallDuration, 0.1f)) {
+	if (IsTiming(prevTime, fallDuration, 2.05f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 350.f;
 	}
-	if (IsTiming(prevTime, fallDuration, 0.15f)) {
+	if (IsTiming(prevTime, fallDuration, 2.1f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 150.f;
 	}
 	if (IsTiming(prevTime, fallDuration, 2.15f)) {
-		pineApple->gameObject->transform->pos.worldPosition.y = 50.f;
-	}
-	if (IsTiming(prevTime, fallDuration, 2.2f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 0.f;
+		comosusSpriteAnim->SetAnimation(2, false);
+	}
+	if (fallDuration > 2.2f) {
+		if (comosusSpriteAnim->IsLastFrame()) {
+			comosusSpriteAnim->SetAnimation(0, false);
+		}
 	}
 
 	if (fallDuration > 4.f) {

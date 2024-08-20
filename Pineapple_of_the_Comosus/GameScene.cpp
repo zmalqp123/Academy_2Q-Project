@@ -932,6 +932,10 @@ void GameScene::Update(float deltaTime) {
         SoundManager::GetInstance().PlaySoundW(soundName, true);
     }
 
+    if (InputManager::GetInstance().IsKeyDown('6')) {
+        testPineApple->AddExp(50.f);
+    }
+
     SoundManager::GetInstance().Update();
 }
 
