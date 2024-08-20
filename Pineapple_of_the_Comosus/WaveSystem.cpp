@@ -180,7 +180,7 @@ void WaveSystem::Generator()
     }
 }
 
-void WaveSystem::pushingTutorial(int curWave, GameObject* Tuto)
+void WaveSystem::PushingTutorial(int curWave, GameObject* Tuto)
 {
     if (currentWave == curWave && waveTimer > 0.f) {
 
@@ -190,7 +190,7 @@ void WaveSystem::pushingTutorial(int curWave, GameObject* Tuto)
         }
         float t1 = (0.66f - elapsedTime) / .66f;
         float t2 = (elapsedTime) / .66f;
-        std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
         Tuto->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 370.f);
         if (elapsedTime > 0.66f)
         {
@@ -198,6 +198,24 @@ void WaveSystem::pushingTutorial(int curWave, GameObject* Tuto)
         }
     }
     
+}
+
+void WaveSystem::PullingTutorial(int curWave, GameObject* Tuto)
+{
+	if (currentWave == curWave && waveTimer > 0.f) {
+		if (elapsedTime > 0.66f)
+		{
+			elapsedTime = 0.66f;
+		}
+		float t1 = (0.66f - elapsedTime) / .66f;
+		float t2 = (elapsedTime) / .66f;
+		//std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+		Tuto->transform->pos.worldPosition.y = (t1 * 370.f) + (t2 * 712.f);
+		if (elapsedTime > 0.66f)
+		{
+			return;
+		}
+	}
 }
 
 bool WaveSystem::IsFly(int id)
@@ -240,9 +258,12 @@ void WaveSystem::Update(float deltaTime)
         StartNextWave();
     }
 	
-    pushingTutorial(1, tutorial1);
-	pushingTutorial(2, tutorial2);
-	pushingTutorial(3, tutorial3);
+    PushingTutorial(1, tutorial1);
+    PushingTutorial(2, tutorial2);
+    PushingTutorial(3, tutorial3);
+	PullingTutorial(2, tutorial1);
+    PullingTutorial(3, tutorial2);
+    PullingTutorial(4, tutorial3);
     Generator();
 
     // 태양 이동

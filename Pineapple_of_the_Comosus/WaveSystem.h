@@ -50,7 +50,9 @@ public:
 
     void LoadWaveData();
     void Generator();
-	void pushingTutorial(int curWave, GameObject* Tuto);
+	void PushingTutorial(int curWave, GameObject* Tuto);
+	void PullingTutorial(int curWave, GameObject* Tuto);
+
 
     bool IsFly(int id);
 

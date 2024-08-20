@@ -384,23 +384,27 @@ void GameScene::Start() {
 
     // Tutorial 튜토리얼
 	auto tutorialObj = CreateGameObject<GameObject>();
-	auto tutorialImage = tutorialObj->CreateComponent<SpriteRenderer>();
+    auto tutorialImage = tutorialObj->CreateComponent<SpriteRenderer>();
 	//tutorialObj->transform->type = Type::Ui;
-    tutorialObj->transform->pos.worldPosition = { -300.f,750.f};
+    tutorialObj->transform->pos.worldPosition = { -500.f,750.f};
+    tutorialObj->transform->SetSortingLayer(-2);
 	tutorialImage->LoadTexture(L"../Resource/31011.png");
+    
 
     // Tutorial 튜토리얼2
     auto tutorial2Obj = CreateGameObject<GameObject>();
     auto tutorial2Image = tutorial2Obj->CreateComponent<SpriteRenderer>();
     //tutorial2Obj->transform->type = Type::Ui;
-    tutorial2Obj->transform->pos.worldPosition = { -300.f,750.f };
+    tutorial2Obj->transform->pos.worldPosition = { -500.f,750.f };
+    tutorial2Obj->transform->SetSortingLayer(-2);
     tutorial2Image->LoadTexture(L"../Resource/31012.png");
 
     // Tutorial 튜토리얼3
     auto tutorial3Obj = CreateGameObject<GameObject>();
     auto tutorial3Image = tutorial3Obj->CreateComponent<SpriteRenderer>();
     //tutorial3Obj->transform->type = Type::Ui;
-    tutorial3Obj->transform->pos.worldPosition = { -300.f,750.f };
+    tutorial3Obj->transform->pos.worldPosition = { -500.f,750.f };
+    tutorial3Obj->transform->SetSortingLayer(-2);
     tutorial3Image->LoadTexture(L"../Resource/31031.png");
 
     // 웨이브 시스템
