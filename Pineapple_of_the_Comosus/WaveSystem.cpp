@@ -137,6 +137,8 @@ void WaveSystem::Generator()
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+                    enemy->waveAmplitude = enemy->enemyData.waveAmplitude;
+                    enemy->waveFrequency = enemy->enemyData.waveFrequency;
 
                     enemy->defaultSpeed = enemy->enemyData.moveSpeed;
 
@@ -168,6 +170,8 @@ void WaveSystem::Generator()
                     enemy->tmpY = spawnPosition.y;
                     enemy->move->SetSpeed(enemy->enemyData.moveSpeed);
                     enemy->gameObject->SetActive(true);
+                    enemy->waveAmplitude = enemy->enemyData.waveAmplitude;
+                    enemy->waveFrequency = enemy->enemyData.waveFrequency;
 
                     enemy->defaultSpeed = enemy->enemyData.moveSpeed;
 

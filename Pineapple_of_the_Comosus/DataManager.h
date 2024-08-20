@@ -91,6 +91,9 @@ struct EnemyData {
 
 	int reward;
 	int expReward;
+
+	float waveAmplitude;
+	float waveFrequency;
 };
 
 struct TurretData
@@ -235,6 +238,12 @@ public:
 				Enemy->reward = _wtoi(token.c_str());
 				getline(wss, token, L',');
 				Enemy->expReward = _wtoi(token.c_str());
+				getline(wss, token, L',');
+				getline(wss, token, L',');
+				getline(wss, token, L',');
+				Enemy->waveAmplitude = _wtof(token.c_str());
+				getline(wss, token, L',');
+				Enemy->waveFrequency = _wtof(token.c_str());
 				enemyDataMap.insert(std::make_pair(Enemy->id, Enemy));
 			}
 		}

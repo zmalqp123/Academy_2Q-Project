@@ -45,6 +45,9 @@ public:
 	float tmpY = 0.0f;
 	int defaultAnimationNumber = -1;
 
+	float waveAmplitude = 20.f;  // 파동의 진폭 (위아래 움직임의 크기)
+	float waveFrequency = 10.f;   // 파동의 주기 (움직임의 속도) -> 튀기는 속도 
+
 	Movement* move;
 	MainPineApple* mainPineApple;
 	GameObject* notify;
