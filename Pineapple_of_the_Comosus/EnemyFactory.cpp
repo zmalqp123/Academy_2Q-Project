@@ -47,6 +47,7 @@ void EnemyFactory::InitializePool()
 Enemy* EnemyFactory::CreateEnemy(int type)
 {
     auto mon = scene->CreateGameObject<GameObject>();
+    mon->transform->pos.worldPosition = { 0.f, -1000.f };
     auto loadMon = mon->CreateComponent<SpriteAnimation>();
    
     auto movement = mon->CreateComponent<Movement>();
