@@ -8,6 +8,7 @@ class BoxCollider;
 class SelectTurretContainer;
 class Turret;
 class MainPineApple;
+class SpriteRenderer;
 class GamePlayManager : public Component
 {
 public:
@@ -17,6 +18,7 @@ public:
 	Camera* camera;
 
 	GameObject* dragObj = nullptr;
+	SpriteRenderer* dragHighlightSpr = nullptr;
 	bool isDrag = false;
 
 	MainPineApple* pineApple = nullptr;

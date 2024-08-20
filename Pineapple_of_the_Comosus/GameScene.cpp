@@ -185,7 +185,14 @@ void GameScene::Start() {
     auto sproper = testDragObj->CreateComponent<SpriteAnimation>();
     sproper->alpha = 0.7f;
     GameManager->dragObj = testDragObj;
-    testDragObj->transform->SetSortingLayer(1);
+    testDragObj->transform->SetSortingLayer(2);
+
+    auto dragHighlight = CreateGameObject<GameObject>();
+    dragHighlight->transform->SetParent(testDragObj->transform);
+    dragHighlight->SetActive(false);
+    auto highlightSpr = dragHighlight->CreateComponent<SpriteRenderer>();
+    dragHighlight->transform->SetSortingLayer(1);
+    GameManager->dragHighlightSpr = highlightSpr;
 
     // 코모서스 파인애플 (겁나 큼)
     auto paObj = CreateGameObject<GameObject>();

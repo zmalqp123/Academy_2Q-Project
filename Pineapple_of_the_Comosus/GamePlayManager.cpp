@@ -25,6 +25,7 @@ void GamePlayManager::Update(float deltaTime)
 		if (!InputManager::GetInstance().GetPrevMouseState().right && InputManager::GetInstance().GetMouseState().right) {
 			isDrag = false;
 			dragObj->SetActive(false);
+			dragHighlightSpr->gameObject->SetActive(false);
 		}
 
 		auto curWorldObject = EventSystem::GetInstance().GetCurrWorldObject();
@@ -32,12 +33,15 @@ void GamePlayManager::Update(float deltaTime)
 
 		dragObj->transform->pos.worldPosition = camera->ScreenToWorldPosition(mousePos);
 
+		dragHighlightSpr->LoadTexture(DataManager::GetInstance().GetTurretData(Turret_Type)->impossiblePath.c_str());
+
 		if (curWorldObject != nullptr) {
 			auto pTile = curWorldObject->GetComponent<PineAppleTile>();
 			if (pTile != nullptr) {
 				if (pTile->IsPlaceable() == false) return;
 				dragObj->transform->pos.worldPosition.x = pTile->gameObject->transform->m_WorldTransform.dx;
 				dragObj->transform->pos.worldPosition.y = pTile->gameObject->transform->m_WorldTransform.dy;
+				dragHighlightSpr->LoadTexture(DataManager::GetInstance().GetTurretData(Turret_Type)->possiblePath.c_str());
 
 				if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left))
 				{
@@ -45,6 +49,7 @@ void GamePlayManager::Update(float deltaTime)
 					//설치 가능할 때 좌클릭 시 설치.
 					isDrag = false;
 					dragObj->SetActive(false);
+					dragHighlightSpr->gameObject->SetActive(false);
 					// 터렛 활성화
 					pTile->turret->SetActive(true);
 					pTile->SetActivateTurret(Turret_Type);
@@ -233,8 +238,8 @@ void GamePlayManager::StartBatch(int type)
 
 		isDrag = true;
 		dragObj->SetActive(true);
+		dragHighlightSpr->gameObject->SetActive(true);
 		auto spr = dragObj->GetComponent<SpriteAnimation>();
-		//hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
 		Turret_Type = type;
 
 		spr->LoadTexture(data->imagePath.c_str());
