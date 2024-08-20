@@ -65,7 +65,14 @@ void MainPineApple::pineAppleDamageHP(int damage)
 }
 
 void MainPineApple::solarAcquireEXP(float deltaTime)
-{
+{   
+    if (waveSystem->getCurrentWave() % 4 != 0) {
+		solarGain = morningValue;
+	}
+    else if (waveSystem->getCurrentWave() % 4 == 0) {
+        solarGain = nightValue;
+    }
+
     // maxexp ok
     if (currentEXP <= maxEXP)
     {
@@ -183,9 +190,9 @@ void MainPineApple::Update(float deltaTime)
 {
     if (rewardData->isHarvest == false) {
         // second per haverst
-        if (waveSystem->getCurrentWave() % 4 != 0) {
-            solarAcquireEXP(deltaTime);
-        }
+        //if (waveSystem->getCurrentWave() % 4 != 0) 
+        solarAcquireEXP(deltaTime);
+
 
         // UI HPbar update  
         throwUiHP(GetPineAppleHP());

@@ -25,8 +25,8 @@ class MainPineApple : public Component
 	float HP = maxHP;				// ���� ���ξ��� ü��. HP�� 0�̵Ǹ� ���ӿ���
 	float currentEXP = 0;		// ���� ���ξ����� ����ġ
 	float maxEXP = 100;			// ���ξ��� �ִ� ����ġ ��
-	float solarGain = 50;		// ���� ���ξ����� �ʴ� ��Ȯ����ġ��
-	int morningValue = 1;		// �� �ð��� ���� ��
+	float solarGain = 1.0f;		// ���� ���ξ����� �ʴ� ��Ȯ����ġ��
+	int morningValue = 10;		// �� �ð��� ���� ��
 	int nightValue = 0;			// �� �ð��� ���� ��
 	float killMultiply = 1.0;	// ���� óġ�� ����ġ ����. currentExp = currentExp + ���� óġ exp * killMultiply��
 	float offeringMultiply = 0.75; // �⺻ 0.75 ����,  75�� ä���� �� ��밡�� 
