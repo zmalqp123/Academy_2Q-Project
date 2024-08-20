@@ -32,6 +32,12 @@ void ramdomReward::setValue()
         TextNameUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].reward;
         TextStatUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].rewarOption;
     }
+    btns[4]->AddListener([this]() {
+      
+        DataManager::GetInstance().plzmoney.fn();
+        UIoff();
+        GameTime::GetInstance().SetTimeScale(1.f);
+        });
 }
 
 void ramdomReward::UIon()

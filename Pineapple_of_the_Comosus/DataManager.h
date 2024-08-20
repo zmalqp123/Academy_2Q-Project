@@ -165,10 +165,18 @@ public:
 	DataManager& operator=(const DataManager&) = delete;
 
 	std::vector<HarvestPopupStruct> harvestPopupStruct;
+	HarvestPopupStruct plzmoney;
 	std::map<int, EnemyData*> enemyDataMap; // int = id
 	std::map<int, TurretData*> turretDataMap; // int = id
 	std::map<int, WaveData*> waveDataMap;
+	int arr[26] = { 200, 300, 400, 500, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500 };
 	int GetMaxWaveCount() { return maxWaveCount; }
+
+	int getMoneyData(int pineapplelv) { 
+		if (pineapplelv >= 25)
+			pineapplelv = 25;
+		return arr[pineapplelv]; 
+	}
 
 	bool LoadEnemySheetFromCSV(const wchar_t* fileName)
 	{

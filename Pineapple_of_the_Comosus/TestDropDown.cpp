@@ -35,7 +35,7 @@ void TestDropDown::Update(float delta)
 			}
 		}
 		dragObj->transform->m_RelativeRotation = e;
-		std::cout << e << std::endl;
+		//std::cout << e << std::endl;
 		if ((!InputManager::GetInstance().GetPrevMouseState().left && InputManager::GetInstance().GetMouseState().left)) {
 			state = 0;
 			dragObj = nullptr;

@@ -115,3 +115,21 @@ void TextUIRenderer::SetFontSize(float size)
 		&pTextFormat
 	);
 }
+
+void TextUIRenderer::SetAlignCenter(int type)
+{
+
+	if (type == -1)
+	{
+		pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_LEADING);
+	}
+	if (type == 0)
+	{
+		pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+	}
+	else if (type == 1)
+	{
+		pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_TRAILING);
+	}
+
+}

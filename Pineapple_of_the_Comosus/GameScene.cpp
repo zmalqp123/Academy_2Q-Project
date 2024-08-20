@@ -685,13 +685,13 @@ void GameScene::Start() {
     UpgradebtnImage->AddListener([=]() {
         dynamicData->isUpgrade = !dynamicData->isUpgrade; 
         if (dynamicData->isUpgrade == true) {
-            UpgradebtnImage->LoadTexture(L"../Resource/30208_Harvest1btn.png");
+            UpgradebtnImage->LoadTexture(L"../Resource/30207.png");
         }
         else {
-            UpgradebtnImage->LoadTexture(L"../Resource/harvest.png");
+            UpgradebtnImage->LoadTexture(L"../Resource/30207.png");
         }
     });
-    UpgradebtnImage->LoadTexture(L"../Resource/harvest.png");
+    UpgradebtnImage->LoadTexture(L"../Resource/30207.png");
 
     pineApple->harvestbtn = UpgradebtnImage;
 
@@ -730,11 +730,11 @@ void GameScene::Start() {
 
     // 버튼의 위치와 크기를 수동으로 지정
     D2D1_RECT_F buttonPositions[] = {
-        {500.f, 600.f, 800.f, 700.f},  // 첫 번째 버튼의 위치 (x1, y1, x2, y2)
-        {900.f, 600.f, 1200.f, 700.f}, // 두 번째 버튼의 위치
-        {500.f, 800.f, 800.f, 900.f},  // 세 번째 버튼의 위치
-        {900.f, 800.f, 1200.f, 900.f}, // 네 번째 버튼의 위치
-        {700.f, 400.f, 1000.f, 500.f}  // 다섯 번째 버튼의 위치 (중앙 하단)
+        {115.f, 270.f, 845.f, 470.f},  // 첫 번째 버튼의 위치 (x1, y1, x2, y2)
+        {115.f, 540.f, 845.f, 740.f}, // 두 번째 버튼의 위치
+        {1075.f, 270.f, 1805.f, 470.f},  // 세 번째 버튼의 위치
+        {1075.f, 540.f, 1805.f, 740.f}, // 네 번째 버튼의 위치
+        {540.f, 100.f, 1440.f, 240.f}  // 다섯 번째 버튼의 위치 (중앙 하단)
     };
 
     // 1. 랜덤하게 데이터를 섞습니다.
@@ -742,9 +742,9 @@ void GameScene::Start() {
     std::mt19937 g(rd());
     std::shuffle(DataManager.harvestPopupStruct.begin(), DataManager.harvestPopupStruct.end(), g);*/
 
-    for (size_t i = 0; i < 5; i++) {
+    for (size_t i = 0; i < 4; i++) {
         auto buttonObj = CreateGameObject<GameObject>(); 
-        buttonObj->transform->SetParent(uiGroup->transform);
+        //buttonObj->transform->SetParent(uiGroup->transform);
         buttonObj->transform->type = Type::Ui;
 
         // 버튼의 위치와 크기를 설정
@@ -762,8 +762,8 @@ void GameScene::Start() {
         imageObj->transform->SetParent(buttonObj->transform);
         imageObj->transform->type = Type::Ui;
         imageObj->transform->pos.rectposition = {/* 이미지 위치와 크기 설정 */ };
-        imageObj->transform->pos.rectposition.leftBottom = { 0,0 };
-        imageObj->transform->pos.rectposition.rightTop = { 100, 100 };
+        imageObj->transform->pos.rectposition.leftBottom = { 47,47 };
+        imageObj->transform->pos.rectposition.rightTop = { 160, 160 };
         auto spriteRenderer = imageObj->CreateComponent<ImageUIRenderer>();
         spriteRenderer->LoadTexture(DataManager.harvestPopupStruct[i].Imagepath.c_str()); // 이미지 설정
      
@@ -779,9 +779,9 @@ void GameScene::Start() {
         //nameText->SetText(L"이름"); // 이름 텍스트 설정
         //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
 
-        nameTextObj->transform->pos.rectposition.leftBottom = { 100, 50};
-        nameTextObj->transform->pos.rectposition.rightTop  = { 300, 100 };
-
+        nameTextObj->transform->pos.rectposition.leftBottom = { 175, 100};
+        nameTextObj->transform->pos.rectposition.rightTop  = { 700, 170 };
+        nameText->SetAlignCenter(0);
         rand->TextNameUis.push_back(nameText);
         // 내용 텍스트 오브젝트 추가 (자식 오브젝트)
         auto descTextObj = CreateGameObject<GameObject>();
@@ -793,11 +793,50 @@ void GameScene::Start() {
         descText->text = DataManager.harvestPopupStruct[i].rewarOption;
         //descText->SetText(L"내용"); // 내용 텍스트 설정   
         //descText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
-
-        descTextObj->transform->pos.rectposition.leftBottom = { 100, 0};
-        descTextObj->transform->pos.rectposition.rightTop = { 300, 50 };
+        descText->SetAlignCenter(-1);
+        descTextObj->transform->pos.rectposition.leftBottom = { 250, 50};
+        descTextObj->transform->pos.rectposition.rightTop = { 740, 100 };
 
         rand->TextStatUis.push_back(descText);
+
+        //pineApple->Popup = buttonImage;
+    }
+
+    // givemeth money
+    {
+        auto buttonObj = CreateGameObject<GameObject>();
+        //buttonObj->transform->SetParent(uiGroup->transform);
+        buttonObj->transform->type = Type::Ui;
+
+        // 버튼의 위치와 크기를 설정
+        buttonObj->transform->pos.rectposition.leftBottom = { buttonPositions[4].left, buttonPositions[4].top };
+        buttonObj->transform->pos.rectposition.rightTop = { buttonPositions[4].right, buttonPositions[4].bottom };
+
+        // 버튼 이미지 설정
+        auto buttonImage = buttonObj->CreateComponent<Button>();
+        buttonImage->ignoreEventSystem = false;
+        buttonImage->LoadTexture(L"../Resource/30213_givememoney.png"); // 버튼의 기본 배경 이미지
+        rand->btns.push_back(buttonImage);
+        // 이미지 오브젝트 추가 (자식 오브젝트)
+        auto imageObj = CreateGameObject<GameObject>();
+
+        // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
+        auto nameTextObj = CreateGameObject<GameObject>();
+        nameTextObj->transform->SetParent(buttonObj->transform);
+        nameTextObj->transform->type = Type::Ui;
+        nameTextObj->transform->pos.rectposition = {/* 이름 텍스트 위치와 크기 설정 */ };
+        auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
+        nameText->SetFontSize(25.f);
+        nameText->text = DataManager.plzmoney.rewarOption.c_str();
+        auto rewardMoney = DataManager.getMoneyData(pineApple->GetPineAppleLV()-1);
+        DataManager.plzmoney.fn = [pineApple, rewardMoney]() { pineApple->acquireGold(rewardMoney); };
+        //nameText->SetText(L"이름"); // 이름 텍스트 설정
+        //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
+
+        nameTextObj->transform->pos.rectposition.leftBottom = { 175, 100 };
+        nameTextObj->transform->pos.rectposition.rightTop = { 700, 170 };
+        nameText->SetAlignCenter(0);
+        rand->TextNameUis.push_back(nameText);
 
         pineApple->Popup = buttonImage;
     }
@@ -809,7 +848,7 @@ void GameScene::Start() {
     //    buttons[i]->SetText(popupStruct.text);  // 버튼의 텍스트 설정
     //    buttons[i]->SetImage(popupStruct.imagePath);  // 버튼의 이미지 설정
 
-    //    // 3. 버튼 클릭 시 실행할 함수 할당
+    //    // 3. 버튼 클릭 시 실행할 함수 할당 
     //    buttons[i]->AddListener([popupStruct]() {
     //        std::wcout << L"Button clicked: " << popupStruct.description << std::endl;
     //        popupStruct.action();  // 선택된 보상 적용
@@ -893,15 +932,24 @@ void GameScene::Update(float deltaTime) {
 void GameScene::Render(D2DRenderer* _render) {
     __super::Render(_render);
 
-    //auto pd = testPineApple;
-    //int gold = pd->GetPineAppleGold();
-    ////std::cout << gold << std::endl;
-    //std::wstring pineAppleGold = std::to_wstring(gold);
-    //D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
-    //std::cout << cam->transform->m_WorldTransform.dx << std::endl;
-    //std::cout << cam->transform->m_WorldTransform.dy << std::endl;
+    auto pd = testPineApple;
+    int gold = pd->GetPineAppleGold();
+    //std::cout << gold << std::endl;
+    std::wstring pineAppleGold = std::to_wstring(gold);
+    D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
+    /*float currentHP = pd->GetPineAppleHP();
+    std::wstring currentHp = std::to_wstring(currentHP);
+    D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
+    float currentEXP = pd->GetCurrentExp();
+    std::wstring curtHp = std::to_wstring(currentEXP);
+    D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);*/
 
-    /*int pineappleLV = pd->GetPineAppleLV();
+
+    
+    /*std::cout << cam->transform->m_WorldTransform.dx << std::endl;
+    std::cout << cam->transform->m_WorldTransform.dy << std::endl;*/
+
+    /*int pineappleLV = pd->GetPineAppleLV();   
     std::wstring pineAppleLV = std::to_wstring(pineappleLV);
     D2DRenderer::getIncetance().DrawStringTextw(pineAppleLV.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Blue);*/
 
