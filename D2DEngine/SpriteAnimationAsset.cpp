@@ -80,7 +80,7 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(0, L"../Resource/30318.txt");
 		LoadAnimationFromCSV(1, L"../Resource/30318-1.txt");
 	}
-	if (FilePath == std::wstring(L"30501"))
+	if (FilePath == std::wstring(L"Crossbow"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/Turret/30501.txt");
 		LoadAnimationFromCSV(1, L"../Resource/Turret/30502.txt");
@@ -88,7 +88,7 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(3, L"../Resource/Turret/30504.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Turret/30505.txt");
 	}
-	if (FilePath == std::wstring(L"30511"))
+	if (FilePath == std::wstring(L"Musket"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/Turret/30511.txt");
 		LoadAnimationFromCSV(1, L"../Resource/Turret/30512.txt");
@@ -96,7 +96,7 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(3, L"../Resource/Turret/30514.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Turret/30515.txt");
 	}
-	if (FilePath == std::wstring(L"30521"))
+	if (FilePath == std::wstring(L"Cannon"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/Turret/30521.txt");
 		LoadAnimationFromCSV(1, L"../Resource/Turret/30522.txt");
@@ -104,13 +104,27 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(3, L"../Resource/Turret/30524.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Turret/30525.txt");
 	}
-	if (FilePath == std::wstring(L"30541"))
+	if (FilePath == std::wstring(L"Superbow")) {
+		LoadAnimationFromCSV(0, L"../Resource/Turret/30531.txt");
+		LoadAnimationFromCSV(1, L"../Resource/Turret/30532.txt");
+		LoadAnimationFromCSV(2, L"../Resource/Turret/30533.txt");
+		LoadAnimationFromCSV(3, L"../Resource/Turret/30534.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Turret/30535.txt");
+	}
+	if (FilePath == std::wstring(L"Slow"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/Turret/30541.txt");
 		LoadAnimationFromCSV(1, L"../Resource/Turret/30542.txt");
 		LoadAnimationFromCSV(2, L"../Resource/Turret/30543.txt");
 		LoadAnimationFromCSV(3, L"../Resource/Turret/30544.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Turret/30545.txt");
+	}
+	if (FilePath == std::wstring(L"30551")) {
+		LoadAnimationFromCSV(0, L"../Resource/Turret/30551.txt");
+		LoadAnimationFromCSV(1, L"../Resource/Turret/30552.txt");
+		LoadAnimationFromCSV(2, L"../Resource/Turret/30553.txt");
+		LoadAnimationFromCSV(3, L"../Resource/Turret/30554.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Turret/30555.txt");
 	}
 	if (FilePath == std::wstring(L"griffinMove"))
 	{

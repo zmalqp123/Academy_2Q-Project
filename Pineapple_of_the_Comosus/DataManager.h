@@ -115,6 +115,7 @@ struct TurretData
 	std::wstring imagePath;
 	std::wstring bulletImagePath;
 	std::wstring highlightPath;
+	std::wstring csvPath;
 };
 
 struct WaveEnemyData {
@@ -301,6 +302,8 @@ public:
 				Turret->bulletImagePath = (L"../Resource/" + token).c_str();
 				getline(wss, token, L',');
 				Turret->highlightPath = (L"../Resource/" + token).c_str();
+				getline(wss, token, L',');
+				Turret->csvPath = (L""+token).c_str();
 				turretDataMap.insert(std::make_pair(Turret->id, Turret));
 			}
 		}

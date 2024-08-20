@@ -71,13 +71,13 @@ void SpriteAnimation::Update(float fTimeElapsed)
 
 	if (m_bMirror) //x 축 스케일은 좌우 반전 , Translation 은 출력할 이미지의 원점 정보
 	{
-		m_ImageTransform = D2D1::Matrix3x2F::Scale(-1.0f, 1.0f, D2D1::Point2F(0, 0)) *
+		m_ImageTransform = D2D1::Matrix3x2F::Scale(-1.0f, m_flipY ? -1.f : 1.f, D2D1::Point2F(0, 0)) *
 			D2D1::Matrix3x2F::Translation(Frame.Center.x, Frame.Center.y);
 	}
 	else
 	{
-		m_ImageTransform = D2D1::Matrix3x2F::Scale(1.0f, 1.0f, D2D1::Point2F(0, 0)) *
-			D2D1::Matrix3x2F::Translation(Frame.Center.x * -1, Frame.Center.y);
+		m_ImageTransform = D2D1::Matrix3x2F::Scale(1.0f, m_flipY ? -1.f : 1.f, D2D1::Point2F(0, 0)) *
+			D2D1::Matrix3x2F::Translation(Frame.Center.x * -1, m_flipY ? -Frame.Center.y : Frame.Center.y);
 	}
 }
 
@@ -97,7 +97,7 @@ void SpriteAnimation::Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3
 		* m_ScreenTransform;
 	;// * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
 }
 
 void SpriteAnimation::Render(D2D1_MATRIX_3X2_F cameraMat)
@@ -118,7 +118,20 @@ void SpriteAnimation::Render(D2D1_MATRIX_3X2_F cameraMat)
 		* m_ScreenTransform;
 	//  * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+}
+
+void SpriteAnimation::SetAnimation(int index) {
+	assert(m_pAnimationAsset != nullptr);
+
+	ANIMATION_INFO* pFound = m_pAnimationAsset->GetAnimationInfo(index);
+	if (pFound == nullptr)
+		return;
+
+	m_pAnimationInfo = pFound;
+	m_FrameIndexCurr = 0;
+	m_FrameIndexPrev = 0;
+	m_FrameTime = 0.0f;
 }
 
 void SpriteAnimation::SetAnimation(int index, bool mirror, bool continueCurrentFrame)
@@ -140,6 +153,12 @@ void SpriteAnimation::SetAnimation(int index, bool mirror, bool continueCurrentF
 		m_FrameIndexCurr = m_FrameIndexCurr % m_pAnimationInfo->Frames.size();
 		m_FrameIndexPrev = 0;
 	}
+}
+
+void SpriteAnimation::SetFlip(bool x, bool y)
+{
+	m_flipX = x;
+	m_flipY = y;
 }
 
 AABB SpriteAnimation::GetBound()

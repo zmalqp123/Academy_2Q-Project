@@ -40,6 +40,7 @@ void PineAppleTile::SetActivateTurret(int typeID)
 	//auto spr = turret->GetComponent<SpriteRenderer>();
 	auto spr = turret->GetComponent<SpriteAnimation>();
 	spr->LoadTexture(data->imagePath);
+	spr->LoadAnimationAsset(data->csvPath);
 
 	auto turretCom = turret->GetComponent<Turret>();
 	turretCom->turretType = (TurretType)typeID;

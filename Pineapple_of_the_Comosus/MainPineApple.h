@@ -85,6 +85,7 @@ public:
 	const float GetMaxExp() const { return maxEXP; }
 	void RefundAll();
 	void SetMaxHP(float increaseHp);
+	void UpdateTurretImage();
 
 	BulletFactory* bulletFactory;
 };

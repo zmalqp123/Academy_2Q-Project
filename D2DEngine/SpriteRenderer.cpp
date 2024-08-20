@@ -41,7 +41,7 @@ void SpriteRenderer::LoadTexture(const std::wstring strFilePath)
 		}*/
 
 		m_ImageTransform = D2D1::Matrix3x2F::Scale(m_flipX ? -1.f : 1.f, m_flipY ? -1.f : 1.f, D2D1::Point2F(0, 0)) *
-			D2D1::Matrix3x2F::Translation(m_flipX ? size.width  * centerPos.x : -size.width * centerPos.x, m_flipY ? -size.width * centerPos.y : size.height * centerPos.y);
+			D2D1::Matrix3x2F::Translation(m_flipX ? size.width  * centerPos.x : -size.width * centerPos.x, m_flipY ? -size.height * centerPos.y : size.height * centerPos.y);
 			//D2D1::Matrix3x2F::Translation(m_flipX ? size.width / 2.f : -size.width / 2.f, m_flipY ? -size.width / 2.f : size.height / 2.f);
 	}
 }

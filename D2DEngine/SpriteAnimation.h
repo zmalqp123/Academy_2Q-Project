@@ -9,6 +9,8 @@ class Texture;
 class AABB;
 class SpriteAnimation : public Renderer
 {
+	bool m_flipX = false;
+	bool m_flipY = false;
 public:
 	SpriteAnimation();
 	virtual ~SpriteAnimation();
@@ -27,7 +29,7 @@ public:
 	int m_AnimationIndex = -1;	// 현재 애니메이션 인덱스
 	D2D1_RECT_F m_SrcRect = { 0.f, 0.f };		// D2D1Bitmap의 Source 영역
 	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTarget의 Destination 영역		
-
+	float alpha = 1.f;
 	bool m_bMirror;				// 좌우 반전 여부
 	D2D1_MATRIX_3X2_F	m_ImageTransform;	// 반대 방향으로 뒤집기 위한 행렬 Scale.x = -1.0f 
 	Texture* m_pTexture;
@@ -37,7 +39,9 @@ public:
 	void Update(float fTimeElapsed);
 	void Render(ID2D1HwndRenderTarget* pRenderTarget, D2D1_MATRIX_3X2_F cameraMat);
 	void Render(D2D1_MATRIX_3X2_F cameraMat);
+	void SetAnimation(int index);
 	void SetAnimation(int index, bool mirror, bool continueCurrentFrame = false);
+	void SetFlip(bool x, bool y);
 
 	AABB GetBound();
 

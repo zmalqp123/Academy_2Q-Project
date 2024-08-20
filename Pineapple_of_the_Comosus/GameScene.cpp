@@ -182,7 +182,7 @@ void GameScene::Start() {
     // 드래그 시 이미지 보여줄 오브젝트
     auto testDragObj = CreateGameObject<GameObject>();
     testDragObj->SetActive(false);
-    auto sproper = testDragObj->CreateComponent<SpriteRenderer>();
+    auto sproper = testDragObj->CreateComponent<SpriteAnimation>();
     sproper->alpha = 0.7f;
     GameManager->dragObj = testDragObj;
     testDragObj->transform->SetSortingLayer(1);
@@ -266,6 +266,7 @@ void GameScene::Start() {
         circleColl->SetCollisionType(CollisionType::Overlap);
         childObj->transform->SetParent(paTileObj->transform);
         auto spr = childObj->CreateComponent<SpriteAnimation>();
+        tur->anim = spr;
         pineTile->turret = childObj;
 
         auto highlightObj = CreateGameObject<GameObject>();

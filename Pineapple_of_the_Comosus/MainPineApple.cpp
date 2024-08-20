@@ -224,3 +224,10 @@ void MainPineApple::SetMaxHP(float increaseHp)
     maxHP += increaseHp;
     HP = +rewardData->GetRewardPineAppleStat().maxHp + maxHP;
 }
+
+void MainPineApple::UpdateTurretImage()
+{
+    for (auto turret : turrets) {
+        turret->UpdateTurretImage();
+    }
+}

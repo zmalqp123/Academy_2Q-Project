@@ -37,74 +37,79 @@ void Turret::Update(float delta)
 
 void Turret::Shoot()
 {
-    if (parentPineApple->bulletFactory)
-    {
-        // BulletFactory에서 Bullet을 가져온다
-        Bullet* bullet = parentPineApple->bulletFactory->GetBulletFromPool();
-        // 총알의 위치를 MusKetShooter의 위치로 설정
-        bullet->gameObject->transform->pos.worldPosition = {fireTr->transform->m_WorldTransform.dx, fireTr->transform->m_WorldTransform.dy };
-
-        // 총알 초기화 (속도와 방향 설정)
-        Vector2 shootDirection = { 1.0f, 0.0f };  // 예를 들어 오른쪽으로 발사
-
-        float angle = gameObject->transform->m_RelativeRotation;
-        shootDirection.x = std::cosf(angle / 180.f * 3.14159f);
-        shootDirection.y = std::sinf(angle / 180.f * 3.14159f);
-
-        auto data = dynamicData->GetStaticTurretData(turretType);//DataManager::GetInstance().GetTurretData((int)turretType);
-        auto rewardData = dynamicData->GetRewardTurretData(turretType);
-        //float bulletSpeed = 1000.0f;
-        //bullet->Init(bulletSpeed, shootDirection);
-        bullet->SetAttackValue(shootDirection,
-			data->id,
-            data->burstRange + rewardData.burstRange,
-            data->damage + rewardData.damage,
-            data->penetration + rewardData.penetration,
-            data->bulletSpeed + rewardData.bulletSpeed,
-            data->slowRate + rewardData.slowRate,
-            data->slowDuration + rewardData.slowDuration,
-            static_cast<BulletType>(data->bulletType));
-        bullet->bulletSprite->LoadTexture(data->bulletImagePath);
-        auto spr = bullet->bulletSprite;
-        switch (turretType)
+    if (turretType != TurretType::GrowthPromoter) {
+        if (parentPineApple->bulletFactory)
         {
-        case TurretType::Crossbow:
-            SoundManager::GetInstance().PlaySoundW(L"CrossbowFire_Se", false);
-            
-            spr->LoadAnimationAsset(L"30306");
-            spr->SetAnimation(0, false);
-            break;
-        case TurretType::Musket:
-            SoundManager::GetInstance().PlaySoundW(L"MusketFire_Se", false);
-        
-            spr->LoadAnimationAsset(L"30307");
-            spr->SetAnimation(0, false);
-            break;
-        case TurretType::Cannon:
-            SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+            // BulletFactory에서 Bullet을 가져온다
+            Bullet* bullet = parentPineApple->bulletFactory->GetBulletFromPool();
+            // 총알의 위치를 MusKetShooter의 위치로 설정
+            bullet->gameObject->transform->pos.worldPosition = { fireTr->transform->m_WorldTransform.dx, fireTr->transform->m_WorldTransform.dy };
 
-            spr->LoadAnimationAsset(L"30308");
-            spr->SetAnimation(0, false);
-            break;
-        case TurretType::SuperCrossbow:
-            //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
-         
-            spr->LoadAnimationAsset(L"30306");
-            spr->SetAnimation(0, false);
-            break;
-        case TurretType::SlowWand :
-            //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
-    
-            spr->LoadAnimationAsset(L"30309");
-            spr->SetAnimation(0, false);
-            break;
-        case TurretType::GrowthPromoter:
-            //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
-         
-            spr->LoadAnimationAsset(L"30308");
-            spr->SetAnimation(0, false);
-            break;
-         }
+            // 총알 초기화 (속도와 방향 설정)
+            Vector2 shootDirection = { 1.0f, 0.0f };  // 예를 들어 오른쪽으로 발사
+
+            float angle = gameObject->transform->m_RelativeRotation;
+            shootDirection.x = std::cosf(angle / 180.f * 3.14159f);
+            shootDirection.y = std::sinf(angle / 180.f * 3.14159f);
+
+            auto data = dynamicData->GetStaticTurretData(turretType);//DataManager::GetInstance().GetTurretData((int)turretType);
+            auto rewardData = dynamicData->GetRewardTurretData(turretType);
+            //float bulletSpeed = 1000.0f;
+            //bullet->Init(bulletSpeed, shootDirection);
+            bullet->SetAttackValue(shootDirection,
+                data->id,
+                data->burstRange + rewardData.burstRange,
+                data->damage + rewardData.damage,
+                data->penetration + rewardData.penetration,
+                data->bulletSpeed + rewardData.bulletSpeed,
+                data->slowRate + rewardData.slowRate,
+                data->slowDuration + rewardData.slowDuration,
+                static_cast<BulletType>(data->bulletType));
+            bullet->bulletSprite->LoadTexture(data->bulletImagePath);
+            auto spr = bullet->bulletSprite;
+            switch (turretType)
+            {
+            case TurretType::Crossbow:
+                SoundManager::GetInstance().PlaySoundW(L"CrossbowFire_Se", false);
+
+                spr->LoadAnimationAsset(L"30306");
+                spr->SetAnimation(0, false);
+                break;
+            case TurretType::Musket:
+                SoundManager::GetInstance().PlaySoundW(L"MusketFire_Se", false);
+
+                spr->LoadAnimationAsset(L"30307");
+                spr->SetAnimation(0, false);
+                break;
+            case TurretType::Cannon:
+                SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+
+                spr->LoadAnimationAsset(L"30308");
+                spr->SetAnimation(0, false);
+                break;
+            case TurretType::SuperCrossbow:
+                //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+
+                spr->LoadAnimationAsset(L"30306");
+                spr->SetAnimation(0, false);
+                break;
+            case TurretType::SlowWand:
+                //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+
+                spr->LoadAnimationAsset(L"30309");
+                spr->SetAnimation(0, false);
+                break;
+            case TurretType::GrowthPromoter:
+                //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+
+                spr->LoadAnimationAsset(L"30308");
+                spr->SetAnimation(0, false);
+                break;
+            }
+        }
+    }
+    else {
+        //parentPineApple->
     }
 }
 
@@ -142,7 +147,8 @@ void Turret::ResetTurret()
 
 void Turret::UpdateTurretImage()
 {
+    if (gameObject->isActive == false) return;
     auto lv = dynamicData->GetTurretLevel(turretType);
-    //anim->LoadAnimationAsset();
+    anim->LoadAnimationAsset(dynamicData->GetStaticTurretData(turretType)->csvPath.c_str());
 	anim->SetAnimation(lv, false);
 }

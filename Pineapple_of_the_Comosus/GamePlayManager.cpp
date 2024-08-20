@@ -5,6 +5,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/Camera.h"
 #include "../D2DEngine/SpriteRenderer.h"
+#include "../D2DEngine/SpriteAnimation.h"
 #include "PineAppleTile.h"
 #include "MainPineApple.h"
 #include "Turret.h"
@@ -75,15 +76,15 @@ void GamePlayManager::Update(float deltaTime)
 
 			float e = atan2f(x1 * dir.y - y1 * dir.x, x1 * dir.x + y1 * dir.y) / 3.14159f * 180.f;
 
-			auto spr = object->gameObject->GetComponent<SpriteRenderer>();
+			auto spr = object->gameObject->GetComponent<SpriteAnimation>();
 			if (object->turretType != TurretType::GrowthPromoter) {
 				if (spr) {
 					if (dir.x > 0) {
-						spr->SetFilp(false, false);
+						spr->SetFlip(false, false);
 						object->selectOutline->SetFilp(false, false);
 					}
 					else {
-						spr->SetFilp(false, true);
+						spr->SetFlip(false, true);
 						object->selectOutline->SetFilp(false, true);
 					}
 				}
@@ -102,11 +103,11 @@ void GamePlayManager::Update(float deltaTime)
 				if (object->turretType != TurretType::GrowthPromoter) {
 					object->gameObject->transform->m_RelativeRotation = object->prevAngle;
 					if (object->prevAngle > 90 || object->prevAngle < -90){
-						spr->SetFilp(false, true);
+						spr->SetFlip(false, true);
 						object->selectOutline->SetFilp(false, true);
 					}
 					else {
-						spr->SetFilp(false, false);
+						spr->SetFlip(false, false);
 						object->selectOutline->SetFilp(false, false);
 					}
 				}
@@ -232,11 +233,13 @@ void GamePlayManager::StartBatch(int type)
 
 		isDrag = true;
 		dragObj->SetActive(true);
-		auto spr = dragObj->GetComponent<SpriteRenderer>();
+		auto spr = dragObj->GetComponent<SpriteAnimation>();
 		//hmm = type == 0 ? L"../Resource/CrossBow.png" : L"../Resource/Musket.png";
 		Turret_Type = type;
 
-		spr->LoadTexture(data->imagePath);
+		spr->LoadTexture(data->imagePath.c_str());
+		spr->LoadAnimationAsset(data->csvPath.c_str());
+		spr->SetAnimation(pineApple->rewardData->GetTurretLevel((TurretType)type));
 
 		std::cout << "Turret Type ID : " << type << std::endl;
 	}
@@ -247,5 +250,7 @@ void GamePlayManager::StartBatch(int type)
 
 		pineApple->rewardData->UpgradeTurret((TurretType)type);
 		pineApple->spendGold(upgradeData->cost);
+
+		pineApple->UpdateTurretImage();
 	}
 }
