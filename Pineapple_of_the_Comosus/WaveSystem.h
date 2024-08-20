@@ -19,6 +19,8 @@ private:
     float waveTimer = 3.f;   // Wave 타이머
     int currentWave = 0;       // 현재 진행 중인 wave
     static const int maxWave = 56; // 최대 wave 수
+    
+    float elapsedTime = 0.f;
 
     std::vector<WaveEnemyData> leftEnemyDatas;
     std::vector<WaveEnemyData> rightEnemyDatas;
@@ -30,8 +32,9 @@ public:
     DayNightCycle* dayNightCycle;
     Vector2 rightPos; 
     Vector2 leftPos;
-
-    GameObject* tutorial;
+    GameObject* tutorial1;
+    GameObject* tutorial2;
+    GameObject* tutorial3;
 	
 
 
@@ -47,7 +50,7 @@ public:
 
     void LoadWaveData();
     void Generator();
-	void pullingTutorial(float deltaTime);
+	void pushingTutorial(int curWave, GameObject* Tuto);
 
     bool IsFly(int id);
 

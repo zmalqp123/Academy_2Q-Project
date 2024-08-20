@@ -180,18 +180,22 @@ void WaveSystem::Generator()
     }
 }
 
-void WaveSystem::pullingTutorial(float deltaTime)
+void WaveSystem::pushingTutorial(int curWave, GameObject* Tuto)
 {
-	static float elapsedTime = 0.0f;
-	elapsedTime += deltaTime;
-	if (elapsedTime > 1.0f)
-	{
-		elapsedTime = 1.0f;
-	}
-    tutorial->transform->pos.worldPosition.y = (1 - elapsedTime) * 1080.f + elapsedTime * 580.f;
-    if (elapsedTime > 1.0f)
-    {
-        return;
+    if (currentWave == curWave && waveTimer > 0.f) {
+
+        if (elapsedTime > 0.66f)
+        {
+            elapsedTime = 0.66f;
+        }
+        float t1 = (0.66f - elapsedTime) / .66f;
+        float t2 = (elapsedTime) / .66f;
+        std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        Tuto->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 370.f);
+        if (elapsedTime > 0.66f)
+        {
+            return;
+        }
     }
     
 }
@@ -208,6 +212,7 @@ void WaveSystem::StartNextWave()
     if (currentWave < maxWave)
     {
         currentWave++;
+        elapsedTime = 0.f;
         std::cout << "current wave: " << currentWave << std::endl;
         LoadWaveData();
         waveTimer = maxWaveTimer;  // 타이머 초기화 //현재 15초
@@ -227,7 +232,7 @@ void WaveSystem::Update(float deltaTime)
 {   
     // 웨이브 타이머 감소
     waveTimer -= deltaTime;
-
+    elapsedTime += deltaTime;
     // 웨이브 타이머가 0 이하가 되었고, 적이 남아 있으면
     if (waveTimer <= 0.0f)
     {
@@ -235,9 +240,9 @@ void WaveSystem::Update(float deltaTime)
         StartNextWave();
     }
 	
-    if (currentWave == 1) {
-        pullingTutorial(deltaTime);
-    }
+    pushingTutorial(1, tutorial1);
+	pushingTutorial(2, tutorial2);
+	pushingTutorial(3, tutorial3);
     Generator();
 
     // 태양 이동
