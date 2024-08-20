@@ -136,6 +136,7 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
         //e->gameObject->isActive = false;
         //e->gameObject->GetComponent<FiniteStateMachine>()->SetState("Dead");
         e->enemy->Ondamage(attackPower,bulletType);
+        if (slowPower > 0.f) e->enemy->OnSlow(slowPower, slowTime);
         std::cout << "bulletID: " <<gameObject->GetInstanceID() << "instanceid: " << e->GetInstanceID() << std::endl;
         if (penetratingPower <= 0) {
             
