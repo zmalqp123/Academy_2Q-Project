@@ -708,25 +708,30 @@ void GameScene::Start() {
     
     pineApple->harvestbtn = HarvestbtnImage;
 
-    // 검은색 배경과 버튼 그룹 생성
-    auto uiGroup = CreateGameObject<GameObject>();
-    uiGroup->transform->type = Type::Ui;
-    uiGroup->SetActive(false); // 초기에는 비활성화
-    uiGroup->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
-    uiGroup->transform->pos.rectposition.rightTop = { 1920.f, 1080.f };
+    //// 검은색 배경과 버튼 그룹 생성
+    //auto uiGroup = CreateGameObject<GameObject>();
+    //uiGroup->transform->type = Type::Ui;
+    //uiGroup->SetActive(false); // 초기에는 비활성화
+    //uiGroup->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
+    //uiGroup->transform->pos.rectposition.rightTop = { 1920.f, 1080.f };
 
     // 반투명 검은색 배경 추가
     auto blackObj = CreateGameObject<GameObject>();
     blackObj->transform->type = Type::Ui;
-    blackObj->transform->SetParent(uiGroup->transform);
-    blackObj->transform->SetSortingLayer(-10); // 다른 UI나 오브젝트보다 뒤에 있도록 설정
-    SpriteRenderer* blackSpr = blackObj->CreateComponent<SpriteRenderer>();
+    
+    //blackObj->transform->SetSortingLayer(1); // 다른 UI나 오브젝트보다 뒤에 있도록 설정
+    auto blackSpr = blackObj->CreateComponent<ImageUIRenderer>();
+    blackSpr->alpha = 0.5f;
+    blackObj->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
+    blackObj->transform->pos.rectposition.rightTop = {1920.f, 1080.f };
+    blackSpr->LoadTexture(L"../Resource/opactiyBg.png");
     //bgSpr->SetColor(D2D1::ColorF(0, 0, 0, 0.5f)); // 검은색 배경 (반투명)
     //bgSpr->transform->pos.rectposition = { {0.f, 0.f} ,{1920.f, 1080.f} };
 
     // 버튼 5개 생성 및 초기 비활성화
     ramdomReward* rand = new ramdomReward();
     pineApple->randomReward = rand;
+    rand->bgUi.push_back(blackObj);
 
     // 버튼의 위치와 크기를 수동으로 지정
     D2D1_RECT_F buttonPositions[] = {
