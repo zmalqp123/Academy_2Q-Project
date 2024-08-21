@@ -40,6 +40,8 @@ public:
 
 	AABB GetBound();
 
+	bool useUnScaleTime = false;
+
 	int GetMaxIndex();
 
 	bool IsLastFrame();

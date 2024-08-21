@@ -8,6 +8,7 @@
 #include "Transform.h"
 #include "GameObject.h"
 #include "PublicData.h"
+#include "GameTime.h"
 
 #include "AABB.h"
 
@@ -43,6 +44,10 @@ void SpriteUIAnimation::LoadTexture(const std::wstring strFilePath)
 void SpriteUIAnimation::Update(float fTimeElapsed)
 {
 	__super::Update(fTimeElapsed);
+
+	if (useUnScaleTime)
+		fTimeElapsed = GameTime::GetInstance().GetUnScaleDeltaTime();
+
 	assert(m_pAnimationAsset != nullptr);  // asset이 없으면 debug모드에서 멈춤
 	if (m_pAnimationInfo == nullptr)
 		return;
