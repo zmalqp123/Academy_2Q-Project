@@ -52,6 +52,8 @@ GameScene::~GameScene() {
 void GameScene::Start() {
     std::cout << "Entering GameScene" << std::endl;
 
+    GameTime::GetInstance().SetTimeScale(1.f);
+
     // 커튼 애니메이션 
     auto cutttonObj = CreateGameObject<GameObject>();
     auto cutton = cutttonObj->CreateComponent<Cutton>();
@@ -59,6 +61,7 @@ void GameScene::Start() {
     cutttonObj->transform->type = Type::Ui;
     cutttonObj->transform->pos.rectposition = { {960,0},{1920,1080} };
     auto cuttonSpr = cutttonObj->CreateComponent<SpriteUIAnimation>();
+    cuttonSpr->useUnScaleTime = true;
     cuttonSpr->LoadTexture(L"../Resource/10301.png");
     cuttonSpr->LoadAnimationAsset(L"cutton_10301");
     cuttonSpr->SetAnimation(0, false);
@@ -71,6 +74,7 @@ void GameScene::Start() {
     cutttonObj2->transform->type = Type::Ui;
     cutttonObj2->transform->pos.rectposition = { {0,0},{960,1080} };
     auto cuttonSpr2 = cutttonObj2->CreateComponent<SpriteUIAnimation>();
+    cuttonSpr2->useUnScaleTime = true;
     cuttonSpr2->LoadTexture(L"../Resource/10302.png");
     cuttonSpr2->LoadAnimationAsset(L"cutton_10302");
     cuttonSpr2->SetAnimation(0, false);
@@ -323,9 +327,9 @@ void GameScene::Start() {
 
 
     // 사운드 초기화 및 로드
-    /*SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3");
+    SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/6_Sound/scene1/Bgm/MainMenu_Bgm_01.wav");
     SoundManager::GetInstance().SetVolume(L"backgroundMusic", 0.5f);
-    SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true);*/
+    SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", false);
 
     // 사운드 초기화 및 로드
 
@@ -723,10 +727,11 @@ void GameScene::Start() {
      
     auto Goldchild = CreateGameObject<GameObject>();
     auto GoldUi = Goldchild->CreateComponent<TextUIRenderer>();
+    GoldUi->SetFontSize(40.f);
     auto g = GoldUi->SetFont(L"TAEBAEK font TTF");
     Goldchild->transform->SetParent(GoldObj->transform);
     Goldchild->transform->type = Type::Ui;
-    Goldchild->transform->pos.rectposition = { {20.f,20.f},{280.f,84.f} };
+    Goldchild->transform->pos.rectposition = { {35.f,20.f},{280.f,77.f} };
     GoldUi->SetAlignCenter(0);
     pineApple->goldbar = GoldUi;
 
@@ -743,10 +748,11 @@ void GameScene::Start() {
 
     auto LVchild = CreateGameObject<GameObject>();
     auto LVUi = LVchild->CreateComponent<TextUIRenderer>();
+    LVUi->SetFontSize(40.f);
     auto l = LVUi->SetFont(L"TAEBAEK font TTF");
     LVchild->transform->SetParent(LVObj->transform);
     LVchild->transform->type = Type::Ui;
-    LVchild->transform->pos.rectposition = { {20.f,0.f},{280.f,84.f} };
+    LVchild->transform->pos.rectposition = { {35.f,20.f},{280.f,77.f} };
     LVUi->SetAlignCenter(0);
     pineApple->LVbar = LVUi;
 
@@ -806,12 +812,13 @@ void GameScene::Start() {
     auto headTextObj = CreateGameObject<GameObject>();
     headTextObj->transform->SetParent(blackObj->transform);
     headTextObj->transform->type = Type::Ui;
-    headTextObj->transform->pos.rectposition.leftBottom = { 630.f, 900.f };
-    headTextObj->transform->pos.rectposition.rightTop = { 1440.f, 1000.f };
+    headTextObj->transform->pos.rectposition.leftBottom = { 530.f, 900.f };
+    headTextObj->transform->pos.rectposition.rightTop = { 1500.f, 1000.f };
     auto headText = headTextObj->CreateComponent<TextUIRenderer>();
     headText->text = L"파인애플을 바치자 코모서스가 응답합니다.";
-    headText->SetFontSize(40.f);
-    headText->SetAlignCenter(1);
+    headText->SetFontSize(50.f);
+    headText->SetFont(L"TAEBAEK font TTF");
+    headText->SetAlignCenter(0);
     headText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
     
     /*gamePopup* end = new gamePopup();
@@ -819,8 +826,7 @@ void GameScene::Start() {
     end->Uis.push_back();*/
     gameover = new gamePopup();
     waveSystem->gameover = gameover;
-    gameover->victoryUIoff();
-    gameover->defeatUIoff();
+   
     // game victory popup
     {
         
@@ -855,8 +861,8 @@ void GameScene::Start() {
   
             SceneManager::GetInstance().SetChangeSceneFlag("StartScene");
             });
-
-
+        gameover->victoryUIoff();
+       
     }
 
     // game defeat popup
@@ -906,6 +912,7 @@ void GameScene::Start() {
 
             SceneManager::GetInstance().SetChangeSceneFlag("StartScene");
             });
+        gameover->defeatUIoff();
     }
     
 
@@ -917,8 +924,9 @@ void GameScene::Start() {
     nameTextObj->transform->pos.rectposition.rightTop = { 1500.f, 900.f };
     auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
     nameText->SetFontSize(55.f);
-    nameText->SetAlignCenter(1);
-    nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
+    nameText->SetFont(L"210 연필스케치");
+    nameText->SetAlignCenter(0);
+    nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::Yellow));
 
     // 버튼 5개 생성 및 초기 비활성화
     ramdomReward* rand = new ramdomReward();
@@ -1025,14 +1033,20 @@ void GameScene::Start() {
         auto nameTextObj = CreateGameObject<GameObject>();
         nameTextObj->transform->SetParent(buttonObj->transform);
         nameTextObj->transform->type = Type::Ui;
+  
         auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
+        nameText->SetFontSize(50.f);
+        nameText->SetFont(L"TAEBAEK font TTF");
+        nameText->SetAlignCenter(0);
+        nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::Yellow));
+
         
         // nameText->text = DataManager.plzmoney.rewarOption.c_str();
         pineApple->randomReward->rewardMoney = nameText;
 
        
         
-        nameText->SetFontSize(70.f);
+        //nameText->SetFontSize(70.f);
         DataManager.plzmoney.fn = [pineApple]() {
             auto rewardMoney = DataManager::GetInstance().getMoneyData(pineApple->GetPineAppleLV() - 2);
             pineApple->acquireGold(rewardMoney);
@@ -1046,8 +1060,8 @@ void GameScene::Start() {
         //{ 540.f, 100.f, 1440.f, 240.f }
         // x 900 
         // y 140
-        nameTextObj->transform->pos.rectposition.leftBottom = { 600, 0 };
-        nameTextObj->transform->pos.rectposition.rightTop = { 900, 140 };
+        nameTextObj->transform->pos.rectposition.leftBottom = { 600, 10 };
+        nameTextObj->transform->pos.rectposition.rightTop = { 900, 100 };
         nameText->SetAlignCenter(0);
         
         rand->TextNameUis.push_back(nameText);
@@ -1100,11 +1114,8 @@ void GameScene::Update(float deltaTime) {
 
     if (testPineApple->GetPineAppleHP() <= 0)
     {
+        GameTime::GetInstance().SetTimeScale(0.f);
         gameover->defeatUIon();
-    }
-    else
-    {
-        gameover->defeatUIoff();
     }
 
     if (InputManager::GetInstance().IsKeyDown('1')) {
@@ -1155,11 +1166,11 @@ void GameScene::Update(float deltaTime) {
 void GameScene::Render(D2DRenderer* _render) {
     __super::Render(_render);
 
-    auto pd = testPineApple;
-    int gold = pd->GetPineAppleGold();
-    //std::cout << gold << std::endl;
-    std::wstring pineAppleGold = std::to_wstring(gold);
-    D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
+    //auto pd = testPineApple;
+    //int gold = pd->GetPineAppleGold();
+    ////std::cout << gold << std::endl;
+    //std::wstring pineAppleGold = std::to_wstring(gold);
+    //D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);
     /*float currentHP = pd->GetPineAppleHP();
     std::wstring currentHp = std::to_wstring(currentHP);
     D2DRenderer::getIncetance().DrawStringTextw(pineAppleGold.c_str(), m_GameObjects[0]->transform->m_WorldTransform, D2D1::ColorF::Red);

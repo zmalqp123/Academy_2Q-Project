@@ -37,7 +37,10 @@ void WinApp4::Initialize(HINSTANCE hInstance, int nCmdShow, float x, float y)
 	auto pCam = camera->CreateComponent<Camera>();
 	scene->SetMainCamera(pCam);
 
-	// 게임 매니저 드래그엔 드롭, 파인애플 설치, 터렛 파인애플 몹 데이터 등을 관리함.
+	// 게임 매니저 드래그엔 드롭, 
+	// 
+	// 
+	// 설치, 터렛 파인애플 몹 데이터 등을 관리함.
 	auto gmObj = scene->CreateGameObject<GameObject>();
 	auto GameManager = gmObj->CreateComponent<GamePlayManager>();
 	GameManager->camera = scene->camera;

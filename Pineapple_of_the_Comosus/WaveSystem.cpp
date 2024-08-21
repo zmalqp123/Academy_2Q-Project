@@ -301,12 +301,10 @@ void WaveSystem::Update(float deltaTime)
 {   
     if (islastWave())
     {
+        GameTime::GetInstance().SetTimeScale(0.f);
         gameover->victoryUIon();
     }
-    else
-    {
-        gameover->victoryUIoff();
-    }
+   
 
     // 웨이브 타이머 감소
     waveTimer -= deltaTime;

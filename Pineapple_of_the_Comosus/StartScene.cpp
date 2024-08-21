@@ -8,6 +8,7 @@
 #include "../D2DEngine/SpriteUIAnimation.h"
 #include "../D2DEngine/SoundManager.h"
 #include "../D2DEngine/Transform.h"
+#include "../D2DEngine/GameTime.h"
 #include "Cutton.h";
 #include <iostream>
 #include "../D2DEngine/Button.h"
@@ -23,10 +24,16 @@ StartScene::~StartScene() {
 void StartScene::Start() {
     std::cout << "Entering StartScene" << std::endl;
 
+    GameTime::GetInstance().SetTimeScale(1.f);
+
     // 사운드 초기화 및 로드
-    SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3");
+    SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/6_Sound/scene1/Bgm/MainMenu_Bgm_01.wav");
     SoundManager::GetInstance().SetVolume(L"backgroundMusic", 0.5f);
-    SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", true);
+    SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", false);
+
+    // click btn 사운드
+    SoundManager::GetInstance().LoadSound(L"clickbtn", L"../Media/6_Sound/scene1/Se/ClickButton_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"clickbtn", 0.5f);
 
     auto camera = CreateGameObject<GameObject>();
     auto pCam = camera->CreateComponent<Camera>();
@@ -48,7 +55,7 @@ void StartScene::Start() {
     strtSpr->LoadTexture(L"../Resource/main/StartButton.png");
     //auto& curS = SceneManager::GetInstance();
     strtSpr->AddListener([&]() {
-
+        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
         // 커튼 애니메이션 
         auto cutttonObj = CreateGameObject<GameObject>();
         auto cutton = cutttonObj->CreateComponent<Cutton>();
@@ -103,7 +110,7 @@ void StartScene::Clear() {
 }
 
 void StartScene::Update(float deltaTime) {
-    __super::Update(deltaTime);
+    __super::Update(deltaTime); 
     // 씬 업데이트 로직
     if (InputManager::GetInstance().IsKeyDown('S')) {
         SceneManager::GetInstance().ChangeScene("GameScene");
