@@ -4,6 +4,7 @@
 #include "DynamicData.h"
 #include "../D2DEngine/ImageUIRenderer.h"
 #include "../D2DEngine/TextUIRenderer.h"
+#include "../D2DEngine/Button.h"
 void TurretUI::Update(float deltaTime)
 {
 	auto data = DataManager::GetInstance().GetTurretData((int)type);
@@ -11,45 +12,41 @@ void TurretUI::Update(float deltaTime)
 
 	if (pApple->rewardData->isHarvest == false) {
 		if (pApple->rewardData->isUpgrade == false) {
-			if(data->cost <= pApple->GetPineAppleGold())
+			if (data->cost <= pApple->GetPineAppleGold()) {
 				blockImage->alpha = 0.f;
-			else 
+				textUI->SetTextColor(possible);
+			}
+			else {
 				blockImage->alpha = 0.5f;
+				textUI->SetTextColor(impossible);
+			}
 		}
 		else {
 			if (upgradeData != nullptr) {
-				if (upgradeData->cost <= pApple->GetPineAppleGold())
+				if (upgradeData->cost <= pApple->GetPineAppleGold()) {
 					blockImage->alpha = 0.f;
-				else
+					textUI->SetTextColor(possible);
+				}
+				else {
 					blockImage->alpha = 0.5f;
+					textUI->SetTextColor(impossible);
+				}
 			}
-			else
+			else {
 				blockImage->alpha = 0.5f;
+				textUI->SetTextColor(impossible);
+			}
 		}
 	}
 	else {
 		blockImage->alpha = 0.5f;
+		//textUI->SetTextColor(impossible);
 	}
-
-
-
-	/*if (data->cost <= pApple->GetPineAppleGold() && pApple->rewardData->isHarvest == false)
-		blockImage->alpha = 0.f;
-	else if (upgradeData != nullptr) {
-		if (upgradeData->cost <= pApple->GetPineAppleGold() && pApple->rewardData->isUpgrade == false)
-		{
-			std::cout << "upgrade cost: " << upgradeData->cost << std::endl;
-			blockImage->alpha = 0.f;
-		}
-		else {
-			blockImage->alpha = 0.5f;
-		}
-	}
-	else
-		blockImage->alpha = 0.5f;*/
 
 	if (pApple->rewardData->isUpgrade == false) {
 		textUI->text = std::to_wstring(data->cost).c_str();
+
+		button->LoadTexture(defaultPath.c_str());
 	}
 	else {
 		auto cost = upgradeData;
@@ -59,5 +56,6 @@ void TurretUI::Update(float deltaTime)
 		else {
 			textUI->text = std::to_wstring(cost->cost).c_str();
 		}
+		button->LoadTexture(upgradePath.c_str());
 	}
 }

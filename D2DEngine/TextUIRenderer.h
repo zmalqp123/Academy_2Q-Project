@@ -17,6 +17,7 @@ public:
 	
 	std::wstring text = L"";
 	float fontSize = 50.f;
+	LPCWSTR fontName = L"Gabriola";
 
 	ID2D1SolidColorBrush* color_brush = nullptr;
 	D2D1::ColorF color = D2D1::ColorF::Black;

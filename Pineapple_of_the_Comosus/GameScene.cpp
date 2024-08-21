@@ -597,6 +597,14 @@ void GameScene::Start() {
         L"../Resource/30205.png",
         L"../Resource/30206.png"
     };
+    std::wstring turretImages_Upgrade[] = {
+        L"../Resource/30201_2.png",
+        L"../Resource/30202_2.png",
+        L"../Resource/30203_2.png",
+        L"../Resource/30204_2.png",
+        L"../Resource/30205_2.png",
+        L"../Resource/30206_2.png"
+    };
 
     // UI 생성 및 이미지 설정 코드
     std::vector<Button*> btn;
@@ -625,6 +633,9 @@ void GameScene::Start() {
         turretButton->LoadTexture(turretImages[i]);
         //turretButton->LoadTexture(L"../Resource/turret.png");  // 버튼의 이미지는 고정
         auto turretUIComp = turretUIChild->CreateComponent<TurretUI>();
+        turretUIComp->defaultPath = turretImages[i];
+        turretUIComp->upgradePath = turretImages_Upgrade[i];
+        turretUIComp->button = turretButton;
         turretUIComp->SetIndex(30501 + (10*i));
         turretUIComp->pApple = pineApple;
         turretUIComp->SetTurret((TurretType)(30501 + (10 * i)));
