@@ -15,11 +15,14 @@
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/ImageUIRenderer.h"
+#include "../D2DEngine/SoundManager.h"
 #include "gamePopup.h"
 
 WaveSystem::WaveSystem()
 {
-    
+    // 사운드 초기화 및 로드
+    SoundManager::GetInstance().LoadSound(L"WaveStart_Se", L"../Media/6_Sound/scene3/Se/WaveStart_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"WaveStart_Se", 0.5f);
 }
 
 WaveSystem::~WaveSystem()
@@ -278,6 +281,8 @@ void WaveSystem::StartNextWave()
 {   
     if (islastWave() == false)
     {
+        // 웨이브 시작 효과음 
+        SoundManager::GetInstance().PlaySoundW(L"WaveStart_Se", false);
         currentWave++;
         elapsedTime = 0.f;
 		elapsedTime2 = 0.f;
