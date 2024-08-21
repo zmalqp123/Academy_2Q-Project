@@ -162,22 +162,22 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	}
 	if (FilePath == std::wstring(L"cutton_10301"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/10301.txt");
+		LoadAnimationFromCSV(0, L"../Resource/10301.csv");
 		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
 	if (FilePath == std::wstring(L"cutton_10302"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/10302.txt");
+		LoadAnimationFromCSV(0, L"../Resource/10302.csv");
 		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
 	if (FilePath == std::wstring(L"cutton_10301close"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/10301close.txt");
+		LoadAnimationFromCSV(0, L"../Resource/10301close.csv");
 		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
 	if (FilePath == std::wstring(L"cutton_10302close"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/10302close.txt");
+		LoadAnimationFromCSV(0, L"../Resource/10302close.csv");
 		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
 	if (FilePath == std::wstring(L"BombCartDead"))
