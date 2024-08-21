@@ -16,6 +16,7 @@ public:
 	D2D1_RECT_F m_DstRect = { 0.f, 0.f };		// RenderTarget의 Destination 영역
 	
 	std::wstring text = L"";
+	float fontSize = 50.f;
 
 	ID2D1SolidColorBrush* color_brush = nullptr;
 	D2D1::ColorF color = D2D1::ColorF::Black;
@@ -35,5 +36,6 @@ public:
 	void SetTextColor(D2D1::ColorF _color);
 	void SetFontSize(float size);
 	void SetAlignCenter(int type);
+	bool SetFont(LPCWSTR fontname);
 };
 

@@ -16,7 +16,7 @@ TextUIRenderer::TextUIRenderer()
         DWRITE_FONT_WEIGHT_REGULAR, // 폰트 두께
         DWRITE_FONT_STYLE_NORMAL,   // 폰트 스타일
         DWRITE_FONT_STRETCH_NORMAL, // 폰트 너비
-        50.0f,                      // 폰트 크기
+        fontSize,                      // 폰트 크기
         L"en-us",                   // 로캘
         &pTextFormat
     );
@@ -104,6 +104,7 @@ void TextUIRenderer::SetTextColor(D2D1::ColorF _color)
 
 void TextUIRenderer::SetFontSize(float size)
 {
+	fontSize = size;
 	auto hr = D2DRenderer::getIncetance().g_pDWriteFactory->CreateTextFormat(
 		L"Gabriola",                // 폰트 이름
 		NULL,                       // 폰트 컬렉션(NULL: 기본 시스템 폰트)
@@ -132,4 +133,23 @@ void TextUIRenderer::SetAlignCenter(int type)
 		pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_TRAILING);
 	}
 
+}
+
+bool TextUIRenderer::SetFont(LPCWSTR fontname)
+{
+	auto hr = D2DRenderer::getIncetance().g_pDWriteFactory->CreateTextFormat(
+		fontname,                // 폰트 이름
+		NULL,                       // 폰트 컬렉션(NULL: 기본 시스템 폰트)
+		DWRITE_FONT_WEIGHT_REGULAR, // 폰트 두께
+		DWRITE_FONT_STYLE_NORMAL,   // 폰트 스타일
+		DWRITE_FONT_STRETCH_NORMAL, // 폰트 너비
+		fontSize,                      // 폰트 크기
+		L"ko",                   // 로캘
+		&pTextFormat
+	);
+	if (FAILED(hr))
+		return false;
+	else {
+		return true;
+	}
 }
