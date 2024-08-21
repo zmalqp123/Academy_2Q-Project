@@ -2,14 +2,17 @@
 #include <vector>
 #include <string>
 
-class Button;
-class ImageUIRenderer;
+class GameObject;
 class gamePopup
 {
 public:
-	std::vector<Button*> btns;
-	std::vector<ImageUIRenderer*> Uis;
-	void UIon();
-	void UIoff();
+	std::vector<GameObject*> victory;
+	std::vector<GameObject*> defeat;
+
+	void victoryUIon();
+	void victoryUIoff();
+
+	void defeatUIon();
+	void defeatUIoff();
 };
 

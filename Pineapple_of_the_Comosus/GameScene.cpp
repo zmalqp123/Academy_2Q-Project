@@ -40,7 +40,7 @@
 #include <random> // 랜덤시드
 
 MainPineApple* testPineApple = nullptr;
-
+gamePopup* gameover = nullptr;
 GameScene::GameScene() {
     std::cout << "GameScene Constructor" << std::endl;
 }
@@ -125,46 +125,48 @@ void GameScene::Start() {
     dynamicData->Init();
 
     // pineapple random reward
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"단단한 껍질",L"최대체력 +50",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"광기어린 광합성",L"광합성 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"성장의 햇빛",L"햇빛 +1", [dynamicData]() {dynamicData->rewardPineAppleStat.morningValue += 1; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"성장의 달빛",L"달빛 +2",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30206.png",L"질 좋은 양분들",L"경험치량 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.killMultiply += 0.1f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34101_단단한껍질.png",L"단단한 껍질",L"최대체력 +50",[dynamicData]() {dynamicData->rewardPineAppleStat.maxHp += 50; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34102_광기어린광합성.png",L"광기어린 광합성",L"광합성 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.solarGain += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34103_성장의 햇빛.png",L"성장의 햇빛",L"햇빛 +1", [dynamicData]() {dynamicData->rewardPineAppleStat.morningValue += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34104_성장의 달빛.png",L"성장의 달빛",L"달빛 +2",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34104_질 좋은 양분들.png",L"질 좋은 양분들",L"경험치량 +1",[dynamicData]() {dynamicData->rewardPineAppleStat.killMultiply += 0.1f; } });
 
     // comosus light reward
-    // DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"성장의 달빛",[dynamicData]() {dynamicData->rewardPineAppleStat.nightValue += 2; } });
-    // DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"질 좋은 양분들",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.1f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34201_강력해진 신호.png",L"강력해진 신호",L"코모서스 애니메이션x*10.f +2",[dynamicData]() {dynamicData->rewardPineAppleStat.comosusLight += 10.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34202_잦아지는 응답.png",L"잦아지는 응답",L"offeringmultiply -=0.5",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.5f; } });
 
     // Crossbow tower reward
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁피해량",L"공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 2.f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 공격속도+",L"공격속도 +0.2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].bulletSpeed += 0.2f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"석궁 관통력+",L"관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].penetration += 1; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"무거운 화살촉",L"공격력 +5, 투사체 속도 -3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 5.f; dynamicData->rewardTurretStat[TurretType::Crossbow].damage -= 3.f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].slowRate += 8.f; dynamicData->rewardTurretStat[TurretType::Crossbow].slowDuration += 3.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34301_석궁 피해량.png",L"석궁피해량",L"공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34302_석궁 공격속도.png",L"석궁 공격속도+",L"공격속도 +0.2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].fireRate += 0.2f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34303_석궁 관통력.png",L"석궁 관통력+",L"관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].penetration += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34304_무거운 화살촉.png",L"무거운 화살촉",L"공격력 +5, 투사체 속도 -3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 5.f; dynamicData->rewardTurretStat[TurretType::Crossbow].bulletSpeed -= 3.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34305_독이 발린 화살촉.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].slowRate += 8.f; dynamicData->rewardTurretStat[TurretType::Crossbow].slowDuration += 3.f; } });
 
     // musket tower reward
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30202.png",L"머스킷 피해량+",L"머스킷타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].damage += 2.f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30202.png",L"머스킷 공격속도+",L"머스킷타워 공격속도 +0.15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].bulletSpeed += 0.15f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30202.png",L"머스킷 관통력+",L"머스킷타워 관통력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].penetration += 2.f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30202.png",L"대구경 탄환",L"머스킷타워 공격속도 -0.3, 머스킷타워 관통력 +5",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].bulletSpeed -= 0.3f; dynamicData->rewardTurretStat[TurretType::Musket].penetration += 5; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34401_머스킷 피해량.png",L"머스킷 피해량+",L"머스킷타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].damage += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34402_머스킷 공격속도.png",L"머스킷 공격속도+",L"머스킷타워 공격속도 +0.15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].fireRate += 0.15f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34403_머스킷 관통력.png",L"머스킷 관통력+",L"머스킷타워 관통력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].penetration += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34404_대구경 탄환.png",L"대구경 탄환",L"머스킷타워 공격속도 -0.3, 머스킷타워 관통력 +5",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Musket].fireRate -= 0.3f; dynamicData->rewardTurretStat[TurretType::Musket].penetration += 5; } });
 
     // Cannon tower reward
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30203.png",L"박격포 피해량+",L"박격포타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].damage += 2; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30203.png",L"박격포 공격속도+",L"박격포타워 공격속도 +0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 0.1f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30203.png",L"박격포 관통력+",L"박격포타워 관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].penetration += 1; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30203.png",L"더많은 작약",L"폭밤범위 +15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 15; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30203.png",L"포탄 경량화",L"폭발범위 -10, 투사체속도",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange -= 10;  } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30203.png",L"포탄 중량화",L"폭발범위 +35, 공격속도 -0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 35; dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed -= 10; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/30203.png",L"제압탄",L"이동속도 감소 +15%, 이동속도 지속시간 +2.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].slowRate += 15.f; dynamicData->rewardTurretStat[TurretType::Cannon].slowDuration += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34501_박격포 피해량.png",L"박격포 피해량+",L"박격포타워 공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].damage += 2; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34502_박격포 공격속도.png",L"박격포 공격속도+",L"박격포타워 공격속도 +0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].fireRate += 0.1f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34503_박격포 관통력.png",L"박격포 관통력+",L"박격포타워 관통력 +1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].penetration += 1; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34504_더많은 작약.png",L"더많은 작약",L"폭밤범위 +15",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 15; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34505_포탄 경량화.png",L"포탄 경량화",L"폭발범위 -10, 투사체속도 +100",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange -= 10; dynamicData->rewardTurretStat[TurretType::Cannon].bulletSpeed += 100.f;  } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34506_포탄 중량화.png",L"포탄 중량화",L"폭발범위 +35, 공격속도 -0.1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].burstRange += 35; dynamicData->rewardTurretStat[TurretType::Cannon].fireRate -= 0.1f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34507_제압탄.png",L"제압탄",L"이동속도 감소 +15%, 이동속도 지속시간 +2.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].slowRate += 15.f; dynamicData->rewardTurretStat[TurretType::Cannon].slowDuration += 2.f; } });
 
     // superarrow tower reward
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Cannon].slowRate += 15.f; dynamicData->rewardTurretStat[TurretType::Cannon].slowDuration += 2.f; });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34601_대형화살.png",L"대형화살",L"공격력+=5,공격속도 -1.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::SuperCrossbow].damage += 5; dynamicData->rewardTurretStat[TurretType::SuperCrossbow].fireRate -= 1.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34602_슈퍼석궁 피해량.png",L"슈퍼석궁피해량+",L"공격력+=2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::SuperCrossbow].damage += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34603_슈퍼석궁 공격속도.png",L"슈퍼석궁 공격속도+",L"공격속도+=0.2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::SuperCrossbow].fireRate += 0.2f;  } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/35604_슈퍼석궁 관통력.png",L"슈퍼석궁 관통력+",L"관통력+=1",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::SuperCrossbow].penetration += 1;  } });
 
     //slow wand
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
-    //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34701_슬로우 완드 지속시간.png",L"슬로우완드 타워",L"이동속도 감소 지속시간 +2.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::SlowWand].slowDuration += 2.f; } });
 
-    ////
+    // 생장에너지 투약 이미지 없음
     //DataManager.harvestPopupStruct.push_back({ L"../Resource/30201.png",L"독이 발린 화살촉",L"이동속도 감소량 +8%, 이동속도 감소 지속시간 3.0",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow]. += 2.f; } });
 
 
@@ -635,7 +637,7 @@ void GameScene::Start() {
         turretUIComp->blockImage = blackGround;
         blackGround->ignoreEventSystem = true;
         blackGround->LoadTexture(L"../Resource/blackGround.png");
-        blackGround->alpha = 0.5f;
+        blackGround->alpha = 0.7f;
 
         auto costText = CreateGameObject<GameObject>();
         costText->transform->SetParent(turretUIChild->transform);
@@ -688,12 +690,14 @@ void GameScene::Start() {
     GoldObj->transform->type = Type::Ui;
     GoldObj->transform->pos.rectposition = { {20.f + 820.f + spacing ,98.f} ,{20.f + 820.f + spacing + 270.f, 196.f} };
     GoldImage->LoadTexture(L"../Resource/30404.png");
-
+     
     auto Goldchild = CreateGameObject<GameObject>();
     auto GoldUi = Goldchild->CreateComponent<TextUIRenderer>();
+    auto g = GoldUi->SetFont(L"TAEBAEK font TTF");
     Goldchild->transform->SetParent(GoldObj->transform);
     Goldchild->transform->type = Type::Ui;
-    Goldchild->transform->pos.rectposition = { {20.f,98.f},{280.f,110.f} };
+    Goldchild->transform->pos.rectposition = { {20.f,20.f},{280.f,84.f} };
+    GoldUi->SetAlignCenter(0);
     pineApple->goldbar = GoldUi;
 
     // wstring str;
@@ -709,9 +713,11 @@ void GameScene::Start() {
 
     auto LVchild = CreateGameObject<GameObject>();
     auto LVUi = LVchild->CreateComponent<TextUIRenderer>();
+    auto l = LVUi->SetFont(L"TAEBAEK font TTF");
     LVchild->transform->SetParent(LVObj->transform);
     LVchild->transform->type = Type::Ui;
-    LVchild->transform->pos.rectposition = { {20.f,0.f},{280.f,110.f} };
+    LVchild->transform->pos.rectposition = { {20.f,0.f},{280.f,84.f} };
+    LVUi->SetAlignCenter(0);
     pineApple->LVbar = LVUi;
 
     // 업그레이드 버튼 -> 이거 완성 500 * 500
@@ -781,50 +787,96 @@ void GameScene::Start() {
     /*gamePopup* end = new gamePopup();
     pineApple->endpopup = end;
     end->Uis.push_back();*/
+    gameover = new gamePopup();
+    waveSystem->gameover = gameover;
+    gameover->victoryUIoff();
+    gameover->defeatUIoff();
+    // game victory popup
+    {
+        
+        auto bgObj = CreateGameObject<GameObject>();
+        bgObj->transform->type = Type::Ui;
+        auto bgSpr = bgObj->CreateComponent<ImageUIRenderer>();
+        bgSpr->alpha = 0.5f;
+        bgObj->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
+        bgObj->transform->pos.rectposition.rightTop = { 1920.f, 1080.f };
+        bgSpr->LoadTexture(L"../Resource/승리패배팝업/40101_승리화면_ 백그라운드.png");
+        gameover->victory.push_back(bgObj);
 
-    // game end popup
-    //{
-    //    auto bgObj = CreateGameObject<GameObject>();
-    //    bgObj->transform->type = Type::Ui;
-    //    auto bgSpr = bgObj->CreateComponent<ImageUIRenderer>();
-    //    bgSpr->alpha = 0.5f;
-    //    bgObj->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
-    //    bgObj->transform->pos.rectposition.rightTop = { 1920.f, 1080.f };
-    //    bgSpr->LoadTexture(L"../Resource/opactiyBg.png");
+        auto popupObj = CreateGameObject<GameObject>();
+        popupObj->transform->SetParent(bgObj->transform);
+        popupObj->transform->type = Type::Ui;
+        popupObj->transform->pos.rectposition.leftBottom = { 580.f, 459.f };
+        popupObj->transform->pos.rectposition.rightTop = { 1340.f, 861.f };
+        auto popupImage = popupObj->CreateComponent<ImageUIRenderer>();
+        popupImage->LoadTexture(L"../Resource/승리패배팝업/40401_승리로고_x584_y264.png"); // Replace with the actual texture path
+        gameover->victory.push_back(popupObj);
 
-    //    auto popupObj = CreateGameObject<GameObject>();
-    //    popupObj->transform->SetParent(bgObj->transform);
-    //    popupObj->transform->type = Type::Ui;
-    //    popupObj->transform->pos.rectposition.leftBottom = { 500.f, 200.f };
-    //    popupObj->transform->pos.rectposition.rightTop = { 1420.f, 880.f };
-    //    auto popupImage = popupObj->CreateComponent<ImageUIRenderer>();
-    //    popupImage->LoadTexture(L"../Resource/defeatPopup.png"); // Replace with the actual texture path
+        auto titleBtnObj = CreateGameObject<GameObject>();
+        titleBtnObj->transform->SetParent(bgObj->transform);
+        titleBtnObj->transform->type = Type::Ui;
+        titleBtnObj->transform->pos.rectposition.leftBottom = { 808.f, 309.f };
+        titleBtnObj->transform->pos.rectposition.rightTop = { 1112.f, 401.f };
+        auto titleButton = titleBtnObj->CreateComponent<Button>();
+        titleButton->LoadTexture(L"../Resource/승리패배팝업/40201_타이틀로돌아가기_x811_y724 .png"); // Replace with actual texture path
+        gameover->victory.push_back(titleBtnObj);
 
-    //    auto retryBtnObj = CreateGameObject<GameObject>();
-    //    retryBtnObj->transform->SetParent(popupObj->transform);
-    //    retryBtnObj->transform->type = Type::Ui;
-    //    retryBtnObj->transform->pos.rectposition.leftBottom = { 600.f, 250.f };
-    //    retryBtnObj->transform->pos.rectposition.rightTop = { 900.f, 400.f };
-    //    auto retryButton = retryBtnObj->CreateComponent<Button>();
-    //    retryButton->LoadTexture(L"../Resource/retryButton.png"); // Replace with actual texture path
-    //    retryButton->AddListener([]() {
+        titleButton->AddListener([]() {
   
-    //        SceneManager::GetInstance().SetChangeSceneFlag("GameScene");
-    //        });
+            SceneManager::GetInstance().SetChangeSceneFlag("StartScene");
+            });
 
-  
-    //    auto titleBtnObj = CreateGameObject<GameObject>();
-    //    titleBtnObj->transform->SetParent(popupObj->transform);
-    //    titleBtnObj->transform->type = Type::Ui;
-    //    titleBtnObj->transform->pos.rectposition.leftBottom = { 1020.f, 250.f };
-    //    titleBtnObj->transform->pos.rectposition.rightTop = { 1320.f, 400.f };
-    //    auto titleButton = titleBtnObj->CreateComponent<Button>();
-    //    titleButton->LoadTexture(L"../Resource/titleButton.png"); // Replace with actual texture path
-    //    titleButton->AddListener([]() {
-  
-    //        SceneManager::GetInstance().SetChangeSceneFlag("TitleScene");
-    //        });
-    //}
+
+    }
+
+    // game defeat popup
+    {
+        auto bgObj = CreateGameObject<GameObject>();
+        bgObj->transform->type = Type::Ui;
+        auto bgSpr = bgObj->CreateComponent<ImageUIRenderer>();
+        bgSpr->alpha = 0.5f;
+        bgObj->transform->pos.rectposition.leftBottom = { 0.f, 0.f };
+        bgObj->transform->pos.rectposition.rightTop = { 1920.f, 1080.f };
+        bgSpr->LoadTexture(L"../Resource/승리패배팝업/50101_패배화면_ 백그라운드.png");
+        gameover->defeat.push_back(bgObj);
+
+        auto popupObj = CreateGameObject<GameObject>();
+        popupObj->transform->SetParent(bgObj->transform);
+        popupObj->transform->type = Type::Ui;
+        popupObj->transform->pos.rectposition.leftBottom = { 580.f, 459.f };
+        popupObj->transform->pos.rectposition.rightTop = { 1340.f, 861.f };
+        auto popupImage = popupObj->CreateComponent<ImageUIRenderer>();
+        popupImage->LoadTexture(L"../Resource/승리패배팝업/50401_패배로고_x624_y279.png"); // Replace with the actual texture path
+        gameover->defeat.push_back(popupObj);
+
+        auto retryBtnObj = CreateGameObject<GameObject>();
+        retryBtnObj->transform->SetParent(bgObj->transform);
+        retryBtnObj->transform->type = Type::Ui;
+        retryBtnObj->transform->pos.rectposition.leftBottom = { 640.f, 309.f };
+        retryBtnObj->transform->pos.rectposition.rightTop = { 944.f, 401.f };
+        auto retryButton = retryBtnObj->CreateComponent<Button>();
+        retryButton->LoadTexture(L"../Resource/승리패배팝업/50201_다시도전_x637_y724.png"); // Replace with actual texture path
+        gameover->defeat.push_back(retryBtnObj);
+
+        retryButton->AddListener([]() {
+
+            SceneManager::GetInstance().SetChangeSceneFlag("GameScene");
+            });
+
+        auto titleBtnObj = CreateGameObject<GameObject>();
+        titleBtnObj->transform->SetParent(bgObj->transform);
+        titleBtnObj->transform->type = Type::Ui;
+        titleBtnObj->transform->pos.rectposition.leftBottom = { 976.f, 309.f };
+        titleBtnObj->transform->pos.rectposition.rightTop = { 1280.f, 401.f };
+        auto titleButton = titleBtnObj->CreateComponent<Button>();
+        titleButton->LoadTexture(L"../Resource/승리패배팝업/50202_타이틀로돌아가기_x984_y724.png"); // Replace with actual texture path
+        gameover->defeat.push_back(titleBtnObj);
+
+        titleButton->AddListener([]() {
+
+            SceneManager::GetInstance().SetChangeSceneFlag("StartScene");
+            });
+    }
     
 
     // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
@@ -870,53 +922,53 @@ void GameScene::Start() {
         // 버튼 이미지 설정
         auto buttonImage = buttonObj->CreateComponent<Button>();
         buttonImage->ignoreEventSystem = false;
-        buttonImage->LoadTexture(L"../Resource/30405_harvestpopup_item.png"); // 버튼의 기본 배경 이미지
+        //buttonImage->LoadTexture(L"../Resource/30405_harvestpopup_item.png"); // 버튼의 기본 배경 이미지
         rand->btns.push_back(buttonImage);
 
-        // 이미지 오브젝트 추가 (자식 오브젝트)
-        auto imageObj = CreateGameObject<GameObject>();
-        imageObj->transform->SetParent(buttonObj->transform);
-        imageObj->transform->type = Type::Ui;
-        imageObj->transform->pos.rectposition = {/* 이미지 위치와 크기 설정 */ };
-        imageObj->transform->pos.rectposition.leftBottom = { 47,47 };
-        imageObj->transform->pos.rectposition.rightTop = { 160, 160 };
-        auto spriteRenderer = imageObj->CreateComponent<ImageUIRenderer>();
-        spriteRenderer->LoadTexture(DataManager.harvestPopupStruct[i].Imagepath.c_str()); // 이미지 설정
+        //// 이미지 오브젝트 추가 (자식 오브젝트)
+        //auto imageObj = CreateGameObject<GameObject>();
+        //imageObj->transform->SetParent(buttonObj->transform);
+        //imageObj->transform->type = Type::Ui;
+        //imageObj->transform->pos.rectposition = {/* 이미지 위치와 크기 설정 */ };
+        //imageObj->transform->pos.rectposition.leftBottom = { 47,47 };
+        //imageObj->transform->pos.rectposition.rightTop = { 160, 160 };
+        //auto spriteRenderer = imageObj->CreateComponent<ImageUIRenderer>();
+        //spriteRenderer->LoadTexture(DataManager.harvestPopupStruct[i].Imagepath.c_str()); // 이미지 설정
      
-        rand->Uis.push_back(spriteRenderer);
-        // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
-        auto nameTextObj = CreateGameObject<GameObject>();
-        nameTextObj->transform->SetParent(buttonObj->transform);
-        nameTextObj->transform->type = Type::Ui;
-        nameTextObj->transform->pos.rectposition = {/* 이름 텍스트 위치와 크기 설정 */ };
-        auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
-        nameText->SetFontSize(25.f);
-        nameText->text = DataManager.harvestPopupStruct[i].reward;
-        nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
-        //nameText->SetText(L"이름"); // 이름 텍스트 설정
-        //nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
+        //rand->Uis.push_back(spriteRenderer);
+        //// 이름 텍스트 오브젝트 추가 (자식 오브젝트)
+        //auto nameTextObj = CreateGameObject<GameObject>();
+        //nameTextObj->transform->SetParent(buttonObj->transform);
+        //nameTextObj->transform->type = Type::Ui;
+        //nameTextObj->transform->pos.rectposition = {/* 이름 텍스트 위치와 크기 설정 */ };
+        //auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
+        //nameText->SetFontSize(25.f);
+        //nameText->text = DataManager.harvestPopupStruct[i].reward;
+        //nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::White));
+        ////nameText->SetText(L"이름"); // 이름 텍스트 설정
+        ////nameText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
 
-        nameTextObj->transform->pos.rectposition.leftBottom = { 175, 100};
-        nameTextObj->transform->pos.rectposition.rightTop  = { 700, 170 };
-        nameText->SetAlignCenter(0);
-        rand->TextNameUis.push_back(nameText);
-        // 내용 텍스트 오브젝트 추가 (자식 오브젝트)
-        auto descTextObj = CreateGameObject<GameObject>();
-        descTextObj->transform->SetParent(buttonObj->transform);
-        descTextObj->transform->type = Type::Ui;
-        descTextObj->transform->pos.rectposition = {/* 내용 텍스트 위치와 크기 설정 */ };
-        auto descText = descTextObj->CreateComponent<TextUIRenderer>();
-        descText->SetFontSize(25.f);
-        descText->text = DataManager.harvestPopupStruct[i].rewarOption;
-        descText->SetTextColor(D2D1::ColorF(D2D1::ColorF::Green));
-        descText->SetFontSize(30.f);
-        //descText->SetText(L"내용"); // 내용 텍스트 설정   
-        //descText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
-        descText->SetAlignCenter(-1);
-        descTextObj->transform->pos.rectposition.leftBottom = { 210, 50};
-        descTextObj->transform->pos.rectposition.rightTop = { 740, 100 };
+        //nameTextObj->transform->pos.rectposition.leftBottom = { 175, 100};
+        //nameTextObj->transform->pos.rectposition.rightTop  = { 700, 170 };
+        //nameText->SetAlignCenter(0);
+        //rand->TextNameUis.push_back(nameText);
+        //// 내용 텍스트 오브젝트 추가 (자식 오브젝트)
+        //auto descTextObj = CreateGameObject<GameObject>();
+        //descTextObj->transform->SetParent(buttonObj->transform);
+        //descTextObj->transform->type = Type::Ui;
+        //descTextObj->transform->pos.rectposition = {/* 내용 텍스트 위치와 크기 설정 */ };
+        //auto descText = descTextObj->CreateComponent<TextUIRenderer>();
+        //descText->SetFontSize(25.f);
+        //descText->text = DataManager.harvestPopupStruct[i].rewarOption;
+        //descText->SetTextColor(D2D1::ColorF(D2D1::ColorF::Green));
+        //descText->SetFontSize(30.f);
+        ////descText->SetText(L"내용"); // 내용 텍스트 설정   
+        ////descText->SetColor(D2D1::ColorF(D2D1::ColorF::White)); // 텍스트 색상 설정
+        //descText->SetAlignCenter(-1);
+        //descTextObj->transform->pos.rectposition.leftBottom = { 210, 50};
+        //descTextObj->transform->pos.rectposition.rightTop = { 740, 100 };
 
-        rand->TextStatUis.push_back(descText);
+        //rand->TextStatUis.push_back(descText);
 
         //pineApple->Popup = buttonImage;
     }
@@ -934,7 +986,7 @@ void GameScene::Start() {
         // 버튼 이미지 설정
         auto buttonImage = buttonObj->CreateComponent<Button>();
         buttonImage->ignoreEventSystem = false;
-        buttonImage->LoadTexture(L"../Resource/30213_givememoney.png"); // 버튼의 기본 배경 이미지
+        buttonImage->LoadTexture(L"../Resource/수확보상팝업/34100_그냥돈.png"); // 버튼의 기본 배경 이미지
         rand->btns.push_back(buttonImage);
         // 이미지 오브젝트 추가 (자식 오브젝트)
         auto imageObj = CreateGameObject<GameObject>();
@@ -955,7 +1007,7 @@ void GameScene::Start() {
             auto rewardMoney = DataManager::GetInstance().getMoneyData(pineApple->GetPineAppleLV() - 2);
             pineApple->acquireGold(rewardMoney);
             std::cout << rewardMoney << std::endl;
-            //pineApple->randomReward->rewardMoney->text = std::to_wstring(rewardMoney).c_str();
+            //pineApple->randomReward->rewardMoney->text = std::to_wstring(rewardMoney)        .c_str();
             };
 
         //nameText->SetText(L"이름"); // 이름 텍스트 설정
@@ -1010,6 +1062,7 @@ void GameScene::Clear() {
     std::cout << "Exiting GameScene" << std::endl;
     // 정리 작업
     SoundManager::GetInstance().ReleaseSound(L"backgroundMusic");
+    delete gameover;
 }
 
 void GameScene::Update(float deltaTime) {
@@ -1017,7 +1070,11 @@ void GameScene::Update(float deltaTime) {
 
     if (testPineApple->GetPineAppleHP() == 0)
     {
-        SceneManager::GetInstance().ChangeScene("EndScene");
+        gameover->defeatUIon();
+    }
+    else
+    {
+        gameover->defeatUIoff();
     }
 
     if (InputManager::GetInstance().IsKeyDown('1')) {

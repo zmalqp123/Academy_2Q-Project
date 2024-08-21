@@ -11,7 +11,7 @@ class Enemy;
 class EnemyFactory;
 class BulletFactory;
 class MainPineApple;
-
+class gamePopup;
 class WaveSystem : public Component
 {
 private:
@@ -39,6 +39,7 @@ public:
 
 
     Scene* scene = nullptr;
+    gamePopup* gameover;
     // 풀에서 몬스터를 가져오는 메서드
     //Enemy* GetEnemyFromPool(); // SwordMan -> Enemy로 변경
     //void ReturnEnemyToPool(Enemy* enemy); // SwordMan -> Enemy로 변경
@@ -48,6 +49,7 @@ public:
     virtual void Update(float deltaTime); // 매 프레임 호출, wave 타이머 업데이트
     //void SpawnWave();              // 새로운 wave 스폰
 
+    bool islastWave();
     void LoadWaveData();
     void Generator();
 	void PushingTutorial(int curWave, GameObject* Tuto);

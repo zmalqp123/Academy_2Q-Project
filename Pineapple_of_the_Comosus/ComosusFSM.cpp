@@ -114,7 +114,7 @@ void ComosusPhase1::Exit()
 	if (isMaxExp) {
 		pineApple->randomReward->UIon();
 		//DataManager::GetInstance().plzmoney.fn();
-		pineApple->randomReward->textHeader->text = pineApple->randomReward->comosusSuggestion[pineApple->LV - 1];
+		pineApple->randomReward->textHeader->text = pineApple->randomReward->comosusSuggestion[pineApple->LV - 2];
 		auto rewardMoney = DataManager::GetInstance().getMoneyData(pineApple->GetPineAppleLV() - 2);
 		pineApple->randomReward->rewardMoney->text = std::to_wstring(rewardMoney).c_str();
 		GameTime::GetInstance().SetTimeScale(0.f);
