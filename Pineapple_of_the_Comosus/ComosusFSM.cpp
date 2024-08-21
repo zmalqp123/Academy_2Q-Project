@@ -12,6 +12,7 @@
 #include "../D2DEngine/GameTime.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/TextUIRenderer.h"
+#include "../D2DEngine/BoxCollider.h"
 #include "ramdomReward.h"
 // Phase Defalue
 void ComosusPhaseDefault::Enter()
@@ -36,6 +37,7 @@ void ComosusPhase1::OnComosusDamage()
 	for (auto enemy : container) {
 		enemy->enemy->Ondamage(40.f, BulletType::Comosus, true);
 	}
+	std::cout << "light on" << std::endl;
 }
 // phase1
 void ComosusPhase1::Enter()
@@ -48,6 +50,9 @@ void ComosusPhase1::Enter()
 	cameraShaker->ShakeOnCamera(true);
 	dynamicData->isHarvest = true;
 	comosusLightAnim->SetAnimation(1, false);
+
+	comosusLightAnim->gameObject->transform->m_RelativeScale.x = 1.f * ((dynamicData->GetRewardPineAppleStat().comosusLight / 100.f) + 1.f);
+	lightBox->SetExtent({ 400.f * ((dynamicData->GetRewardPineAppleStat().comosusLight / 200.f) + 1.f), 540.f });
 }
 
 void ComosusPhase1::Update(float deltaTime)
@@ -61,11 +66,12 @@ void ComosusPhase1::Update(float deltaTime)
 
 	if (phase1Duration < 1.f) {
 		cameraShaker->SetAmplitude(phase1Duration * 20.f);
-		for (int i = 0; i < 40; i++) {
-			if (IsTiming(prevTime, phase1Duration, i / 10.f))
-				OnComosusDamage();
-		}
 	}
+	for (int i = 0; i < 40; i++) {
+		if (IsTiming(prevTime, phase1Duration, (float)i / 10.f))
+			OnComosusDamage();
+	}
+
 	if (prevTime < 1.f && phase1Duration >= 1.f) {
 		comosusSpriteAnim->SetAnimation(1, false);
 	}
@@ -142,6 +148,14 @@ bool ComosusPhase2::IsTiming(float prev, float curr, float timing)
 	return prev < timing && curr >= timing;
 }
 
+void ComosusPhase2::OnComosusDamage()
+{
+	auto container = lightSeletor->GetContainer();
+	for (auto enemy : container) {
+		enemy->enemy->Ondamage(40.f, BulletType::Comosus, true);
+	}
+}
+
 // phase2
 void ComosusPhase2::Enter()
 {
@@ -174,6 +188,11 @@ void ComosusPhase2::Update(float deltaTime)
 		if (comosusSpriteAnim->IsLastFrame()) {
 			comosusSpriteAnim->SetAnimation(0, false);
 		}
+	}
+
+	for (int i = 0; i < 40; i++) {
+		if (IsTiming(prevTime, fallDuration, i / 10.f))
+			OnComosusDamage();
 	}
 
 	if (fallDuration > 4.f) {

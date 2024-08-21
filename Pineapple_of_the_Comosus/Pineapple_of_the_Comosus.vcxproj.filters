@@ -62,6 +62,8 @@
     <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="gamePopup.cpp" />
     <ClCompile Include="BomberDead.cpp" />
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossAttack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -126,6 +128,8 @@
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="gamePopup.h" />
     <ClInclude Include="BomberDead.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossAttack.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />

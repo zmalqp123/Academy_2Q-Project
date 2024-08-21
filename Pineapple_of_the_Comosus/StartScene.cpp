@@ -81,7 +81,10 @@ void StartScene::Start() {
         cutton2->UiCutton = cuttonSpr2;
         cutton2->check = false;
         cutton->check = true;
-        cutton->ctfn = []() {SceneManager::GetInstance().SetChangeSceneFlag("GameScene"); };
+        cutton->ctfn = []() {
+            SoundManager::GetInstance().StopSound(L"backgroundMusic");
+            SceneManager::GetInstance().SetChangeSceneFlag("GameScene"); 
+            };
         });
 
     auto ruleButton = CreateGameObject<GameObject>();
@@ -106,6 +109,8 @@ void StartScene::Start() {
 void StartScene::Clear() {
     __super::Clear();
     std::cout << "Exiting StartScene" << std::endl;
+
+    SoundManager::GetInstance().ReleaseSound(L"backgroundMusic");
     // 정리 작업
 }
 

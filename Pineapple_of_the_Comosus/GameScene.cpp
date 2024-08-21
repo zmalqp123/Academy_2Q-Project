@@ -99,10 +99,12 @@ void GameScene::Start() {
     comosusFsm->SetState("Default");
     auto comosusLight = comosusSystem->CreateComponent<ComosusLightSelector>();
     auto comosusColl = comosusSystem->CreateComponent<BoxCollider>();
+    comosusPhase1->lightBox = comosusColl;
     comosusColl->SetExtent({ 400.f, 540.f });
     comosusColl->ignoreEventSystem = true;
     comosusColl->SetCollisionType(CollisionType::Overlap);
     comosusPhase1->lightSeletor = comosusLight;
+    comosusPhase2->lightSeletor = comosusLight;
     comosusPhase1->cameraShaker = shake;
     auto comosusLightAnimation = comosusSystem->CreateComponent<SpriteAnimation>();
     comosusLightAnimation->LoadTexture(L"../Resource/ComosusLight.png");
@@ -327,11 +329,17 @@ void GameScene::Start() {
 
 
     // 사운드 초기화 및 로드
-    SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/6_Sound/scene1/Bgm/MainMenu_Bgm_01.wav");
-    SoundManager::GetInstance().SetVolume(L"backgroundMusic", 0.5f);
-    SoundManager::GetInstance().PlaySoundW(L"backgroundMusic", false);
+    SoundManager::GetInstance().LoadSound(L"Morning_Bgm", L"../Media/6_Sound/scene3/Bgm/Morning_Bgm.wav");
+    SoundManager::GetInstance().SetVolume(L"Morning_Bgm", 0.5f);
+    SoundManager::GetInstance().PlaySoundW(L"Morning_Bgm", false);
 
     // 사운드 초기화 및 로드
+
+    // swordman 
+    SoundManager::GetInstance().LoadSound(L"Boss2Attack_Se", L"../Media/6_Sound/scene3/Se/Boss2Attack_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"Boss2Attack_Se", 0.5f);
+    SoundManager::GetInstance().LoadSound(L"KnightDeath_Se", L"../Media/6_Sound/scene3/Se/KnightDeath_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"KnightDeath_Se", 0.5f);
 
     // swordman 
     SoundManager::GetInstance().LoadSound(L"KnightAttack_Se", L"../Media/6_Sound/scene3/Se/KnightAttack_Se.wav");
@@ -384,9 +392,25 @@ void GameScene::Start() {
     SoundManager::GetInstance().LoadSound(L"MortarFire_Se", L"../Media/6_Sound/scene3/Se/MortarFire_Se.wav");
     SoundManager::GetInstance().SetVolume(L"MortarFire_Se", 0.2f);
 
-   
+    // SlowWandFire_Se
+    SoundManager::GetInstance().LoadSound(L"SlowWandFire_Se", L"../Media/6_Sound/scene3/Se/SlowWandFire_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"SlowWandFire_Se", 0.2f);
 
+    // SuperCrossbowFire_Se
+    SoundManager::GetInstance().LoadSound(L"SuperCrossbowFire_Se", L"../Media/6_Sound/scene3/Se/SuperCrossbowFire_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"SuperCrossbowFire_Se", 0.2f);
 
+    // Win_Bgm
+    //SoundManager::GetInstance().LoadSound(L"SlowWandFire_Se", L"../Media/6_Sound/scene3/Se/SlowWandFire_Se.wav");
+    //SoundManager::GetInstance().SetVolume(L"SlowWandFire_Se", 0.2f);
+
+    //// GameOver_Bgm
+    //SoundManager::GetInstance().LoadSound(L"SlowWandFire_Se", L"../Media/6_Sound/scene3/Se/SlowWandFire_Se.wav");
+    //SoundManager::GetInstance().SetVolume(L"SlowWandFire_Se", 0.2f);
+
+    // click btn 사운드
+    SoundManager::GetInstance().LoadSound(L"clickbtn", L"../Media/6_Sound/scene1/Se/ClickButton_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"clickbtn", 0.5f);
 
     // 메뉴바
     auto uiObj = CreateGameObject<GameObject>();
@@ -858,7 +882,7 @@ void GameScene::Start() {
         gameover->victory.push_back(titleBtnObj);
 
         titleButton->AddListener([]() {
-  
+            SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
             SceneManager::GetInstance().SetChangeSceneFlag("StartScene");
             });
         gameover->victoryUIoff();
@@ -895,7 +919,7 @@ void GameScene::Start() {
         gameover->defeat.push_back(retryBtnObj);
 
         retryButton->AddListener([]() {
-
+            SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
             SceneManager::GetInstance().SetChangeSceneFlag("GameScene");
             });
 
@@ -909,7 +933,7 @@ void GameScene::Start() {
         gameover->defeat.push_back(titleBtnObj);
 
         titleButton->AddListener([]() {
-
+            SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
             SceneManager::GetInstance().SetChangeSceneFlag("StartScene");
             });
         gameover->defeatUIoff();

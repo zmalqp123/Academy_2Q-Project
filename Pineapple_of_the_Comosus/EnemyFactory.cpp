@@ -10,6 +10,8 @@
 #include "EnemyMove.h"
 #include "EnemyDead.h"
 #include "MusKetShooter.h"
+#include "Boss.h"
+#include "BossAttack.h"
 #include "DataManager.h"
 #include "MainPineApple.h"
 #include "EnemyColliderNotify.h"
@@ -171,6 +173,23 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
         enemy->AttackSprite->LoadTexture(L"../Resource/30702.png");
         fsm->CreateState<MusKetAttack>("Attack");
+        fsm->CreateState<EnemyMove>("Move");
+        fsm->CreateState<EnemyDead>("Dead");
+        fsm->SetState("Move");
+        break;
+    case (int)EnemyID::boss1:
+        enemy = mon->CreateComponent<Boss>();
+        enemy->defaultAnimationNumber = (int)EnemyID::boss1 - type;
+        enemy->enemyData = *(d.GetEnemyData(type)); //복사가 되야하는 부분!
+        monBar->LoadTexture(L"../Resource/30631.png");
+        loadMon->LoadTexture(L"../Resource/30621.png");
+        //loadMon->LoadAnimationAsset(L"musketshooterMove");
+        monBar->SetCenter(Vector2(0.5f, 0.f));
+        //b->bulletFactory = bulletFactory;
+        //enemy = b;
+        enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
+        enemy->AttackSprite->LoadTexture(L"../Resource/30702.png");
+        fsm->CreateState<BossAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
         fsm->SetState("Move");

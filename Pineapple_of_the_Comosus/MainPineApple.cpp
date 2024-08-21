@@ -17,6 +17,7 @@
 #include "ramdomReward.h"
 #include "ComosusFSM.h"
 #include "WaveSystem.h"
+#include "../D2DEngine/SoundManager.h"
 
 void MainPineApple::PrintIndex(int index)
 {
@@ -160,6 +161,19 @@ void MainPineApple::Harvest()
     }
 }
 
+MainPineApple::MainPineApple()
+{
+    // 사운드 초기화 및 로드
+    // 수확가능시
+    SoundManager::GetInstance().LoadSound(L"HarvestOn_Se", L"../Media/6_Sound/scene3/Se/HarvestOn_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"HarvestOn_Se", 0.5f);  
+
+    // 풍족한 수확가능시
+    SoundManager::GetInstance().LoadSound(L"HarvestOn_Se", L"../Media/6_Sound/scene3/Se/HarvestOn_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"HarvestOn_Se", 0.5f);
+
+}
+
 void MainPineApple::DisableRewardButtons()
 {
     for (auto& element : rewardbtn)
@@ -240,7 +254,23 @@ bool MainPineApple::IsMaxEXP()
 
 void MainPineApple::AddExp(float exp)
 {
+    float prev = currentEXP;
     currentEXP += exp;
+
+    float offeringValue = offeringMultiply + rewardData->GetRewardPineAppleStat().offeringMultiply;
+    offeringValue *= maxEXP;
+    if(prev < offeringValue  && currentEXP >= offeringValue){
+        // 수확가능시 사운드
+        SoundManager::GetInstance().PlaySoundW(L"HarvestOn_Se");
+    }
+
+    if (prev != maxEXP && currentEXP >= maxEXP)
+    {
+        // 풍족한 사운드
+        SoundManager::GetInstance().PlaySoundW(L"HarvestOn_Se");
+    }
+
+
     if (currentEXP > maxEXP)
         currentEXP = maxEXP;
 }
@@ -256,9 +286,10 @@ void MainPineApple::UpdateHarvestableAnim()
     width += 385.f;
 
     harvestableAnim->gameObject->transform->pos.rectposition.leftBottom.x = width;
-    std::cout << "width : " << width << std::endl;
+    //std::cout << "width : " << width << std::endl;
 
     if (bar >= offeringValue) {
+
         if (bar >= 1.f) {
             // max
             harvestableAnim->SetAnimation(1, false, true);

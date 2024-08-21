@@ -62,7 +62,7 @@ public:
 	int pineAppleLv = 1;
 	std::vector<Turret*> turrets;
 
-	MainPineApple() { };
+	MainPineApple();
 	virtual ~MainPineApple() { };
 
 	void DisableRewardButtons();

@@ -6,6 +6,7 @@ class SpriteAnimation;
 class ComosusLightSelector;
 class CameraShake;
 class DynamicData;
+class BoxCollider;
 class ComosusPhaseDefault : public FSMState
 {
 public:
@@ -38,6 +39,7 @@ public:
 	CameraShake* cameraShaker = nullptr;
 	DynamicData* dynamicData = nullptr;
 	SpriteAnimation* comosusLightAnim = nullptr;
+	BoxCollider* lightBox = nullptr;
 
 	float phase1Duration = 4.f;
 	float fadeOutDutation = 0.f;
@@ -53,6 +55,7 @@ public:
 class ComosusPhase2 : public FSMState
 {
 	bool IsTiming(float prev, float curr, float timing);
+	void OnComosusDamage();
 public:
 	ComosusPhase2(FiniteStateMachine* _fsm, std::string _name) : FSMState(_fsm, _name) {}
 	virtual ~ComosusPhase2() {}
@@ -61,6 +64,7 @@ public:
 	DynamicData* dynamicData = nullptr;
 	SpriteAnimation* comosusSpriteAnim = nullptr;
 	SpriteAnimation* comosusLightAnim = nullptr;
+	ComosusLightSelector* lightSeletor = nullptr;
 
 	float fallDuration = 0.f;
 	float startY = 0.f;
