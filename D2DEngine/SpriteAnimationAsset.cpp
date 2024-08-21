@@ -179,6 +179,11 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(0, L"../Resource/10302close.txt");
 		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
+	if (FilePath == std::wstring(L"BombCartDead"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30705.csv");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
+	}
 	return true; 
 }
 

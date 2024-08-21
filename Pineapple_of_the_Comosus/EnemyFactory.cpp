@@ -4,6 +4,7 @@
 #include "MusKetAttack.h"
 #include "BomberAttack.h"
 #include "BomberMove.h"
+#include "BomberDead.h"
 #include "GriffinAttack.h"
 #include "HeavyAttack.h"
 #include "EnemyMove.h"
@@ -62,13 +63,16 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto notifyColl = child->CreateComponent<BoxCollider>();
     notifyColl->SetCollisionType(CollisionType::Overlap);
     
-    BomberMove* bombmove;
+    BomberMove* bombMove;
+    BomberDead* bombDead;
+    SpriteAnimation* bomberDeadAnim = nullptr;
     //auto colliderPhysics = mon->CreateComponent<BoxCollider>();
     //colliderPhysics->SetExtent({ 1.f, 1.f });
     mon->SetActive(false);
     auto fsm  =  mon->CreateComponent<FiniteStateMachine>(); // 추가로 FSMstate 넣어야함.
     fsm->SetOwner(mon);
     Enemy* enemy = nullptr;
+	
     DataManager& d = DataManager::GetInstance();
     switch (type)
     {
@@ -104,10 +108,15 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         monBar->SetCenter(Vector2(0.5f, 0.f));
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
         enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
-        fsm->CreateState<BomberAttack>("Attack");
-        bombmove = fsm->CreateState<BomberMove>("Move");
-        bombmove->enemy = enemy;
-        fsm->CreateState<EnemyDead>("Dead");
+        bomberDeadAnim = mon->CreateComponent<SpriteAnimation>();
+		bomberDeadAnim->LoadTexture(L"../Resource/30705_폭탄수레_공격이펙트.png");
+		bomberDeadAnim->LoadAnimationAsset(L"BombCartDead");
+		bomberDeadAnim->SetAnimation(1); // 1 is Empty Animation
+        bombDead = fsm->CreateState<BomberDead>("Dead");
+        bombMove = fsm->CreateState<BomberMove>("Move");
+        bombDead->BomberDeadAnim = bomberDeadAnim;
+		fsm->CreateState<BomberAttack>("Attack");
+        bombMove->enemy = enemy;
         fsm->SetState("Move");
         break;
     case (int)EnemyID::griffin:

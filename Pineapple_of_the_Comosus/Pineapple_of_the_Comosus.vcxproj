@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BombCart.cpp" />
+    <ClCompile Include="BomberDead.cpp" />
     <ClCompile Include="BomberMove.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletFactory.cpp" />
@@ -211,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
+    <ClInclude Include="BomberDead.h" />
     <ClInclude Include="BomberMove.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletFactory.h" />

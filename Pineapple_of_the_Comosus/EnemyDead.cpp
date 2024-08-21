@@ -31,7 +31,7 @@ void EnemyDead::Enter()
 		break;
 	//BombCartExplosion_Se
 	case 30617: case 30618: case 30619: case 30620:
-		SoundManager::GetInstance().PlaySoundW(L"BombCartExplosion_Se", false);
+		//SoundManager::GetInstance().PlaySoundW(L"BombCartExplosion_Se", false);
 		break;
 	}
 	
@@ -60,7 +60,7 @@ void EnemyDead::Update(float deltaTime)
 		break;
 		//BombCartExplosion_Se
 	case 30617: case 30618: case 30619: case 30620:
-			Spin(deltaTime);
+			//Spin(deltaTime);
 		break;
 	}
 	if (isSpined) {

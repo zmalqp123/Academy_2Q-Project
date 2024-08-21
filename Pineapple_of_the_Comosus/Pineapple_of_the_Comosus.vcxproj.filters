@@ -61,6 +61,7 @@
     <ClCompile Include="Cutton.cpp" />
     <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="gamePopup.cpp" />
+    <ClCompile Include="BomberDead.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BombCart.h" />
@@ -124,6 +125,7 @@
     <ClInclude Include="Cutton.h" />
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="gamePopup.h" />
+    <ClInclude Include="BomberDead.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Pineapple_of_the_Comosus.rc" />
