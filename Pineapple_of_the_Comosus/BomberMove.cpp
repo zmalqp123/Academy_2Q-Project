@@ -8,6 +8,7 @@
 void BomberMove::Enter()
 {
 	enemy = fsm->gameObject->GetComponent<Enemy>();
+	SoundManager::GetInstance().PlaySoundW(L"BombCartMovement_Se", false);
 }
 
 void BomberMove::Update(float deltaTime)
@@ -18,11 +19,11 @@ void BomberMove::Update(float deltaTime)
 	{
 		fsm->SetState("Attack");
 	}
-	if (moveTime > 2.f)
+	/*if (moveTime > 2.f)
 	{
 		SoundManager::GetInstance().PlaySoundW(L"BombCartMovement_Se", false);
 		moveTime = 0;
-	}
+	}*/
 	if (enemy->isSlowed) {
 		enemy->slowTimer -= deltaTime;
 		if (enemy->slowTimer <= 0.0f)
