@@ -448,6 +448,7 @@ void GameScene::Start() {
 		bg30101Obj->transform->pos.worldPosition = { 0.f, -540.f };
         auto bg30101Spr = bg30101Obj->CreateComponent<SpriteRenderer>();
         bg30101Spr->LoadTexture(L"../Resource/30101.png");
+        bg30101Obj->transform->SetSortingLayer(20);
 		nightSystem->Earth = bg30101Obj;
 		bg30101Spr->SetCenter({ 0.5f, 1.0f });
 
