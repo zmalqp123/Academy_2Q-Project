@@ -1,28 +1,34 @@
 #include "gamePopup.h"
 #include "../D2DEngine/GameObject.h"
-#include "../D2DEngine/Button.h"
-#include "../D2DEngine/ImageUIRenderer.h"
 
-void gamePopup::UIon()
+void gamePopup::victoryUIon()
 {
-	for (auto element : btns)
+	for (auto element : victory)
 	{
-		element->gameObject->isActive = true;
-	}
-	for (auto element : Uis)
-	{
-		element->gameObject->isActive = true;
+		element->isActive = true;
 	}
 }
 
-void gamePopup::UIoff()
+void gamePopup::victoryUIoff()
 {
-	for (auto element : btns)
+	for (auto element : victory)
 	{
-		element->gameObject->isActive = false;
+		element->isActive = false;
 	}
-	for (auto element : Uis)
+}
+
+void gamePopup::defeatUIon()
+{
+	for (auto element : defeat)
 	{
-		element->gameObject->isActive = false;
+		element->isActive = true;
+	}
+}
+
+void gamePopup::defeatUIoff()
+{
+	for (auto element : defeat)
+	{
+		element->isActive = false;
 	}
 }

@@ -144,7 +144,7 @@ bool TextUIRenderer::SetFont(LPCWSTR fontname)
 		DWRITE_FONT_STYLE_NORMAL,   // 폰트 스타일
 		DWRITE_FONT_STRETCH_NORMAL, // 폰트 너비
 		fontSize,                      // 폰트 크기
-		L"ko",                   // 로캘
+		L"ko-KR",                   // 로캘
 		&pTextFormat
 	);
 	if (FAILED(hr))

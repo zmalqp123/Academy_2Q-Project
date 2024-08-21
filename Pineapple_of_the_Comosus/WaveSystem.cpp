@@ -15,6 +15,7 @@
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/ImageUIRenderer.h"
+#include "gamePopup.h"
 
 WaveSystem::WaveSystem()
 {
@@ -95,6 +96,11 @@ WaveSystem::~WaveSystem()
 //        std::cout << "적이 생성되었습니다" << std::endl;
 //    }
 //}
+
+bool WaveSystem::islastWave()
+{
+    return (currentWave > DataManager::GetInstance().GetMaxWaveCount());
+}
 
 void WaveSystem::LoadWaveData()
 {
@@ -252,6 +258,15 @@ void WaveSystem::Init()
 
 void WaveSystem::Update(float deltaTime)
 {   
+    if (islastWave())
+    {
+        gameover->victoryUIon();
+    }
+    else
+    {
+        gameover->victoryUIoff();
+    }
+
     // 웨이브 타이머 감소
     waveTimer -= deltaTime;
     elapsedTime += deltaTime;
