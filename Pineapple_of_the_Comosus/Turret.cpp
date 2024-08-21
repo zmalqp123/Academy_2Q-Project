@@ -94,7 +94,7 @@ void Turret::Shoot()
                 spr->SetAnimation(0, false);
                 break;
             case TurretType::SlowWand:
-                //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+                SoundManager::GetInstance().PlaySoundW(L"SlowWandFire_Se", false);
 
                 spr->LoadAnimationAsset(L"30309");
                 spr->SetAnimation(0, false);

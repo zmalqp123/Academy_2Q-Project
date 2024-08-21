@@ -3,8 +3,8 @@
 
 bool SoundManager::LoadSound(const std::wstring& baseName, const std::wstring& filePath) {
     // 고유한 이름을 생성하여 동일한 사운드라도 여러 번 로드할 수 있도록 함
-    static int soundCounter = 0;
-    std::wstring uniqueName = baseName + std::to_wstring(soundCounter++);
+    //static int soundCounter = 0;
+    std::wstring uniqueName = baseName;// +std::to_wstring(soundCounter++);
 
     // 사운드 로드
     FMOD::Sound* sound = nullptr;
