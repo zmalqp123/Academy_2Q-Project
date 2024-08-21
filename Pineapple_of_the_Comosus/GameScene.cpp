@@ -447,6 +447,14 @@ void GameScene::Start() {
     tutorial3Obj->transform->SetSortingLayer(-2);
     tutorial3Image->LoadTexture(L"../Resource/31031.png");
 
+    // TutorialBottom 튜토리얼Bottom
+    auto tutorialBottomObj = CreateGameObject<GameObject>();
+    auto tutorialBottomImage = tutorialBottomObj->CreateComponent<SpriteRenderer>();
+    //tutorialBottomObj->transform->type = Type::Ui;
+    tutorialBottomObj->transform->pos.worldPosition = { -330.f,1000.f };
+    tutorialBottomObj->transform->SetSortingLayer(100);
+    tutorialBottomImage->LoadTexture(L"../Resource/31340.png");
+
     // 웨이브 시스템
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
@@ -458,6 +466,7 @@ void GameScene::Start() {
 	waveSystem->tutorial1 = tutorialObj;
     waveSystem->tutorial2 = tutorial2Obj;
     waveSystem->tutorial3 = tutorial3Obj;
+	waveSystem->tutorialBottom = tutorialBottomObj;
 
     for (int i = 0; i < 13; i++) {
         waveSystem->howManyLeft[i] = CreateGameObject<GameObject>();

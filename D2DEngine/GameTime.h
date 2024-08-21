@@ -34,5 +34,6 @@ public:
 	float GetFPS();
 
 	void SetTimeScale(float value) { timeScale = value; }
+	float GetTimeScale() { return timeScale; }
 };
 

@@ -23,6 +23,8 @@ private:
     float elapsedTime = 0.f;
 	float elapsedTime2 = 0.f;
     bool isHowManyPushed = false;
+	bool isTutorial1Pushed = false;
+	bool isElaspedTimeReset = false;
 
     std::vector<WaveEnemyData> leftEnemyDatas;
     std::vector<WaveEnemyData> rightEnemyDatas;
@@ -37,6 +39,8 @@ public:
     GameObject* tutorial1;
     GameObject* tutorial2;
     GameObject* tutorial3;
+
+	GameObject* tutorialBottom;
 
 	GameObject* howManyLeft[13];
 	
@@ -58,6 +62,9 @@ public:
     void Generator();
 	void PushingTutorial(int curWave, GameObject* Tuto);
 	void PullingTutorial(int curWave, GameObject* Tuto);
+
+    void PushingBottomTutorial(int curWave);
+    void PullingBottomTutorial(int curWave);
 
     void PushingHowManyDay(int curWave);
     void PullingHowManyDay(int curWave);

@@ -6,6 +6,7 @@
 #include "../D2DEngine/Camera.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/GameTime.h"
 #include "PineAppleTile.h"
 #include "MainPineApple.h"
 #include "Turret.h"
@@ -234,7 +235,7 @@ void GamePlayManager::Update(float deltaTime)
 void GamePlayManager::StartBatch(int type)
 {
 	auto data = DataManager::GetInstance().GetTurretData(type);
-
+	if (GameTime::GetInstance().GetTimeScale() == 0.f) GameTime::GetInstance().SetTimeScale(1.f);
 	if (pineApple->rewardData->isUpgrade == false) {
 		if (data->cost > pineApple->GetPineAppleGold() || pineApple->rewardData->isHarvest == true) return;
 

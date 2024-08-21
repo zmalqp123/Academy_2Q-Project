@@ -194,7 +194,7 @@ void WaveSystem::Generator()
 }
 
 void WaveSystem::PushingTutorial(int curWave, GameObject* Tuto)
-{
+{   
     if (currentWave == curWave && waveTimer > 0.f) {
 
         if (elapsedTime > 0.66f)
@@ -205,11 +205,9 @@ void WaveSystem::PushingTutorial(int curWave, GameObject* Tuto)
         float t2 = (elapsedTime) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
         Tuto->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 370.f);
-        if (elapsedTime > 0.66f)
-        {
-            return;
-        }
+        
     }
+    
     
 }
 
@@ -231,6 +229,46 @@ void WaveSystem::PullingTutorial(int curWave, GameObject* Tuto)
 	}
 }
 
+void WaveSystem::PushingBottomTutorial(int curWave)
+{
+    if (currentWave == curWave && waveTimer > 0.f) {
+
+        if (elapsedTime > 0.66f)
+        {
+            elapsedTime = 0.66f;
+        }
+        float t1 = (0.66f - elapsedTime) / .66f;
+        float t2 = (elapsedTime) / .66f;
+        //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        tutorialBottom->transform->pos.worldPosition.y = (t1 * -720.f) + (t2 * -100.f);
+        if (elapsedTime > 0.66f)
+        {
+            isHowManyPushed = true;
+            return;
+        }
+    }
+}
+
+void WaveSystem::PullingBottomTutorial(int curWave)
+{
+    if (currentWave == curWave && waveTimer > 0.f) {
+
+        if (elapsedTime > 0.66f)
+        {
+            elapsedTime = 0.66f;
+        }
+        float t1 = (0.66f - elapsedTime) / .66f;
+        float t2 = (elapsedTime) / .66f;
+        //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        tutorialBottom->transform->pos.worldPosition.y = (t1 * -100.f) + (t2 * -720.f);
+        if (elapsedTime > 0.66f)
+        {
+            isHowManyPushed = true;
+            return;
+        }
+    }
+}
+
 void WaveSystem::PushingHowManyDay(int curWave)
 {
     if (currentWave == curWave && waveTimer > 0.f) {
@@ -242,7 +280,7 @@ void WaveSystem::PushingHowManyDay(int curWave)
         float t1 = (0.66f - elapsedTime) / .66f;
         float t2 = (elapsedTime) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
-        howManyLeft[(curWave-1)/4]->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 420.f);
+        howManyLeft[(curWave - 1) / 4]->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 420.f);
         if (elapsedTime > 0.66f)
         {   
             isHowManyPushed = true;
@@ -287,7 +325,6 @@ void WaveSystem::StartNextWave()
         elapsedTime = 0.f;
 		elapsedTime2 = 0.f;
 		isHowManyPushed = false;
-        std::cout << "current wave: " << currentWave << std::endl;
         LoadWaveData();
         waveTimer = maxWaveTimer;  // 타이머 초기화 //현재 15초
         //SpawnWave();        // 새로운 wave 스폰
@@ -313,6 +350,7 @@ void WaveSystem::Update(float deltaTime)
 
     // 웨이브 타이머 감소
     waveTimer -= deltaTime;
+	std::cout << "waveTimer: " << waveTimer << std::endl;
     elapsedTime += deltaTime;
     // 웨이브 타이머가 0 이하가 되었고, 적이 남아 있으면
     if (waveTimer <= 0.0f)
@@ -324,9 +362,12 @@ void WaveSystem::Update(float deltaTime)
     PushingTutorial(1, tutorial1);
     PushingTutorial(2, tutorial2);
     PushingTutorial(3, tutorial3);
-	PullingTutorial(2, tutorial1);
+	
     PullingTutorial(3, tutorial2);
     PullingTutorial(4, tutorial3);
+    PushingBottomTutorial(1);
+    
+
     if (!isHowManyPushed) {
         PushingHowManyDay(currentWave);
     }
@@ -335,6 +376,25 @@ void WaveSystem::Update(float deltaTime)
 		elapsedTime2 += deltaTime;
         PullingHowManyDay(currentWave);
     } 
+
+    if (currentWave == 1 && waveTimer < 14.f && !isTutorial1Pushed)
+    {
+        GameTime::GetInstance().SetTimeScale(0.f);
+        isTutorial1Pushed = true;
+
+    }
+
+    if (currentWave == 1 && isTutorial1Pushed && !isElaspedTimeReset)
+    {
+		elapsedTime = 0.f;
+		isElaspedTimeReset = true;
+    }
+
+	if(currentWave == 1 && isTutorial1Pushed && isElaspedTimeReset)
+	{
+        PullingBottomTutorial(1);
+        PullingTutorial(1, tutorial1);
+	}
     
     Generator();
 
