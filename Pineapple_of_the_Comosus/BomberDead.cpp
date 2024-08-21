@@ -12,6 +12,7 @@ void BomberDead::Enter()
 void BomberDead::Update(float deltaTime)
 {	
 	if (BomberDeadAnim->IsLastFrame()) {
+		BomberDeadAnim->SetAnimation(1); // Animation 1 is EmptyAnimation
 		fsm->gameObject->isActive = false;
 	}
 	
