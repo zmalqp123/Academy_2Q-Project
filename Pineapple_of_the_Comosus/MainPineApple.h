@@ -33,6 +33,9 @@ class MainPineApple : public Component
 	float offeringMultiply = 0.75; // �⺻ 0.75 ����,  75�� ä���� �� ��밡�� 
 	// float offeringValue;
 
+	float dieTime = 0.f;
+	bool isDie = false;
+
 	// ������ �ִ� ����ġ ���̺�
 	std::vector<float> EXP_TABLE = {
 		100, 200, 300, 400, 500,
@@ -95,5 +98,6 @@ public:
 	void UpdateHarvestableAnim();
 
 	BulletFactory* bulletFactory;
+	bool isWin = false;
 };
 

@@ -5,6 +5,7 @@
 #include "../D2DEngine/ImageUIRenderer.h"
 #include "../D2DEngine/TextUIRenderer.h"
 #include "../D2DEngine/GameTime.h"
+#include "../D2DEngine/SoundManager.h"
 #include "random"
 
 
@@ -27,6 +28,7 @@ void ramdomReward::setValue()
             std::wcout << L"ddd: " << a << std::endl;
             UIoff();  
             GameTime::GetInstance().SetTimeScale(1.f);
+            SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
             });
         btns[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());
        /* Uis[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());*/
@@ -38,6 +40,7 @@ void ramdomReward::setValue()
         DataManager::GetInstance().plzmoney.fn();
         UIoff();
         GameTime::GetInstance().SetTimeScale(1.f);
+        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
         });
 }
 

@@ -111,6 +111,9 @@
     <ClCompile Include="SpriteUIAnimation.cpp">
       <Filter>Component\Animation\SpriteUIAnimation</Filter>
     </ClCompile>
+    <ClCompile Include="LineRenderer.cpp">
+      <Filter>Component\Renderer\LineRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
@@ -230,6 +233,9 @@
     <ClInclude Include="SpriteUIAnimation.h">
       <Filter>Component\Animation\SpriteUIAnimation</Filter>
     </ClInclude>
+    <ClInclude Include="LineRenderer.h">
+      <Filter>Component\Renderer\LineRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
@@ -340,6 +346,9 @@
     </Filter>
     <Filter Include="Component\Animation\SpriteUIAnimation">
       <UniqueIdentifier>{035f6847-a046-4237-9370-08b33f375472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Renderer\LineRenderer">
+      <UniqueIdentifier>{51d59fc5-9564-4af7-af04-acf294ed069c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

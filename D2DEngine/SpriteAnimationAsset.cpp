@@ -79,6 +79,11 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(3, L"../Resource/Enemy/30613_4.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Enemy/30613_5.txt");
 	}
+	if (FilePath == std::wstring(L"boss1Move"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/Enemy/30621_1.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Enemy/30621_2.txt");
+	}
 	// turret bullet
 	if (FilePath == std::wstring(L"30306"))
 	{
@@ -183,7 +188,7 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	if (FilePath == std::wstring(L"BombCartDead"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/30705.csv");
-		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");	
 	}
 	if (FilePath == std::wstring(L"HarvestAbleBar"))
 	{

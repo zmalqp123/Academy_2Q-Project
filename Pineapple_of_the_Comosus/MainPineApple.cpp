@@ -17,6 +17,7 @@
 #include "ramdomReward.h"
 #include "ComosusFSM.h"
 #include "WaveSystem.h"
+#include "gamePopup.h"
 #include "../D2DEngine/SoundManager.h"
 
 void MainPineApple::PrintIndex(int index)
@@ -55,6 +56,10 @@ void MainPineApple::pineAppleDamageHP(int damage)
         //std::cout << "start HP : " << HP << std::endl;
         HP -= damage;
         //std::cout << "later HP : " << HP << std::endl;
+        if (HP < 0.f) {
+            HP = 0;
+            isDie = true;
+        }
     }
     else
     {
@@ -194,6 +199,24 @@ float MainPineApple::GetOfferingValue()
 
 void MainPineApple::Update(float deltaTime)
 {
+    if (isWin == true) {
+        dieTime += deltaTime;
+        if (dieTime >= 1.f) {
+            dieTime = 0.f;
+            GameTime::GetInstance().SetTimeScale(0.f);
+            endpopup->victoryUIon();
+        }
+    }
+    if (isDie == true)
+    {
+        dieTime += deltaTime;
+        if (dieTime >= 1.f) {
+            dieTime = 0.f;
+            GameTime::GetInstance().SetTimeScale(0.f);
+            endpopup->defeatUIon();
+        }
+    }
+
     if (rewardData->isHarvest == false) {
         // second per haverst
         //if (waveSystem->getCurrentWave() % 4 != 0) 

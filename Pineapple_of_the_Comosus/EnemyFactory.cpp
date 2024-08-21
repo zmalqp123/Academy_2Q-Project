@@ -183,12 +183,10 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy->enemyData = *(d.GetEnemyData(type)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
         loadMon->LoadTexture(L"../Resource/30621.png");
-        //loadMon->LoadAnimationAsset(L"musketshooterMove");
+        loadMon->LoadAnimationAsset(L"boss1Move");
         monBar->SetCenter(Vector2(0.5f, 0.f));
-        //b->bulletFactory = bulletFactory;
-        //enemy = b;
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
-        enemy->AttackSprite->LoadTexture(L"../Resource/30702.png");
+        enemy->AttackSprite->LoadTexture(L"../Resource/30706_1.png");
         fsm->CreateState<BossAttack>("Attack");
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");

@@ -138,7 +138,7 @@ void WaveSystem::Generator()
                     int eliteType = DataManager::GetInstance().GetEnemyData(left.id)->eliteType;
                     enemy->defaultAnimationNumber = eliteType;
                     float spawnY = IsFly(left.id) ? flyDistY(gen) : distY(gen);
-                    Vector2 spawnPosition = Vector2(-1500.0f, spawnY);
+                    Vector2 spawnPosition = Vector2(-1500.0f, left.id == 30621 ? -60.f: spawnY);
                     Vector2 moveDirection = Vector2(1.0f, 0.0f);
                     enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(eliteType, false);
                     enemy->gameObject->transform->pos.worldPosition = spawnPosition;
@@ -170,7 +170,7 @@ void WaveSystem::Generator()
                     int eliteType = DataManager::GetInstance().GetEnemyData(right.id)->eliteType;
                     enemy->defaultAnimationNumber = eliteType;
                     float spawnY = IsFly(right.id) ? flyDistY(gen) : distY(gen);
-                    Vector2 spawnPosition = Vector2(1500.0f, spawnY);
+                    Vector2 spawnPosition = Vector2(1500.0f, right.id == 30621 ? -60.f : spawnY);
                     Vector2 moveDirection = Vector2(-1.0f, 0.0f);
                     enemy->gameObject->GetComponent<SpriteAnimation>()->SetAnimation(eliteType, true);
 
@@ -304,11 +304,11 @@ void WaveSystem::Init()
 
 void WaveSystem::Update(float deltaTime)
 {   
-    if (islastWave())
+   /* if (islastWave())
     {
         GameTime::GetInstance().SetTimeScale(0.f);
         gameover->victoryUIon();
-    }
+    }*/
    
 
     // 웨이브 타이머 감소

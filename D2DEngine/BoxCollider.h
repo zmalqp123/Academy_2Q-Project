@@ -33,5 +33,7 @@ public:
 
 	// Collider을(를) 통해 상속됨
 	bool isCollide(const Vector2& point) override;
+
+	bool debugLine = false;
 };
 

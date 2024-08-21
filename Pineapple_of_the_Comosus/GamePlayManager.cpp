@@ -11,6 +11,7 @@
 #include "Turret.h"
 #include "DataManager.h"
 #include "../D2DEngine/BoxCollider.h"
+#include "../D2DEngine/LineRenderer.h"
 #include "SelectTurretContainer.h"
 #include "DynamicData.h"
 
@@ -133,6 +134,7 @@ void GamePlayManager::Update(float deltaTime)
 
 			multiSelectBox->SetCenter(center);
 			multiSelectBox->SetExtent(extent);
+
 			if (InputManager::GetInstance().GetPrevMouseState().left && !InputManager::GetInstance().GetMouseState().left) {
 				if ((startPos - mousePos).LengthSquared() < 100.f) { // 조건추가 : 클릭시작 지점에서 현재 마우스 위치를 빼도록.? 무슨버그
 					// 바로 눌렀다 뗄정도의 거리라면

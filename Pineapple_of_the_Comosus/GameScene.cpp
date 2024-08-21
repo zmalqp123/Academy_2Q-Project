@@ -28,6 +28,7 @@
 #include "../D2DEngine/SpriteUIAnimation.h"
 #include "../D2DEngine/FiniteStateMachine.h"
 #include "../D2DEngine/GameTime.h"
+#include "../D2DEngine/LineRenderer.h"
 #include "FSMHarvest.h"
 #include <functional>
 #include <algorithm>
@@ -186,6 +187,7 @@ void GameScene::Start() {
     GameManager->selectBoxObj = boxObj;
     GameManager->multiSelectBox = boxColl;
     GameManager->selectTurrets = selector;
+    boxColl->debugLine = true;
 
 
     // 드래그 시 이미지 보여줄 오브젝트
@@ -694,17 +696,17 @@ void GameScene::Start() {
         turretUIComp->textUI = textUI;
     }
     auto t1 = btn[0]->gameObject->GetComponent<TurretUI>();
-    btn[0]->AddListener([GameManager, t1]() {GameManager->StartBatch(t1->GetIndex()); });
+    btn[0]->AddListener([GameManager, t1]() {GameManager->StartBatch(t1->GetIndex()); SoundManager::GetInstance().PlaySoundW(L"clickbtn", false); });
     auto t2 = btn[1]->gameObject->GetComponent<TurretUI>();
-    btn[1]->AddListener([GameManager, t2]() {GameManager->StartBatch(t2->GetIndex()); });
+    btn[1]->AddListener([GameManager, t2]() {GameManager->StartBatch(t2->GetIndex()); SoundManager::GetInstance().PlaySoundW(L"clickbtn", false); });
     auto t3 = btn[2]->gameObject->GetComponent<TurretUI>();
-    btn[2]->AddListener([GameManager, t3]() {GameManager->StartBatch(t3->GetIndex()); });
+    btn[2]->AddListener([GameManager, t3]() {GameManager->StartBatch(t3->GetIndex()); SoundManager::GetInstance().PlaySoundW(L"clickbtn", false); });
     auto t4 = btn[3]->gameObject->GetComponent<TurretUI>();
-    btn[3]->AddListener([GameManager, t4]() {GameManager->StartBatch(t4->GetIndex()); });
+    btn[3]->AddListener([GameManager, t4]() {GameManager->StartBatch(t4->GetIndex()); SoundManager::GetInstance().PlaySoundW(L"clickbtn", false); });
     auto t5 = btn[4]->gameObject->GetComponent<TurretUI>();
-    btn[4]->AddListener([GameManager, t5]() {GameManager->StartBatch(t5->GetIndex()); });
+    btn[4]->AddListener([GameManager, t5]() {GameManager->StartBatch(t5->GetIndex()); SoundManager::GetInstance().PlaySoundW(L"clickbtn", false); });
     auto t6 = btn[5]->gameObject->GetComponent<TurretUI>();
-    btn[5]->AddListener([GameManager, t6]() {GameManager->StartBatch(t6->GetIndex()); });
+    btn[5]->AddListener([GameManager, t6]() {GameManager->StartBatch(t6->GetIndex()); SoundManager::GetInstance().PlaySoundW(L"clickbtn", false); });
     // HP 및 MP 바 UI
     
     // hpbar
@@ -794,6 +796,7 @@ void GameScene::Start() {
         else {
             UpgradebtnImage->LoadTexture(L"../Resource/30207.png");
         }
+        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
     });
     UpgradebtnImage->LoadTexture(L"../Resource/30207.png");
 
@@ -850,6 +853,7 @@ void GameScene::Start() {
     end->Uis.push_back();*/
     gameover = new gamePopup();
     waveSystem->gameover = gameover;
+    pineApple->endpopup = gameover;
    
     // game victory popup
     {
@@ -974,6 +978,7 @@ void GameScene::Start() {
 
     for (size_t i = 0; i < 4; i++) {
         auto buttonObj = CreateGameObject<GameObject>(); 
+        buttonObj->transform->SetSortingLayer(20);
         //buttonObj->transform->SetParent(uiGroup->transform);
         buttonObj->transform->type = Type::Ui;
 
@@ -1038,6 +1043,7 @@ void GameScene::Start() {
     // givemeth money
     {
         auto buttonObj = CreateGameObject<GameObject>();
+        buttonObj->transform->SetSortingLayer(20);
         //buttonObj->transform->SetParent(uiGroup->transform);
         buttonObj->transform->type = Type::Ui;
 
@@ -1055,12 +1061,13 @@ void GameScene::Start() {
 
         // 이름 텍스트 오브젝트 추가 (자식 오브젝트)
         auto nameTextObj = CreateGameObject<GameObject>();
+        nameTextObj->transform->SetSortingLayer(21);
         nameTextObj->transform->SetParent(buttonObj->transform);
         nameTextObj->transform->type = Type::Ui;
   
         auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
         nameText->SetFontSize(50.f);
-        nameText->SetFont(L"TAEBAEK font TTF");
+        nameText->SetFont(L"210 연필스케치");
         nameText->SetAlignCenter(0);
         nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::Yellow));
 
@@ -1113,6 +1120,7 @@ void GameScene::Start() {
     HarvestbtnImage->AddListener([pineApple]() {
         //uiGroup->SetActive(true); // 수확 버튼을 눌렀을 때 그룹 전체를 활성화
         pineApple->Harvest();
+        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
     });
 
        
@@ -1136,19 +1144,23 @@ void GameScene::Clear() {
 void GameScene::Update(float deltaTime) {
     __super::Update(deltaTime);
 
-    if (testPineApple->GetPineAppleHP() <= 0)
-    {
-        GameTime::GetInstance().SetTimeScale(0.f);
-        gameover->defeatUIon();
-    }
+    //if (testPineApple->GetPineAppleHP() <= 0)
+    //{
+    //   /* GameTime::GetInstance().SetTimeScale(0.f);
+    //    gameover->defeatUIon();*/
+    //}
 
     if (InputManager::GetInstance().IsKeyDown('1')) {
-        hpBarUi->takeDamage(10.f);
+        /*hpBarUi->takeDamage(10.f);
         hpBarUi->ImageRender->slideBar = hpBarUi->getBarWidth();
         std::cout << hpBarUi->ImageRender->m_DstRect.right << std::endl;
-        std::cout << hpBarUi->getBarWidth() << std::endl;
+        std::cout << hpBarUi->getBarWidth() << std::endl;*/
+        GameTime::GetInstance().SetTimeScale(1.f);
     }
-
+    if (InputManager::GetInstance().IsKeyDown('2')) {
+        //SceneManager::GetInstance().ChangeScene("StartScene");
+        GameTime::GetInstance().SetTimeScale(5.f);
+    }
     /*if (InputManager::GetInstance().IsKeyDown('2')) {
         mpBarUi->takeMp(10.f);
         mpBarUi->ImageRender->slideBar = mpBarUi->getBarWidth();
@@ -1162,10 +1174,6 @@ void GameScene::Update(float deltaTime) {
     if (InputManager::GetInstance().IsKeyDown('3')) {
         cuttons->check = true;
         cuttons->ctfn = [=]() { SceneManager::GetInstance().SetChangeSceneFlag("StartScene"); };
-    }
-    if (InputManager::GetInstance().IsKeyDown('2')) {
-        //SceneManager::GetInstance().ChangeScene("StartScene");
-        GameTime::GetInstance().SetTimeScale(5.f);
     }
 
     // 동시 사운드 테스트 

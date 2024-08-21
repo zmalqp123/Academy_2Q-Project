@@ -85,6 +85,8 @@ bool BoxCollider::isCollide(Collider* collider, Vector2& resolution)
 void BoxCollider::Render(D2D1_MATRIX_3X2_F cameraMat)
 {
 //#ifdef DEBUG
+	if (debugLine == false) return;
+
 	if (gameObject->isActive == false) return;
 	auto pRenderTarget = &D2DRenderer::getRenderTarget();
 
