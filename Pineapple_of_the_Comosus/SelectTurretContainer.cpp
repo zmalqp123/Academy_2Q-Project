@@ -28,6 +28,7 @@ void SelectTurretContainer::OnBeginOverlap(Collider* pOwnedComponent, Collider* 
 {
 	auto turret = pOtherComponent->gameObject->GetComponent<Turret>();
 	if (turret != nullptr) {
+		if (turret->turretType == TurretType::GrowthPromoter) return;
 		turret->SelectTurret();
 		container.insert(turret);
 	}

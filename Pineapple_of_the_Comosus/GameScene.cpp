@@ -722,7 +722,7 @@ void GameScene::Start() {
     UpgradebtnImage->AddListener([=]() {
         dynamicData->isUpgrade = !dynamicData->isUpgrade; 
         if (dynamicData->isUpgrade == true) {
-            UpgradebtnImage->LoadTexture(L"../Resource/30207.png");
+            UpgradebtnImage->LoadTexture(L"../Resource/30207_2.png");
         }
         else {
             UpgradebtnImage->LoadTexture(L"../Resource/30207.png");
