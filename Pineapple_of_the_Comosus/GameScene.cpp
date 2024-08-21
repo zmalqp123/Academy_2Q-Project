@@ -99,10 +99,12 @@ void GameScene::Start() {
     comosusFsm->SetState("Default");
     auto comosusLight = comosusSystem->CreateComponent<ComosusLightSelector>();
     auto comosusColl = comosusSystem->CreateComponent<BoxCollider>();
+    comosusPhase1->lightBox = comosusColl;
     comosusColl->SetExtent({ 400.f, 540.f });
     comosusColl->ignoreEventSystem = true;
     comosusColl->SetCollisionType(CollisionType::Overlap);
     comosusPhase1->lightSeletor = comosusLight;
+    comosusPhase2->lightSeletor = comosusLight;
     comosusPhase1->cameraShaker = shake;
     auto comosusLightAnimation = comosusSystem->CreateComponent<SpriteAnimation>();
     comosusLightAnimation->LoadTexture(L"../Resource/ComosusLight.png");

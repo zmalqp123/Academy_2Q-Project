@@ -5,6 +5,7 @@
 class SpriteAnimation;
 class BomberDead : public EnemyDead
 {
+	float timer = 0.f;
 public:
 	BomberDead(FiniteStateMachine* _fsm, std::string _name) : EnemyDead(_fsm, _name) {}
 	virtual ~BomberDead() {}

@@ -286,7 +286,7 @@ void MainPineApple::UpdateHarvestableAnim()
     width += 385.f;
 
     harvestableAnim->gameObject->transform->pos.rectposition.leftBottom.x = width;
-    std::cout << "width : " << width << std::endl;
+    //std::cout << "width : " << width << std::endl;
 
     if (bar >= offeringValue) {
 

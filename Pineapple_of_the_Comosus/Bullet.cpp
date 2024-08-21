@@ -99,6 +99,8 @@ void Bullet::Reset()
     explode->SetAnimation(1, false);
     explode->m_AnimationIndex = 1;
     bulletSprite->SetAnimation(0);
+
+    gameObject->transform->m_RelativeScale = { 1.f, 1.f };
     
 }
 
@@ -182,6 +184,9 @@ void Bullet::OnBurst(float _bombRange) {
     bulletSprite->SetAnimation(1, false);
     auto iter = gameObject->ownerScene->m_GameObjects.begin();
     
+    float scale = (_bombRange / 2) / 50.f;
+    gameObject->transform->m_RelativeScale = { scale ,scale };
+
     if(!isBurst){
         explode->SetAnimation(0, false);
 		explode->m_AnimationIndex = 0;
