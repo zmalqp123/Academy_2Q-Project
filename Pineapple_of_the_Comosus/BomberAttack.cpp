@@ -18,6 +18,7 @@ void BomberAttack::Update(float deltaTime)
 
 void BomberAttack::Exit()
 {
+
 }
 
 void BomberAttack::Attack()

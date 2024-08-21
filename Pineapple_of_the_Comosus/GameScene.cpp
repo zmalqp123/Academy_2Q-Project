@@ -1015,7 +1015,7 @@ void GameScene::Clear() {
 void GameScene::Update(float deltaTime) {
     __super::Update(deltaTime);
 
-    if (testPineApple->GetPineAppleHP() == 0)
+    if (testPineApple->GetPineAppleHP() <= 0)
     {
         SceneManager::GetInstance().ChangeScene("EndScene");
     }
