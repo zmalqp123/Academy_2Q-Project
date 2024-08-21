@@ -18,9 +18,11 @@ private:
     const float maxWaveTimer = 15.f;
     float waveTimer = 3.f;   // Wave 타이머
     int currentWave = 0;       // 현재 진행 중인 wave
-    static const int maxWave = 56; // 최대 wave 수
+    //static const int maxWave = 56; // 최대 wave 수
     
     float elapsedTime = 0.f;
+	float elapsedTime2 = 0.f;
+    bool isHowManyPushed = false;
 
     std::vector<WaveEnemyData> leftEnemyDatas;
     std::vector<WaveEnemyData> rightEnemyDatas;
@@ -35,6 +37,8 @@ public:
     GameObject* tutorial1;
     GameObject* tutorial2;
     GameObject* tutorial3;
+
+	GameObject* howManyLeft[13];
 	
 
 
@@ -55,6 +59,8 @@ public:
 	void PushingTutorial(int curWave, GameObject* Tuto);
 	void PullingTutorial(int curWave, GameObject* Tuto);
 
+    void PushingHowManyDay(int curWave);
+    void PullingHowManyDay(int curWave);
 
     bool IsFly(int id);
 

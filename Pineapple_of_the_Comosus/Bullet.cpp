@@ -98,6 +98,7 @@ void Bullet::Reset()
 	isBurst = false; 
     explode->SetAnimation(1, false);
     explode->m_AnimationIndex = 1;
+    bulletSprite->SetAnimation(0);
     
 }
 
@@ -141,6 +142,7 @@ void Bullet::OnBeginOverlap(Collider* pOwnedComponent, Collider* pOtherComponent
         if (penetratingPower <= 0) {
             
             if (bulletType == BulletType::burst) {
+				
                 OnBurst(bombRange);
             }
             else {
@@ -177,6 +179,7 @@ void Bullet::OnGround()
 }
 
 void Bullet::OnBurst(float _bombRange) {
+    bulletSprite->SetAnimation(1, false);
     auto iter = gameObject->ownerScene->m_GameObjects.begin();
     
     if(!isBurst){

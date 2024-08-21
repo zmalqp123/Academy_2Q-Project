@@ -429,6 +429,14 @@ void GameScene::Start() {
     waveSystem->tutorial2 = tutorial2Obj;
     waveSystem->tutorial3 = tutorial3Obj;
 
+    for (int i = 0; i < 13; i++) {
+        waveSystem->howManyLeft[i] = CreateGameObject<GameObject>();
+		auto howManyLeftImage = waveSystem->howManyLeft[i]->CreateComponent<SpriteRenderer>();
+		waveSystem->howManyLeft[i]->transform->SetSortingLayer(-2);
+		waveSystem->howManyLeft[i]->transform->pos.worldPosition = { 500.f,750.f };
+		howManyLeftImage->LoadTexture(L"../Resource/"+ std::to_wstring(37101+i*4) + L".png");
+    }
+
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가
     auto nightObj = CreateGameObject<GameObject>();
     nightSystem = nightObj->CreateComponent<DayNightCycle>();

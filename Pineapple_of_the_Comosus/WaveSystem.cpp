@@ -228,6 +228,45 @@ void WaveSystem::PullingTutorial(int curWave, GameObject* Tuto)
 	}
 }
 
+void WaveSystem::PushingHowManyDay(int curWave)
+{
+    if (currentWave == curWave && waveTimer > 0.f) {
+
+        if (elapsedTime > 0.66f)
+        {
+            elapsedTime = 0.66f;
+        }
+        float t1 = (0.66f - elapsedTime) / .66f;
+        float t2 = (elapsedTime) / .66f;
+        //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        howManyLeft[(curWave-1)/4]->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 420.f);
+        if (elapsedTime > 0.66f)
+        {   
+            isHowManyPushed = true;
+            return;
+        }
+    }
+	
+}
+
+void WaveSystem::PullingHowManyDay(int curWave)
+{
+    if (currentWave == curWave && waveTimer > 0.f) {
+        if (elapsedTime2 > 0.66f)
+        {
+            elapsedTime2 = 0.66f;
+        }
+        float t1 = (0.66f - elapsedTime2) / .66f;
+        float t2 = (elapsedTime2) / .66f;
+        //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        howManyLeft[(curWave-1)/4]->transform->pos.worldPosition.y = (t1 * 420.f) + (t2 * 712.f);
+        if (elapsedTime2 > 0.66f)
+        {
+            return;
+        }
+    }
+}
+
 bool WaveSystem::IsFly(int id)
 {
     if(id >= 30613 && id <= 30616)
@@ -237,10 +276,12 @@ bool WaveSystem::IsFly(int id)
 
 void WaveSystem::StartNextWave()
 {   
-    if (currentWave < maxWave)
+    if (islastWave() == false)
     {
         currentWave++;
         elapsedTime = 0.f;
+		elapsedTime2 = 0.f;
+		isHowManyPushed = false;
         std::cout << "current wave: " << currentWave << std::endl;
         LoadWaveData();
         waveTimer = maxWaveTimer;  // 타이머 초기화 //현재 15초
@@ -283,6 +324,15 @@ void WaveSystem::Update(float deltaTime)
 	PullingTutorial(2, tutorial1);
     PullingTutorial(3, tutorial2);
     PullingTutorial(4, tutorial3);
+    if (!isHowManyPushed) {
+        PushingHowManyDay(currentWave);
+    }
+
+    if (waveTimer <= 10.f) {
+		elapsedTime2 += deltaTime;
+        PullingHowManyDay(currentWave);
+    } 
+    
     Generator();
 
     // 태양 이동
