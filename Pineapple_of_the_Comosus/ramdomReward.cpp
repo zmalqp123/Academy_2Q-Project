@@ -28,9 +28,10 @@ void ramdomReward::setValue()
             UIoff();  
             GameTime::GetInstance().SetTimeScale(1.f);
             });
-        Uis[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());
-        TextNameUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].reward;
-        TextStatUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].rewarOption;
+        btns[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());
+       /* Uis[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());*/
+        //TextNameUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].reward;
+        //TextStatUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].rewarOption;
     }
     btns[4]->AddListener([this]() {
       
@@ -48,18 +49,19 @@ void ramdomReward::UIon()
     {
         element->gameObject->isActive = true;
     }
-    for (auto element : Uis)
+   
+    for (auto element : TextNameUis)
     {
         element->gameObject->isActive = true;
     }
-    for (auto element : TextNameUis)
+    /*for (auto element : Uis)
     {
         element->gameObject->isActive = true;
     }
     for (auto element : TextStatUis)
     {
         element->gameObject->isActive = true;
-    }
+    }*/
     for (auto element : bgUi)
     {
         element->isActive = true;
@@ -73,18 +75,19 @@ void ramdomReward::UIoff()
     {
         element->gameObject->isActive = false;
     }
-    for (auto element : Uis)
-    {
-        element->gameObject->isActive = false;
-    }
     for (auto element : TextNameUis)
     {
         element->gameObject->isActive = false;
     }
-    for (auto element : TextStatUis)
+   /* for (auto element : Uis)
     {
         element->gameObject->isActive = false;
     }
+    
+    for (auto element : TextStatUis)
+    {
+        element->gameObject->isActive = false;
+    }*/
     for (auto element : bgUi)
     {
         element->isActive = false;
