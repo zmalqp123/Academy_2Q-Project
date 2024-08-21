@@ -133,7 +133,7 @@ void GameScene::Start() {
 
     // comosus light reward
     DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34201_강력해진 신호.png",L"강력해진 신호",L"코모서스 애니메이션x*10.f +2",[dynamicData]() {dynamicData->rewardPineAppleStat.comosusLight += 10.f; } });
-    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34202_잦아지는 응답.png",L"잦아지는 응답",L"offeringmultiply -=0.5",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.5f; } });
+    DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34202_잦아지는 응답.png",L"잦아지는 응답",L"offeringmultiply -=0.5",[dynamicData]() {dynamicData->rewardPineAppleStat.offeringMultiply -= 0.05f; } });
 
     // Crossbow tower reward
     DataManager.harvestPopupStruct.push_back({ L"../Resource/수확보상팝업/34301_석궁 피해량.png",L"석궁피해량",L"공격력 +2",[dynamicData]() {dynamicData->rewardTurretStat[TurretType::Crossbow].damage += 2.f; } });
@@ -682,6 +682,17 @@ void GameScene::Start() {
     pineApple->expbar = mpBar;
     mpBar->ImageRender = mpBarImage;
     mpBarImage->LoadTexture(L"../Resource/30402_02.png");
+
+    // harvestAbleBar {385.f,7.f} ,{1200.f,27.f} 0%~100%
+    auto harvestBarObj = CreateGameObject<GameObject>();
+    auto harvestBarAnim = harvestBarObj->CreateComponent<SpriteUIAnimation>();
+    harvestBarObj->transform->SetParent(mpBarObj->transform);
+    harvestBarObj->transform->type = Type::Ui;
+    harvestBarObj->transform->pos.rectposition = { {385.f,7.f} ,{1200.f,27.f} };
+    harvestBarAnim->LoadTexture(L"../Resource/30407.png");
+    harvestBarAnim->LoadAnimationAsset(L"HarvestAbleBar");
+    harvestBarAnim->SetAnimation(0, false);
+    pineApple->harvestableAnim = harvestBarAnim;
 
     // 골드 Ui
     auto GoldObj = CreateGameObject<GameObject>();

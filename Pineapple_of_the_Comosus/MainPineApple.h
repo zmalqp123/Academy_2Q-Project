@@ -12,11 +12,11 @@ class DynamicData;
 class SpriteAnimation;
 class FiniteStateMachine;
 class ramdomReward;
-class FiniteStateMachine;
 class Turret;
 class TextUIRenderer;
 class WaveSystem;
 class gamePopup;
+class SpriteUIAnimation;
 class MainPineApple : public Component
 {
 	friend class ComosusPhase1;
@@ -90,6 +90,9 @@ public:
 	void UpdateTurretImage();
 	bool IsMaxEXP();
 	void AddExp(float exp);
+
+	SpriteUIAnimation* harvestableAnim;
+	void UpdateHarvestableAnim();
 
 	BulletFactory* bulletFactory;
 };

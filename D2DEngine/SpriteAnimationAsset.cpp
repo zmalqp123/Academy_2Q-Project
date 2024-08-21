@@ -184,6 +184,11 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(0, L"../Resource/30705.csv");
 		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
+	if (FilePath == std::wstring(L"HarvestAbleBar"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_2.txt");
+	}
 	return true; 
 }
 

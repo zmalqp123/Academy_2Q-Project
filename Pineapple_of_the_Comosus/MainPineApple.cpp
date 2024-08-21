@@ -7,6 +7,7 @@
 #include "../D2DEngine/GameTime.h"
 #include "../D2DEngine/TextUIRenderer.h"
 #include "../D2DEngine/Button.h"
+#include "../D2DEngine/SpriteUIAnimation.h"
 #include "Mpbar.h"
 #include "Hpbar.h"
 #include "DynamicData.h"
@@ -199,6 +200,8 @@ void MainPineApple::Update(float deltaTime)
 
     }
 
+    UpdateHarvestableAnim();
+
     // harvest open
     if (HarvestAble() && rewardData->isHarvest == false)
     {
@@ -240,4 +243,29 @@ void MainPineApple::AddExp(float exp)
     currentEXP += exp;
     if (currentEXP > maxEXP)
         currentEXP = maxEXP;
+}
+
+void MainPineApple::UpdateHarvestableAnim()
+{
+    float bar = expbar->ImageRender->slideBar;
+
+    float offeringValue = offeringMultiply + rewardData->GetRewardPineAppleStat().offeringMultiply;
+    //{ 385.f, 7.f }, { 1200.f,27.f }
+    float width = 1200.f - 385.f;
+    width *= offeringValue;
+    width += 385.f;
+
+    harvestableAnim->gameObject->transform->pos.rectposition.leftBottom.x = width;
+    std::cout << "width : " << width << std::endl;
+
+    if (bar >= offeringValue) {
+        if (bar >= 1.f) {
+            // max
+            harvestableAnim->SetAnimation(1, false, true);
+        }
+        else {
+            // 수확가능하지만 max아님
+            harvestableAnim->SetAnimation(0, false);
+        }
+    }
 }
