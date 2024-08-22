@@ -290,6 +290,7 @@ void MainPineApple::AddExp(float exp)
 
     float offeringValue = offeringMultiply + rewardData->GetRewardPineAppleStat().offeringMultiply;
     offeringValue *= maxEXP;
+
     if(prev < offeringValue  && currentEXP >= offeringValue){
         // 수확가능시 사운드
         SoundManager::GetInstance().PlaySoundW(L"HarvestOn_Se");
@@ -311,12 +312,13 @@ void MainPineApple::UpdateHarvestableAnim()
     float bar = expbar->ImageRender->slideBar;
 
     float offeringValue = offeringMultiply + rewardData->GetRewardPineAppleStat().offeringMultiply;
+
     //{ 385.f, 7.f }, { 1200.f,27.f }
     float width = 1200.f - 385.f;
     width *= offeringValue;
     width += 385.f;
 
-    /*if (std::abs(offeringValue - prevOfferingValue) > 0.01f) {
+    if (std::abs(offeringValue - prevOfferingValue) > 0.01f) {
         std::cout << "수확가능 구간 변경됨" << std::endl;
         prevOfferingValue = offeringValue;
 
@@ -356,7 +358,8 @@ void MainPineApple::UpdateHarvestableAnim()
             harvestableAnim->LoadTexture(L"../Resource/30407.png");
             harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar");
         }
-    }*/
+        harvestableAnim->SetAnimation(0, false);
+    }
 
     harvestableAnim->gameObject->transform->pos.rectposition.leftBottom.x = width;
     //std::cout << "width : " << width << std::endl;

@@ -10,6 +10,7 @@
 #pragma comment(lib, "dwrite.lib")
 #pragma comment(lib,"windowscodecs.lib")
 #include <dxgi1_4.h>
+#pragma comment(lib, "dxgi.lib")
 //#include <string>
 
 class D2DRenderer

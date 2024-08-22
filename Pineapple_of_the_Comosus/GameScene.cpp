@@ -335,7 +335,7 @@ void GameScene::Start() {
     // 사운드 초기화 및 로드
     SoundManager::GetInstance().LoadSound(L"Morning_Bgm", L"../Media/6_Sound/scene3/Bgm/Morning_Bgm.wav");
     SoundManager::GetInstance().SetVolume(L"Morning_Bgm", 0.5f);
-    SoundManager::GetInstance().PlaySoundW(L"Morning_Bgm", false);
+    SoundManager::GetInstance().PlaySoundW(L"Morning_Bgm", true);
 
     // 사운드 초기화 및 로드
 
@@ -577,7 +577,7 @@ void GameScene::Start() {
     for (int i = 0; i < 13; i++) {
         waveSystem->howManyLeft[i] = CreateGameObject<GameObject>();
 		auto howManyLeftImage = waveSystem->howManyLeft[i]->CreateComponent<SpriteRenderer>();
-		waveSystem->howManyLeft[i]->transform->SetSortingLayer(-2);
+		waveSystem->howManyLeft[i]->transform->SetSortingLayer(-1);
 		waveSystem->howManyLeft[i]->transform->pos.worldPosition = { 500.f,750.f };
 		int k = 37105 + i * 4;
 		howManyLeftImage->LoadTexture(L"../Resource/"+ std::to_wstring(k) + L".png");
@@ -1365,11 +1365,11 @@ void GameScene::Update(float deltaTime) {
         // 5번을 클릭할 때 마다 SoundManager::GetInstance().LoadSound(L"backgroundMusic", L"../Media/hello.mp3"); 사운드가 
         // 기존의 사운드는 그대로 출력되고 새 사운드가 중복으로 출력되게 하려고 하는데, 어떻게 하면 좋을까?
          // 새로운 고유 이름으로 사운드 로드
-        std::wstring soundName = L"gimicSuccess";
-        SoundManager::GetInstance().LoadSound(soundName, L"../Media/gimicSuccess.mp3");
+        //std::wstring soundName = L"gimicSuccess";
+        //SoundManager::GetInstance().LoadSound(soundName, L"../Media/gimicSuccess.mp3");
 
-        // 로드된 사운드를 재생
-        SoundManager::GetInstance().PlaySoundW(soundName, true);
+        //// 로드된 사운드를 재생
+        //SoundManager::GetInstance().PlaySoundW(soundName, true);
     }
 
     if (InputManager::GetInstance().IsKeyDown('6')) {

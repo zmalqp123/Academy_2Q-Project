@@ -1,6 +1,5 @@
 ﻿#include "pch.h"
 #include "D2DRenderer.h"
-#pragma comment(lib, "Dxgi.lib")
 
 bool D2DRenderer::InitDirect2D(HWND hWnd)
 {
