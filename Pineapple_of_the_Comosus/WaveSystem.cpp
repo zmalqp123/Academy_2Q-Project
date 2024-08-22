@@ -361,6 +361,37 @@ void WaveSystem::StartNextWave()
         LoadWaveData();
         waveTimer = maxWaveTimer;  // 타이머 초기화 //현재 15초
         //SpawnWave();        // 새로운 wave 스폰
+
+        if (currentWave == 1) {
+            comosusOn1->isActive = true;
+        }
+        if (currentWave == 9) {
+            comosusOn1->isActive = false;
+            comosusOn2->isActive = true;
+        }
+        if (currentWave == 17) {
+            comosusOn2->isActive = false;
+            comosusOn3->isActive = true;
+        }
+        if (currentWave == 25) {
+            comosusOn3->isActive = false;
+            comosusOn4->isActive = true;
+        }
+        if (currentWave == 33) {
+            comosusOn4->isActive = false;
+            comosusOn5->isActive = true;
+        }
+        if (currentWave == 41) {
+            comosusOn5->isActive = false;
+            comosusOn6->isActive = true;
+        }
+        if (currentWave == 49) {
+            comosusOn6->isActive = false;
+        }
+        if (currentWave == 53) {
+            comosusOn7->isActive = true;
+            comosus7posY = comosusOn7->transform->m_WorldTransform.dy;
+        }
     }
     // maxWave에 도달했을 경우 추가적인 처리 필요 (게임 종료 또는 루프 등)
 }
@@ -380,6 +411,13 @@ void WaveSystem::Update(float deltaTime)
         gameover->victoryUIon();
     }*/
    
+    if (comosusOn7->isActive == true) {
+        comosus7Timer += deltaTime;
+        if (comosus7Timer > 1.f) comosus7Timer = 1.f;
+
+        comosusOn7->transform->pos.worldPosition.y = (1.f - comosus7Timer) * comosus7posY;
+    }
+
 
     // 웨이브 타이머 감소
     waveTimer -= deltaTime;

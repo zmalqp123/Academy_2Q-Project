@@ -42,6 +42,8 @@
 
 MainPineApple* testPineApple = nullptr;
 gamePopup* gameover = nullptr;
+WaveSystem* testWave = nullptr;
+
 GameScene::GameScene() {
     std::cout << "GameScene Constructor" << std::endl;
 }
@@ -527,6 +529,7 @@ void GameScene::Start() {
     // 웨이브 시스템
     auto waveObj = CreateGameObject<GameObject>();
     waveSystem = waveObj->CreateComponent<WaveSystem>();
+    testWave = waveSystem;
     waveSystem->scene = this;
     waveSystem->bulletFactory = bulletFactory;
     waveSystem->mainPineApple = GameManager->pineApple;
@@ -1206,7 +1209,62 @@ void GameScene::Start() {
         SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
     });
 
-       
+    auto comosusOn1 = CreateGameObject<GameObject>();
+    auto comosusOn2 = CreateGameObject<GameObject>();
+    auto comosusOn3 = CreateGameObject<GameObject>();
+    auto comosusOn4 = CreateGameObject<GameObject>();
+    auto comosusOn5 = CreateGameObject<GameObject>();
+    auto comosusOn6 = CreateGameObject<GameObject>();
+    auto comosusOn7 = CreateGameObject<GameObject>();
+
+    auto comosusOnSpr1 = comosusOn1->CreateComponent<SpriteRenderer>();
+    auto comosusOnSpr2 = comosusOn2->CreateComponent<SpriteRenderer>();
+    auto comosusOnSpr3 = comosusOn3->CreateComponent<SpriteRenderer>();
+    auto comosusOnSpr4 = comosusOn4->CreateComponent<SpriteRenderer>();
+    auto comosusOnSpr5 = comosusOn5->CreateComponent<SpriteRenderer>();
+    auto comosusOnSpr6 = comosusOn6->CreateComponent<SpriteRenderer>();
+    auto comosusOnSpr7 = comosusOn7->CreateComponent<SpriteRenderer>();
+
+    comosusOnSpr1->LoadTexture(L"../Resource/31301.png");
+    comosusOnSpr2->LoadTexture(L"../Resource/31302.png");
+    comosusOnSpr3->LoadTexture(L"../Resource/31303.png");
+    comosusOnSpr4->LoadTexture(L"../Resource/31304.png");
+    comosusOnSpr5->LoadTexture(L"../Resource/31305.png");
+    comosusOnSpr6->LoadTexture(L"../Resource/31306.png");
+    comosusOnSpr7->LoadTexture(L"../Resource/31308.png");
+
+    comosusOn1->transform->SetSortingLayer(-16);
+    comosusOn2->transform->SetSortingLayer(-16);
+    comosusOn3->transform->SetSortingLayer(-16);
+    comosusOn4->transform->SetSortingLayer(-16);
+    comosusOn5->transform->SetSortingLayer(-16);
+    comosusOn6->transform->SetSortingLayer(-16);
+    comosusOn7->transform->SetSortingLayer(-2);
+
+    comosusOn1->transform->pos.worldPosition = { 462.f, 391.f };
+    comosusOn2->transform->pos.worldPosition = { 621, 343 };
+    comosusOn3->transform->pos.worldPosition = { 135, 294 };
+    comosusOn4->transform->pos.worldPosition = { -743,210 };
+    comosusOn5->transform->pos.worldPosition = { -318, 0 };
+    comosusOn6->transform->pos.worldPosition = { -541,200 };
+    comosusOn7->transform->pos.worldPosition = { 0,-1840 };
+    
+    waveSystem->comosusOn1 = comosusOn1;
+    waveSystem->comosusOn2 = comosusOn2;
+    waveSystem->comosusOn3 = comosusOn3;
+    waveSystem->comosusOn4 = comosusOn4;
+    waveSystem->comosusOn5 = comosusOn5;
+    waveSystem->comosusOn6 = comosusOn6;
+    waveSystem->comosusOn7 = comosusOn7;
+
+    comosusOn1->isActive = false;
+    comosusOn2->isActive = false;
+    comosusOn3->isActive = false;
+    comosusOn4->isActive = false;
+    comosusOn5->isActive = false;
+    comosusOn6->isActive = false;
+    comosusOn7->isActive = false;
+
     // 수확 버튼 클릭시
 
     //HarvestbtnImage->AddListener([pineApple]() {pineApple->Harvest(); });//[지역변수](매개변수){기능}
@@ -1274,6 +1332,9 @@ void GameScene::Update(float deltaTime) {
 
     if (InputManager::GetInstance().IsKeyDown('6')) {
         testPineApple->AddExp(50.f);
+    }
+    if (InputManager::GetInstance().IsKeyDown('7')) {
+        testWave->StartNextWave();
     }
 
     SoundManager::GetInstance().Update();
