@@ -50,7 +50,13 @@ public:
 
 	GameObject* howManyLeft[13];
 	
-
+    GameObject* comosusOn1;
+    GameObject* comosusOn2;
+    GameObject* comosusOn3;
+    GameObject* comosusOn4;
+    GameObject* comosusOn5;
+    GameObject* comosusOn6;
+    GameObject* comosusOn7;
 
     Scene* scene = nullptr;
     gamePopup* gameover;
@@ -84,8 +90,12 @@ public:
 
     WaveSystem();
     virtual ~WaveSystem(); // 소멸자 선언
-private:
     void StartNextWave();          // 다음 wave로 넘어가기
+
+    float comosus7Timer = 0.f;
+    float comosus7posY = 0.f;
+
+private:
 
 };
 
