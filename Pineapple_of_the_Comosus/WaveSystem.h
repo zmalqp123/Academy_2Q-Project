@@ -44,6 +44,9 @@ public:
     GameObject* tutorial4;
 	GameObject* tutorial5;
 	GameObject* tutorial6;
+    GameObject* tutorial17;
+    GameObject* tutorial53;
+    GameObject* tutorial54;
 
 	GameObject* tutorialBottom;
     GameObject* tutorial2Bottom;

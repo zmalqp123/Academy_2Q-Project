@@ -440,6 +440,9 @@ void WaveSystem::Update(float deltaTime)
 		PushingTutorial(4, tutorial4);
         PushingTutorial(5, tutorial5);
 		PushingTutorial(6, tutorial6);
+		PushingTutorial(17, tutorial17);
+        PushingTutorial(53, tutorial53);
+        PushingTutorial(54, tutorial54);
         PushingBottom2Tutorial(4);
         
         
@@ -447,6 +450,9 @@ void WaveSystem::Update(float deltaTime)
 		PullingTutorial(5, tutorial4);
         PullingTutorial(6, tutorial5);
 		PullingTutorial(7, tutorial6);
+		PullingTutorial(18, tutorial17);
+        PullingTutorial(54, tutorial53);
+        PullingTutorial(55, tutorial54);
         PullingBottom2Tutorial(5);
 
     }
