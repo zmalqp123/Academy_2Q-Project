@@ -61,7 +61,6 @@ void Bullet::Update(float deltaTime)
     }
     OnGround();
     if (bulletType == BulletType::burst && isBursted()) {
-        gameObject->isActive = false;
         bulletFactory->ReturnBulletToPool(this);
     }
     
