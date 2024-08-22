@@ -3,6 +3,7 @@
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/SpriteAnimation.h"
+#include "../D2DEngine/SoundManager.h"
 #include "DataManager.h"
 #include "DynamicData.h"
 #include "Turret.h"
@@ -41,6 +42,8 @@ void PineAppleTile::SetActivateTurret(int typeID)
 	auto spr = turret->GetComponent<SpriteAnimation>();
 	spr->LoadTexture(data->imagePath);
 	spr->LoadAnimationAsset(data->csvPath);
+
+	SoundManager::GetInstance().PlaySoundW(L"NewTurretInstalling_Se");
 
 	auto turretCom = turret->GetComponent<Turret>();
 	turretCom->turretType = (TurretType)typeID;

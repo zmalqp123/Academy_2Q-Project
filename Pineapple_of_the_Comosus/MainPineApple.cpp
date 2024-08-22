@@ -56,6 +56,12 @@ void MainPineApple::pineAppleDamageHP(int damage)
         //std::cout << "start HP : " << HP << std::endl;
         HP -= damage;
         std::cout << HP << std::endl;
+
+        float randomvalue = rand() % 2;
+        if (randomvalue == 0) {
+            SoundManager::GetInstance().PlaySoundW(L"BooingStands_Se");
+        }
+
         //std::cout << "later HP : " << HP << std::endl;
         if (HP < 0.f) {
             HP = 0;

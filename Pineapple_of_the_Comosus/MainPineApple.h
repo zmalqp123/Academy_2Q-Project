@@ -20,6 +20,7 @@ class SpriteUIAnimation;
 class MainPineApple : public Component
 {
 	friend class ComosusPhase1;
+	friend class ComosusPhase2;
 	int gold = 300;
 	int LV = 1;
 	float maxHP = 100;			// ���ξ��� �ִ�ü�� 
@@ -27,7 +28,7 @@ class MainPineApple : public Component
 	float currentEXP = 0;		// ���� ���ξ����� ����ġ
 	float maxEXP = 100;			// ���ξ��� �ִ� ����ġ ��
 	float solarGain = 1.0f;		// ���� ���ξ����� �ʴ� ��Ȯ����ġ��
-	int morningValue = 10;		// �� �ð��� ���� ��
+	int morningValue = 1;		// �� �ð��� ���� ��
 	int nightValue = 0;			// �� �ð��� ���� ��
 	float killMultiply = 1.0;	// ���� óġ�� ����ġ ����. currentExp = currentExp + ���� óġ exp * killMultiply��
 	float offeringMultiply = 0.75; // �⺻ 0.75 ����,  75�� ä���� �� ��밡�� 

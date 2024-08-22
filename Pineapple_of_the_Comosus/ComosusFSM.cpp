@@ -13,6 +13,7 @@
 #include "../D2DEngine/SpriteRenderer.h"
 #include "../D2DEngine/TextUIRenderer.h"
 #include "../D2DEngine/BoxCollider.h"
+#include "../D2DEngine/SoundManager.h"
 #include "ramdomReward.h"
 // Phase Defalue
 void ComosusPhaseDefault::Enter()
@@ -43,6 +44,14 @@ void ComosusPhase1::OnComosusDamage()
 void ComosusPhase1::Enter()
 {
 	isMaxExp = pineApple->IsMaxEXP();
+
+	SoundManager::GetInstance().PlaySoundW(L"LightOfComos'us_Se");
+
+	float randomvalue = rand() % 2;
+	if (randomvalue == 0) {
+		SoundManager::GetInstance().PlaySoundW(L"SurprisedStands_Se");
+		std::cout << "50light" << std::endl;
+	}
 
 	phase1Duration = 0.f;
 	fadeOutDutation = 0.f;
@@ -127,7 +136,7 @@ void ComosusPhase1::Exit()
 	}
 	cameraShaker->ShakeOnCamera(false);
 
-	if (pineApple->LV == 5)
+	if (pineApple->LV == 6)
 	{
 		//SpawnNewPineapple();
 		auto spr = pineApple->gameObject->GetComponent<SpriteRenderer>();
@@ -169,8 +178,14 @@ void ComosusPhase2::Enter()
 
 void ComosusPhase2::Update(float deltaTime)
 {
+
 	float prevTime = fallDuration;
 	fallDuration += deltaTime;
+	if (IsTiming(prevTime, fallDuration, .3f)) {
+		if (pineApple->LV == 6 || pineApple->LV == 11) {
+			SoundManager::GetInstance().PlaySoundW(L"NewPineappleAppears_Se");
+		}
+	}
 	if (IsTiming(prevTime, fallDuration, 2.0f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 550.f;
 	}
