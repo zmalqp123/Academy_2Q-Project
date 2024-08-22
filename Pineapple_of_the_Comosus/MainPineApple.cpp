@@ -316,11 +316,52 @@ void MainPineApple::UpdateHarvestableAnim()
     width *= offeringValue;
     width += 385.f;
 
+    /*if (std::abs(offeringValue - prevOfferingValue) > 0.01f) {
+        std::cout << "수확가능 구간 변경됨" << std::endl;
+        prevOfferingValue = offeringValue;
+
+        if (std::abs(prevOfferingValue - 0.75f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_01.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar75");
+        }
+        else if (std::abs(prevOfferingValue - 0.70f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_02.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar70");
+        }
+        else if (std::abs(prevOfferingValue - 0.65f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_03.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar65");
+        }
+        else if (std::abs(prevOfferingValue - 0.60f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_04.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar60");
+        }
+        else if (std::abs(prevOfferingValue - 0.55f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_05.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar55");
+        }
+        else if (std::abs(prevOfferingValue - 0.50f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_06.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar50");
+        }
+        else if (std::abs(prevOfferingValue - 0.45f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_07.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar45");
+        }
+        else if (std::abs(prevOfferingValue - 0.40f) < 0.01f) {
+            harvestableAnim->LoadTexture(L"../Resource/30407_08.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar40");
+        }
+        else {
+            harvestableAnim->LoadTexture(L"../Resource/30407.png");
+            harvestableAnim->LoadAnimationAsset(L"HarvestAbleBar");
+        }
+    }*/
+
     harvestableAnim->gameObject->transform->pos.rectposition.leftBottom.x = width;
     //std::cout << "width : " << width << std::endl;
 
     if (bar >= offeringValue) {
-
         if (bar >= 1.f) {
             // max
             harvestableAnim->SetAnimation(1, false, true);

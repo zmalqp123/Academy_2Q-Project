@@ -34,6 +34,8 @@ class MainPineApple : public Component
 	float offeringMultiply = 0.75; // �⺻ 0.75 ����,  75�� ä���� �� ��밡�� 
 	// float offeringValue;
 
+	float prevOfferingValue = 0.f;
+
 	float dieTime = 0.f;
 	bool isDie = false;
 

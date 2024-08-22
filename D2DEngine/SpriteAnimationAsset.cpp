@@ -101,11 +101,17 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	if (FilePath == std::wstring(L"30309"))
 	{
 		LoadAnimationFromCSV(0, L"../Resource/30309.txt");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
 	if (FilePath == std::wstring(L"30318")) 
 	{
 		LoadAnimationFromCSV(0, L"../Resource/30318.txt");
 		LoadAnimationFromCSV(1, L"../Resource/30318-1.txt");
+	}
+	if (FilePath == std::wstring(L"30319")) 
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30319.txt");
+		LoadAnimationFromCSV(1, L"../Resource/empty.txt");
 	}
 	if (FilePath == std::wstring(L"Crossbow"))
 	{
@@ -194,6 +200,46 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	{
 		LoadAnimationFromCSV(0, L"../Resource/30407_1.txt");
 		LoadAnimationFromCSV(1, L"../Resource/30407_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar75"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_1_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_1_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar70"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_2_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_2_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar65"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_3_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_3_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar60"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_4_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_4_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar55"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_5_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_5_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar50"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_6_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_6_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar45"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_7_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_7_2.txt");
+	}
+	if (FilePath == std::wstring(L"HarvestAbleBar40"))
+	{
+		LoadAnimationFromCSV(0, L"../Resource/30407_8_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/30407_8_2.txt");
 	}
 	return true; 
 }

@@ -75,15 +75,16 @@ Bullet* BulletFactory::GetBulletFromPool()
     
 	SpriteAnimation* bulletSprite = bullet->gameObject->GetComponent<SpriteAnimation>();
 	SpriteAnimation* explode = bullet->explode;
-    if (bullet->id >= 30521 && bullet->id <= 30525) { //터렛 아이디가 박격포일때
-        explode->LoadTexture(L"../Resource/30318.png");
-        explode->LoadAnimationAsset(L"30318");
+    //std::cout << "bulletid: " << bullet->id << std::endl;
+    //if (bullet->id >= 30521 && bullet->id <= 30525) { //터렛 아이디가 박격포일때
+    //    explode->LoadTexture(L"../Resource/30318.png");
+    //    explode->LoadAnimationAsset(L"30318");
 
-    }
-    else if (bullet->id >= 30541 && bullet->id <= 30545) { //터렛 아이디가 슬로우타워일때
-        explode->LoadTexture(L"../Resource/30318.png");
-        explode->LoadAnimationAsset(L"30318");
-    }
+    //}
+    //else if (bullet->id >= 30541 && bullet->id <= 30545) { //터렛 아이디가 슬로우타워일때
+    //    explode->LoadTexture(L"../Resource/30318.png");
+    //    explode->LoadAnimationAsset(L"30318");
+    //}
     m_BulletPool.pop_back();
     return bullet;
 }

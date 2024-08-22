@@ -33,6 +33,14 @@ void Turret::Update(float delta)
         Shoot();
         timeSinceLastShot -= shootTimer;  // 타이머 초기화
     }
+
+    reboundTime += delta;
+    if (reboundTime >= 1.f) reboundTime = 1.f;
+
+    float lerpX = rebound.x * (1.f - reboundTime);
+    float lerpY = rebound.y * (1.f - reboundTime);
+
+    gameObject->transform->pos.worldPosition = { lerpX, lerpY };
 }
 
 void Turret::Shoot()
@@ -56,6 +64,10 @@ void Turret::Shoot()
             auto rewardData = dynamicData->GetRewardTurretData(turretType);
             //float bulletSpeed = 1000.0f;
             //bullet->Init(bulletSpeed, shootDirection);
+
+            reboundTime = 0.f;
+            rebound = shootDirection * float(data->damage + rewardData.damage) * -1.f;
+
             bullet->SetAttackValue(shootDirection,
                 data->id,
                 data->burstRange + rewardData.burstRange,
@@ -84,6 +96,9 @@ void Turret::Shoot()
             case TurretType::Cannon:
                 SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
 
+                bullet->explode->LoadTexture(L"../Resource/30318.png");
+                bullet->explode->LoadAnimationAsset(L"30318");
+
                 spr->LoadAnimationAsset(L"30308");
                 spr->SetAnimation(0, false);
                 break;
@@ -95,6 +110,9 @@ void Turret::Shoot()
                 break;
             case TurretType::SlowWand:
                 SoundManager::GetInstance().PlaySoundW(L"SlowWandFire_Se", false);
+
+                bullet->explode->LoadTexture(L"../Resource/30319.png");
+                bullet->explode->LoadAnimationAsset(L"30319");
 
                 spr->LoadAnimationAsset(L"30309");
                 spr->SetAnimation(0, false);

@@ -31,12 +31,18 @@ void CameraShake::Update(float deltaTime)
 
 	else {
 		//마우스 스크롤 기능
-		if (InputManager::GetInstance().GetMousePosition().x > 0.f && InputManager::GetInstance().GetMousePosition().x < 100.f && gameObject->transform->pos.worldPosition.x > -600.f) {
+		if (InputManager::GetInstance().GetMousePosition().x >= -10.f && InputManager::GetInstance().GetMousePosition().x <= 100.f && gameObject->transform->pos.worldPosition.x > -600.f) {
 			gameObject->transform->pos.worldPosition.x -= 1000.f * deltaTime;
+
+			if (gameObject->transform->pos.worldPosition.x <= -600.f)
+				gameObject->transform->pos.worldPosition.x = -600.f;
 		}
 
-		if (InputManager::GetInstance().GetMousePosition().x < 1920.f && InputManager::GetInstance().GetMousePosition().x > 1820.f && gameObject->transform->pos.worldPosition.x < 600.f) {
+		if (InputManager::GetInstance().GetMousePosition().x <= 1930.f && InputManager::GetInstance().GetMousePosition().x >= 1820.f && gameObject->transform->pos.worldPosition.x < 600.f) {
 			gameObject->transform->pos.worldPosition.x += 1000.f * deltaTime;
+
+			if (gameObject->transform->pos.worldPosition.x >= 600.f)
+				gameObject->transform->pos.worldPosition.x = 600.f;
 		}
 
 		if (InputManager::GetInstance().IsKeyUp(VK_SPACE)) {

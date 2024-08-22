@@ -38,6 +38,9 @@ public:
 	Turret() = default;
 	virtual ~Turret() = default;
 
+	Vector2 rebound = { 0.f, 0.f };
+	float reboundTime = 0.f;
+
 	void virtual Init() override;
 	void virtual Update(float delta) override;
 

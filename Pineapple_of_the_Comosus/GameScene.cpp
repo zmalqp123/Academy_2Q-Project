@@ -456,6 +456,7 @@ void GameScene::Start() {
 
     // 메뉴바
     auto uiObj = CreateGameObject<GameObject>();
+    uiObj->transform->SetSortingLayer(-1);
     auto uiImage = uiObj->CreateComponent<ImageUIRenderer>();
     uiObj->transform->type = Type::Ui;
     uiObj->transform->pos.rectposition = { {180,0} ,{1560 + 180,200} };
@@ -823,24 +824,36 @@ void GameScene::Start() {
     btn[5]->AddListener([GameManager, t6]() {GameManager->StartBatch(t6->GetIndex()); SoundManager::GetInstance().PlaySoundW(L"clickbtn", false); });
     // HP 및 MP 바 UI
     
+    auto hpBarObjBackground = CreateGameObject<GameObject>();
+    auto hpBarImagebg = hpBarObjBackground->CreateComponent<ImageUIRenderer>();
+    hpBarObjBackground->transform->SetParent(uiObj->transform);
+    hpBarObjBackground->transform->type = Type::Ui;
+    hpBarObjBackground->transform->pos.rectposition = { {20.f,10.f} ,{20.f + 820.f,30.f} };
+    hpBarImagebg->LoadTexture(L"../Resource/30402.png");
+    auto expBarObjBackground = CreateGameObject<GameObject>();
+    auto expBarImagebg = expBarObjBackground->CreateComponent<ImageUIRenderer>();
+    expBarObjBackground->transform->SetParent(uiObj->transform);
+    expBarObjBackground->transform->type = Type::Ui;
+    expBarObjBackground->transform->pos.rectposition = { {20.f,35.f} ,{20.f + 820.f,55.f} };
+    expBarImagebg->LoadTexture(L"../Resource/30402.png");
+
     // hpbar
     auto hpBarObj = CreateGameObject<GameObject>();
     auto hpBarImage = hpBarObj->CreateComponent<ImageUIRenderer>();
     hpBarObj->transform->SetParent(uiObj->transform);
     hpBarObj->transform->type = Type::Ui;
-    hpBarObj->transform->pos.rectposition = { {20.f,0.f} ,{20.f + 820.f,20.f} };
+    hpBarObj->transform->pos.rectposition = { {20.f,10.f} ,{20.f + 820.f,30.f} };
     hpBarUi = hpBarObj->CreateComponent<Hpbar>();
     pineApple->hpbar = hpBarUi;
     hpBarUi->ImageRender = hpBarImage;
     hpBarImage->LoadTexture(L"../Resource/30403_02.png");
-
 
     // expbar
     auto mpBarObj = CreateGameObject<GameObject>();
     auto mpBarImage = mpBarObj->CreateComponent<ImageUIRenderer>();
     mpBarObj->transform->SetParent(uiObj->transform);
     mpBarObj->transform->type = Type::Ui;
-    mpBarObj->transform->pos.rectposition = { {20.f,20.f} ,{20.f + 820.f,40.f} };
+    mpBarObj->transform->pos.rectposition = { {20.f,35.f} ,{20.f + 820.f,55.f} };
     auto mpBar = mpBarObj->CreateComponent<Mpbar>();
     pineApple->expbar = mpBar;
     mpBar->ImageRender = mpBarImage;
