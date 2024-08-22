@@ -105,5 +105,8 @@ public:
 
 	BulletFactory* bulletFactory;
 	bool isWin = false;
+
+	TextUIRenderer* hpText;
+	TextUIRenderer* expText;
 };
 

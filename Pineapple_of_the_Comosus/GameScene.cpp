@@ -857,6 +857,19 @@ void GameScene::Start() {
     hpBarUi->ImageRender = hpBarImage;
     hpBarImage->LoadTexture(L"../Resource/30403_02.png");
 
+    auto hpTextObj = CreateGameObject<GameObject>();
+    hpTextObj->transform->SetSortingLayer(1);
+    auto hpText = hpTextObj->CreateComponent<TextUIRenderer>();
+    hpText->SetFontSize(22.f);
+    hpText->SetFont(L"TAEBAEK font TTF");
+    hpTextObj->transform->SetParent(uiObj->transform);
+    hpTextObj->transform->type = Type::Ui;
+    hpTextObj->transform->pos.rectposition = { {20.f,10.f} ,{20.f + 820.f,37.f} };
+    hpText->SetAlignCenter(0);
+    hpText->SetTextColor(D2D1::ColorF::White);
+    pineApple->hpText = hpText;
+    //hpText->text = L"100/100";
+
     // expbar
     auto mpBarObj = CreateGameObject<GameObject>();
     auto mpBarImage = mpBarObj->CreateComponent<ImageUIRenderer>();
@@ -867,6 +880,19 @@ void GameScene::Start() {
     pineApple->expbar = mpBar;
     mpBar->ImageRender = mpBarImage;
     mpBarImage->LoadTexture(L"../Resource/30402_02.png");
+
+    auto expTextObj = CreateGameObject<GameObject>();
+    expTextObj->transform->SetSortingLayer(1);
+    auto expText = expTextObj->CreateComponent<TextUIRenderer>();
+    expText->SetFontSize(22.f);
+    expText->SetFont(L"TAEBAEK font TTF");
+    expTextObj->transform->SetParent(uiObj->transform);
+    expTextObj->transform->type = Type::Ui;
+    expTextObj->transform->pos.rectposition = { {20.f,35.f} ,{20.f + 820.f,62.f} };
+    expText->SetAlignCenter(0);
+    expText->SetTextColor(D2D1::ColorF::Green);
+    pineApple->expText = expText;
+    //expText->text = L"100/100";
 
     // harvestAbleBar {385.f,7.f} ,{1200.f,27.f} 0%~100%
     auto harvestBarObj = CreateGameObject<GameObject>();

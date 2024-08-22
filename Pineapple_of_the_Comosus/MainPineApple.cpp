@@ -98,16 +98,19 @@ void MainPineApple::throwUiEXP(int currentEXP)
     {
         expbar->ImageRender->slideBar = currentEXP / maxEXP;
     }
+    expText->text = std::to_wstring(currentEXP) + L"/" + std::to_wstring((int)maxEXP);
 }
 
 void MainPineApple::throwUiHP(int HP)
 {
+    float maxHpValue = maxHP + rewardData->GetRewardPineAppleStat().maxHp;
     if (HP < 0)
         HP = 0;
-    else if (HP > maxHP + rewardData->GetRewardPineAppleStat().maxHp)
-        HP = maxHP + rewardData->GetRewardPineAppleStat().maxHp;
+    else if (HP > maxHpValue)
+        HP = maxHpValue;
 
-    hpbar->ImageRender->slideBar = HP / (maxHP + rewardData->GetRewardPineAppleStat().maxHp);
+    hpbar->ImageRender->slideBar = HP / (maxHpValue);
+    hpText->text = std::to_wstring(HP) + L"/" + std::to_wstring((int)maxHpValue);
 }
 
 void MainPineApple::UpdateMaxEXP()
