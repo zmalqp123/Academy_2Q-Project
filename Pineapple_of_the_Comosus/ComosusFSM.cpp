@@ -189,6 +189,7 @@ void ComosusPhase2::Update(float deltaTime)
 	}
 	if (IsTiming(prevTime, fallDuration, 2.0f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 550.f;
+		dynamicData->isHarvest = false;
 	}
 	if (IsTiming(prevTime, fallDuration, 2.05f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 350.f;
@@ -224,6 +225,6 @@ void ComosusPhase2::Exit()
 {
 	comosusSpriteAnim->SetAnimation(0, false);
 	comosusLightAnim->SetAnimation(0, false);
-	dynamicData->isHarvest = false;
+	
 	pineApple->SetMaxHP(50.f);
 }
