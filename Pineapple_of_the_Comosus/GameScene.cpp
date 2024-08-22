@@ -468,7 +468,7 @@ void GameScene::Start() {
     auto tutorialImage = tutorialObj->CreateComponent<SpriteRenderer>();
 	//tutorialObj->transform->type = Type::Ui;
     tutorialObj->transform->pos.worldPosition = { -500.f,750.f};
-    tutorialObj->transform->SetSortingLayer(-2);
+    tutorialObj->transform->SetSortingLayer(-1);
 	tutorialImage->LoadTexture(L"../Resource/31011.png");
     
 
@@ -477,7 +477,7 @@ void GameScene::Start() {
     auto tutorial2Image = tutorial2Obj->CreateComponent<SpriteRenderer>();
     //tutorial2Obj->transform->type = Type::Ui;
     tutorial2Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial2Obj->transform->SetSortingLayer(-2);
+    tutorial2Obj->transform->SetSortingLayer(-1);
     tutorial2Image->LoadTexture(L"../Resource/31012.png");
 
     // Tutorial 튜토리얼3
@@ -485,7 +485,7 @@ void GameScene::Start() {
     auto tutorial3Image = tutorial3Obj->CreateComponent<SpriteRenderer>();
     //tutorial3Obj->transform->type = Type::Ui;
     tutorial3Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial3Obj->transform->SetSortingLayer(-2);
+    tutorial3Obj->transform->SetSortingLayer(-1);
     tutorial3Image->LoadTexture(L"../Resource/31031.png");
 
     // TutorialBottom 튜토리얼Bottom
@@ -501,11 +501,12 @@ void GameScene::Start() {
     auto tutorial4Image = tutorial4Obj->CreateComponent<SpriteRenderer>();
     //tutorial4Obj->transform->type = Type::Ui;
     tutorial4Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial4Obj->transform->SetSortingLayer(-2);
+    tutorial4Obj->transform->SetSortingLayer(-1);
     tutorial4Image->LoadTexture(L"../Resource/31032.png");
 
 	// Tutorial 튜토리얼 bottom2 (is counterpart of tutorial4)
     auto tutorialBottom2Obj = CreateGameObject<GameObject>();
+    tutorialBottom2Obj->transform->SetSortingLayer(-2);
     auto tutorialBottom2Image = tutorialBottom2Obj->CreateComponent<ImageUIRenderer>();
     tutorialBottom2Obj->transform->type = Type::Ui;
 	tutorialBottom2Obj->transform->pos.rectposition = { {1482.5f,-200} ,{1482.5f + 170,-(200 + 130)} }; // {1482.5f,200} ,{1482.5f + 170,200+130} is the position of the bottom2
@@ -516,7 +517,7 @@ void GameScene::Start() {
     auto tutorial5Image = tutorial5Obj->CreateComponent<SpriteRenderer>();
     //tutorial4Obj->transform->type = Type::Ui;
     tutorial5Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial5Obj->transform->SetSortingLayer(-2);
+    tutorial5Obj->transform->SetSortingLayer(-1);
     tutorial5Image->LoadTexture(L"../Resource/31061.png");
 
     // Tutorial 튜토리얼6
@@ -524,7 +525,7 @@ void GameScene::Start() {
     auto tutorial6Image = tutorial6Obj->CreateComponent<SpriteRenderer>();
     //tutorial4Obj->transform->type = Type::Ui;
     tutorial6Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial6Obj->transform->SetSortingLayer(-2);
+    tutorial6Obj->transform->SetSortingLayer(-1);
     tutorial6Image->LoadTexture(L"../Resource/31071.png");
 
     // Tutorial 튜토리얼17
@@ -532,7 +533,7 @@ void GameScene::Start() {
     auto tutorial17Image = tutorial17Obj->CreateComponent<SpriteRenderer>();
     //tutorial7Obj->transform->type = Type::Ui;
     tutorial17Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial17Obj->transform->SetSortingLayer(-2);
+    tutorial17Obj->transform->SetSortingLayer(-1);
     tutorial17Image->LoadTexture(L"../Resource/31171.png");
 
     // Tutorial 튜토리얼53
@@ -540,7 +541,7 @@ void GameScene::Start() {
     auto tutorial53Image = tutorial53Obj->CreateComponent<SpriteRenderer>();
     //tutorial7Obj->transform->type = Type::Ui;
     tutorial53Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial53Obj->transform->SetSortingLayer(-2);
+    tutorial53Obj->transform->SetSortingLayer(-1);
     tutorial53Image->LoadTexture(L"../Resource/31531.png");
 
     // Tutorial 튜토리얼54
@@ -548,7 +549,7 @@ void GameScene::Start() {
     auto tutorial54Image = tutorial54Obj->CreateComponent<SpriteRenderer>();
     //tutorial7Obj->transform->type = Type::Ui;
     tutorial54Obj->transform->pos.worldPosition = { -500.f,750.f };
-    tutorial54Obj->transform->SetSortingLayer(-2);
+    tutorial54Obj->transform->SetSortingLayer(-1);
     tutorial54Image->LoadTexture(L"../Resource/31541.png");
 
     // 웨이브 시스템

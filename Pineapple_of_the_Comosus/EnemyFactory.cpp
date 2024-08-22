@@ -51,6 +51,7 @@ void EnemyFactory::InitializePool()
 Enemy* EnemyFactory::CreateEnemy(int type)
 {
     auto mon = scene->CreateGameObject<GameObject>();
+    mon->transform->SetSortingLayer(4);
     mon->transform->pos.worldPosition = { 0.f, -1000.f };
     auto loadMon = mon->CreateComponent<SpriteAnimation>();
    
@@ -60,7 +61,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
 
     auto child = scene->CreateGameObject<GameObject>();
     auto monBar = child->CreateComponent<SpriteRenderer>();
-    child->transform->SetSortingLayer(-1);
+    child->transform->SetSortingLayer(3);
     child->transform->SetParent(mon->transform);
     auto notify = child->CreateComponent<EnemyColliderNotify>();
     auto notifyColl = child->CreateComponent<BoxCollider>();
