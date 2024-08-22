@@ -246,6 +246,7 @@ void MainPineApple::Update(float deltaTime)
     }
 
     UpdateHarvestableAnim();
+    HarvestAbleBlackObjUpdate();
 
     // harvest open
     if (HarvestAble() && rewardData->isHarvest == false)
@@ -305,6 +306,16 @@ void MainPineApple::AddExp(float exp)
 
     if (currentEXP > maxEXP)
         currentEXP = maxEXP;
+}
+
+void MainPineApple::HarvestAbleBlackObjUpdate()
+{
+    if (HarvestAble()) {
+        harvestAbleBlack->isActive = false;
+    }
+    else {
+        harvestAbleBlack->isActive = true;
+    }
 }
 
 void MainPineApple::UpdateGold()

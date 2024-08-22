@@ -94,6 +94,9 @@ public:
 	bool IsMaxEXP();
 	void AddExp(float exp);
 
+	void HarvestAbleBlackObjUpdate();
+	GameObject* harvestAbleBlack;
+
 	void UpdateGold();
 	void UpdateLV();
 

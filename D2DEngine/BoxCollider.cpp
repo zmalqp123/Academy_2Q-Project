@@ -105,7 +105,7 @@ void BoxCollider::Render(D2D1_MATRIX_3X2_F cameraMat)
 		m_Collider.GetMaxX() + offset.x,
 		m_Collider.GetMaxY() + offset.y,
 		2.f,
-		D2D1::ColorF::LimeGreen		
+		D2D1::ColorF::DarkOrange		
 	);
 //#endif
 }

@@ -242,6 +242,7 @@ void GameScene::Start() {
 
     // 코모서스 강림
     auto comoObj = CreateGameObject<GameObject>();
+    comoObj->transform->m_RelativeScale.x = 1.3f;
     comoObj->transform->pos.worldPosition = { 0.f,540.f };
     auto comosus = comoObj->CreateComponent<Comosus>();
     comoObj->transform->SetSortingLayer(100);
@@ -397,6 +398,9 @@ void GameScene::Start() {
     // MortarFire_Se
     SoundManager::GetInstance().LoadSound(L"MortarFire_Se", L"../Media/6_Sound/scene3/Se/MortarFire_Se.wav");
     SoundManager::GetInstance().SetVolume(L"MortarFire_Se", 0.2f);
+
+    SoundManager::GetInstance().LoadSound(L"MorterExplosion_Se", L"../Media/6_Sound/scene3/Se/MorterExplosion_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"MorterExplosion_Se", 0.2f);
 
     // SlowWandFire_Se
     SoundManager::GetInstance().LoadSound(L"SlowWandFire_Se", L"../Media/6_Sound/scene3/Se/SlowWandFire_Se.wav");
@@ -940,8 +944,17 @@ void GameScene::Start() {
     harvestUi->ImageRender = HarvestbtnImage;*/
 
     HarvestbtnImage->LoadTexture(L"../Resource/30208_Harvest1btn.png");
-    
+
     pineApple->harvestbtn = HarvestbtnImage;
+
+    auto harvestBlackObj = CreateGameObject<GameObject>();
+    auto harvestBlackSpr = harvestBlackObj->CreateComponent<ImageUIRenderer>();
+    harvestBlackObj->transform->SetParent(uiObj->transform);
+    harvestBlackObj->transform->type = Type::Ui;
+    harvestBlackObj->transform->pos.rectposition = { {20.f + 820.f + spacing + 270.f + spacing + 180.f + spacing,10.f} ,{20.f + 820.f + spacing + 270.f + spacing + 180.f + spacing + 180.f, 200.f - spacing} };
+    harvestBlackSpr->LoadTexture(L"../Resource/39208_2.png");
+    harvestBlackSpr->alpha = 0.5f;
+    pineApple->harvestAbleBlack = harvestBlackObj;
 
     //// 검은색 배경과 버튼 그룹 생성
     //auto uiGroup = CreateGameObject<GameObject>();

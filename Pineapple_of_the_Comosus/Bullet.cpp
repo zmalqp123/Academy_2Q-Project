@@ -7,6 +7,7 @@
 #include "../D2DEngine/Scene.h"
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/SpriteAnimationAsset.h"
+#include "../D2DEngine/SoundManager.h"
 #include "BulletFactory.h"
 #include "Enemy.h"
 #include "EnemyColliderNotify.h"
@@ -170,7 +171,9 @@ void Bullet::OnGround()
     if (gameObject->transform->pos.worldPosition.y < -300) {
         
         if (bulletType == BulletType::burst) {
-            OnBurst(bombRange);
+
+            if (!isBurst)
+                OnBurst(bombRange);
             
         }
 
@@ -183,14 +186,18 @@ void Bullet::OnBurst(float _bombRange) {
     bulletSprite->SetAnimation(1, false);
     auto iter = gameObject->ownerScene->m_GameObjects.begin();
     
+    if (id == 30521 || id == 30522 || id == 30523 || id == 30524 || id == 30525) {
+        SoundManager::GetInstance().PlaySoundW(L"MorterExplosion_Se");
+    }
+
     float scale = (_bombRange / 2) / 50.f;
     gameObject->transform->m_RelativeScale = { scale ,scale };
 
-    if(!isBurst){
+   
         explode->SetAnimation(0, false);
 		explode->m_AnimationIndex = 0;
 		isBurst = true;
-    }
+    
     
     this->move->isGravity = false;
     if (isBurst = true) {
