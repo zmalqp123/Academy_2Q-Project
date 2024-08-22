@@ -416,7 +416,7 @@ void WaveSystem::Update(float deltaTime)
     
     PushingBottomTutorial(1);
 
-    if (!isHowManyPushed) {
+    if (!isHowManyPushed && currentWave <= 53) {
         PushingHowManyDay(currentWave);
     }
 
