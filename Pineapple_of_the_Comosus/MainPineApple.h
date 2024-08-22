@@ -41,12 +41,9 @@ class MainPineApple : public Component
 
 	// ������ �ִ� ����ġ ���̺�
 	std::vector<float> EXP_TABLE = {
-		100, 200, 300, 400, 500,
-		700, 900, 1100, 1300, 1500,
-		1900, 2100, 2300, 2500, 2700,
-		3100, 3500, 3900, 4300, 4700,
-		5200, 5700, 6200, 6700, 7200,
-		7200 // ���� 26 �̻��� ��� �ִ� ����ġ
+	120.0f, 170.0f, 240.0f, 290.0f, 340.0f, 390.0f, 440.0f, 490.0f, 540.0f, 590.0f,
+	640.0f, 690.0f, 740.0f, 740.0f, 740.0f, 740.0f, 740.0f, 740.0f, 740.0f, 740.0f,
+	740.0f, 740.0f, 740.0f, 740.0f, 740.0f, 740.0f
 	};
 
 public:
@@ -96,6 +93,9 @@ public:
 	void UpdateTurretImage();
 	bool IsMaxEXP();
 	void AddExp(float exp);
+
+	void UpdateGold();
+	void UpdateLV();
 
 	SpriteUIAnimation* harvestableAnim;
 	void UpdateHarvestableAnim();

@@ -18,8 +18,8 @@ void EnemyDead::Enter()
 		SoundManager::GetInstance().PlaySoundW(L"KnightDeath_Se", false);
 		break;
 	//musket
-	/*case 30605: case 30606: case 30607: case 30608:
-		SoundManager::GetInstance().PlaySoundW(L"CrossbowFire_Se", false);*/
+	case 30605: case 30606: case 30607: case 30608:
+		SoundManager::GetInstance().PlaySoundW(L"KnightDeath_Se", false);
 		break;
 	//heavyarmy
 	case 30609: case 30610: case 30611: case 30612:

@@ -1194,7 +1194,7 @@ void GameScene::Start() {
         nameTextObj->transform->type = Type::Ui;
   
         auto nameText = nameTextObj->CreateComponent<TextUIRenderer>();
-        nameText->SetFontSize(50.f);
+        nameText->SetFontSize(65.f);
         nameText->SetFont(L"210 연필스케치");
         nameText->SetAlignCenter(0);
         nameText->SetTextColor(D2D1::ColorF(D2D1::ColorF::Yellow));

@@ -50,7 +50,6 @@ void ComosusPhase1::Enter()
 	float randomvalue = rand() % 2;
 	if (randomvalue == 0) {
 		SoundManager::GetInstance().PlaySoundW(L"SurprisedStands_Se");
-		std::cout << "50light" << std::endl;
 	}
 
 	phase1Duration = 0.f;
@@ -131,7 +130,7 @@ void ComosusPhase1::Exit()
 		//DataManager::GetInstance().plzmoney.fn();
 		pineApple->randomReward->textHeader->text = pineApple->randomReward->comosusSuggestion[pineApple->LV - 2];
 		auto rewardMoney = DataManager::GetInstance().getMoneyData(pineApple->GetPineAppleLV() - 2);
-		pineApple->randomReward->rewardMoney->text = std::to_wstring(rewardMoney).c_str();
+		pineApple->randomReward->rewardMoney->text = L"(+" + std::to_wstring(rewardMoney) + L")";
 		GameTime::GetInstance().SetTimeScale(0.f);
 	}
 	cameraShaker->ShakeOnCamera(false);
@@ -185,6 +184,8 @@ void ComosusPhase2::Update(float deltaTime)
 		if (pineApple->LV == 6 || pineApple->LV == 11) {
 			SoundManager::GetInstance().PlaySoundW(L"NewPineappleAppears_Se");
 		}
+		pineApple->UpdateGold();
+		pineApple->UpdateLV();
 	}
 	if (IsTiming(prevTime, fallDuration, 2.0f)) {
 		pineApple->gameObject->transform->pos.worldPosition.y = 550.f;

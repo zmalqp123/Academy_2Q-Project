@@ -112,7 +112,9 @@ void MainPineApple::throwUiHP(int HP)
 
 void MainPineApple::UpdateMaxEXP()
 {
-    maxEXP = EXP_TABLE[LV - 1];
+    int lvMax = LV;
+    if (lvMax >= 26) lvMax = 26;
+    maxEXP = EXP_TABLE[lvMax - 1];
 }
 
 void MainPineApple::Harvest()
@@ -237,11 +239,9 @@ void MainPineApple::Update(float deltaTime)
         // UI MPbar update
         throwUiEXP(GetCurrentExp());
 
-        goldbar->text = std::to_wstring( GetPineAppleGold()).c_str();
+        UpdateGold();
 
-
-
-        LVbar->text = std::to_wstring(GetPineAppleLV()).c_str();
+        UpdateLV();
 
     }
 
@@ -305,6 +305,16 @@ void MainPineApple::AddExp(float exp)
 
     if (currentEXP > maxEXP)
         currentEXP = maxEXP;
+}
+
+void MainPineApple::UpdateGold()
+{
+    goldbar->text = std::to_wstring(GetPineAppleGold()).c_str();
+}
+
+void MainPineApple::UpdateLV()
+{
+    LVbar->text = std::to_wstring(GetPineAppleLV()).c_str();
 }
 
 void MainPineApple::UpdateHarvestableAnim()
