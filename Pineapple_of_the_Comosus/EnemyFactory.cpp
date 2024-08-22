@@ -55,6 +55,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
    
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
+    collider->debugLine = true;
     collider->SetExtent({ 1.f, 1.f });
 
     auto child = scene->CreateGameObject<GameObject>();
@@ -63,6 +64,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     child->transform->SetParent(mon->transform);
     auto notify = child->CreateComponent<EnemyColliderNotify>();
     auto notifyColl = child->CreateComponent<BoxCollider>();
+    notifyColl->debugLine = true;
     notifyColl->SetCollisionType(CollisionType::Overlap);
     
     BomberMove* bombMove;
@@ -111,7 +113,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
         enemy->AttackSprite->LoadTexture(L"../Resource/30701.png");
         bomberDeadAnim = mon->CreateComponent<SpriteAnimation>();
-		bomberDeadAnim->LoadTexture(L"../Resource/30705_폭탄수레_공격이펙트.png");
+		bomberDeadAnim->LoadTexture(L"../Resource/30705.png");
 		bomberDeadAnim->LoadAnimationAsset(L"BombCartDead");
 		bomberDeadAnim->SetAnimation(1); // 1 is Empty Animation
         bombDead = fsm->CreateState<BomberDead>("Dead");

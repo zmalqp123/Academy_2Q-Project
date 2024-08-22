@@ -115,7 +115,9 @@ void SpriteAnimation::Render(D2D1_MATRIX_3X2_F cameraMat)
 		* m_ScreenTransform;
 	//  * D2DRenderer::m_CameraTransform;
 	pRenderTarget->SetTransform(Transform);
-	pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
+
+	if(m_pTexture != nullptr)
+		pRenderTarget->DrawBitmap(m_pTexture->m_pD2DBitmap, m_DstRect, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, m_SrcRect);
 }
 
 void SpriteAnimation::SetAnimation(int index) {

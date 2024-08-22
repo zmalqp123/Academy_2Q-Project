@@ -352,7 +352,7 @@ void WaveSystem::Update(float deltaTime)
 
     // 웨이브 타이머 감소
     waveTimer -= deltaTime;
-	std::cout << "waveTimer: " << waveTimer << std::endl;
+	//std::cout << "waveTimer: " << waveTimer << std::endl;
     elapsedTime += deltaTime;
     // 웨이브 타이머가 0 이하가 되었고, 적이 남아 있으면
     if (waveTimer <= 0.0f)

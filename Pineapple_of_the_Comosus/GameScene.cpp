@@ -1146,7 +1146,8 @@ void GameScene::Clear() {
     __super::Clear();
     std::cout << "Exiting GameScene" << std::endl;
     // 정리 작업
-    SoundManager::GetInstance().ReleaseSound(L"backgroundMusic");
+    SoundManager::GetInstance().StopSound(L"Morning_Bgm");
+    SoundManager::GetInstance().ReleaseSound(L"Morning_Bgm");
     delete gameover;
 }
 

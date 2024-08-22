@@ -55,6 +55,7 @@ void MainPineApple::pineAppleDamageHP(int damage)
     {
         //std::cout << "start HP : " << HP << std::endl;
         HP -= damage;
+        std::cout << HP << std::endl;
         //std::cout << "later HP : " << HP << std::endl;
         if (HP < 0.f) {
             HP = 0;
@@ -64,6 +65,7 @@ void MainPineApple::pineAppleDamageHP(int damage)
     else
     {
         HP = 0;
+        isDie = true;
     }
 }
 

@@ -65,6 +65,14 @@ void Scene::Update(float deltaTime)
 			}
 		}
 	}
+
+
+	auto b = m_GameObjects;
+
+	for (auto gameObject : b) {
+		gameObject->transform->UpdateTrasnform();
+	}
+
 	//std::cout << colliders.size() << std::endl;
 	// 面倒贸府 包访
 	for (int i = 0; i < colliders.size(); i++) {
@@ -130,9 +138,9 @@ void Scene::Update(float deltaTime)
 		pColl->ProcessOverlap();
 	}
 
-	auto b = m_GameObjects;
+	auto temp = m_GameObjects;
 
-	for (auto gameObject : b) {
+	for (auto gameObject : temp) {
 		gameObject->transform->UpdateTrasnform();
 	}
 }

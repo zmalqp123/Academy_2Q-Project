@@ -152,7 +152,7 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 		LoadAnimationFromCSV(2, L"../Resource/Turret/30553.txt");
 		LoadAnimationFromCSV(3, L"../Resource/Turret/30554.txt");
 		LoadAnimationFromCSV(4, L"../Resource/Turret/30555.txt");
-		LoadAnimationFromCSV(4, L"../Resource/Turret/30556.txt");
+		LoadAnimationFromCSV(5, L"../Resource/Turret/30556.txt");
 	}
 	if (FilePath == std::wstring(L"griffinMove"))
 	{
