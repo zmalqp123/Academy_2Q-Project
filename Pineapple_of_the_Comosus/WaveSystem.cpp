@@ -458,7 +458,7 @@ void WaveSystem::Update(float deltaTime)
         PushingHowManyDay(currentWave);
     }
 
-    if (waveTimer <= 10.f) {
+    if (currentWave >= 5 && waveTimer <= 10.f) {
 		elapsedTime2 += deltaTime;
         PullingHowManyDay(currentWave);
         
