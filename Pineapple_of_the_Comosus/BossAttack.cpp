@@ -22,5 +22,5 @@ void BossAttack::Attack()
 {
 	__super::Attack();
 	// 보스 사운드로 바꾸기
-	SoundManager::GetInstance().PlaySoundW(L"Boss2Attack_Se", false);
+	SoundManager::GetInstance().PlaySoundW(L"Boss1Attack_Se", false);
 }

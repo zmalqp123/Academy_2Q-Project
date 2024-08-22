@@ -337,10 +337,11 @@ void GameScene::Start() {
 
     // 사운드 초기화 및 로드
 
-    // swordman 
-    SoundManager::GetInstance().LoadSound(L"Boss2Attack_Se", L"../Media/6_Sound/scene3/Se/Boss2Attack_Se.wav");
-    SoundManager::GetInstance().SetVolume(L"Boss2Attack_Se", 0.1f);
+    // boss
+    SoundManager::GetInstance().LoadSound(L"Boss1Attack_Se", L"../Media/6_Sound/scene3/Se/Boss1Attack_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"Boss1Attack_Se", 0.1f);
 
+    // swordman 
     SoundManager::GetInstance().LoadSound(L"KnightDeath_Se", L"../Media/6_Sound/scene3/Se/KnightDeath_Se.wav");
     SoundManager::GetInstance().SetVolume(L"KnightDeath_Se", 0.5f);
 
@@ -438,6 +439,8 @@ void GameScene::Start() {
     // boss On
     SoundManager::GetInstance().LoadSound(L"ShockedStands_Se", L"../Media/6_Sound/scene3/Se/ShockedStands_Se.wav");
     SoundManager::GetInstance().SetVolume(L"ShockedStands_Se", 0.5f);
+    SoundManager::GetInstance().LoadSound(L"Boss1Come_Se", L"../Media/6_Sound/scene3/Se/Boss1Come_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"Boss1Come_Se", 0.5f);
 
     // pineApple Damaged 아직 x
     SoundManager::GetInstance().LoadSound(L"BooingStands_Se", L"../Media/6_Sound/scene3/Se/BooingStands_Se.wav");
@@ -446,6 +449,8 @@ void GameScene::Start() {
     // killed boss
     SoundManager::GetInstance().LoadSound(L"CheeringStands_Se", L"../Media/6_Sound/scene3/Se/CheeringStands_Se.wav");
     SoundManager::GetInstance().SetVolume(L"CheeringStands_Se", 0.5f);
+    SoundManager::GetInstance().LoadSound(L"Boss1Win_Se", L"../Media/6_Sound/scene3/Se/Boss1Win_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"Boss1Win_Se", 0.5f);
 
     // 메뉴바
     auto uiObj = CreateGameObject<GameObject>();

@@ -56,7 +56,6 @@ Enemy* EnemyFactory::CreateEnemy(int type)
    
     auto movement = mon->CreateComponent<Movement>();
     auto collider = mon->CreateComponent<BoxCollider>();
-    collider->debugLine = true;
     collider->SetExtent({ 1.f, 1.f });
 
     auto child = scene->CreateGameObject<GameObject>();
@@ -65,7 +64,6 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     child->transform->SetParent(mon->transform);
     auto notify = child->CreateComponent<EnemyColliderNotify>();
     auto notifyColl = child->CreateComponent<BoxCollider>();
-    notifyColl->debugLine = true;
     notifyColl->SetCollisionType(CollisionType::Overlap);
     
     BomberMove* bombMove;
@@ -196,6 +194,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         fsm->SetState("Move");
 
         SoundManager::GetInstance().PlaySoundW(L"ShockedStands_Se");
+        SoundManager::GetInstance().PlaySoundW(L"Boss1Come_Se");
         break;
     default:
         // �⺻ �� �Ǵ� ���� ó��

@@ -21,6 +21,7 @@ void Boss::Update(float delta)
 		if (isDie == false) {
 			isDie = true;
 			SoundManager::GetInstance().PlaySoundW(L"CheeringStands_Se");
+			SoundManager::GetInstance().PlaySoundW(L"Boss1Win_Se");
 		}
 	}
 }
