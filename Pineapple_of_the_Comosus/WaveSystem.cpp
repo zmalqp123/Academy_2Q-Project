@@ -318,7 +318,7 @@ void WaveSystem::PushingHowManyDay(int curWave)
         float t1 = (0.66f - elapsedTime) / .66f;
         float t2 = (elapsedTime) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
-        howManyLeft[(curWave - 1) / 4]->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 420.f);
+        howManyLeft[(curWave - 5) / 4]->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 420.f);
         
     }
 	
@@ -334,7 +334,7 @@ void WaveSystem::PullingHowManyDay(int curWave)
         float t1 = (0.66f - elapsedTime2) / .66f;
         float t2 = (elapsedTime2) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
-        howManyLeft[(curWave-1)/4]->transform->pos.worldPosition.y = (t1 * 420.f) + (t2 * 712.f);
+        howManyLeft[(curWave - 5)/4]->transform->pos.worldPosition.y = (t1 * 420.f) + (t2 * 712.f);
         
     }
 }
@@ -416,7 +416,7 @@ void WaveSystem::Update(float deltaTime)
     
     PushingBottomTutorial(1);
 
-    if (!isHowManyPushed && currentWave <= 53) {
+    if (currentWave >= 5 && !isHowManyPushed && currentWave <= 53) {
         PushingHowManyDay(currentWave);
     }
 
