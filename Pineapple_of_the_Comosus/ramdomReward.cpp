@@ -28,7 +28,8 @@ void ramdomReward::setValue()
             std::wcout << L"ddd: " << a << std::endl;
             UIoff();  
             GameTime::GetInstance().SetTimeScale(1.f);
-            SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+            //SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+            SoundManager::GetInstance().PlaySoundW(L"HarvestReward_Se", false);
             });
         btns[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());
        /* Uis[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());*/
@@ -40,7 +41,8 @@ void ramdomReward::setValue()
         DataManager::GetInstance().plzmoney.fn();
         UIoff();
         GameTime::GetInstance().SetTimeScale(1.f);
-        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+        //SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+        SoundManager::GetInstance().PlaySoundW(L"HarvestReward_Se", false);
         });
 }
 

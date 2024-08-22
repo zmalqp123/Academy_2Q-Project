@@ -339,7 +339,8 @@ void GameScene::Start() {
 
     // swordman 
     SoundManager::GetInstance().LoadSound(L"Boss2Attack_Se", L"../Media/6_Sound/scene3/Se/Boss2Attack_Se.wav");
-    SoundManager::GetInstance().SetVolume(L"Boss2Attack_Se", 0.5f);
+    SoundManager::GetInstance().SetVolume(L"Boss2Attack_Se", 0.1f);
+
     SoundManager::GetInstance().LoadSound(L"KnightDeath_Se", L"../Media/6_Sound/scene3/Se/KnightDeath_Se.wav");
     SoundManager::GetInstance().SetVolume(L"KnightDeath_Se", 0.5f);
 
@@ -413,6 +414,38 @@ void GameScene::Start() {
     // click btn 사운드
     SoundManager::GetInstance().LoadSound(L"clickbtn", L"../Media/6_Sound/scene1/Se/ClickButton_Se.wav");
     SoundManager::GetInstance().SetVolume(L"clickbtn", 0.5f);
+
+    // comosus reward 30920
+    SoundManager::GetInstance().LoadSound(L"HarvestReward_Se", L"../Media/6_Sound/scene3/Se/HarvestReward_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"HarvestReward_Se", 0.5f);
+
+    // comosus light sound 30921
+    SoundManager::GetInstance().LoadSound(L"LightOfComos'us_Se", L"../Media/6_Sound/scene3/Se/LightOfComos'us_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"LightOfComos'us_Se", 0.5f);
+
+    // new pineapple sound 30922
+    SoundManager::GetInstance().LoadSound(L"NewPineappleAppears_Se", L"../Media/6_Sound/scene3/Se/NewPineappleAppears_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"NewPineappleAppears_Se", 0.5f);
+
+    // turret Activate
+    SoundManager::GetInstance().LoadSound(L"NewTurretInstalling_Se", L"../Media/6_Sound/scene3/Se/NewTurretInstalling_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"NewTurretInstalling_Se", 0.5f);
+
+    // comosus light 50% sound
+    SoundManager::GetInstance().LoadSound(L"SurprisedStands_Se", L"../Media/6_Sound/scene3/Se/SurprisedStands_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"SurprisedStands_Se", 0.5f);
+
+    // boss On
+    SoundManager::GetInstance().LoadSound(L"ShockedStands_Se", L"../Media/6_Sound/scene3/Se/ShockedStands_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"ShockedStands_Se", 0.5f);
+
+    // pineApple Damaged 아직 x
+    SoundManager::GetInstance().LoadSound(L"BooingStands_Se", L"../Media/6_Sound/scene3/Se/BooingStands_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"BooingStands_Se", 0.5f);
+
+    // killed boss
+    SoundManager::GetInstance().LoadSound(L"CheeringStands_Se", L"../Media/6_Sound/scene3/Se/CheeringStands_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"CheeringStands_Se", 0.5f);
 
     // 메뉴바
     auto uiObj = CreateGameObject<GameObject>();

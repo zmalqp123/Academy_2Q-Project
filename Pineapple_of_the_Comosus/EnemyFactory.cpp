@@ -24,6 +24,7 @@
 #include "../D2DEngine/Transform.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/FiniteStateMachine.h"
+#include "../D2DEngine/SoundManager.h"
 
 
 EnemyFactory::EnemyFactory(Scene* scene)
@@ -107,7 +108,7 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         enemy->defaultAnimationNumber = (int)EnemyID::bombCarrier - type;
         enemy->enemyData = *(d.GetEnemyData(type)); //복사가 되야하는 부분!
         monBar->LoadTexture(L"../Resource/30631.png");
-        loadMon->LoadTexture(L"../Resource/bombcart.png");
+        loadMon->LoadTexture(L"../Resource/30617.png");
         loadMon->LoadAnimationAsset(L"BombcartMove");
         monBar->SetCenter(Vector2(0.5f, 0.f));
         enemy->AttackSprite = mon->CreateComponent<SpriteRenderer>();
@@ -193,6 +194,8 @@ Enemy* EnemyFactory::CreateEnemy(int type)
         fsm->CreateState<EnemyMove>("Move");
         fsm->CreateState<EnemyDead>("Dead");
         fsm->SetState("Move");
+
+        SoundManager::GetInstance().PlaySoundW(L"ShockedStands_Se");
         break;
     default:
         // �⺻ �� �Ǵ� ���� ó��

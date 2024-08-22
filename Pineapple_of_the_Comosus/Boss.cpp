@@ -17,6 +17,11 @@ void Boss::Update(float delta)
 
 	if (enemyData.hp <= 0.f) {
 		mainPineApple->isWin = true;
+
+		if (isDie == false) {
+			isDie = true;
+			SoundManager::GetInstance().PlaySoundW(L"CheeringStands_Se");
+		}
 	}
 }
 

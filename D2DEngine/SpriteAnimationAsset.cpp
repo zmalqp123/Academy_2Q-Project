@@ -41,11 +41,11 @@ bool SpriteAnimationAsset::LoadAnimation(std::wstring FilePath)
 	}
 	if (FilePath == std::wstring(L"BombcartMove"))
 	{
-		LoadAnimationFromCSV(0, L"../Resource/bomcart.txt");
-		LoadAnimationFromCSV(1, L"../Resource/bomcart.txt");
-		LoadAnimationFromCSV(2, L"../Resource/bomcart.txt");
-		LoadAnimationFromCSV(3, L"../Resource/bomcart.txt");
-		LoadAnimationFromCSV(4, L"../Resource/bomcart.txt");
+		LoadAnimationFromCSV(0, L"../Resource/Enemy/30617_1.txt");
+		LoadAnimationFromCSV(1, L"../Resource/Enemy/30617_2.txt");
+		LoadAnimationFromCSV(2, L"../Resource/Enemy/30617_3.txt");
+		LoadAnimationFromCSV(3, L"../Resource/Enemy/30617_4.txt");
+		LoadAnimationFromCSV(4, L"../Resource/Enemy/30617_5.txt");
 	}
 	if (FilePath == std::wstring(L"swordmanMove"))
 	{
