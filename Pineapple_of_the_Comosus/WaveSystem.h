@@ -22,6 +22,7 @@ private:
     
     float elapsedTime = 0.f;
 	float elapsedTime2 = 0.f;
+	float elapsedTime3 = 0.f;
     bool isHowManyPushed = false;
 	bool isTutorial1Pushed = false;
 	bool isElaspedTimeReset = false;
@@ -40,8 +41,10 @@ public:
     GameObject* tutorial1;
     GameObject* tutorial2;
     GameObject* tutorial3;
+    GameObject* tutorial4;
 
 	GameObject* tutorialBottom;
+    GameObject* tutorial2Bottom;
 
 	GameObject* howManyLeft[13];
 	
@@ -66,6 +69,9 @@ public:
 
     void PushingBottomTutorial(int curWave);
     void PullingBottomTutorial(int curWave);
+
+    void PushingBottom2Tutorial(int curWave);
+    void PullingBottom2Tutorial(int curWave);
 
     void PushingHowManyDay(int curWave);
     void PullingHowManyDay(int curWave);

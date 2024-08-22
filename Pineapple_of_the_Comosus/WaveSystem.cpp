@@ -197,14 +197,21 @@ void WaveSystem::Generator()
 
 void WaveSystem::PushingTutorial(int curWave, GameObject* Tuto)
 {   
+    float elapsed = 0.f;
+    if (curWave == 1) {
+		elapsed = elapsedTime;
+	}
+    else if (curWave > 1) {
+        elapsed = elapsedTime3;
+    }
     if (currentWave == curWave && waveTimer > 0.f) {
 
-        if (elapsedTime > 0.66f)
+        if (elapsed > 0.66f)
         {
-            elapsedTime = 0.66f;
+            elapsed = 0.66f;
         }
-        float t1 = (0.66f - elapsedTime) / .66f;
-        float t2 = (elapsedTime) / .66f;
+        float t1 = (0.66f - elapsed) / .66f;
+        float t2 = (elapsed) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
         Tuto->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 370.f);
         
@@ -214,20 +221,24 @@ void WaveSystem::PushingTutorial(int curWave, GameObject* Tuto)
 }
 
 void WaveSystem::PullingTutorial(int curWave, GameObject* Tuto)
-{
+{   
+    float elapsed = 0.f;
+    if (curWave == 1) {
+        elapsed = elapsedTime;
+    }
+    else if (curWave > 1) {
+        elapsed = elapsedTime3;
+    }
 	if (currentWave == curWave && waveTimer > 0.f) {
-		if (elapsedTime > 0.66f)
+		if (elapsed > 0.66f)
 		{
-			elapsedTime = 0.66f;
+			elapsed = 0.66f;
 		}
-		float t1 = (0.66f - elapsedTime) / .66f;
-		float t2 = (elapsedTime) / .66f;
+		float t1 = (0.66f - elapsed) / .66f;
+		float t2 = (elapsed) / .66f;
 		//std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
 		Tuto->transform->pos.worldPosition.y = (t1 * 370.f) + (t2 * 712.f);
-		if (elapsedTime > 0.66f)
-		{
-			return;
-		}
+		
 	}
 }
 
@@ -243,11 +254,7 @@ void WaveSystem::PushingBottomTutorial(int curWave)
         float t2 = (elapsedTime) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
         tutorialBottom->transform->pos.worldPosition.y = (t1 * -720.f) + (t2 * -100.f);
-        if (elapsedTime > 0.66f)
-        {
-            isHowManyPushed = true;
-            return;
-        }
+        
     }
 }
 
@@ -263,11 +270,39 @@ void WaveSystem::PullingBottomTutorial(int curWave)
         float t2 = (elapsedTime) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
         tutorialBottom->transform->pos.worldPosition.y = (t1 * -100.f) + (t2 * -720.f);
+        
+    }
+}
+
+void WaveSystem::PushingBottom2Tutorial(int curWave)
+{   
+    if (currentWave == curWave && waveTimer > 0.f) {
+
         if (elapsedTime > 0.66f)
         {
-            isHowManyPushed = true;
-            return;
+            elapsedTime = 0.66f;
         }
+        float t1 = (0.66f - elapsedTime) / .66f;
+        float t2 = (elapsedTime) / .66f;
+        //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        tutorial2Bottom->transform->pos.rectposition = { {1482.5f,200} ,{1482.5f + 170,200 + 130} };
+
+    }
+}
+
+void WaveSystem::PullingBottom2Tutorial(int curWave)
+{
+    if (currentWave == curWave && waveTimer > 0.f) {
+
+        if (elapsedTime > 0.66f)
+        {
+            elapsedTime = 0.66f;
+        }
+        float t1 = (0.66f - elapsedTime) / .66f;
+        float t2 = (elapsedTime) / .66f;
+        //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
+        tutorial2Bottom->transform->pos.worldPosition.y = (t1 * -100.f) + (t2 * -720.f);
+        
     }
 }
 
@@ -283,11 +318,7 @@ void WaveSystem::PushingHowManyDay(int curWave)
         float t2 = (elapsedTime) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
         howManyLeft[(curWave - 1) / 4]->transform->pos.worldPosition.y = (t1 * 712.f) + (t2 * 420.f);
-        if (elapsedTime > 0.66f)
-        {   
-            isHowManyPushed = true;
-            return;
-        }
+        
     }
 	
 }
@@ -303,10 +334,7 @@ void WaveSystem::PullingHowManyDay(int curWave)
         float t2 = (elapsedTime2) / .66f;
         //std::cout << "t1 : " << t1 << ", t2 : " << t2 << std::endl;
         howManyLeft[(curWave-1)/4]->transform->pos.worldPosition.y = (t1 * 420.f) + (t2 * 712.f);
-        if (elapsedTime2 > 0.66f)
-        {
-            return;
-        }
+        
     }
 }
 
@@ -326,6 +354,7 @@ void WaveSystem::StartNextWave()
         currentWave++;
         elapsedTime = 0.f;
 		elapsedTime2 = 0.f;
+		elapsedTime3 = 0.f;
 		isHowManyPushed = false;
         LoadWaveData();
         waveTimer = maxWaveTimer;  // 타이머 초기화 //현재 15초
@@ -362,11 +391,18 @@ void WaveSystem::Update(float deltaTime)
     }
 	
     PushingTutorial(1, tutorial1);
-    PushingTutorial(2, tutorial2);
-    PushingTutorial(3, tutorial3);
-	
-    PullingTutorial(3, tutorial2);
-    PullingTutorial(4, tutorial3);
+
+    if (waveTimer<7.f) {
+		elapsedTime3 += deltaTime;
+        PushingTutorial(2, tutorial2);
+        PushingTutorial(3, tutorial3);
+		PushingTutorial(4, tutorial4);
+
+        PullingTutorial(3, tutorial2);
+        PullingTutorial(4, tutorial3);
+		PullingTutorial(5, tutorial4);
+    }
+    
     
     PushingBottomTutorial(1);
 
@@ -389,7 +425,7 @@ void WaveSystem::Update(float deltaTime)
         GameTime::GetInstance().SetTimeScale(0.f);
     }
 
-	if(isTutorial1Pushed && waveTimer < 14.f && mainPineApple->rewardData->isTutorialSkipped == true)
+	if(currentWave == 1 && isTutorial1Pushed && waveTimer < 14.f && mainPineApple->rewardData->isTutorialSkipped == true)
 	{   
 		if (!isElaspedTimeReset)
 		{

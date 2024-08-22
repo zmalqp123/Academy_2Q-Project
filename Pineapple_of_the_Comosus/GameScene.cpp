@@ -453,7 +453,22 @@ void GameScene::Start() {
     //tutorialBottomObj->transform->type = Type::Ui;
     tutorialBottomObj->transform->pos.worldPosition = { -330.f,1000.f };
     tutorialBottomObj->transform->SetSortingLayer(100);
-    tutorialBottomImage->LoadTexture(L"../Resource/31340.png");
+    tutorialBottomImage->LoadTexture(L"../Resource/31888.png");
+
+    // Tutorial 튜토리얼4
+    auto tutorial4Obj = CreateGameObject<GameObject>();
+    auto tutorial4Image = tutorial4Obj->CreateComponent<SpriteRenderer>();
+    //tutorial4Obj->transform->type = Type::Ui;
+    tutorial4Obj->transform->pos.worldPosition = { -500.f,750.f };
+    tutorial4Obj->transform->SetSortingLayer(-2);
+    tutorial4Image->LoadTexture(L"../Resource/31032.png");
+
+	// Tutorial 튜토리얼 bottom2 (is counterpart of tutorial4)
+    auto tutorialBottom2Obj = CreateGameObject<GameObject>();
+    auto tutorialBottom2Image = tutorialBottom2Obj->CreateComponent<ImageUIRenderer>();
+    tutorialBottom2Obj->transform->type = Type::Ui;
+	tutorialBottom2Obj->transform->pos.rectposition = { {1482.5f,200} ,{1482.5f + 170,200 + 130} }; // {1482.5f,200} ,{1482.5f + 170,200+130} is the position of the bottom2
+    tutorialBottom2Image->LoadTexture(L"../Resource/31999.png");
 
     // 웨이브 시스템
     auto waveObj = CreateGameObject<GameObject>();
@@ -466,7 +481,9 @@ void GameScene::Start() {
 	waveSystem->tutorial1 = tutorialObj;
     waveSystem->tutorial2 = tutorial2Obj;
     waveSystem->tutorial3 = tutorial3Obj;
+	waveSystem->tutorial4 = tutorial4Obj;
 	waveSystem->tutorialBottom = tutorialBottomObj;
+	waveSystem->tutorial2Bottom = tutorialBottom2Obj;
 
     for (int i = 0; i < 13; i++) {
         waveSystem->howManyLeft[i] = CreateGameObject<GameObject>();
