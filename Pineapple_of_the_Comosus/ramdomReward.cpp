@@ -32,6 +32,7 @@ void ramdomReward::setValue()
             SoundManager::GetInstance().PlaySoundW(L"HarvestReward_Se", false);
             });
         btns[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());
+        std::cout << "reward: " << i << std::endl;
        /* Uis[i]->LoadTexture(DataManager::GetInstance().harvestPopupStruct[i].Imagepath.c_str());*/
         //TextNameUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].reward;
         //TextStatUis[i]->text = DataManager::GetInstance().harvestPopupStruct[i].rewarOption;

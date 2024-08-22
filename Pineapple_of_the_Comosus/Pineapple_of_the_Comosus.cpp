@@ -30,12 +30,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    bool bUseConsole = true;
+    /*bool bUseConsole = true;
     if (bUseConsole) {
         AllocConsole(); 
         FILE* _tempFile;
         freopen_s(&_tempFile, "CONOUT$", "w", stdout);
-    }
+    }*/
 
     WinApp3 App;
     App.Initialize(hInstance, nCmdShow, 1920.f, 1080.f);
