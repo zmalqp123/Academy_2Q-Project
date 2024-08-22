@@ -546,7 +546,8 @@ void GameScene::Start() {
 		auto howManyLeftImage = waveSystem->howManyLeft[i]->CreateComponent<SpriteRenderer>();
 		waveSystem->howManyLeft[i]->transform->SetSortingLayer(-2);
 		waveSystem->howManyLeft[i]->transform->pos.worldPosition = { 500.f,750.f };
-		howManyLeftImage->LoadTexture(L"../Resource/"+ std::to_wstring(37101+i*4) + L".png");
+		int k = 37105 + i * 4;
+		howManyLeftImage->LoadTexture(L"../Resource/"+ std::to_wstring(k) + L".png");
     }
 
     // DayNightCycleComponent 생성 및 게임 오브젝트에 추가

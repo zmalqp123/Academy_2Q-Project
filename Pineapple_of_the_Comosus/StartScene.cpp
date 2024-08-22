@@ -66,6 +66,7 @@ void StartScene::Start() {
         cuttonSpr->LoadTexture(L"../Resource/10301.png");
         cuttonSpr->LoadAnimationAsset(L"cutton_10301close");
         cuttonSpr->SetAnimation(0, false);
+        cutttonObj->transform->SetSortingLayer(100);
         cutton->UiCutton = cuttonSpr;
         cutton->check = false;
 
@@ -78,6 +79,7 @@ void StartScene::Start() {
         cuttonSpr2->LoadTexture(L"../Resource/10302.png");
         cuttonSpr2->LoadAnimationAsset(L"cutton_10302close");
         cuttonSpr2->SetAnimation(0, false);
+		cutttonObj2->transform->SetSortingLayer(100);
         cutton2->UiCutton = cuttonSpr2;
         cutton2->check = false;
         cutton->check = true;
