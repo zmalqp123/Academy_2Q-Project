@@ -47,6 +47,8 @@ public:
 	bool isHarvest = false;
 	bool isUpgrade = false;
 
+	bool isTutorialSkipped = false;
+
 	DynamicData() {};
 	virtual ~DynamicData() {};
 

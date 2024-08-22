@@ -26,6 +26,7 @@ private:
 	bool isTutorial1Pushed = false;
 	bool isElaspedTimeReset = false;
 
+
     std::vector<WaveEnemyData> leftEnemyDatas;
     std::vector<WaveEnemyData> rightEnemyDatas;
     

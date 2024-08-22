@@ -12,6 +12,8 @@
 #include <random>
 #include "EnemyFactory.h"
 #include "BulletFactory.h"
+#include "MainPineApple.h"
+#include "DynamicData.h"
 #include "../D2DEngine/SpriteAnimation.h"
 #include "../D2DEngine/GameObject.h"
 #include "../D2DEngine/ImageUIRenderer.h"
@@ -271,7 +273,7 @@ void WaveSystem::PullingBottomTutorial(int curWave)
 
 void WaveSystem::PushingHowManyDay(int curWave)
 {
-    if (currentWave == curWave && waveTimer > 0.f) {
+    if (currentWave == curWave && waveTimer > 0.f && currentWave % 4 == 1) {
 
         if (elapsedTime > 0.66f)
         {
@@ -292,7 +294,7 @@ void WaveSystem::PushingHowManyDay(int curWave)
 
 void WaveSystem::PullingHowManyDay(int curWave)
 {
-    if (currentWave == curWave && waveTimer > 0.f) {
+    if (currentWave == curWave && waveTimer > 0.f && currentWave % 4 == 1) {
         if (elapsedTime2 > 0.66f)
         {
             elapsedTime2 = 0.66f;
@@ -365,8 +367,8 @@ void WaveSystem::Update(float deltaTime)
 	
     PullingTutorial(3, tutorial2);
     PullingTutorial(4, tutorial3);
-    PushingBottomTutorial(1);
     
+    PushingBottomTutorial(1);
 
     if (!isHowManyPushed) {
         PushingHowManyDay(currentWave);
@@ -377,23 +379,26 @@ void WaveSystem::Update(float deltaTime)
         PullingHowManyDay(currentWave);
     } 
 
-    if (currentWave == 1 && waveTimer < 14.f && !isTutorial1Pushed)
-    {
+    if (currentWave == 1 && waveTimer < 14.f)
+    {   
+		isTutorial1Pushed = true;
+    }
+
+    if (currentWave == 1 && isTutorial1Pushed && mainPineApple->rewardData->isTutorialSkipped == false)
+    {   
         GameTime::GetInstance().SetTimeScale(0.f);
-        isTutorial1Pushed = true;
-
     }
 
-    if (currentWave == 1 && isTutorial1Pushed && !isElaspedTimeReset)
-    {
-		elapsedTime = 0.f;
-		isElaspedTimeReset = true;
-    }
-
-	if(currentWave == 1 && isTutorial1Pushed && isElaspedTimeReset)
-	{
+	if(isTutorial1Pushed && waveTimer < 14.f && mainPineApple->rewardData->isTutorialSkipped == true)
+	{   
+		if (!isElaspedTimeReset)
+		{
+            elapsedTime = 0.f;
+		}
+		GameTime::GetInstance().SetTimeScale(1.f);
         PullingBottomTutorial(1);
         PullingTutorial(1, tutorial1);
+        isElaspedTimeReset = true;
 	}
     
     Generator();

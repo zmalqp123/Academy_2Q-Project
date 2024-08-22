@@ -21,7 +21,7 @@ int Turret_Type = 0; // 터렛 타입 가지는 변수
 
 
 void GamePlayManager::Update(float deltaTime)
-{
+{	
 	// 터렛 배치용
 	if (isDrag == true) {
 		if (!InputManager::GetInstance().GetPrevMouseState().right && InputManager::GetInstance().GetMouseState().right) {
@@ -235,7 +235,7 @@ void GamePlayManager::Update(float deltaTime)
 void GamePlayManager::StartBatch(int type)
 {
 	auto data = DataManager::GetInstance().GetTurretData(type);
-	if (GameTime::GetInstance().GetTimeScale() == 0.f) GameTime::GetInstance().SetTimeScale(1.f);
+	if (pineApple->rewardData->isTutorialSkipped == false) pineApple->rewardData->isTutorialSkipped = true;
 	if (pineApple->rewardData->isUpgrade == false) {
 		if (data->cost > pineApple->GetPineAppleGold() || pineApple->rewardData->isHarvest == true) return;
 
