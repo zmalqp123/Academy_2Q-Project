@@ -223,10 +223,10 @@ void WaveSystem::PushingTutorial(int curWave, GameObject* Tuto)
 void WaveSystem::PullingTutorial(int curWave, GameObject* Tuto)
 {   
     float elapsed = 0.f;
-    if (curWave <= 2) {
+    if (curWave <= 3) {
         elapsed = elapsedTime;
     }
-    else if (curWave > 2) {
+    else if (curWave > 3) {
         elapsed = elapsedTime3;
     }
 	if (currentWave == curWave && waveTimer > 0.f) {
@@ -401,12 +401,14 @@ void WaveSystem::Update(float deltaTime)
         PushingTutorial(3, tutorial3);
 		PushingTutorial(4, tutorial4);
         PushingTutorial(5, tutorial5);
+		PushingTutorial(6, tutorial6);
         PushingBottom2Tutorial(4);
         
         
         PullingTutorial(4, tutorial3);
 		PullingTutorial(5, tutorial4);
         PullingTutorial(6, tutorial5);
+		PullingTutorial(7, tutorial6);
         PullingBottom2Tutorial(5);
 
     }
