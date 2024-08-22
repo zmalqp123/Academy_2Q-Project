@@ -103,7 +103,7 @@ void Turret::Shoot()
                 spr->SetAnimation(0, false);
                 break;
             case TurretType::SuperCrossbow:
-                //SoundManager::GetInstance().PlaySoundW(L"MortarFire_Se", false);
+                SoundManager::GetInstance().PlaySoundW(L"SuperCrossbowFire_Se", false);
 
                 spr->LoadAnimationAsset(L"30306");
                 spr->SetAnimation(0, false);

@@ -1,5 +1,6 @@
 #pragma once
 #include "../D2DEngine/FiniteStateMachine.h"
+#include "../D2DEngine/Vector.h"
 class MainPineApple;
 class Enemy;
 class EnemyDead : public FSMState
@@ -14,6 +15,12 @@ class EnemyDead : public FSMState
 	void Update(float deltaTime) override;
 	void Exit() override;
 	void Spin(float deltaTime);
+
+	void GriffinDie(float deltaTime);
+	void BossDie(float deltaTime);
 	bool isSpined = false;
+	Vector2 dieDir = { 0.f, 0.f };
+	float bossElapsedTime = 0.f;
+	float bossCurPosX = 0.f;
 };
 

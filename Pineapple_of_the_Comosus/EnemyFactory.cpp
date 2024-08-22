@@ -66,7 +66,9 @@ Enemy* EnemyFactory::CreateEnemy(int type)
     auto notify = child->CreateComponent<EnemyColliderNotify>();
     auto notifyColl = child->CreateComponent<BoxCollider>();
     notifyColl->SetCollisionType(CollisionType::Overlap);
-    
+    notifyColl->ignoreEventSystem = true;
+    //notifyColl->SetExtent({ 0.f, 0.f });
+
     BomberMove* bombMove;
     BomberDead* bombDead;
     SpriteAnimation* bomberDeadAnim = nullptr;

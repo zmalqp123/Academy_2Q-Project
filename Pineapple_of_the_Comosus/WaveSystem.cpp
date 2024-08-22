@@ -393,6 +393,9 @@ void WaveSystem::StartNextWave()
             comosus7posY = comosusOn7->transform->m_WorldTransform.dy;
         }
     }
+    else {
+
+    }
     // maxWave에 도달했을 경우 추가적인 처리 필요 (게임 종료 또는 루프 등)
 }
 

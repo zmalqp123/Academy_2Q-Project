@@ -200,7 +200,7 @@ void Bullet::OnBurst(float _bombRange) {
     
     
     this->move->isGravity = false;
-    if (isBurst = true) {
+    if (isBurst == true) {
         for (; iter != gameObject->ownerScene->m_GameObjects.end(); iter++) {
             if ((*iter)->isActive == false) continue;
             EnemyColliderNotify* thisEnemy = (*iter)->GetComponent<EnemyColliderNotify>();

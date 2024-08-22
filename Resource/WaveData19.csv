@@ -3,7 +3,7 @@
 30602,swordMan_solid,0,0,0,,,30602,swordMan_solid,0,0,0
 30603,swordMan_fast,0,0,0,,,30603,swordMan_fast,0,0,0
 30604,swordMan_hero,0,0,0,,,30604,swordMan_hero,0,0,0
-30605,musketeer,3,2,5,,,30605,musketeer,3,2,3
+30605,musketeer,15,0.4,0,,,30605,musketeer,0,0,0
 30606,musketeer_solid,0,0,0,,,30606,musketeer_solid,0,0,0
 30607,musketeer_fast,0,0,0,,,30607,musketeer_fast,0,0,0
 30608,musketeer_hero,0,0,0,,,30608,musketeer_hero,0,0,0
@@ -15,7 +15,7 @@
 30614,griffin_solid,0,0,0,,,30614,griffin_solid,0,0,0
 30615,griffin_fast,0,0,0,,,30615,griffin_fast,0,0,0
 30616,griffin_hero,0,0,0,,,30616,griffin_hero,0,0,0
-30617,bombCarrier,0,0,0,,,30617,bombCarrier,0,0,0
+30617,bombCarrier,0,0,0,,,30617,bombCarrier,1,0,0
 30618,bombCarrier_solid,0,0,0,,,30618,bombCarrier_solid,0,0,0
 30619,bombCarrier_fast,0,0,0,,,30619,bombCarrier_fast,0,0,0
 30620,bombCarrier_hero,0,0,0,,,30620,bombCarrier_hero,0,0,0

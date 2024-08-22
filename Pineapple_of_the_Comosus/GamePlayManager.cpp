@@ -13,6 +13,7 @@
 #include "DataManager.h"
 #include "../D2DEngine/BoxCollider.h"
 #include "../D2DEngine/LineRenderer.h"
+#include "../D2DEngine/SoundManager.h"
 #include "SelectTurretContainer.h"
 #include "DynamicData.h"
 
@@ -183,6 +184,8 @@ void GamePlayManager::Update(float deltaTime)
 						else if (auto oneTurret = curWorldObject->GetComponent<PineAppleTile>()) {
 							if (auto tur = oneTurret->turret->GetComponent<Turret>()) {
 								turrets.insert(tur);
+								if (tur->gameObject->isActive == true)
+									SoundManager::GetInstance().PlaySoundW(L"SaleTurrets_Se");
 								//tur->prevAngle = tur->gameObject->transform->m_RelativeRotation;
 								oneTurret->Refund();
 							}
@@ -200,7 +203,7 @@ void GamePlayManager::Update(float deltaTime)
 					int size = turrets.size();
 					if (size > 0) {
 						//isAngle = true;
-
+						SoundManager::GetInstance().PlaySoundW(L"SaleTurrets_Se");
 						for (auto& t : turrets) {
 							//t->prevAngle = t->gameObject->transform->m_RelativeRotation;
 							t->Refund();

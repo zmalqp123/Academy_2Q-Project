@@ -103,7 +103,7 @@ void GameScene::Start() {
     auto comosusLight = comosusSystem->CreateComponent<ComosusLightSelector>();
     auto comosusColl = comosusSystem->CreateComponent<BoxCollider>();
     comosusPhase1->lightBox = comosusColl;
-    comosusColl->SetExtent({ 400.f, 540.f });
+    comosusColl->SetExtent({ 389.f, 540.f });
     comosusColl->ignoreEventSystem = true;
     comosusColl->SetCollisionType(CollisionType::Overlap);
     comosusPhase1->lightSeletor = comosusLight;
@@ -457,6 +457,10 @@ void GameScene::Start() {
     SoundManager::GetInstance().SetVolume(L"CheeringStands_Se", 0.5f);
     SoundManager::GetInstance().LoadSound(L"Boss1Win_Se", L"../Media/6_Sound/scene3/Se/Boss1Win_Se.wav");
     SoundManager::GetInstance().SetVolume(L"Boss1Win_Se", 0.5f);
+
+    // turret sale sound
+    SoundManager::GetInstance().LoadSound(L"SaleTurrets_Se", L"../Media/6_Sound/scene3/Se/SaleTurrets_Se.wav");
+    SoundManager::GetInstance().SetVolume(L"SaleTurrets_Se", 0.5f);
 
     // 메뉴바
     auto uiObj = CreateGameObject<GameObject>();

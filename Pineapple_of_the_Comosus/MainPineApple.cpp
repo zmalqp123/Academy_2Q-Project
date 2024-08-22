@@ -211,7 +211,7 @@ void MainPineApple::Update(float deltaTime)
 {
     if (isWin == true) {
         dieTime += deltaTime;
-        if (dieTime >= 1.f) {
+        if (dieTime >= 5.f) {
             dieTime = 0.f;
             GameTime::GetInstance().SetTimeScale(0.f);
             endpopup->victoryUIon();

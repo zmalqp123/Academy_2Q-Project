@@ -1,9 +1,9 @@
 ,name,number,term,startsTime,,,,name,number,term,startsTime
-30601,swordMan,0,0,0,,,30601,swordMan,0,0,0
+30601,swordMan,7,0.4,0,,,30601,swordMan,7,0.4,0
 30602,swordMan_solid,0,0,0,,,30602,swordMan_solid,0,0,0
 30603,swordMan_fast,0,0,0,,,30603,swordMan_fast,0,0,0
 30604,swordMan_hero,0,0,0,,,30604,swordMan_hero,0,0,0
-30605,musketeer,3,2,5,,,30605,musketeer,3,2,3
+30605,musketeer,0,0,0,,,30605,musketeer,0,0,0
 30606,musketeer_solid,0,0,0,,,30606,musketeer_solid,0,0,0
 30607,musketeer_fast,0,0,0,,,30607,musketeer_fast,0,0,0
 30608,musketeer_hero,0,0,0,,,30608,musketeer_hero,0,0,0
