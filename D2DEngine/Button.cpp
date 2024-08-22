@@ -144,7 +144,8 @@ void Button::IPointerEnter()
 {
     isMouseOn = true;
     //std::cout << "enterButton" << std::endl;
-    alpha = 0.7f;
+    if(ignoreAlpha == false)
+        alpha = 0.7f;
 }
 
 void Button::IPointerStay()
@@ -156,5 +157,6 @@ void Button::IPointerExit()
     isMouseOn = false;
     //std::cout << "exitButton" << std::endl;
     isClicked = false;
-    alpha = 1.f;
+    if (ignoreAlpha == false)
+        alpha = 1.f;
 }

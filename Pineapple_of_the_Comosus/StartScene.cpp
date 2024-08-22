@@ -88,10 +88,12 @@ void StartScene::Start() {
         });
 
     auto ruleButton = CreateGameObject<GameObject>();
+    ruleButton->transform->SetSortingLayer(1);
     auto ruleSpr = ruleButton->CreateComponent<Button>();
     ruleButton->transform->type = Type::Ui;
     ruleButton->transform->pos.rectposition = { {1320,100} ,{1690,330} };
     ruleSpr->LoadTexture(L"../Resource/main/HowToPlay.png");
+   
     //auto& curS = SceneManager::GetInstance();
     
     auto wireButton = CreateGameObject<GameObject>();
@@ -102,7 +104,52 @@ void StartScene::Start() {
     //auto& curS = SceneManager::GetInstance();
     //strtSpr->AddListener([]() {SceneManager::GetInstance().ChangeScene("GameScene"); });
 
+	auto howtoplay = CreateGameObject<GameObject>();
+    howtoplay->transform->SetSortingLayer(2);
+	auto howtoplaySpr = howtoplay->CreateComponent<Button>();
+    howtoplaySpr->ignoreAlpha = true;
+	howtoplay->transform->type = Type::Ui;
+	howtoplay->transform->pos.rectposition = { {0,0},{1920,1080} };
+	howtoplaySpr->LoadTexture(L"../Resource/main/60001_H2p1.png");
+    howtoplay->isActive = false;
 
+    auto howtoplay2 = CreateGameObject<GameObject>();
+    howtoplay2->transform->SetSortingLayer(2);
+    auto howtoplay2Spr = howtoplay2->CreateComponent<Button>();
+    howtoplay2Spr->ignoreAlpha = true;
+    howtoplay2->transform->type = Type::Ui;
+    howtoplay2->transform->pos.rectposition = { {0,0},{1920,1080} };
+    howtoplay2Spr->LoadTexture(L"../Resource/main/70001_H2p2.png");
+    howtoplay2->isActive = false;
+
+    auto howtoplay3 = CreateGameObject<GameObject>();
+    howtoplay3->transform->SetSortingLayer(2);
+    auto howtoplay3Spr = howtoplay3->CreateComponent<Button>();
+    howtoplay3Spr->ignoreAlpha = true;
+    howtoplay3->transform->type = Type::Ui;
+    howtoplay3->transform->pos.rectposition = { {0,0},{1920,1080} };
+    howtoplay3Spr->LoadTexture(L"../Resource/main/80001_H2p3.png");
+    howtoplay3->isActive = false;
+
+    ruleSpr->AddListener([=]() {
+        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+        howtoplay->isActive = true;
+        });
+
+	howtoplaySpr->AddListener([=]() {
+		SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+		howtoplay->isActive = false;
+		howtoplay2->isActive = true;
+		});
+    howtoplay2Spr->AddListener([=]() {
+        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+        howtoplay2->isActive = false;
+		howtoplay3->isActive = true;
+        });
+    howtoplay3Spr->AddListener([=]() {
+        SoundManager::GetInstance().PlaySoundW(L"clickbtn", false);
+        howtoplay3->isActive = false;
+		});
 
 }
 

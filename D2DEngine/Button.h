@@ -23,6 +23,8 @@ public:
 
 	Texture* m_pTexture = nullptr;
 
+	bool ignoreAlpha = false;
+
 	float alpha = 1.f;
 
 	std::wstring m_strTextureFilePath;
