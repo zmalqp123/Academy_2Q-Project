@@ -103,7 +103,7 @@ void GameScene::Start() {
     auto comosusLight = comosusSystem->CreateComponent<ComosusLightSelector>();
     auto comosusColl = comosusSystem->CreateComponent<BoxCollider>();
     comosusPhase1->lightBox = comosusColl;
-    comosusColl->SetExtent({ 389.f, 540.f });
+    comosusColl->SetExtent({ 280.f, 540.f });
     comosusColl->ignoreEventSystem = true;
     comosusColl->SetCollisionType(CollisionType::Overlap);
     comosusPhase1->lightSeletor = comosusLight;

@@ -59,8 +59,8 @@ void ComosusPhase1::Enter()
 	dynamicData->isHarvest = true;
 	comosusLightAnim->SetAnimation(1, false);
 
-	comosusLightAnim->gameObject->transform->m_RelativeScale.x = 1.3f * ((dynamicData->GetRewardPineAppleStat().comosusLight / 100.f) + 1.f);
-	lightBox->SetExtent({ 300.f * ((dynamicData->GetRewardPineAppleStat().comosusLight / 200.f) + 1.f), 540.f });
+	comosusLightAnim->gameObject->transform->m_RelativeScale.x = 2.6f * ((dynamicData->GetRewardPineAppleStat().comosusLight / 100.f) + 1.f);
+	lightBox->SetExtent({ 280.f * ((dynamicData->GetRewardPineAppleStat().comosusLight / 200.f) + 1.f), 540.f });
 }
 
 void ComosusPhase1::Update(float deltaTime)
